@@ -1,0 +1,518 @@
+
+           P: Bien aujourd'hui, on va attaquer une nouvelle fonction, toujours des hydrocarbures, 
+d'accord? Et qui est en ce qui concerne les hydrocarbures aromatiques. Eh, hydrocarbures 
+aromatiques, c'est en fait le cas particulier, entre guillemet, du benzène. Donc, le benzène.
+Eh, il y a posé, entre guillemets, un problème assez longtemps, étant donné que c'est un 
+composé de ce qu'on a déjà parlé. Composé, il y a six atomes de carbone, d'accord? Et il y 
+a l'équivalent les trois doubles liaisons dans le cycle. Eh, pourquoi équivalent? Eh, tout 
+simplement parce que, on s'est aperçu en faisant des études de spectroscopie que toutes les 
+liaisons étaient égales. Alors, je vous rappelle brièvement ce qu'on a déjà parlé quand on a 
+fait l'inventaire des différentes fonctions, de ces qu'on a déjà parlées, que en fait dans le 
+benzène si je réussirai à le dessiner, ce serait peut-être mieux. Donc, en fait dans le benzène 
+sur chaque atome de carbone, sur chaque atome de carbone existe une orbitale p qui est 
+perpendiculaire au plan de la molécule. Et on peut pour ces trois doubles liaisons soit les 
+mettre comme j'ai les mises ici par recouvrement latéral d'orbital p et on s'est aperçu d'une 
+chose que on a le choix entre les six orbitales p. Et donc, enfin de, en fin de parcours, on 
+retrouve une possibilité de délocalisation complète, eh là, je vais laisser simplement sur une 
+des faces du plan. Eh, on peut faire exactement la même chose en dessous. Ces deux 
+orbitales p deviennent le recouvrement latéral. Ces deux orbitales p, elles se retrouvent 
+aussi bien en dessus qu'en dessous. Donc, quand on a une sorte du nuage électronique de 
+part et d'autre de eh du plan où se situe les noyaux de carbone. Alors, une règle générale 
+que je vous ai déjà donnée, c'est que pour avoir un composé soit aromatique, donc on fait 
+définition de l'aromaticité. Eh, il faut première chose que la molécule soit plane. Eh, 
+pourquoi faut-il qu'elle soit plane? Eh, tout simplement pour avoir des orbitales p qui 
+puissent être perpendiculaire à ce plan, d'accord? Dès qu'on a une déformation de la 
+molécule et déformation de l'orbital p, eh je parle de façon géométrique, déformation dans 
+cette direction, on ne pourra plus faire la délocalisation que l'on fait ici dans le noyau 
+benzylique. Donc, deuxième chose, il faut qu'il ait 4n+2 électrons qu'on appelle les 
+électrons t. Donc, il faut qu'il ait dans le système 4n+2 électrons t pour que ce soit un 
+système donc aromatique. Alors, aromaticité en même temps pour savoir ce synonyme de 
+stabilité. Ah, synonyme de stabilité, eh il suffit prendre un, l'exemple du benzène. Si je 
+considère le benzène comme étant trois simples liaisons plus trois doubles liaisons, 
+d'accord? Et si je les considère d'autre part comme étant aromatiques. La différence de 
+l'énergie entre les deux systèmes, donc trois, trois doubles liaisons, trois simples liaisons ou 
+système aromatique, la différence d'énergie entre les deux, les deux 35 kilocalories par 
+mole. Donc, baisse du niveau de l'énergie pour ces composés qui deviennent plus stables de 
+... Il faut que je vous rappelle quand même que plus on a de l'énergie là plus on est stable, 
+d'accord? Donc, ça c'est le premier plan, premier point que je voulais à voir avec vous, eh 
+je pense que en TD on a déjà commencé avec certains groupes à voir des composés qui 
+étaient soit aromatiques soit non-aromatiques. Eh, donc se méfier, certains composés dont 
+on a parlés dans les composés aromatiques , certains fin dans les hétéroaromatiques de 
+fonction, certains composés sont de faux, faux amis, étant donné qui, on a l'impression que 
+c'est aromatique, mais en fait, il y a un problème au point de vue soit planéité de la 
+molécule soit nombre d'électrons t. Ah, deuxième grand point qu'on va revoir rapidement, 
+c'est au point de vue de la nomenclature. Donc, nomenclature de ces composés. Ah, en 
+général, au départ, on a utilisé des noms particuliers, étant donné la présence de ce noyau 
+benzylique. Et en fait si on a un noyau benzylique et une chaîne carbonée, si cette chaîne 
+est assez courte et on pourra parler par exemple pour 6CH2CH3, on parlera soit d'un 
+composé qui est un benzène où on a mis un groupement éthyle, d'accord? Donc, ça sera le 
+méthyl-benzène soit d'un composé qui est un éthane et on a mis un groupement phényle, 
+d'accord? Soit deuxième possibilité, un plus composé, un phényléthane. Donc ça, ça va 
+dépendre, donc de la difficulté qu'on aura à placer le noyau phényle par rapport à une 
+chaîne carbonée. Un composé carboné qui est très long, il est évident que on va préférer 
+utiliser le vocable phényle, eh alcane. Donc, si on a une chaîne de cinq ou six carbones, 
+pour préciser la position c'est plus facile de dire c'est sur tel carbone de l'alcane que se 
+trouve le, eh, le noyau phényle. Alors, par contre ce que je pense que je vous ai déjà, déjà 
+donné ce renseignement, les composés simples ont des noms particuliers, comme 6CH3 
+complément de benzéline, le noyau benzène et un groupement méthyle ce qu'on appelle le 
+toluène. Autre nom particulier, qui est lorsqu'on a deux groupements méthyle sur le noyau 
+benzénique, alors pourquoi je l'ai représenté en mettant le CH3, eh qui est piqué au centre 
+du noyau benzylique. Eh, tout simplement parce que une fois qu'on a mis un substituant, 
+on se retrouve avec dans le système une asymétrie. Eh, on trouve des carbones qui sont en 
+position qu'on appelle position ortho, position méta ou position para. Eh, les composés 
+donc où il y a un noyau benzylique et deux groupements CH3, eh c'est-qu'on appelle la 
+famille des xylènes et si je l'ai mis de cette façon là, c'est tout simplement parce que il 
+existe ortho xylène, méta xyléne et para xylène. Eh, si on a plusieurs, eh, plusieurs autres 
+substituants, eh à ce moment là, on peut et ça je vous conseille de le faire ne serait-ce que 
+pour le partiel qui aura lieu le, combien?
+Après les vacances. Donc, c'est vingt-sept, je crois. Donc , par exemple, si on a un 
+composé où il y a trois, trois groupements méthyle sur le benzène, à ce moment là, c'est 
+beaucoup plus simple de considérer ça comme étant un benzène où il y a trois groupements 
+méthyle. Autrement dit de l'appeler un triméthylbezène et en précisant ici les positons, eh 
+par exemple, j'ai pris les méthyles sont en position un, deux et trois. Eh, ça pourrait être 
+un, deux et quatre, ça pourrait être un, deux, cinq, ça pourrait être un, deux, non un, deux, 
+six, ça revient à rien. Donc, utilisez la nomenclature, eh générale. Fin, deux nombres 
+radicaux, il y a un qu'on a déjà, eh, qu'on a déjà utilisé dans la nomenclature, c'est 
+lorsqu'on a le noyau benzylique qui est rattaché, donc à une chaîne carbonée. ça, c'est ce 
+qui correspond au radicale phényle. Eh, je rappelle qu'on profite de ce qui est écrit de cette 
+façon au tableau, eh je rappelle que la radicale sont pas de radicales phényle dont il y a un e 
+dans phényle, sont pas de phényl-éthane, donc il n'y a pas de e au bout de phényl. Autre 
+radical qui est souvent utilisé et là c'est un peu un faux amis. C'est lorsqu'on prend un 
+radicale qui provient du toluène. Donc, si c'est sous la forme 6CH2, en ce moment là, on 
+parlera du radicale benzile et s'il est sur, sur le cycle benzylique, on parlera à ce moment là 
+du radical toluène. Donc, peut-être, il faut que je mets un e. Donc, deux solutions, fin deux 
+possibilités pour les radicaux qui dérivent du toluène. Fin, comme je vous ai dit 
+préparation, état naturel dont on ne parlera beaucoup si ce n'est que au point de vue état 
+naturel que signale que les composés aromatiques que l'on trouve dans les buronéides et 
+dans les pétroles. En particulier, les pétroles qui sont du Sud-Est, Indonésie. Et ils ont un 
+très faible intérêt parce que ce sont de, à la limite de mauvais combustibles. Alors, 
+propriétés physiques, maintenant de ces composés. Donc, propriétés physiques, eh encore 
+une fois, ce sont des composés qui sont insolubles dans l'eau. Eh, par contre ce sont 
+d'excellents solvants organiques. Donc, insolubles dans l'eau mais excellents solvants, mais 
+évidemment pour les composés qui sont liquides. Vous allez pas prendre naphtalène ou 
+anthracène, ce sont des composés où il y a deux ou trois noyaux benzyliques et qui sont des 
+solides pour en faire des solvants. Donc, ceux qui sont liquides, eh ce sont le benzène, le 
+toluène et les xylènes. Et aussi l'oxyde de benzène, tous qui est à chaîne alcane ramifiée. 
+Au point de vue densité, eh densité qui est inférieure à un, alors Va c'est je le rappelle à 
+chaque fois, c'est au cas où vous arrivez à faire un peu distraction avec le benzène à partir 
+de l'eau. Ah, c'est de moins au moins fréquent, étant donné que le benzène, fin il est arrivé 
+avec disant une grosse étiquette rouge, interdiction le plus possible d'utiliser ce composé. 
+Eh, pourquoi interdiction de l'utiliser principalement dans les laboratoires? Tout 
+simplement parce que c'est une molécule qui est plane et qui comme toute molécule plane 
+est cancérigène. Eh, sous quel principe, eh il est très simple comme vous avez, je pense que 
+vous avez entendu parlé de, de la double hélice de l'ADN. Oui? Et en fait lorsque vous 
+voyez la double hélice, c'est en quelque sorte un ressort. Vous essaierez avec un ressort 
+chez vous de glisser les feuilles de papier entre les, les spires de ça. Et vous allez voir que 
+de cette façon là, vous avez bloqué votre ressort. Ce qui se passe avec les molécules 
+planes, eh par rapport donc à l'ADN parce que vous avez deux molécules planes qui 
+arrivent dans l'hélice de l'ADN, vous avez une blocage de, de l'élasticité de l'ADN. Ah 
+donc , produit maintenant moins utilisé qu'avant. Avant, on l'utilisait, on ne faisait pas 
+attention. Mais maintenant, c'est assez rare qu'on y a au point de vue normes pour 
+l'utilisation donc des composés aromatiques. Deuxième, fin dernier point des propriétés 
+physiques: C'est l'indice de la fraction, qui est très élevée et supérieure à 1,5. Alors, encore 
+une fois, eh je vais dire chaque fois. Indice de la fraction qui est lié à la vitesse de traversée 
+du milieu par la lumière. On a une nuage électronique, on l'a vue tout à l'heure autour du 
+corps de la molécule.
+Alors, question à 10 centimes. Quand, on écrit ND 20, ça veut dire c'était mesuré avec une 
+règle du spectre du sodium correspond à ce qu'on appelle la raie D, donc à un vapeur 
+sodium, donc il y a un règle bien particulier qu'on appelle la raie D pour ça, on a dit ND20 
+tout simplement pour signaler qu'on a fait la mesure Vingt degrés. Alors, maintenant ce qui 
+vous intéresse le plus cette année, ce sont les propriétés chimiques, propriétés chimiques. 
+Eh, premier point, le benzène tel qu'on l'a représenté c'est surtout de lui qu'on va parler. 
+En fait, on a dit que c'était l'équivalent de trois doubles liaisons, eh donc on pouvait 
+s'étendre à avoir beaucoup de réactions de l'addition sur ce composé. Alors, pour les 
+alcènes, on a vu les alcines, on a vu quand il y avait des doubles liaisons ou triples liaisons, 
+on pouvait additionner des produits sur ce composé. Eh, il y a gros défaut en ce qui 
+concerne le benzène, ce qu'on a pouvoir faire des réactions d'addition et étant donné le 
+caractère aromatiques, ces réactions d'addition vont être en quelque sorte totales. Eh, 
+qu'est-ce que j'appelle totale? Tout simplement si je prends le noyau benzylique et que je 
+veux faire une hydrogénation, eh je réussirai pas, je prends le noyau benzylique et 
+hydrogène sur, sur le catalyseur comme celui qu'on avait vu pour les alcènes. Eh, il est 
+impossible d'ajouter une seule molécule d'hydrogène. Obligatoirement à une seule fois, on 
+va ajouter trois molécules d'hydrogène et obtenir directement le cyclohexane. Donc, pas 
+d'étapes intermédiaires et il faudra, bien sûr, pour cette opération utiliser trois molécules 
+d'hydrogène. Tout à l'heure, j'ai parlé aussi de stabilité qui était dû au caractère 
+aromatique, lorsqu'on fait une hydrogénation d'une double liaison, eh on peut faire ça pour 
+certains produits tranquillement à 25 degrés. On installe le système dans un airlène, donc 
+l'alcène dans un airlène, on fait barboter dedans l'hydrogène à la température ambiante, la 
+réaction se met en place. Par contre, pour mettre cette réaction en place, donc ça s'est lié à 
+la stabilité du benzène, donc au niveau de l'énergie où se trouve la molécule, il faut 
+chauffer à cent degrés et il faut une pression de cent kilos par centimètres carré. Il faut 
+quand même y mettre la dose pour réussir à faire ces réactions. C'est évident puisque on 
+voit cet écart d'énergie à composer, donc réaction qui est totale. Deuxième système qu'on 
+peut envisager au point de vue réaction d'addition. Deuxième composé qu'on pourrait 
+envisager d'additionner sur le benzène, ah ce sont des halogènes, donc X deux. Et avec les 
+halogènes, on a le même problème, c'est-à-dire que impossibilité d'additionner, eh par 
+exemple le brome, impossibilité d'additionner une molécule de brome, un petit brome, Br2 
+sur le noyau benzylique. On est obligé tout de suite d'arriver au résultat d'une addition de 
+trois molécules de brome, autrement dit, pour obtenir un composé où il aura 
+systématiquement Br BrH du partie de brome. Sur chaque atome de carbone fixation d'un 
+atome de brome. Donc, réaction qui est encore une fois totale, pas moyen de faire une, eh 
+bromation ou chloration partielle. Alors, pour, eh si ça vous intéresse, les composés 
+obtenus avec la même réaction mais avec le chlore, ce sont des composés, donc formule 
+brute qui est C6H6CL6 et ses composés, ah vous en rencontrés souvent surtout en été, étant 
+donné ce sont ceux qui sont à la base de la fabrication de tous les insecticides. Ces 
+composés servent de, eh de tous d'insecticides. Vous prenez n'importe quelle marque, je 
+veux dire c'est toujours le même produit qu'il y a dedans. Eh, à la limite, celui qui est 
+moins coloré parce que, eh des formes données des, bons, vous connaissez le système des 
+plaquettes qu'on met sur les résistances électriques. Bon, il y en a certaines qui sont de très 
+mauvaise qualité et puis résultat, ah ce que vous faites, c'est peindre vos murs, plutôt que 
+de tuer les insectes. Alors, euh je crois que les étudiants vont être très contents parce que je 
+vais leur dire que tout produit dissymétrique, c'est impossible de l'additionner sur le 
+benzène. Donc, produit utile A moins, B plus, aucune réaction va se mettre en place. Alors, 
+une réaction quand même qu'on avait vu que je vais, eh ajouter à la série. Avec les alcines, 
+on a vu que on pouvait hydrogéner à l'aide, donc de l'hydrogène sur catalyseur, à ce 
+moment là, on une cisaddition et donc on obtient un alcène avec les deux hydrogènes sur 
+les mêmes côtés de la double liaison. On a vu aussi que si on utilisait une méthode chimique 
+du, d'hydrogénation à l'aide du sodium dans l'ammoniaque liquide, on avait possibilité de 
+transaddition. On s'est aperçu une chose, eh que effectivement avec le benzène, on peut 
+aussi à l'aide, donc d'une réduction chimique avoir hydrogénation partielle. Alors, une 
+hydrogénation partielle par une méthode donc chimique, ah c'est exactement la même 
+réaction que celle qu'on a vu la semaine dernière pour les alcines. Ah, exactement la même 
+peut être pas tout à fait parce que ce n'est pas le même composé, d'accord? Eh donc, 
+première étape de la réaction, le sodium avec son électron périphérique, d'accord? Donc 
+cet électron périphérique va être donné au noyau benzylique, donc première étape: 
+formation d'un système où on aura un radicale et une charge moins, les deux électrons t 
+d'une double liaison plus l'électron du sodium qui nous donne donc un radicalanion. Et 
+bien sûr présence de Na+. Eh, alors là, si vous vous souvenez, sur les alcines on avait dit, la 
+charge moins et l'électron libre vont chercher à se mettre le plus loin possible. Allez-y , ils 
+vont se mettre de la façon, eh à être à position trans l'un par rapport à l'autre. Ici, on a une 
+deuxième possibilité, c'est ce qu'on a vu avec les phénomènes de résonance. Phénomène de 
+résonance, on peut avoir donc déplacement des doubles liaisons. On a une orbitale si vous 
+regardez ici, il y a deux carbones qui sont ici, deux orbitales p, sur ce carbone un électron 
+qui est sur un orbital p. Donc, possibilité de déplacer la double liaison des carbones un, 
+deux vers le carbone deux, trois. On parle d'effet de l'isomérie et obtention d'un système 
+où la charge moins est à un sommet de l'hexagone et l'autre charge, un électron libre, lui 
+est à l'autre sommet de l'hexagone totalement, donc en diagonale l'un par rapport à l'autre. 
+C'est la meilleure solution pour qu'ils soient le plus loin possible l'un de l'autre, d'accord? 
+Donc, suite de la réaction, eh avec H+, on va obtenir un composé où on aura hydrogéné un 
+des carbones avec, bien sûr, les électrons libres, toujours présents là haut, plus du sodium, 
+deuxième intervention. Ainsi, je vais mettre deux H; H3,.des hydrogènes. Donc, avec Na 
+par réformation une charge moins sur le carbone, porteur de l'électron célibataire et enfin 
+avec intervention de H+, obtention d'un composé qui donc dérive du benzène par 
+hydrogénation et où on a les deux carbones, eh de, au sommet de, eh d'une diagonale. Par 
+ça c'est du cyclohexa-1,4 diène. Donc, formation du cyclohexa-1,4 diène. Eh là, rapport de 
+l'H+, la comme, j'ai dit la semaine dernière, il y a de la présence de NH3 par et pour dire 
+d'avoir un meilleur rendement à la production d'ion H+, on ajoute un peu d'alcool, donc 
+éthyl-OH, CH3CH2OH pour faire la réaction. Ah, deuxième type de réaction. Tout à 
+l'heure, je vous ai dit avec A plus, B moins pas moyen de faire des additions. Ah, en fait 
+c'est un peu faux ce que je vous ai dit. Puisque A plus, B moins ça a fait un tour à réaliser 
+avec le benzène. Mais dans tous les, en principe, tous les ouvrages de chimie organique et 
+puis bon pour tous les organiciens, on considère ça non pas comme des réactions 
+d'additions mais on considère ça comme étant des réactions de substitution. Eh, pourquoi 
+réactions de substitution? Eh, tout simplement parce que l'équation globale si on prend le 
+benzène plus A plus B moins, ah question qu'on va tout de suite se poser , ah A plus B 
+moins qui va se diriger vers le noyau benzylique. Noyau benzylique, on a dit que y avait un 
+nuage électronique de part et d'autre du plan de la molécule. Donc ça un caractère qui est 
+relativement négatif, d'accord? Donc, ce qui va venir sur le noyau benzylique ce sera tout 
+ce qui est A plus, autrement dire, on va faire des réactions qui sont des réactions 
+électrophiles. Ah, réactions électrophiles où si on écrit le bilan global de la réaction, on va 
+aboutir à une formation de t à A plus, formation de BH. Ah, alors effectivement quand 
+j'écris la réaction totale, la réaction globale, c'est évident, j'obtiens bien une réaction de 
+substitution. On remplace l'hydrogène par une groupement grand A. Maintenant quand j'y 
+regarde d'un peu plus près et que je regarde le mécanisme de la réaction, ah en fait la 
+première étape et ça, on est obligé d'y passer pour expliquer les, eh les substitutions 
+suivantes. La première étape de la réaction, ça va être l'addition de A plus sur une des 
+doubles liaisons. Donc, addition de A plus. Eh donc addition de A plus sur un des 
+carbones, sur un carbone voisin, formation d'un carbocation et on a vu ensemble sur 
+l'évolution des carbocations que pour se stabiliser, un carbocation avait tendance à perdre 
+un hydrogène en position a. Et donc, sur la liaison qui est ici, je vais vous mettre ça en.... 
+Donc, coupure, coupure en b d'un hydrogène porté par le carbone en alpha de la charge 
+plus. Ah, ici c'est l'occasion rêvée. Pourquoi? Tout simplement parce que si j'enlève H+ à 
+ce système, je vais me retrouver avec un système qui sera aromatique. Donc, au niveau de 
+l'énergie très bas. C'est que la réaction se fait dans la foulée aussitôt on a, deuxième étape 
+qui se produit en quelque sorte, réaromatisation et libération de, de H+. Donc, ah si vous 
+regardez cette réaction, en fait lorsqu'on fait du mécanisme, on n'a pas vraiment à faire à 
+une substitution, on a à faire à une première étape qui est une substitution et une deuxième 
+étape qui est une élimination. Eh, globalement ça fait une substitution mais par étape c'est 
+une addition-élimination. Eh, comment on va mettre ça en un? Eh, bien souvent on va faire 
+appel à un composé qui va permettre de séparer A plus et B moins. Alors, pour ça, on va 
+essayer de passer en revue un certain nombre de substitutions. Certains nombres de 
+substitutions, on va recommencer par les halogènes, c'est-à-dire par X2, par X2, ban à 
+priori lorsqu'on prend par exemple Cl2, on va dire que j'insiste le concernant. Qu'est-ce 
+qu'il y a là dedans? Quelque chose qui est plus et quelque chose qui est moins. Là, quelque 
+chose qui est totalement, eh covalente, d'accord? Et tous qu'on a à notre disposition, c'est 
+sur le chlore des doublés électroniques. C'est là qu'on va faire intervenir, on va avoir 
+quelque chose qui sera vraiment positive et qui puisse aller attaquer le noyau benzylique, on 
+va faire intervenir un catalyseur qui est un catalyseur du type ALCL3. Ah, pourquoi prendre 
+un catalyseur du type ALCL3? Tout simplement parce que sur l'aluminium, ça je pense que 
+j'ai déjà raconté, sur l'aluminium, une fois qu'on a mis trois atomes de chlore qui restent 
+sur sa couche périphérique, une case vide, donc possibilité d'accepter un doublé 
+électronique. Possibilité d'accepter un doublé électronique qui va provenir donc du chlore 
+et à ce moment là, on va former un composé qui sera ALCL4-, Cl+, le principe ça va être de 
+former donc l'ion positif qui va aller attaquer le noyau benzylique. Alors, ces réactions, dès 
+que vous allez voir dans une réaction ALCL3 comme catalyseur en présence d'un composé 
+aromatique, il faut savoir une chose, c'est utiliser une réaction qu'on appelle une réaction 
+de Friedel et Crafts. Ah, ça c'est une association d'idées qu'il faut que vous ayez, Friedel et 
+Crafts ça veut dire utiliser ALCL3, ALCL3 qui s'est avec un aromatique, Va veut dire c'est 
+une réaction de Friedel et Crafts. Bon alors, une fois qu'on fabriqué CL+, euh réaction très 
+simple. Le benzène plus Cl+ qui va donc nous donner formation, eh là je fais la réaction 
+globale, d'accord? Qui sera l'obtention de tCL, donc du chlorobenzène et formation de H+. 
+Alors, si on veut détailler un tout petit peu et voir les intermédiaires qui interviennent à 
+cette réaction. Fin, le benzène plus CL+ vont nous donner formation d'un composé, donc il 
+y a un carbocation, et sur ce composé où il y a un carbocation, on va remarquer une chose. 
+On retrouve encore une fois les effets de mésomérie, c'est-à-dire que cette double liaison, 
+je peux la faire migrer pour obtenir CLH double liaison, double liaison, charge plus qui va 
+se trouver sur ce carbone et autre forme de résonance, on parle de l'isomérie, migration, de 
+la double liaison, pour obtenir donc une troisième forme de mésomérie. Par exemple, j'ai 
+dit plus il y a des formes isomères, plus intermédiaires, intermédiaires stables. Bien sûr, 
+dans chaque cas, par coupure en position b d'une liaison CH, on va obtenir le 
+chlorobenzène. Bon, autres réactions et là, je veux vous les donner pour vous montrer que 
+des fois, on parlera de composé en chimie minérale et on dit c'est des acides. Mais, en fait 
+nous en chimie organique, on va les considérer comme des bases. Autre réaction, c'est la 
+réaction de sulfonation. Réaction de sulfonation, ça va consister à fabriquer des composés 
+où sur le noyau benzylique on aura branché un groupement qui sera un groupement SO3H. 
+Ah, problème, on parle d'un mécanisme qui est toujours le même, on va s'amuser à le faire 
+à chaque fois, comment obtenir en fait SO3H+? Donc, pour fabriquer cette réaction, il faut 
+être en présence de SO3H+. Je pense que vous connaissez H2SO3. Eh, si vous prenez 
+H2SO3, vous avez libérer H+ et vous aurez SO3-, d'accord? Donc, pour fabriquer ce 
+produit, eh cet intermédiaire, on va fabriquer CH3+, ah on va utiliser ce qu'on appelle un 
+oléum. ça permet en même temps de voir des tumes que vous n'avez pas en l'occasion 
+souvent de, de rencontrer. Et pour fabriquer cet oléum, on va utiliser H2SO4 simple à 
+fabriquer, c'est en fait la définition de l'oléum. L'oléum c'est une solution de SO3, enfin 
+une solution de SO3 donc H2SO4. Eh, dans cette réaction, ça permet de fabriquer HSO3+, 
+eh plus et HSO4 moins. Vous faites le bilan, vous voyez tout simplement qu'on a utilisé 
+HSO4 comme acide qui a donné H+ à SO3. Et donc, fabrication, fin préparation de HSO3+ 
+qui va nous servir à faire cette réaction de sulfonation. Dans une réaction si ça peut vous 
+intéresser qui ce fait à deux cent degrés. Ah, de la même façon, dans le même ordre 
+d'idées, on va faire des réactions, donc toujours en mono-substitution. On fait des réactions 
+de nitration. Ah; réaction de nitration. Ah, c'est le problème qu'on va rencontrer. Eh, tout 
+simplement de fabriquer des ions NO2+. Eh, pour fabriquer ces ions NO2+, donc produit 
+obtenu, ce sera le nitrobenzène. Alors, nitrobenzène, sa principale, enfin une des principales 
+subtilité, c'est la fabrication à partir de ce produit de l'aniline. Eh, t NH2, t NH2, donc 
+l'aniline qui est à la base de toute la, toutes les fabrications de colorants. Alors, comment 
+va fabriquer NO2+? Ah, on va simplement jouer avec les couples acido-basiques. Je pense 
+que vous avez dû voir en PH-métrie que au point de vue de l'acido-basilité, en fait tout est 
+relatif, et si je prends deux acides qui sont H2SO4 et HNO3, H2SO4 est un acide plus fort 
+que HNO3 et résultat HNO3 par rapport à H2SO4 va jouer le rôle de base. Eh, au lieu, au 
+lieu de donner H+No3-, elle va nous donner OH-No2+. En fait ici, on va obtenir HSO4-, 
+H2O et NO2+. Et donc réaction qui conduit à une formation du nitobenzène. 
+On était en train de dire de ce qu'il se passe que lorsqu'on a une deuxième substitution à 
+faire, on est tributaire de la première substitution parce que on a plusieurs possibilités. 
+Donc, par cette réaction ce qui va être important à savoir, c'est où préférentiellement le 
+deuxième substituant va aller se poser, d'accord? Donc, pour faire ça, on prend tout 
+simplement un composé aromatique où on a déjà un substituant grand A. Et on va 
+envisager les trois cas possibles, puisqu'on a dit que le deuxième peut venir en position 
+méta, position para ou position ortho. Quand on va envisager les trois possibilités, la 
+première possibilité, c'est en ortho et à ce moment là. Donc addition, eh je reprend le 
+système qu'on a fait tout à l'heure, donc addition du B plus sur un noyau aromatique. Et 
+donc apparition d'une charge plus sur le carbone suivant. Forme que je peux écrire avec 
+deux différentes formes mésomères, c'est-à-dire avoir le noyau benzylique avec trois cas, 
+trois déplacements de doubles liaisons en fait. Déplacement de la double liaison et sa charge 
+plus, alors ici, ah troisième forme possible. A, grand A, grand B, grand H et les doubles 
+liaisons. Ah, ça c'est les trois formes de résonance si on a donc succession du deuxième 
+substituant en position ortho. Attendez, là, je vais faire la même chose avec la position 
+méta. En position méta, on obtiendra, donc fixation de B à position méta, sur l'autre 
+carbone apparition se charge plus et je refais la même chose, c'est-à-dire délocalisation 
+pour obtenir les formes de résonance. C'est H, charge plus et ici doubles liaisons. Forme de 
+résonance suivante, encore une fois, déplacement de la double liaison vers la charge plus. 
+Et grand b, grand H qui sont en position méta. Et dernière possibilité, dernière possibilité, 
+c'est en position para, grand A, grand B, grand H, alors si je reprends. Bon, système 
+apparition de la charge plus. Encore une fois délocalisation, pour avoir des différentes 
+formes d'isomères. Grand B, grand H et dernière délocalisation pour avoir grand A, donc 
+formation des doubles liaisons, eh que se passe-t- il?
+E: La double liaison est mal placée.
+P: Oui, tout simple. Je cherchais ce qui n'allait pas. La double liaison, elle est ici! Donc, 
+dernière délocalisation a été BH et ici une charge plus. Donc, ça c'est tous les 
+intermédiaires possibles, lorsque je vais additionner grand B plus, bien sûr, le noyau 
+benzylique. Et maintenant qu'est-ce que je vais regarder, eh je vais regarder une chose, 
+c'est à savoir. Et ça on va le retrouver après, je regardai si grand A est attracteur 
+d'électrons. Ou deuxième solution si grand A est donneur d'électrons. Eh, pourquoi je vais 
+regarder Va? Eh, tout simplement parce que suivant le nombre de formes mésomères que je 
+vais avoir, donc dans chaque cas, on a dit que l'intermédiaire est plus stable, donc on peut 
+écrire plus de formes mésomères. Donc, si j'élimine dans certains cas des formes 
+mésomères, à ce moment là, l'intermédiaires sera moins stables. Ah, si je regarde par 
+exemple en premier le cas de grand A attracteur d'électrons. Est-ce que, selon le tableau 
+qu'on vient de faire, il n'y a pas de position de grand A, eh en fait grand A ne va pas être 
+content, si grand A est un attracteur d'électrons. Il va pas aller chercher à se mettre à côté 
+de quelque chose qui est positif, d'accord? Quand vous n'avez plus de ticket pou aller au 
+restau U, c'est pas la peine d'aller voir quelqu'un qui lui non plus, n'a plus de ticket pour 
+aller au restau U. C'est peut être la même chose, grand A qui cherche à avoir des électrons 
+et il va pas aller, ça va pas tellement lui plaire, si juste à côté de lui il est une charge plus. 
+Donc, si grand A est attracteur d'électrons, ah en fait je m'aperçois d'une chose, c'est que 
+la deuxième substitution en ortho, ça entraîne la formation de cette forme mésomère qui est 
+une forme défavorisée, d'accord? La deuxième substitution en position para, ça entraîne la 
+formation d'une, d'une forme intermédiaire que j'ai ici encadrée en rouge ou encore une 
+fois, grand A est à côté d'une charge plus, donc forme qui est défavorisée si grand A est 
+attracteur d'électrons. Résultat dans mon tableau, la seule forme où il reste trois formes 
+mésomères possibles, c'est uniquement la forme méta parce que les deux, entourées en 
+rouge sont deux formes qui sont défavorisées. Donc, si grand A est attracteur d'électrons, 
+ça sera entraîner que le deuxième substituant se mettra de façon préférentielle en position 
+méta. Maintenant, si je prends grand A donneur d'électrons, ah si grand A est donneurs 
+d'électrons, les deux formes que j'avais écrites tout à l'heure et que j'ai encadrées en 
+rouge, eh ces deux formes sont maintenant des formes favorisées. Si grand A est riche en 
+électrons, il est bien content de trouver à côté de lui une charge plus sur laquelle il va 
+pouvoir donner ces électrons qu'il a en trop, d'accord? Donc, si grand A est donneurs 
+d'électrons, les deux formes qui sont ici, sont favorisées dans le cas donc où grand A est 
+donneur. Si ces deux formes sont favorisées, ça va vouloir dire que grand A, donneur 
+d'électrons, ça va entraîner une deuxième substitution soit en position ortho soit en 
+position para. Donc, dans ce cas là, deux possibilités sont en position ortho et en position 
+para. Eh, position ortho et para qui sont parfois encore plus favorisées qu'on ne peut 
+penser. Je vais vous donner un exemple: si je prends la forme qui est ici en bas. Si je prends 
+grand A=NH2. Qu'est-ce qu'il reste sur l'atome d'azote? Ils reste un doublet électronique, 
+d'accord? Donc, résultat, eh si je regarde bien ce doublet électronique peut être donner à la 
+liaison NC+, d'accord? Et on va former à ce moment là une forme BH, NH2+, ce doublet a 
+été donné, donc en fait, j'ai réussi à écrire une forme mésomère supplémentaire. Quand j'ai 
+dit que ces formes sont favorisées, en fait, ils sont plus que favorisées parce qu'ils 
+permettent d'écrire une forme mésomère supplémentaire. Donc, ortho, para si c'est 
+quelque chose qui est donneur. Pratiquement, on pourra mettre une quatrième forme 
+mésomère et on aura quelque chose de très stable. On avait dit qu'on choisissait toujours le 
+plus stable, ce sera donc les deux orientations pour la deuxième substitution. Alors, 
+maintenant dernière chose enfin avant-dernière. Comment choisir entre ortho et para? Eh, 
+on s'aperçoit lorsqu'on fait les réactions, lorsqu'on fait les expériences, on s'aperçoit que 
+bien souvent, on obtient plus de composés substitués en position para qu'en position ortho. 
+Donc, à la plupart de temps lorsqu'on a possibilité ortho, para, c'est toujours la position 
+para qui est favorisée. Eh, pourquoi cette position est favorisée? Si on regarde un peu plus 
+près, on s'aperVoit une chose, c'est plus statistiquement parlant. J'en parle uniquement 
+statistique, eh logiquement, on va avoir deux fois plus de réaction en position ortho qu'en 
+position para. Si on a deux positions ortho pour une position para. Mais, il faut pas oublier, 
+c'est la présence de grand A, présence de grand A qui entraîne un encombrement stérique 
+et donc pour grand A, en quelque sorte, il va servir de parapluie aux deux positions ortho. 
+Ah, grand B quand il va arriver ce sera beaucoup plus simple pour lui d'arriver par la 
+position para. Eh, position para qui est favorisée par encombrement stérique. Alors, 
+dernière chose. Comment va reconnaître quelque chose qui est donneur et quelque chose 
+qui est accepteur d'électrons? Alors, pour ça c'est très simple. Étant donné que tous les 
+composés où on va retrouver des doubles liaisons. Ah, tous les substituants avec des 
+doubles liaisons. Par exemple COH. Si grand A est égal à COH, ah dans ce composé 
+qu'est-ce que j'ai? J'ai une double liaison CO qui a tendance à attirer les électrons vers 
+l'oxygène, d'accord? Ah, pour composer, mon substituant grand A va être accepteur 
+d'électrons, il va attirer les électrons vers lui. Dans le même ordre d'idées, si on prend un 
+substituant NO2, un substituant NO2 entre l'azote et l'oxygène différence de 
+l'électronégativité en faveur de l'oxygène donc orientation de N vers O, donc système NO2 
+qui est attracteurs d'électrons. Si je prends un système SO3H, encore une fois, système où 
+il y a une double liaison avec l'oxygène. Oxygène plus électronégatif qui attire à lui les 
+électrons. Donc tous ça, ça vous donne des composés qui sont des composés, attracteurs 
+d'électrons. On va encore mettre un carbone et triple liaison avec l'azote. Là-voilà, azote 
+qui est plus électronégatif que le carbone, donc attraction d'électrons également pour ce 
+composé. Trouvé dans tous les substituants grand A, en fait, je peux écrire une 
+délocalisation par effet mésomère sur une double liaison. Maintenant, on prend les autres, 
+eh c'est très simple. C'est tous les autres. Enfin ce que j'appelle les autres? Eh, si je prends 
+par exemple du chlore. Eh, c'est là que j'attire votre attention surtout sur les emplois du 
+chlore. Le chlore, on pourrait être tenté de dire, c'est quelque chose de très électronégatif, 
+donc par effet inductif, ça a tendance à attirer les électrons, d'accord? Ce que je vous 
+demande de ne pas oublier que autour du chlore, donc sur la couche périphériques, il reste 
+trois doublets électroniques et que ces doublets électroniques, eh par effet mésomères 
+pourront obtenir à la liaison carbone-CL. Étant donné que l'effet mésomère est toujours 
+prépondérant par rapport à l'effet inductif, c'est celui là qui va être le plus important et 
+c'est ça qui rend CL, donc comme étant un composé donneur. Alors, après, eh ban , des 
+composés qui peuvent être donneur de, d'électrons également, c'est le groupement OH, 
+toujours à cause de la présence, ah j'espère que là vous rendez comme même compte que 
+tous qu'on a fait en atome physique, la première année, sur les structures d'atomes, ah ça 
+l'importance un peu partout après, doublet libre sur l'oxygène qui reste donc si on fait une 
+liaison OH. Possibilité de, d'effet mésomérie, donc effet encore une fois donneur pour 
+l'oxygène. Ah, même chose pour les composés du type OCH3. Alors, autres composés qui 
+sont donneurs, euh il en reste deux, ça on l'avait vu aussi toujours à cause de la présence 
+du doublet électronique sur la couche périphérique. Euh! Qu'est qu'on peut encore mettre, 
+eh tant ce qui est, tous ce qui est groupement avec des atomes de carbone, ah là c'est 
+uniquement par effet qui est un effet inductif. Entre hydrogène et carbone, celui qui va 
+attirer à lui les électrons, c'est le carbone. Donc, par effet inductif, un groupement CH3 ou 
+CH2CH3 sera un groupement donneur. Ah, là haut c'est vrai, j'ai oublié parce que là, ici le 
+H ça peut être aussi un OH, ça peut être O-éthyl. Il faut passer tout simplement à la liaison 
+CO, eh de la forme aldéhyde. ça peut être aussi un groupement grand A, donc ça peut être 
+aussi forme cétone. Faites attention de ne pas vous buter uniquement à la fonction 
+aldéhyde. Donc, tous ces substituants pour les retrouver c'est relativement simple si dans 
+ce substituant grand A, il y a des doubles liaisons avec l'oxygène ce sera attracteur 
+d'électrons. Si dans le groupement grand A, il y a des atomes avec autour d'eux des 
+doublets libres, ce sera un groupement qui sera donneur d'électrons. Ah, de cette façon là, 
+ah on pourra prévoir quel seront les, eh quel sera le résultat d'une deuxième substitution 
+sur le noyau benzilique. Je vous dit c'est l'occasion, de faire pas mal, eh pas mal 
+d'exemples. Alors, après des disubstitutions, on va rencontrer, je pense que vous vous en 
+doutez, après deux c'est combien? Après deux c'est combien? Donc, ne vous inquiétez pas, 
+on ne va pas aller jusqu'à six. Donc, après deux substitutions, eh c'est trois substitutions, 
+donc trisubstitution. Ah, là il y a disant, eh pratiquement dans tous les cas, on peut 
+résoudre le problème. Pour vous ce sera moins évident. Pourquoi j'ai dit dans tous les cas? 
+Eh, tout simplement parce que les effets attracteurs ou donneurs vont en fait, eh les 
+orientations vont en fait s'additionner. Si je prends un composé comme celui-ci, qui est du 
+para-nitro-phényle, donc C6H3NO2, eh pour regarder où se va passer la troisième 
+substitution. Ah, je vais regarder le CH3, c'est un groupement qui est après ce qu'on a dit 
+précédemment donneur d'électrons d'accord? Donc, CH3 va orienter en position ortho ou 
+para. Ortho, CH3, si c'est la position en para qui est déjà occupée par le NO2, le CH3 va 
+orienter sur les deux flèches que j'ai mis là. NO2, c'est un groupement qui est attracteur 
+d'électrons. Donc, lui va orienter en position méta. Eh là, j'ai de la chance. Parce que ça 
+correspond exactement en même position, d'accord? Là, je peux résoudre le problème et 
+vous pourriez aussi résoudre le problème. Dans d'autres cas, c'est moins évident. Et si je 
+prends un composé où il y a NH2 et ici Br. Si je regarde ce composé, je mets NH2 en 
+rouge, le groupement NH2 est un groupement qui est donneur d'électrons. Donc, il va 
+orienter en position ortho et para. Donc, NH2 va être orienté ici et ici. Le brome est un 
+composé qui est aussi donneur d'électrons, donc il va orienter en position ortho et para. Et 
+là, je m'aperçoit que, euh je vais avoir le choix entre quatre positions. Il n'y a rien de défini. 
+Sauf et ça je me refuse à le faire, d'accord? Si je vous fais apprendre par coeur l'ordre de, 
+ce sont des forces des différentes structures. Donc, à présent, si je prends ce système là; le 
+brome est plus donneur que NH2, donc ce qui va se produire et ça comme je vous le dis, 
+vous ne pouvez pas le sucer de notre pouce ce qui va se produire, c'est la deuxième 
+substitution en position ortho et para, induite par le brome. Donc, il est dit, tous les 
+échelles de classement et je pourrai m'amuser à vous demander d'apprendre l'annuaire du 
+téléphone par coeur pour ça c'est inutile, je préfère que vous sachiez que ça existe. Vous 
+sachiez dire, eh dans le cas où CNH2Br, on ne saura pas le brancher, d'accord? Mais si on 
+va avoir dans un bouquin, on saura retrouver une solution plutôt que prendre un bêtement 
+que le brome est supérieure à NH2. Bon, on va pas aller jusqu'à quatre substituants. Ah, on 
+pourrait le faire mais en fait, le principe est le même. À chaque fois, on doit additionner les 
+effets des uns et des autres. Alors, point suivant qui concerne toujours les composés 
+aromatiques. C'est bien beau de dire qu'on a un composé aromatique, le plus souvent, on 
+va pas se limiter à utiliser le benzène, on va aussi avoir sur ce composé une chaîne latérale. 
+Alors, chaîne latérale sur le benzène, elle va réagir pratiquement comme un alcane. Ah, si 
+vous vous souvenez dans les alcanes, on avait vu que par exemple RH + CL2, a donné lieu 
+à une réaction qui est photochimique, donc radicalaire, donc réaction en chaîne. C'est une 
+réaction qui permet de fabriquer RCL, donc remplacement d'un hydrogène par un atome de 
+chlore dans un alcane. Ce là est un composé où il est un noyau benzylique et sur ce 
+composé où il y a un noyau benzylique, un groupement CH2CH3. Pour ceux qui ont déjà 
+regardé leurs cours. J'espère qu'ils sont nombreux dans l'assistance, c'est leur intérêt. 
+Donc, pour ceux qui ont regardé leurs cours, ah si vous rappelez dans les alcanes on a dit 
+suivant que ça va être un CH2, un CH3, un CH. On aura divers propositions de produits qui 
+vont se former. Eh, on a dit qu'on a obtenu des mélanges et que on pouvait calculer les 
+pourcentages de chaque espèce qu'on avait fabriquée. Alors, dans le cas où on a un noyau 
+benzénique, ban notre vie est drôlement simplifiée, étant donné que la substitution ne se fait 
+que sur le carbone qui est en a, uniquement sur le carbone qui est en a du cycle 
+benzylique. Autrement dit, je peux prendre n'importe quel composé avec ici, eh 40 CH2, eh 
+les uns à côté des autres, j'obtient toujours si je fais par exemple des opérations avec le 
+chlore, eh j'obtiendrais toujours le noyau benzylique CHCL et CH3, donc uniquement sur le 
+carbone qui est le premier carbone à côté du cycle. Ah, une petite remarque aussi, ah donc 
+ici ça se fait au milieu, ah ça se fait de façon photochimiques. Une petite remarque tout à 
+l'heure, on a vu une autre réaction, qui est la substitution par le chlore et cette substitution 
+sur le noyau benzylique mais à condition expérimentale présente de ALCL3. Donc, deux 
+réactions possibles entre le chlore et les composés aromatiques qui varient au point de vue 
+de résultat suivant les conditions utilisées. Soit présence de ALCL3 à ce moment là, c'est 
+sur le noyau benzylique, soit réaction qui est photochimique, à ce moment là, c'est sur la 
+chaîne latérale. Encore en trop, un petit peu comme les additions qu'on peut faire en Suisse 
+et en France, on trouve encore une fois moyen d'agir sur l'un ou sur l'autre des deux, eh 
+composés, eh des deux parties de la molécule. Alors, dernier point maintenant, après des 
+additions, sur donc la chaîne latérale ou sur le noyau benzylique. Les réactions qui sont des 
+réactions d'oxydation. Réactions d'oxydation, ban encore une fois aromaticité ça veut dire 
+c'est quelque chose de très stable et donc grosse difficulté pour oxyder des noyaux 
+aromatiques. Eh, si je prends l'exemple du benzène, il faut quand même faire une différence 
+entre les composés. Evidemment, je ne parle pas de la réaction de combustion, eh qui 
+conduit à CO2 + H2O, d'accord? Donc, le benzène plus CO2, eh pardon 9/2 de O2, alors ça 
+se fait sur un catalyseur et il faut travailler à 400 degrés, d'accord? Et, dans ces conditions, 
+on obtient un composé qui est l'anhydride, donc C2H2O, on a ouverture du cycle et en fait 
+réformation d'un cycle. Et on obtient l'anhydride maléique. Eh, en fait on a oxydation 
+d'une double liaison. Ah, ça c'est lorsqu'on a uniquement le noyau benzylique est évident 
+que si y'a une chaîne latérale ça va être beaucoup plus pratique et chaîne latérale, eh encore 
+une fois comme pour la réaction avec le chlore, l'oxydation lorsqu'il y a une chaîne latérale, 
+eh elle est aussi simple à faire que sur un alcane. Lorsqu'on a vu les alcanes, on avait dit, eh 
+pour avoir coupure de n'importe quelle liaison carbone-carbone, on obtient un horrible 
+mélange d'acides. Alors, c'est le cas, encore une fois, réaction qui se fait uniquement au 
+niveau du carbone en a du cycle benzylique. Et on peut avoir autant de carbone qu'on veut 
+sur la chaîne, on obtiendra toujours, le même acide qui est l'acide benzylique. Plus, bien 
+sûr, HCOOH acide formique. Eh, c'est un groupement "dentaire" qui est derrière, on 
+obtiendrai RCOOH. Notre coupure toujours après le carbone en a. Fin, dernière réaction 
+d'oxydation, on va avoir prendre de la place, c'est l'oxydation par l'ozone. Alors, 
+oxydation par l'ozone. Euh, l'ozone c'est un des seuls composés vis-à-vis duquel le cycle 
+benzylique se comporte comme un système de trois doubles liaisons. Si vous vous rappelez 
+ce qu'on avait dit avec une double liaison, d'une double liaison carbone-carbone plus de 
+l'ozone, ça conduisait à la formation d'un ozonyde et formation, de deux doubles liaisons 
+CO, d'accord? Donc, formation d'un ozonyde et formation de doubles liaisons CO. Fin, le 
+benzène se comporte exactement de la même façon avec donc l'équivalent de trois doubles 
+liaisons. Ah, qu'est-ce que Va va donner? Ah, lorsqu'on va écrire le benzène, je garde donc 
+les liaisons simples, d'accord? Et à la place des doubles liaisons, je vais avoir une 
+formation, donc d'un composé qui est un triozonyde. Pour ça c'est un ozonyde, eh si je 
+refais le carbone, il reste une liaison. Donc, formation d'un triozonyde qui une fois qu'on 
+va le réduire sur du zinc et de l'acide acétique, on va obtenir formation, ah je vais le 
+remettre de la même façon en gardant les liaisons, là, là et là. Donc, formation de trois 
+molécules, d'accord? Après, donc une réduction, eh trois molécules qui sont dans le cas du 
+benzène Va donne en fait CH, CHOCHO. C'est ce qu'on appelle du glyoxal et ce glyoxal 
+par hydrogénation ça permet de fabriquer un composé, donc qu'on a déjà parlé la semaine 
+dernière ou il y a deux jours. ça permet de fabriquer le glycol. Eh, on va s'arrêter là pour 
+aujourd'hui.
+
+
+

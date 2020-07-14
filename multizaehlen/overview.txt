@@ -1,0 +1,19 @@
+﻿Übersicht
+---------
+
+multizaehlen.exe
+  ausführbares Programm zu multizaehlen.py
+multizaehlen.man
+  Man-Datei für zaehlen (mit Aufruf und Optionen)
+multizaehlen.py
+  Python-Programm 
+multizaehlen_ini.py
+  Konfigurationsdatei für multizaehlen.py
+
+menu_multizaehlen.exe
+  ausführbares Programm zu menu_multizaehlen.py
+menu_multizaehlen.py
+  Python-Programm (Menü-Variante von multizaehlen.py)
+menu_multizaehlen_ini.py
+  Konfigurationsdatei für menu_multizaehlen.py
+

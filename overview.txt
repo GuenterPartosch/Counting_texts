@@ -1,0 +1,9 @@
+﻿Verzeichnisse
+-------------
+
+input
+    Beispieltexte, Stop-/Go-Wortlisten
+multizaehlen
+    Programme und Texte zu multizaehlen.py (Auszählen und Vergleichen)
+zaehlen
+    Programme und Texte zu zaehlen.py

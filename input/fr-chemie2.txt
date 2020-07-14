@@ -1,0 +1,670 @@
+
+1. Isomérie et isomères
+
+Définition: Deux isomères sont deux composés qui ont la même formule brute mais dont les 
+molécules sont différentes
+
+
+
+Soit deux isomères; leurs molécules peuvent différer par l'ordre ou la nature des liaisons entre atomes, ou 
+par la disposition des atomes dans l'espace
+
+
+On se rend compte que les molécules sont différentes en tentant de les superposer; les molécules de deux 
+isomères ne sont pas superposables
+
+Les isomères ont des propriétés physiques et/ou chimiques qui sont 
+différentes
+
+Parfois, les différences sont très importantes; dans d'autres cas, elles ne concernent que 
+certaines propriétés
+
+
+Ces différences de propriétés sont liées à une différence de structure entre les molécules isomères
+
+
+
+2. Isomérie de constitution et stéréoisomérie
+
+2.1. L'ISOMÉRIE DE CONSTITUTION
+
+On parle d'isomérie de constitution (ou isomérie d'enchaînement) si la différence structurale entre les 
+isomères concerne l'enchaînement des atomes
+
+On peut alors en rendre compte au moyen des formules 
+semi-développées planes
+
+On distingue les trois types suivants d'isomérie de constitution
+
+
+
+A) L'isomérie de squelette
+
+Encore appelée isomérie de chaîne, elle concerne les molécules dont le squelette carboné est différent
+
+
+Exemple: le butane et le méthylpropane (fig. 1)
+
+
+
+
+
+B) L'isomérie de position
+Elle concerne les molécules dans lesquelles un groupe caractéristique (par exemple: un groupe 
+fonctionnel) ou une insaturation occupe une position différente sur le même squelette carboné
+
+
+Exemples: voir les figures 2 et 3
+
+
+Un cas particulier d'isomérie de position est représenté par les dérivés disubstitués du benzène (fig. 4)
+
+
+
+C) L'isomérie de fonction
+
+Elle concerne les molécules qui présentent des groupes fonctionnels différents
+
+Les différences de 
+propriétés chimiques sont alors très importantes
+
+
+Exemple: le butan-l-ol et l'oxyde de diéthyle (fig. 5)
+
+
+
+D) Conclusion: la formule de constitution
+
+Un isomère de constitution est parfaitement déterminé lorsque l'on connaît son squelette carboné, son 
+groupe fonctionnel et la position où ce groupe est fixé sur le squelette
+
+On le représente au moyen d'une 
+formule semi-développée plane
+
+
+Exemple: à titre purement documentaire, la figure 6 vous présente les formules semi-développées de deux 
+alcools éthyléniques naturels isomères de constitution
+
+
+
+La formule de constitution fixe l'enchaînement des différents atomes d'une molécule
+
+
+
+
+2.2. LA STÉRÉOISOMÉRIE
+
+A ) Définition
+Des composés peuvent avoir la même formule de constitution, c'est-à-dire la même fonction dans la même 
+position sur le même squelette mais leurs molécules peuvent ne pas être superposables
+
+Ce sont alors des 
+stéréoisomères
+
+
+
+Des stéréoisomères sont des composés ayant même formule de constitution et qui diffèrent par 
+l'agencement spatial de leurs atomes
+
+
+
+B) Les deux types de stéréoisomérie
+On distingue deux grands types de stéréoisomérie: 
+-- l'isomérie de conformation (mais ces isomères ne sont pas séparables, voir paragraphe 4); 
+-- l'isomérie de configuration qui conduit, elle, à des isomères séparables ayant des propriétés physiques 
+et/ou chimiques différentes
+
+
+Dans cette dernière catégorie, l'agencement spatial différent des atomes de deux stéréoisomères peut 
+conduire:
+soit à des molécules dont la géométrie est différente car les distances entre certains atomes ou groupes 
+d'atomes ne sont pas égales (fig. 7)
+
+Il s'agit d'isomères géométriques (ou diastéréoisomères)
+
+Ils 
+peuvent présenter de nettes différences de propriétés physiques et chimiques;
+soit à des molécules qui ont même géométrie, puisqu'elles sont images l'une de l'autre dans un miroir, 
+mais qui sont néanmoins non superposables (fig. 8)
+
+Il s'agit d'isomères optiques ou énantiomères
+
+
+
+Les différences de propriétés sont alors beaucoup plus subtile
+
+En effet, la quasi-totalité des propriétés 
+sont identiques
+
+Une différence importante de propriété physique permet de les distinguer: il s'agit de 
+l'action sur la lumière polarisée
+
+Mais cette propriété est hors programme; nous l'avons simplement citée 
+pour justifier le nom d'isomérie optique donnée à ce type d'isomérie (que l'on nomme encore énantiomérie) 
+et dont la cause fut découverte par Louis Pasteur (voir POINT HISTOIRE)
+
+
+
+
+3. Isomérie de configuration
+
+3.1. LES CONFIGURATIONS Z ET E D'ALCÈNES
+Nous sommes dans le cas d'isomères géométriques
+
+
+
+
+A) La structure plane de l 'éthylène
+L'éthylène (ou éthène), le plus simple des alcènes, a pour formule C2H4
+
+Sa structure de Lewis est:
+La théorie VSEPR permet de prévoir la planéité de chacun des fragments H2C = C mais elle ne permet pas 
+de conclure à la planéité de l'ensemble de la molécule qui a pu être établie grâce aux méthodes physiques 
+de détermination structurale
+
+Cette structure plane de l'éthylène se généralise aux alcènes ou à tout dérivé 
+éthylénique substitué en limitant cette planéité aux atomes directement portés par les deux atomes de 
+carbone doublement liés (fig. 9)
+
+
+
+B) Les deux isomères du but-2-ène
+Cette planéité entraîne l'existence de deux isomères pour le but-2-ène, que vous avez déjà rencontrés en 
+classe de Seconde, et qui sont représentés ci-dessous avec leur dénomination
+
+
+(Z)-but-2-ène      (E)-but-2-ène
+
+On dit que le but-2-ène existe dans deux configurations: la configuration Z (de l'allemand zusammen: 
+ensemble) où les deux groupes méthyle sont situés du même côté de la double liaison, et la configuration E 
+(de l'allemand entgegen: opposé) où les deux groupes méthyle sont situés de part et d'autre de la double 
+liaison
+
+
+
+
+Remarque:
+Cette nomenclature Z et E des deux configurations d'un alcène de type RCH = CHR' remplace l` 
+ancienne dénomination cis et trans qui fut respectivement attribuée à chacun de ces isomères
+
+
+
+Ces deux stéréoisomères du but-2-ène sont isolables et ne s'interconvertissent pas l'un en l'autre dans les 
+conditions habituelles
+
+Ils présentent des propriétés physiques différentes: la température d'ébullition 
+normale est de 3,7  C pour 1' isomère Z et de 0,9  C pour l'isomère E
+
+
+Toutefois, par chauffage à température élevée, on parvient à réaliser le passage de l'un à l'autre de ces 
+isomères (ce que l'on appelle leur interconversion) au moyen d'une réaction dite d'isomérisation
+
+
+On traduit ces observations en disant que les deux stéréoisomères Z et E sont séparés par une barrière 
+d'énergie suffisamment élevée pour que l'énergie moyenne d'agitation thermique ne permette pas son 
+franchissement à température ambiante; il n'y a pas alors d'isomérisation: chacun des isomères est stable
+
+
+Mais à température élevée, l'énergie moyenne d'agitation thermique devient suffisante pour que la barrière 
+d'énergie soit franchie, ce qui provoque l'isomérisation
+
+
+Des études cinétiques ont permis d'évaluer la barrière d'énergie à environ 260 kJ mol-1
+
+On constate que 
+c'est sensiblement la différence entre les énergies d'une double liaison C = C et d'une simple liaison C--C
+
+
+On calcule (fig. 10): EC=C - EC-C = 612 - 348 = 264 kJ mol-1
+
+
+Ce résultat suggère que la liaison double entre les deux atomes de carbone peut être représentée au moyen 
+de deux liaisons différentes: L'une d'elle, plus fragile, peut être rompue par apport d'énergie thermique
+
+
+Cela rend alors possible une rotation autour de la liaison simple restante et permet l'isomérisation: la 
+réformation de la liaison rompue conduisant à l'une ou à l'autre des deux configurations (fig. 11)
+
+
+
+En conclusion, soulignons les points suivants:
+à température ambiante, la rotation autour d'une double liaison C = C n'est pas possible;
+
+pour passer d'une configuration à une autre, il est nécessaire de rompre (puis de reformer) au 
+moins une liaison
+
+
+
+REMARQUE
+Formellement on aurait pu envisager de réaliser l'interconversion entre les deux configurations par 
+rupture puis réformation dans l'ordre opposé des deux liaisons C--H et C--CH3
+
+Mais la dépense 
+énergétique serait beaucoup plus importante: on calcule en effet: Ec-H + Ec-c = 412 + 348 = 760 
+KJ.mol-1
+
+
+
+C) Généralisation
+Du fait de la planéité locale au niveau de la double liaison, tout composé de formule ACH = CHB (où A et 
+B sont différents de H) existe sous forme de deux stéréoisomères de configuration Z ou E suivant que les 
+atomes d'hydrogène sont disposés du même côté ou de part et d'autre de la double liaison
+
+Ces isomères 
+sont isolables et ne s'interconvertissent pas l'un en l'autre à température ambiante:
+
+configuration Z	configuration E
+
+Le tableau ci-dessous illustre les différences de propriétés physiques et chimiques présentées par les 
+isomères Z et E de l'acide butènedioïque
+
+
+
+Deux isomères de configuration Z et E sont isolables
+
+
+
+
+3.2. LES DEUX CONFIGURATIONS
+D'UN ATOME DE CARBONE ASYMETRIQUE
+Nous sommes dans le cas d'isomères optiques
+
+
+
+A) Représentation conventionnelle de l` atome de carbone tétraédrique
+La méthode VSEPR nous a permis d'établir que la molécule de méthane est tétraédrique
+
+Elle attribue 
+également une structure tétraédrique à tout atome de carbone ne comportant pas de liaison multiple, 
+puisqu'il est alors entouré par 4 paires d'électrons liants, toutes prises en compte dans la méthode VSEPR
+
+
+C'est le cas, par exemple, de 1' atome de carbone central de l'acide propanoïque CH3--CH2--COOH
+
+On 
+peut alors représenter sans ambiguïté la structure spatiale correspondante (fig. 12)
+
+Le tétraèdre n'a pas de 
+réalité physique; il constitue simplement <l'enveloppe> de l'atome de carbone représenté
+
+
+Il est donc préférable de schématiser uniquement les liaisons qu'échange l'atome de carbone avec les 
+atomes voisins
+
+Pour cela, on adopte les conventions indiquées à la figure 13
+
+
+
+B) L'atome de carbone asymétrique
+Intéressons-nous à la géométrie de l'atome de carbone central de l'acide 2-hydroxypropanoïque qui résulte 
+de la précédente par le remplacement d'un atome d'hydrogène du groupe -CH2- par un groupe hydroxyle -
+OH:
+
+3         2            1
+CH3--CHOH--COOH
+
+Nous voyons que deux structures spatiales sont possibles (fig. 14)
+
+En effet, si nous maintenons la chaîne 
+carbonée C1C2C3   dans le plan de la feuille, avec le groupe carboxyle situé en haut, nous pouvons placer le 
+groupe hydroxyle, soit en avant (figure 14-a) soit en arrière (figure 14-b) du plan de la feuille, ce qui 
+correspond à deux configurations différentes
+
+
+Ces deux structures ne sont pas superposables; elles représentent deux molécules différentes
+
+On peut 
+alors vérifier que ces deux structures spatiales sont images l'une de l'autre dans un miroir (fig. 15)
+
+
+Ce résultat se généralise à tout atome de carbone portant 4 atomes ou groupes d'atomes différents
+
+Un tel 
+atome de carbone est appelé carbone asymétrique
+
+
+
+Définition: Un atome de carbone asymétrique est un atome de carbone tétraédrique lié à 4 atomes 
+ou groupes d'atomes tous différents
+
+
+
+Pour le repérer, on le note souvent à l'aide d'un astérisque
+
+Par exemple: CH3--C*HOH--COOH
+
+De 
+nombreuses molécules naturelles possèdent un ou plusieurs atomes de carbone asymétriques
+
+
+Un atome de carbone asymétrique présente deux configurations différentes images l'une de l'autre dans 
+un miroir
+
+Il s'agit bien de configurations puisque pour passer de l'une à l'autre, il est nécessaire de rompre 
+puis de reformer des liaisons
+
+Les deux molécules correspondantes ne s'interconvertissent pas l'une dans 
+l'autre
+
+
+
+C) Énantiomérie
+Nous venons de voir, avec l'exemple de l'acide 2-hydroxypropanoïque, que lorsqu'une molécule possède 
+un atome de carbone asymétrique, elle présente deux structures spatiales différentes, images l'une de 
+l'autre dans un miroir et non superposables
+
+À chacune des deux configurations du carbone asymétrique 
+correspond un stéréoisomère déterminé nommé énantiomère
+
+
+
+L'énantiomérie est l'isomérie de configuration existant entre deux molécules images l'une de l'autre 
+dans un miroir et non superposables
+
+
+
+Exemple: l'acide 2-hydroxypropanoïque existe sous forme de deux énantiomères isolables que les 
+biochimistes distinguent en les nommant différemment: l'acide lactique (fig. 14-a) et l'acide sarcolactique 
+(fig. 14-b)
+
+L'acide lactique se forme lors de la fermentation du lait (le lait frais doit en contenir moins de 
+1,8 g L- 1) tandis que l'acide sarcolactique se forme par oxydation du glucose lors du travail musculaire 
+(s'il n'est pas métabolisé assez rapidement, il s'accumule et est responsable du phénomène de crampe 
+musculaire)
+
+
+
+Généralement, on ne rencontre pas les deux énantiomères dans la nature, mais un seul
+
+C'est le cas 
+notamment des a-aminoacides naturels, constituants des protéines, qui n'existent que sous une seule 
+configuration
+
+
+
+Propriétés des énantiomères
+--Deux énantiomères, ayant même géométrie, ont des propriétés physiques identiques (même température 
+de fusion, même densité, même solubilité) à l'exception de l'action sur la lumière polarisée, ce qui permet 
+de les distinguer (l'un des énantiomères est dit dextrogyre, l'autre lévogyre)
+
+
+
+Deux énantiomères ne s'interconvertissent pas l'un dans l'autre
+
+
+
+Deux énantiomères sont isolables
+
+
+
+D'un point de vue chimique, deux énantiomères ont la même réactivité vis-à-vis des réactifs habituels, mais 
+présentent des différences de réactivité avec les substances qui donnent lieu elles-mêmes à énantiomérie
+
+
+C'est le cas des systèmes enzymatiques qui catalysent les réactions effectuées avec un seul des deux 
+énantiomères
+
+On observe alors des réactions hautement sélectives que l'on qualifie d'énantiosélectives
+
+
+
+D) Chiralité
+La chiralité est la propriété que possède un objet qui n'est pas superposable à son image dans un 
+miroir
+
+
+Ce mot trouve son origine dans le mot grec kheir signifiant main; il rappelle la propriété que possède la 
+main droite vis-à-vis de la main gauche
+
+On retrouve la même racine dans chiromancie, chirurgie
+
+..
+De nombreux objets courants sont chiraux: un gant (fig. 16), une chaussure, une casserole à bec-verseur, 
+un tire-bouchon
+
+.. La chiralité résulte de l'absence de certains éléments de symétrie
+
+Par contre, la 
+présence de certains éléments de symétrie comme un centre de symétrie ou un plan de symétrie rend 
+achiral l'objet qui en est pourvu
+
+
+En ce qui concerne les structures moléculaires, on retiendra que l'existence d'un seul atome de carbone 
+asymétrique dans une molécule engendre nécessairement la chiralité; mais des molécules possédant deux ou 
+plusieurs atomes de carbone asymétriques peuvent conduire à des isomères achiraux (par exemple si 
+l'isomère considéré présente un plan de symétrie)
+
+Signalons enfin qu'il existe des molécules chirales sans 
+atome de carbone asymétrique
+
+
+La chiralité a une très grande importance dans la Chimie du monde vivant où la plupart des molécules 
+naturelles existent uniquement sous forme d'un énantiomère déterminé
+
+
+En particulier, les récepteurs sensoriels olfactifs et gustatifs sont chiraux de sorte qu'ils donnent des 
+réponses différentes avec deux molécules énantiomères
+
+C'est ainsi que seul l'un des deux énantiomères de 
+l'asparagine a une saveur sucrée
+
+
+
+
+4. Les conformations des molécules
+Il s'agit encore d'une stéréoisomérie mais elle conduit à des isomères non isolables, ce qui la distingue de 
+l'isomérie de configuration
+
+
+Jusqu'à présent nous nous sommes intéressés à la configuration des molécules c'est-à-dire à la disposition 
+relative de groupes d'atomes différents soit autour d'un atome de carbone central, soit de part et d'autre 
+d'une double liaison
+
+Mais ces groupes d'atomes occupent-ils une position immuable par rapport aux 
+liaisons qui les relient, soit au carbone asymétrique, soit aux atomes de carbone doublement liés ? La 
+réponse à cette question est négative, car une multitude de dispositions spatiales sont possibles pour des 
+groupes d'atomes reliés entre eux par des liaisons simples
+
+Chacune de ces dispositions spatiales constitue 
+une conformation de la même molécule
+
+
+
+4.1. LA ROTATION AUTOUR D'UNE LIAISON SIMPLE
+
+A) Géométrie de la molécule d'éthane
+Considérons la molécule d'éthane C2H6 ou CH3--CH3
+
+Les méthodes physiques permettent de déterminer 
+les paramètres géométriques: 
+longueur des liaisons: C--C : 154 pm et C--H: 110 pm 
+angles valenciels: HCH » HCC » 109 
+
+
+Ces paramètres conduisent à la géométrie représentée à la figure 17 où chacun des atomes de carbone 
+possède une structure tétraédrique en accord avec la méthode VSEPR
+
+
+
+B) Pourquoi la rotation est-elle possible ?
+Nous constatons que ces paramètres géométriques ne sont pas modifiés si nous effectuons une rotation de 
+l'un des groupes méthyle par rapport à l'autre autour de la liaison C--C
+
+Cette rotation est possible car la 
+liaison simple présente une symétrie autour de cet axe de sorte qu'elle n'est pas rompue au cours de cette 
+rotation, contrairement au cas d'une double liaison dont l'une des composantes était brisée lors d'une telle 
+opération
+
+Les quantités d'énergie mise en jeu pour réaliser cette rotation sont relativement petites et sont 
+facilement apportées par l'agitation thermique des molécules à température ambiante
+
+De ce fait, des 
+rotations incessantes se produisent autour de la liaison carbone-carbone
+
+On dit qu'il y a rotation autour 
+de la liaison simple C--C (fig. 18)
+
+
+
+C) Les conformations de la molécule d'éthane
+
+Au cours de cette rotation, la molécule adopte une infinité d'arrangements possibles de l'un des groupes -
+CH3 par rapport à l'autre
+
+Chacun de ces arrangements correspond à une conformation différente de la 
+molécule d'éthane
+
+On peut caractériser chaque conformation par l'angle dièdre a formé par deux plans 
+comportant tous deux la liaison C--C et une liaison C--H particulière de l'un ou de l'autre des deux groupes 
+--CH3(fig. 19)
+
+
+
+Définition: Une conformation est l'un des multiples arrangements dans l'espace des atomes d'une 
+molécule résultant de la rotation autour de liaisons simples
+
+
+
+Représentation
+Une conformation peut se représenter selon une perspective cavalière mais beaucoup plus commodément 
+au moyen d'une projection selon l'axe de la liaison C--C, dite projection de Newman (fig. 20)
+
+
+
+Dans une projection de Newman, l'atome de carbone situé en avant est représenté par un cercle et son 
+centre d'où partent les trois autres liaisons qu'il porte et qui nous apparaissent à 120  l'une par rapport à 
+l'autre
+
+L'atome de carbone situé en arrière est caché et on dessine les trois autres liaisons qu'il forme par 
+des traits partant de la périphérie du cercle
+
+
+
+Conformations particulières
+L'angle a pouvant varier de 0 à 360 , il existe une infinité de conformations pour la molécule d'éthane
+
+
+Parmi celles-ci, certaines sont particulières, ce sont:
+--les conformations éclipsées correspondant aux valeurs de l'angle a égales à 0, 120 ou 240  (fig. 20-a)
+--les conformations décalées (ou étoilées) correspondant aux valeurs de l'angle a égales à 60, 180 ou 
+300  (fig. 20-b)
+
+Dans ces conformations, les liaisons C--H de l'un des atomes de carbone se projettent 
+dans le prolongement des liaisons C--H de 1' autre groupe méthyle: on dit alors que ces liaisons sont 
+anti-parallèles
+
+
+Aspect énergétique
+Entre les doublets formant les liaisons C--H correspondant à chacun des groupes méthyle, s'exercent des 
+interactions répulsives
+
+Comme ces liaisons sont plus proches dans les conformations éclipsées que dans 
+les conformations décalées, les premières sont moins stables que les secondes
+
+
+Mais la différence d'énergie entre conformations éclipsées et décalées est relativement faible (de l'ordre 
+d'une douzaine de kJ mol- 1) comme l'indique le diagramme de la figure 21
+
+
+De ce fait, on rencontre les molécules d'éthane dans toutes les conformations possibles; les conformations 
+décalées, les plus stables, étant les plus probables
+
+
+
+On ne peut isoler une conformation particulière de la molécule d'éthane
+
+
+
+
+4.2. LES CONFORMATIONS DU BUTANE; GÉNÉRALISATION
+
+A) Cas du butane
+Le butane CH3--CH2--CH2--CH3 (fig. 22), possédant 3 liaisons simples carbone-carbone, présente une 
+infinité de conformations résultant de la rotation possible autour de chacune de ces liaisons (fig. 23)
+
+Parmi 
+celles-ci, les plus intéressantes à étudier sont celles que l'on observe par rotation autour de la liaison 
+médiane C(2)--C(3)
+
+
+On constate alors que les conformations éclipsées, qui étaient identiques dans le cas de l'éthane, deviennent 
+ici différentes
+
+On distingue selon les valeurs de l'angle a (fig. 24): 
+--a = 0: conformation synpériplanaire ou syn 
+--a = 120 : conformation éclipsée gauche 
+--a = 240 : conformation éclipsée gauche (image de la précédente dans un miroir)
+
+
+La dénomination gauche signifie < non plan> (du verbe gauchir)
+
+Il n'existe pas de conformation droite
+
+
+De même, les trois conformations décalées se différencient (fig. 25): 
+--a = 60 : conformation décalée gauche
+--a = 180 : conformation antipériplanaire ou anti 
+--a = 300 : conformation décalée gauche (image de celle correspondant à a = 60 )
+
+
+
+Sur le plan énergétique, les conformations éclipsées sont toujours d'énergie supérieure à celle des 
+conformations décalées
+
+La conformation syn où les deux groupes méthyle sont le plus rapprochés est la 
+moins stable
+
+Les conformations décalées sont les plus stables, la plus stable de toutes étant la 
+conformation anti qui éloigne au maximum les deux groupes méthyle
+
+Le diagramme de la figure 26 
+indique les différences d'énergie entre ces conformations
+
+On constate qu'elles sont relativement faibles de 
+sorte que l'énergie moyenne d'agitation thermique permet, à température ambiante, de franchir les barrières 
+d'énergie séparant ces conformations
+
+
+Il en résulte que l'on ne peut séparer et isoler des conformations particulières du butane
+
+Elles sont toutes 
+représentées dans un lot de molécules de butane, les plus stables étant les plus probables
+
+
+On appelle conformères les conformations les plus stables d'une molécule
+
+On dira donc que le butane 
+possède trois conformères: le conformère anti et deux conformères décalés gauches
+
+
+
+B) Généralisation
+
+En règle générale, une molécule organique possède une infinité de conformations non isolables qui 
+résultent de la rotation autour des liaisons simples qu'elle comporte
+
+
+On notera que l'on passe d'une conformation à une autre sans rompre de liaison, ce qui distingue les 
+conformations des configurations d'une molécule
+
+
+Puisque les diverses conformations d'une molécule présentent des arrangements spatiaux de leurs atomes 
+différents, ce sont des stéréoisomères
+
+On les nomme isomères de conformation
+
+
+Contrairement aux isomères de configuration que l'on peut séparer, les isomères de conformation ne sont 
+pas isolables (toutefois, à basse température, on peut ralentir leur interconversion et accroître la durée de 
+vie des conformères qui peuvent être caractérisés par des méthodes spectroscopiques appropriées)
+
+
+Signalons que, dans des cas où se produisent des interactions intramoléculaires spécifiques (liaison 
+hydrogène, interaction dipolaire ou électrostatique...), un conformère peut être tout particulièrement 
+stabilisé au point de devenir exclusif: c'est le cas des conformations remarquables qu'adoptent les protéines 
+au niveau de leur structure secondaire (structure en hélice a ou en feuillet plissé b) ou de la conformation 
+en double hélice de l'acide désoxyribonucléique ou ADN (fig. 27)
+
+
+
+

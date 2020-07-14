@@ -1,0 +1,48 @@
+﻿usage: multizaehlen.py [-h] [-a] [-cd] [-f P_FREQUENCY] [-fd] [-fi P_FILES]
+                       [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK]
+                       [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-,D+,D-}] [-sd]
+                       [-t WORD_TEMPLATE] [-v]
+                       files [files ...]
+
+vergleichendes Auszählen von Texten [multizaehlen.py; Version: 1.10.5
+(2018-08-19)]
+
+Nicht-optionaler Parameter:
+  files                 zu verarbeitende Dateien (*.plk)
+
+Optionale Parameter:
+  -h, --help            show this help message and exit
+  -a, --author          Autor des Programms ausgeben
+  -cd, --character_distribution
+                        Zeichen-Verteilung berechnen; Voreinstellung: False
+  -f P_FREQUENCY, --frequencies P_FREQUENCY
+                        Beschränkung auf bestimmte Worthäufigkeiten;
+                        Voreinstellung: 1,20000
+  -fd, --frequency_distribution
+                        Worthäufigkeiten-Verteilung berechnen; Voreinstellung:
+                        False
+  -fi P_FILES, --files P_FILES
+                        Beschränkung der Dateien-Zahl (*.plk) mit
+                        Zeichenkette; Voreinstellung: 1,20
+  -l P_LENGTHS, --lengths P_LENGTHS
+                        Beschränkung auf bestimmte Wortlängen; Voreinstellung:
+                        1,100
+  -ld, --length_distribution
+                        Wortlängen-Verteilung berechnen; Voreinstellung: False
+  -o OUT_NAME, --output OUT_NAME
+                        Ausgabedatei; Voreinstellung: <_io.TextIOWrapper
+                        name='<stdout>' mode='w' encoding='utf-8'>
+  -r P_RANK, --ranking P_RANK
+                        Beschränkung auf bestimmte Rangfolge; Voreinstellung:
+                        1,60000
+  -s1 {a+,a-,A+,A-}, --sort1 {a+,a-,A+,A-}
+                        1. Sortierung [a+|a-|A+|A-]; Voreinstellung: a+
+  -s2 {L+,L-,F+,F-,D+,D-}, --sort2 {L+,L-,F+,F-,D+,D-}
+                        2. Sortierung [L+|L-|F+|F-|D+|D-]; Voreinstellung:
+  -sd, --separator_distribution
+                        Trennzeichen-Verteilung berechnen; Voreinstellung:
+                        False
+  -t WORD_TEMPLATE, --template WORD_TEMPLATE
+                        Beschränkung auf bestimmte Wort-Muster (Muster);
+                        Voreinstellung: ^.+$
+  -v, --version         Version des Programms ausgeben

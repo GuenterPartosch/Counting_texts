@@ -1,0 +1,55 @@
+﻿usage: zaehlen.py [-h] [-a] [-cd] [-f P_FREQUENCY] [-fd] [-G GO_NAME] [-i IN_NAME] 
+       [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK] [-s SEPARATOR] [-S STOP_NAME] 
+	   [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}] [-sd] [-t WORD_TEMPLATE] [-v]
+
+Auszählen eines Textes [zaehlen.py; Version: 2.13.0 (2019-12-13)]
+
+Optionale Parameter:
+  -h, --help            show this help message and exit
+  -a, --author          Autor des Programms ausgeben und Exit
+  -cd, --character_distribution
+                        Zeichen-Verteilung ausgeben; 
+						Voreinstellung: False
+  -f P_FREQUENCY, --frequencies P_FREQUENCY
+                        Beschränkung auf best. Worthäufigkeiten; 
+						Voreinstellung: 1,12000
+  -fd, --frequency_distribution
+                        Worthäufigkeiten-Verteilung ausgeben; 
+						Voreinstellung: False
+  -G GO_NAME, --Go GO_NAME
+                        Datei mit Go-Wörter spezifizieren; 
+						Voreinstellung:
+  -i IN_NAME, --input IN_NAME
+                        Eingabedatei(en) festlegen; 
+						Voreinstellung: <_io.TextIOWrapper name='<stdin>' mode='r' encoding='utf-8'>
+  -l P_LENGTHS, --lengths P_LENGTHS
+                        Beschränkung auf best. Wortlängen; 
+						Voreinstellung: 1,100
+  -ld, --length_distribution
+                        Wortlängen-Verteilung ausgeben; 
+						Voreinstellung: False
+  -o OUT_NAME, --output OUT_NAME
+                        Ausgabedatei(en) festlegen; 
+						Voreinstellung: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+  -r P_RANK, --ranking P_RANK
+                        Beschränkung auf best. Rangfolge; 
+						Voreinstellung: 1,50000
+  -s SEPARATOR, --separator SEPARATOR
+                        Wort-Trennzeichen (Muster) spezifizieren; 
+						Voreinstellung: [\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+
+  -S STOP_NAME, --Stop STOP_NAME
+                        Datei mit Stop-Wörter spezifizieren; 
+						Voreinstellung:
+  -s1 {a+,a-,A+,A-}, --sort1 {a+,a-,A+,A-}
+                        1. Sortierung (a+|a-|A+|A-) spezifizieren; 
+						Voreinstellung: a+
+  -s2 {L+,L-,F+,F-}, --sort2 {L+,L-,F+,F-}
+                        2. Sortierung (L+|L-|F+|F-) spezifizieren; 
+						Voreinstellung:
+  -sd, --separator_distribution
+                        Trennzeichen-Verteilung ausgeben; 
+						Voreinstellung: False
+  -t WORD_TEMPLATE, --template WORD_TEMPLATE
+                        Beschränkung auf best. Wort-Muster (Muster); 
+						Voreinstellung: ^.+$
+  -v, --version         Version des Programms ausgeben und Exit

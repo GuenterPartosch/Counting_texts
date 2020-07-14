@@ -1,0 +1,757 @@
+
+VIII.  Composés aromatiques
+
+Certaines substances, extraites d'huiles naturelles, isolées au siècle dernier présentaient des propriétés 
+communes; elles dérivaient du benzène et avaient une odeur agréable
+
+À cause de cette propriété ces 
+composés furent appelées aromatiques ou benzéniques
+
+
+Le terme <aromatique> demeure aujourd'hui, bien que les composés de ce type ne présentent pas tous des 
+propriétés olfactives agréables
+
+Le nom de composé aromatique s'applique maintenant à toutes les 
+molécules possédant en commun une propriété qui sera explicitée plus loin
+
+Citons par exemple tous les 
+dérivés du benzène, les carbures à plusieurs noyaux comme le naphtalène ou l'anthracène ou encore des 
+molécules cycliques contenant des hétéroatomes comme le furanne, le pyrrole et la pyridine
+
+
+
+
+1. Structure-- Nomenclature-- Propriétés physiques
+
+1.1. Structure du benzène
+Kekule a proposé en 1865 pour le benzène la structure d'un cyclohexatriène
+
+Cette structure ne convient 
+pas puisqu'elle suggère l'existence de deux isomères du diméthyl-1,2 benzène alors qu'il n'en existe qu'un
+
+
+On admit alors que les électrons étaient délocalisés sur l'ensemble du cycle
+
+La notion de conjugaison 
+cyclique a permis de rendre compte de la structure de la molécule: plane et rigide avec des distances 
+carbone - carbone toutes identiques et intermédiaires entre celles observées dans une liaison simple (154 
+pm) et celles observées dans une liaison double (133 pm) (fig. VIII-1)
+
+
+
+1.2. Nomenclature des dérivés du benzène
+Les dérivés du benzène portent souvent des noms consacrés par l'usage
+
+
+Par exemple:
+Le groupe C6H5, lorsqu'il intervient comme substituant est appelé phényle et le groupe C6H5--CH2-- est 
+appelé benzyle
+
+
+Lorsque le benzène possède deux substituants, leurs positions sont indiquées par les préfixes ortho 
+(1,2), méta (1,3) ou para (l,4)
+
+
+1.3. Propriétés physiques
+
+1.3.1. Points de fusion et d'ébullition
+
+Le benzène présente certaines propriétés physiques analogues au cyclohexane, comme par exemple les 
+points de fusion et d'ébullition (tab. Vlll- l )
+
+
+TABLEAU  Vlll-l. Propriétés physiques comparées du cyclohexane et de quelques composés aromatiques
+
+
+
+Nom		Formule		q  C	q  C
+
+Cyclohexane	 	C6H12		 6,5	80,7
+
+Benzène		C6H6		 5,5	80,1
+
+Toluène	C6H5-CH3	          -95	    110.6
+
+Cumène	 	C6H5-CH(CH3)2		-96		152,4
+
+Styrène	      	C6H5-CH=CH2		                -30,6  	149,2
+
+Butylbenzène	 	C6H5--C4H9		-88	183,3
+
+
+1.3.2. Rôle de solvant 
+
+Le benzène est un excellent solvant des substances organiques
+
+Il peut même dissoudre quelques 
+substances minérales telles que le phosphore et 1e soufre
+
+
+
+
+
+1.3.3. Propriétés spectrales
+
+La présence d'un système électronique t conjugué est responsable de propriétés spectrales spécifiques des 
+composés aromatiques
+
+
+
+Absorption ultraviolette
+L'absorption UV est forte et se situe aux faibles longueurs d'onde (tab. VIII-2)
+
+Les bandes d'absorption 
+correspondent aux transitions
+
+
+Tableau VIII-2. Absorption UV et visible de quelques composés aromatiques
+
+
+
+Nom	              lmax (nm)                         e	     lmax (nm)	e
+Benzène	  203		7 400	       254				204
+Toluène		206		7_000	       261				225
+Styrène		244		12 000		282				250
+Naphtalène		286		4 200		312				280
+Anthracène		379	 8 000							
+Phénol		210		6 200		270				1 450
+Nitrobenzène	268		7 800		_	
+Aniline	230		8 600	  280	1 430
+
+* (voir ci-dessous)
+
+Certains substituants donnant lieu à une conjugaison avec le cycle, tels que le 
+groupe nitro, provoquent le déplacement de l'absorption vers le visible, c'est-à-dire vers les grandes 
+longueurs d'onde
+
+On appelle cet effet, l'effet bathochrome
+
+
+
+Absorption infrarouge
+Les spectres IR présentent deux bandes d'absorption caractéristiques dans le domaine 1 500-1 600 cm-1 
+(vc-c) et une bande vers 3030 cm-1 (VC-H)
+
+De plus, on trouve entre 2000 et 1 660 cm-l et entre 690 et 
+870 cm-1 des bandes caractéristiques de l'état de substitution du benzène
+
+
+
+
+Résonance magnétique nucléaire (RMN)
+Les protons aromatiques sont fortement déblindés
+
+Cet effet est dû à la présence d'un système d'électrons 
+délocalisés
+
+Leur déplacement chimique est de l'ordre de 7-8 ppm
+
+
+
+
+2. Aromaticité
+
+2.1. Enthalpie standard d'hydrogénation
+
+Initialement étaient appelés aromatiques les composés qui avaient les mêmes propriétés chimiques que le 
+benzène
+
+Ensuite on a comparé les chaleurs d'hydrogénation du <cyclohexatriène> (calculée à partir de la 
+chaleur d'hydrogénation du cyclohexène) et du benzène
+
+
+On a constaté que l'enthalpie standard d'hydrogénation du benzène est plus faible que celle de trois liaisons 
+éthyléniques isolées (fig. V111-2)
+
+
+On a dit alors que le benzène est plus <stable> que le cyclohexatriène
+
+La différence d'enthalpie standard 
+correspondant à l'hydrogénation du <cyclohexatriène> (dont les électrons ne seraient pas conjugués) et du 
+benzène (dont les électrons sont conjugués) sera appelée énergie de conjugaison Elle est de 15O kJ.mol-1
+
+
+Énergies de conjugaison de quelques molécules aromatiques
+
+
+
+
+2.2. Orbitales moléculaires- Règle de Hückel
+
+La théorie des orbitales moléculaires permet de donner une définition de l'aromaticité fondée sur la 
+structure électronique des molécules
+
+Dans un système cyclique plan à n atomes de carbone, tous dans 
+l'état d'hybridation sp2, les n orbitales atomiques p, non hybridées peuvent donner, par recouvrement 
+latéral, n orbitales moléculaires délocalisées dont l'énergie est
+
+
+
+
+a est l'intégrale de Coulomb
+
+Elle fait intervenir l'électronégativité des atomes mis en jeu dans le système 
+t: lorsque ceux - ci sont tous des atomes de carbone, a ne dépend pas de n et est négative
+
+
+b est l'intégrale de résonance
+
+Elle est relative a l'énergie d'un électron dans le champ de deux ou plusieurs 
+noyaux; elle dépend du degré de recouvrement des orbitales atomiques
+
+
+Les orbitales d'énergie inférieure à a sont liantes et celles d'énergie supérieure à a sont antiliantes
+
+Les 
+orbitales moléculaires d'énergie a sont non liantes
+
+
+Pour le benzène on obtient trois orbitales moléculaires liantes d'énergies a + 2b pour l'une, et a+b pour les 
+deux autres, et trois orbitales moléculaires antiliantes d'énergies a-b et a- 2b (fig. V111-3)
+
+
+Dans l'état fondamental du benzène, les six électrons des orbitales p non hybridées occupent les orbitales 
+moléculaires liantes
+
+L'énergie totale de ces électrons est obtenue en faisant la somme de leurs énergies 
+soit E = 6a + 8b
+
+L'énergie totale de ces six électrons répartis dans trois OM localisée (structure 
+<cyclohexatriène> serait E = 6(a+b)
+
+La répartition des électrons dans les OM délocalisées confère donc à 
+la molécule une énergie inférieure à celle que l'on obtiendrait en utilisant des OM localisées
+
+C'est donc la 
+première répartition, dont on dit qu'elle confère à la molécule une plus grande stabilité , que l'on observera
+
+
+La différence de 2b est appelée énergie de délocalisation ou énergie de résonance du benzène
+
+
+
+Notons que, l'énergie de délocalisation ainsi définie n'est pas une quantité physique mesurable puisqu'on 
+compare une molécule réelle à un (ou des) état(s) hypothétique(s)
+
+
+
+On appelle aromatique tout système cyclique plan à n atomes de carbone, tous dans l'état d'hybridation 
+Sp2, auquel l'ensemble des orbitales moléculaires délocalisées défini au début de ce paragraphe confère une 
+énergie plus basse que tout ensemble d'orbitales localisées
+
+
+Cette définition s'étend aux cycles contenant des hétéroatomes
+
+
+On montre qu'il y a aromaticité lorsque les orbitales p non hybridées contiennent au total 4q + 2 électrons 
+(q entier)
+
+C'est la règle de Hückel
+
+
+
+Exemples.
+
+-- L'anion du cyclopentadiène et le cation du cycloheptatriène ont été mis en évidence
+
+Ils sont 
+aromatiques (fig. V111-4)
+
+Le cation cyclopentadiènyle (4 électrons) et l'anion cycloheptatriènyle (8 
+électrons) ne sont pas connus
+
+
+
+-- Le cyclobutadiène n'est pas aromatique (fig. Vlll-5)
+
+
+2.3. Structure des molécules
+
+On peut aussi constater l'aromaticité de certains hydrocarbures à partir de mesures physique
+
+
+Ainsi, les mesures de diffraction des rayons X permettent de montrer que les molécules aromatiques ont 
+des longueurs de liaison de l'ordre de 140 pm (fig. VIII-6) tandis que les polyènes localisés sont 
+caractérisés par des liaisons simples et doubles de longueurs différentes (146 et 134 pm pour l`annulène- 
+16)
+
+
+En RMN, les déplacements chimiques permettent de mettre en évidence le caractère aromatique d'une 
+molécule
+
+
+
+Lorsque celle-ci est monocyclique, plane, les protons internes sont caractérisés par un déplacement 
+chimique faible tandis que celui des protons externes est grand
+
+
+Le déplacement chimique des protons internes de l'annulène- 18 est de -1,9 ppm et celui des protons 
+externes de 8.8 ppm
+
+
+
+3. Substitution électrophile aromatique
+
+Les composés aromatiques étant insaturés, on pourrait attendre, comme dans le cas des alcènes, de 
+nombreuses réactions d'addition
+
+En fait l'action d'électrophiles conduit à des produits de substitution d'un 
+hydrogène par l'électrophile, dans lesquels le système conjugué d'électrons t est conservé
+
+
+
+3.1. Mécanisme
+
+Bien que les espèces électrophiles et les composés aromatiques qui peuvent réagir soient très nombreux, on 
+peut faire intervenir pour les substitutions électrophiles aromatiques un mécanisme général
+
+
+Dans une première étape, les électrons du système forment un complexe t transitoire avec l'électrophile
+
+
+Ce complexe se forme en général rapidement et de faVon réversible
+
+
+L'électrophile est ensuite fixé sur un carbone particulier du cycle par l'intermédiaire d'une liaison s
+
+Ce 
+carbone prend alors l'état d'hybridation Sp3
+
+Il se forme un intermédiaire chargé positivement appelé 
+complexe s ou intermédiaire de Wheland
+
+Cette étape est le plus souvent irréversible
+
+Elle est presque 
+toujours l'étape déterminante de la vitesse au cours d'une réaction de substitution électrophile aromatique
+
+
+L'élimination facile et rapide d'un proton permet de restaurer l'aromaticité du système
+
+
+
+3.2. Nitration
+Le réactif électrophile est l'ion NO2+ obtenu:
+-- soit en mélangeant de l'acide nitrique à l'acide sulfurique concentré et en chauffant:
+
+HNO3 + 2H2SO4 = NO3+ + H3O+ + 2HSO4-
+
+-- soit directement à partir de l'acide nitrique parfois dissous dans des solvants organiques tels que le 
+nitrométhane ou le tétrachlorure de carbone
+
+
+
+Dans ce cas la vitesse de nitration est le plus souvent indépendante de la concentration en substrat 
+aromatique
+
+C'est la formation de l'ion nitronium qui limite la vitesse de réaction
+
+
+
+3.3. Sulfonation
+
+L'acide sulfurique fumant réagit avec le benzène pour donner l'acide benzène sulfonique
+
+
+L`électrophile est l`anhydride S03
+
+
+
+Cette réaction est la seule des substitutions électrophiles qui soit réversible
+
+
+
+3.4. Halogénation
+Le chlore et le brome réagissent facilement avec les composés aromatiques lorsqu'ils sont en présence d'un 
+catalyseur acide de Lewis
+
+
+AlC13 et FeCl3 pour le chlore, le fer métallique, générateur de FeBr3, pour le brome
+
+
+
+Avec le fluor la réaction est très violente et ne peut être contrôlée
+
+Les dérivés fluorés sont obtenus par 
+une autre voie (voir chap. X)
+
+
+L'iode en revanche ne réagit qu'avec des composés aromatiques activés
+
+
+
+On admet que ce catalyseur facilite la rupture de la liaison halogène - halogène libérant ainsi l'électrophile
+
+
+
+
+3.5. Réaction de Friedel et Crafts
+
+Ce sont des réactions au cours desquelles on peut introduire des substituants carbonés sur les noyaux 
+aromatiques
+
+Les électrophiles sont des atomes de carbone chargés positivement: carbocations et ions 
+acylium
+
+Ils réagissent avec le composé aromatique selon le mécanisme général
+
+
+Ils sont obtenus:
+
+-- soit à partir d'un halogénure d'alkyle et d'un catalyseur acide de Lewis comme AlCl3, SbCl5, SnCl4, etc.:
+
+R--X + AlCl3 (r) R--X--AlCL3 (r) R + AlCl3X
+
+
+-- soit à partir d'alcools ou d'alcènes en présence d'un acide fort:
+
+R--CH=CH2+H+=R--CH--CH3
+
+R--OH + H+=R--OH2=R++ H2O
+
+-- soit, dans le cas des acylations, à partir d'halogénures d'acides ou d'anhydrides d'acides en présence de 
+catalyseurs acides de Lewis (AlCl3, SbF5 ou BF3)
+
+
+
+Dans les réactions d'alkylation on constate que la réactivité relative des halogénures est la suivante: tertiaire 
+> secondaire > primaire > méthyle
+
+
+La formation d` un complexe entre un halogénure d'alkyle et AlCl3 par exemple, suivie de la rupture de la 
+liaison carbone-halogène est, en effet, d'autant plus facile que le carbone possède plus de groupes donneurs 
+qui facilitent la formation du cation intermédiaire
+
+
+L'existence de transpositions confirme la présence de carbocations aux cours de ces réactions
+
+Ainsi
+
+
+
+Des réactions de cyclisation intramoléculaires ont lieu lorsqu'il se forme des cycles à cinq ou six atomes de 
+carbone
+
+
+Le monoxyde de carbone, le cyanure d'hydrogène, les nitriles, le formaldéhyde et d'autres aldéhydes activés 
+peuvent réagir avec les composés aromatiques lorsqu'ils sont en présence d'acides forts ou d'acides de 
+Lewis
+
+
+
+
+3.6. Effets d'activation et d'orientation des substituants
+
+Lorsque le benzène porte un substituant, la présence de celui-ci peut influer sur la substitution électrophile 
+de deux manières: augmenter ou diminuer la vitesse de la réaction, d'une part, orienter l'électrophile qui 
+arrive au cours de la substitution en ortho ou para ou bien en méta de celui-ci, d'autre part
+
+On peut 
+expliquer de façon simple et qualitative ces effets en considérant les interactions électroniques entre ces 
+substituants et le noyau benzénique
+
+
+
+
+3.6.1. Activation
+
+Lorsque le benzène porte des substituants donneurs d'électrons ceux-ci stabilisent le complexe 
+intermédiaire porteur d'une charge positive
+
+Selon le postulat de Hammond , l'état de transition conduisant 
+à cet intermédiaire sera aussi <stabilisé>: l'enthalpie libre standard d'activation de cet état de transition sera 
+plus petite que celle de l'état de transition formé à partir du benzène
+
+Il en résulte un accroissement de la 
+vitesse de réaction, donc de la réactivité du composé aromatique
+
+
+Les groupes donneurs d'électrons sont donc appelés groupes activants
+
+
+Les groupes alkyle, les hétéroatomes (oxygène et azote) portant une paire d'électrons libres et les groupes 
+vinyle sont activants (tab. V111-3)
+
+
+
+En revanche, lorsque le benzène porte des substituants attracteurs d'électrons, la densité électronique au 
+niveau du cycle diminue et la réactivité envers les électrophiles est réduite
+
+Ces substituants <déstabilisent> 
+l'état de transition conduisant au complexe s et ralentissent la réaction
+
+
+Ces groupes tels que les halogènes, le groupement -NO2 et le groupe carbonyle sont désactivants
+
+
+La figure V111-7 illustre ces propriétés: la comparaison des différences d'enthalpie libre standard 
+d'activation montre que l'anisole est bromée plus rapidement que le benzène alors que le nitrobenzène est 
+bromé beaucoup plus lentement
+
+
+
+3.6.2. Orientation
+
+L'étude de la structure électronique des complexes intermédiaires permet de rendre compte de l'effet 
+d'orientation de ces substituants
+
+
+Lors de la formation du complexe s, la charge positive introduite sur le cycle en même temps que 
+l'électrophile est localisée en ortho et en para de cet électrophile
+
+
+Si le benzène porte un substituant donneur d'électrons en ortho ou para du groupe entrant, la charge 
+positive sera partiellement délocalisée par ce substituant et le complexe s obtenu sera plus stable que celui 
+qui se forme lorsque le groupe entrant se fixe en méta du substituant déjà présent
+
+
+C'est ce que montre la figure Vlll-7 pour la bromation de l'anisole
+
+
+
+Si le benzène porte un substituant attracteur d'électrons, la situation la moins défavorable pour 
+l'électrophile entrant est d'introduire une charge positive en ortho ou para du groupe attracteur plutôt 
+que sur le carbone portant ce groupe
+
+La substitution électrophile a donc lieu en méta
+
+C'est ce que 
+montre la figure VIII-7 pour la bromation du nitrobenzène
+
+
+
+Les halogènes ont un comportement particulier; bien qu'ils soient désactivants, ils orientent les 
+électrophiles en ortho et en para
+
+En effet, les halogènes plus électronégatifs que le carbone attirent les 
+électrons de liaison, ils sont donc désactivants, mais ils possèdent une paire d'électrons libres qui peut 
+participer à la délocalisation de la charge positive lorsque l'électrophile entre en ortho ou para de 
+l'halogène
+
+Ces résultats sont rassemblés dans le tableau VI11-4
+
+Ils sont connus sous le nom de règles 
+de Hollemann
+
+
+
+Remarques.
+1. Lorsque le benzène porte des substituants donneurs encombrants, la position para est favorisée par 
+rapport à la position ortho
+
+
+
+2. Lorsque le benzène porte plusieurs substituants, on doit prendre en considération l'effet de tous ces 
+substituants
+
+
+
+
+4. Oxydation
+
+4.1. Benzène et naphtalène
+
+Les oxydants usuels forts (permanganate de potassium, par exemple) sont sans action sur le benzène
+
+
+Seul l'oxygène, en présence d'oxyde de vanadium, V2O5, utilisé comme catalyseur, à 450  C, conduit à 
+l'acide maléique
+
+
+
+L'ozone agit comme sur les doubles liaisons simples pour donner du glyoxal
+
+
+
+L'oxydation du naphtalène est plus facile
+
+L'action du permanganate en milieu alcalin conduit à 
+l'anhydride phtalique
+
+
+
+
+4.2. Composes du benzène à chaînes latérales
+
+Les oxydants usuels réagissent facilement sur les composés du benzène qui portent des chaînes 
+latérales
+
+
+Lorsque le composé porte des groupes alkyle, c'est au niveau de l'atome de carbone benzylique, fixé au 
+cycle, que s'effectue l'oxydation
+
+
+Ainsi le toluène et l'isopropylbenzène conduisent à l'acide benzoïque
+
+
+
+Les dialkylbenzènes sont oxydés en diacides correspondants
+
+
+
+L'oxygène peut réagir directement sur certains composés
+
+Ainsi on prépare industriellement le phénol 
+par oxydation du cumène en isopropylbenzène (voir chap. 111 consacré aux alcanes)
+
+
+
+Lorsque le benzène porte des substituants autres que des groupes alkyle on remarque que:
+
+-- les groupes désactivants pour la substitution électrophile le sont aussi pour l'oxydation;
+-- les groupes activants, rendent le cycle plus fragile lors d'une oxydation, celui-ci pouvant alors être détruit
+
+4.3. Quinones
+
+Les benzoquinones, qui ne sont pas des composés aromatiques, sont obtenues soit par oxydation ménagée 
+des diphénols -1,2 et--1,4 soit directement par oxydation électrochimique du benzène
+
+
+
+
+4.3.1. Oxydo-réduction
+
+Les benzoquinones peuvent être réduites très facilement, ce sont donc des agents d'oxydation douce
+
+
+La parabenzoquinone peut être réduite à froid par une solution diluée d'acide iodhydrique
+
+
+
+
+4.3.2. Colorants
+
+La structure quinonique, système de quatre doubles liaisons conjuguées, permet d'attendre une absorption 
+dans le visible
+
+On retrouve donc ce type de structure dans de nombreux colorants
+
+
+
+Dans la nature ce sont des pigments jaune à rouge-violet que l'on rencontre dans le règne animal et 
+végétal
+
+
+Ces substances sont très réactives et peuvent colorer la peau par suite de combinaisons avec les groupes 
+amino libres des protéines
+
+
+Ainsi, la lawsone, est un pigment jaune obtenu à partir des feuilles du henné
+
+
+
+Synthèse
+De nombreux colorants quinoniques sont aujourd'hui fabriqués par oxydation de l'anthracène (extrait du 
+goudron de houille) ou bien par synthèse phtalique
+
+
+Par exemple, l'alizarine ou dihydroxy- 1,2 anthraquinone a été le premier colorant synthétique (préparé en 
+1868)
+
+
+
+
+4.3.3. Photographie
+
+Une pellicule <noir et blanc> contient des microcristaux de bromure d'argent
+
+Ceux-ci, soumis à l'action 
+de la lumière passent dans un état électronique excité
+
+
+
+En présence d'hydroquinone, seules les molécules (AgBr)* sont réduites en argent selon
+
+
+
+Ainsi, à condition de les fixer, les atomes d'argent se trouveront dans la pellicule là où des photons l'auront 
+frappée, et en nombre d'autant plus grand que les photons auront été plus nombreux
+
+On aura ainsi réalisé 
+un négatif
+
+
+
+
+5. Réduction
+
+5.1. Réduction catalytique
+L'hydrogénation catalytique des composés aromatiques est plus difficile que celle des alcènes
+
+En effet, au 
+cours de cette réaction, il faut apporter de l'énergie pour rompre le système d'électrons t conjugués
+
+
+À haute température, sous une forte pression d'hydrogène et en présence d'un catalyseur actif (Pt, Ni) 
+l'hydrogénation du benzène, du phénol et de l'aniline est complète et conduit respectivement au 
+cyclohexane, au cyclohexanol et à la cyclohexylamine
+
+
+
+Seuls les hydrocarbures polycycliques peuvent être partiellement réduits, suivant les conditions 
+opératoires
+
+
+
+
+5.2. Réduction par les métaux alcalins dissous
+
+Les composés aromatiques peuvent être réduits partiellement par les métaux alcalins dissous dans 
+l'ammoniac liquide
+
+C'est la réaction de Birch
+
+
+
+On peut utiliser le lithium ou le sodium dissous dans NH3 liquide en présence d'alcool
+
+Le métal donne 
+un électron au système, il se forme un radical anion qui est protoné par l'alcool
+
+
+
+Le radical qui en résulte accepte à nouveau un électron pour former un anion qui sera protoné par l'alcool
+
+
+On obtient le dihydro-1,4 benzène
+
+
+
+Les doubles liaisons du dihydro- 1,4 benzène ne sont pas conjuguées et ne seront pas réduites dans les 
+conditions précédentes
+
+
+
+En revanche, si l'on opère sans alcool, la réduction se poursuit et conduit au cyclohexène en passant par 
+l'intermédiaire du diène conjugué
+
+
+
+La présence de substituant sur le cycle modifie la vitesse de la réaction et oriente la réduction
+
+
+les groupes attracteurs d'électrons, rendant le cycle plus électrophile, vont faciliter la première étape et 
+ainsi augmenter la vitesse de la réaction
+
+
+Au contraire, la vitesse de réduction diminue lorsque le benzène est substitué par des groupes donneurs
+
+
+
+La réduction de l'anisole par le lithium dans l'ammoniac liquide est une voie importante de synthèse des 
+cyclohexénones
+
+
+
+
+I		.
+
+6. Conclusion
+Les réactions des composés aromatiques méritent d'être bien connues à cause de l'importance de ces 
+composés, tant au laboratoire, que dans la chimie vivante
+
+Les étudiants pourront constater qu'elles 
+donnent, souvent simplement, accès à un grand nombre de produits naturels
+
+
+

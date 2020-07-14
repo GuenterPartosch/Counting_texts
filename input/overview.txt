@@ -1,0 +1,37 @@
+﻿Übersicht
+---------
+
+
+deutsche Beispieltexte
+  de-grimm.txt
+      Grimmsche Märchen, Teil 1
+  de-grimm2.txt
+      Grimmsche Märchen, Teil 2
+  de-HMann1.txt
+      Heinrich Mann: Professor Unrat oder Das Ende eines Tyrannen
+  de-HMann2.txt
+      Heinrich Mann: Der Untertan
+  de-HMann3.txt
+      Heinrich Mann: Der Vater
+  de-verne-20000.txt
+      Jules Vernes: 20000 Meilen unter den Meeren
+  de-verne-grant.txt
+      Jules Verne: Die Kinder des Kapitäns Grant
+
+englische Beispieltexte
+  en-twain1.txt
+      Mark Twain: The Adventures of Tom Sawyer
+  en-twain2.txt
+      Mark Twain: The Adventures Of Huckleberry Finn
+  en-twain3.txt
+      Mark Twain: Tom Sawyer Abroad
+  en-twain4.txt
+      Mark Twain. Tom Sawyer, Detective
+      
+französische Beispieltexte
+  fr-chemie2.txt
+      französischer Chemie-Text
+  fr-chemie3.txt
+      französischer Chemie-Text
+  fr-chemie5.txt
+      französischer Chemie-Text
