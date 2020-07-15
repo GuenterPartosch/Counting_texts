@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # multizaehlen.py
 # Programm zum Auswerten der Auszählungen von Textdateien
 # =======================================================

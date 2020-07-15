@@ -1,0 +1,24 @@
+﻿Dependencies
+============
+
+by multizaehlen.py used external modules
+----------------------------------------
+import pickle                   # enable Pickle 
+import sys                      # parameter of call, system calls
+from operator import itemgetter # sorting
+import argparse                 # defining and processing of parameter
+import re                       # regular expressions
+from time import *              # date, time
+import math                     # math. functions
+
+used local module
+-----------------
+multizaehlen_ini.py
+
+aditionally
+-----------------
+previous calls of zaehlen.exe/zaehlen.py
+
+chain
+-----
+multizaehlen.py --> multizaehlen_ini.py

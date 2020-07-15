@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # menu_multizaehlen_ini.py
 # Stand: 2018-08-20
 # 1.0.0: 2017-02-19: Anfangsversion; aus menu_zaehlen_ini.py entwickelt

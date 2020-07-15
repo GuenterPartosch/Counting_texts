@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # menu_multizaehlen.py
 # Stand: 2018-08-19
 

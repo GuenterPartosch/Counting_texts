@@ -1,0 +1,22 @@
+Dependencies
+============
+
+by menu_zaehlen.py used external modules
+----------------------------------------
+from menu_zaehlen_ini import *                 # initialization file of menu_zaehlen.py
+import sys                                     # used for path
+import subprocess                              # start and monitor of subprocesses
+from tkinter import *                          # Tk
+from tkinter.filedialog import askopenfilenames# ask for file name in Tk
+from tkinter.filedialog import askopenfilename # ask for file names in Tk
+from tkinter.messagebox import *               # output in message boxes
+import re                                      # regular expressions
+
+used local module
+-----------------
+menu_zaehlen_ini.py
+
+chain
+-----
+menu_zaehlen.py --> menu_zaehlen_ini.py
+                --> zaehlen.py --> zaehlen_ini.py

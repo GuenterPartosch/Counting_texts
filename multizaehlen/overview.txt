@@ -1,19 +1,27 @@
-﻿Übersicht
----------
+﻿Overview
+--------
 
 multizaehlen.exe
-  ausführbares Programm zu multizaehlen.py
+  Windows executables of multizaehlen.py
 multizaehlen.man
-  Man-Datei für zaehlen (mit Aufruf und Optionen)
+  manpage file of zaehlen (with call and options)
 multizaehlen.py
-  Python-Programm 
+  Python program
 multizaehlen_ini.py
-  Konfigurationsdatei für multizaehlen.py
+  configuration file for multizaehlen.py
+multizaehlen.spec
+  specification file for multizaehlen.exe
+multizaehlen-dependencies.txt
+  dependencies of multizaehlen.py
 
 menu_multizaehlen.exe
-  ausführbares Programm zu menu_multizaehlen.py
+  Windows executables of menu_multizaehlen.py
 menu_multizaehlen.py
-  Python-Programm (Menü-Variante von multizaehlen.py)
+  Python program (menu variant for multizaehlen.py)
 menu_multizaehlen_ini.py
-  Konfigurationsdatei für menu_multizaehlen.py
+  configuration file for menu_multizaehlen.py
+menu_multizaehlen.spec
+  specification file for menu_multizaehlen.exe
+menu_multizaehlen-dependencies.txt
+  dependencies of menu_multizaehlen.py
 

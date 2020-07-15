@@ -1,0 +1,20 @@
+﻿Dependencies
+============
+
+by zaehlen.py used external modules
+-----------------------------------
+import argparse                 # Parser für Aufruf-Parameter 
+import re                       # regular expressions
+import sys                      # call, system calls
+from operator import itemgetter # sorting
+from time import *              # date, time
+import os                       # system calls
+import pickle                   # Pickle
+
+used local module
+-----------------
+zaehlen_ini.py
+
+chain
+-----
+zaehlen.py --> zaehlen_ini.py

@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # multizaehlen_ini.py
 # Stand: 2018-08-17
 

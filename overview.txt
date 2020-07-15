@@ -1,9 +1,9 @@
-﻿Verzeichnisse
--------------
+﻿Folders
+-------
 
 input
-    Beispieltexte, Stop-/Go-Wortlisten
+    example texts; stgop löiosts / go liste
 multizaehlen
-    Programme und Texte zu multizaehlen.py (Auszählen und Vergleichen)
+    programs and informations for multizaehlen.py (couting and comparing)
 zaehlen
-    Programme und Texte zu zaehlen.py
+    programs and informations for zaehlen.py
