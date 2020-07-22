@@ -1,5 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # menu_multizaehlen.py
 # Stand: 2018-08-19
@@ -8,8 +9,8 @@
 # 1.1.0: 2017-02-19: erstmals funktionsfähig
 # 1.2.0: 2017-07-18: Erweiterung und neues Konzept
 
-m_mz_datum   = "2018-08-20"
-m_mz_version = "1.2.5"
+m_mz_datum   = "2020-07-22"
+m_mz_version = "1.2.6"
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
