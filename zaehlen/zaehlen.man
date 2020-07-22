@@ -2,7 +2,7 @@
        [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK] [-s SEPARATOR] [-S STOP_NAME] 
 	   [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}] [-sd] [-t WORD_TEMPLATE] [-v]
 
-Auszählen eines Textes [zaehlen.py; Version: 2.13.0 (2019-12-13)]
+Auszählen eines Textes [zaehlen.py; Version: 2.13.1 (2020-07-22)]
 
 Optionale Parameter:
   -h, --help            show this help message and exit
