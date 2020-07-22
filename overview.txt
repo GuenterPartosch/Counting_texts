@@ -1,9 +1,0 @@
-﻿Folders
--------
-
-input
-    example texts; stgop löiosts / go liste
-multizaehlen
-    programs and informations for multizaehlen.py (couting and comparing)
-zaehlen
-    programs and informations for zaehlen.py
