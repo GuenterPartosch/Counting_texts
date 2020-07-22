@@ -1,7 +1,7 @@
 ﻿# Folder zaehlen
 
 * [zaehlen.exe](https://github.com/GuenterPartosch/Counting_texts/blob/master/zaehlen/zaehlen.exe "Windows executable of zaehlen.py"): 
-  Windows executable of zaehlen.py/
+  Windows executable of zaehlen.py
 * [zaehlen.man](https://github.com/GuenterPartosch/Counting_texts/blob/master/zaehlen/zaehlen.man "manpage file for zaehlen (with call and options)"): 
   manpage file for zaehlen (with call and options)
 * [zaehlen.py](https://github.com/GuenterPartosch/Counting_texts/blob/master/zaehlen/zaehlen.py "Python program"): 
