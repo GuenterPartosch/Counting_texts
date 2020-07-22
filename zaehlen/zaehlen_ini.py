@@ -1,16 +1,22 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # zaehlen-ini.py: Initialisierung, Vorbesetzungen
 # Stand: 2018-08-17
+#        2020-07-22
 
 # Abhängigkeiten
 # zaehlen_ini.py
 # + wird von menue_zaehlen.py als Modul geladen
 # + wird von zaehlen.py als Modul geladen
 
-in_name          = "D:/ein.txt"
-out_name         = "D:/aus.txt"
+# Anpassungen für in_name und out:name
+in_name          = "D:/ein.txt"     # <== sollte ggf. angepasst werden
+out_name         = "D:/aus.txt"     # <== sollte ggf. angepasst werden
+##in_name          = "./ein.txt"    # ggf. anpassen     
+##out_name         = "./aus.txt"    # ggf. anpassen
+
 stop_name        = ""
 go_name          = ""
 separator        = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
@@ -31,3 +37,6 @@ string_breite    = 3  # voreingestellte Ausgabebreite für Strings
 string_breite_la = 43 # Länge von Eingabeaufforderungen
 real_breite      = 6  # Ausgabebreite für Reals
 rndg             = 2  # Zahl der Nachkommastellen für Reals/Floats
+zaehlen_ini_Datum= "2020-07-22"
+programm_datum   = "2020-07-22"
+programm_vers    = "2.13.1"
