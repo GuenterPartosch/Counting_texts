@@ -1,8 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # menu_zaehlen.py
 # Stand: 2018-08-20
+# Stand: 2020-07-22
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -11,7 +13,7 @@
 # + ruft zaehlen.py auf
 
 # -----------------------------------------------------------------------
-from menu_zaehlen_ini import *                # Initialisierungsdatei des Programms menu_zaehlen.py
+from menu_zaehlen_ini import *                 # Initialisierungsdatei des Programms menu_zaehlen.py
 import sys                                     # wird für path verwendet
 import subprocess                              # Starten/Beobachten von Subprozessen
 from tkinter import *                          # Tk
@@ -24,7 +26,7 @@ import re                                      # reguläre Ausdrücke
 sl      = "/"                                  # Schrägstrich als Verzeichnistrennzeichen
 ##cd      = sys.path[0]                          # enthält akt. Verzeichnis
 ##cd      = cd.replace("\\", sl)                 # normiert auf "/" als Trennstrich
-datum   = "2018-08-20"                         # Datum der letzten Änderung
+##menue_zaehlen_Datum = "2018-08-20"             # Datum der letzten Änderung
 dir_sep = """[\/]"""                           # Trennzeichen für Verzeichnisnamen
 ul      = "_"                                  # in create_filenames benutzt
 p       = re.compile(dir_sep)                  # regulärer Ausdruck zum Auftrennen von Verzeichnisnamen

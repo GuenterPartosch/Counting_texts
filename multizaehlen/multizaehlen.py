@@ -1,5 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # multizaehlen.py
 # Programm zum Auswerten der Auszählungen von Textdateien
@@ -8,6 +9,7 @@
 
 # noch
 # + auch sonst Variablen aufführen
+# + alle Programme des Bündels zaehlen übersetzen
 
 # History:
 # 1.0.0: 2017-02-17: Anfang
@@ -27,8 +29,8 @@
 # (1) Programm-Parameter: global
 
 programm_name    = "multizaehlen.py"
-programm_vers    = "1.10.5"
-programm_datum   = "2018-08-19"
+programm_vers    = "1.10.6"
+programm_datum   = "2020-07-22"
 programm_autor   = "Günter Partosch"
 autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
 autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"

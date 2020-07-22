@@ -1,8 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # menu_zaehlen_ini.py
 # Stand: 2018-08-20
+# Stand: 2019-12-12
+# Stand: 2020-07-22
 
 # --------------------------------------------------------
 # Abhängigkeiten
@@ -10,12 +13,17 @@
 # + wird von menu_zaehlen.py als Modul geladen
 # + lädt zaehlen_ini.py als Modul
 
+# anpassen: instverz
+
 from zaehlen_ini import * # Konfiguration/Initialisierung von zaehlen.py
 
 # --------------------------------------------------------
-instverz      = 'D:/Python/zaehlen'
+#instverz      = 'D:/Python/zaehlen'
+instverz     = 'C:/Users/guent/Documents/python/zaehlen'        # Pfad zum ausführbaren Pogramm, ggf. anpassen
 programmname = "zaehlen.py"
 programmtitle= "Auszählen eines Textes; Eingabemenü für das Programm "
+menue_zaehlen_ini_Datum  = "2020-07-22"                         # Datum der letzten Änderung 
+menue_zaehlen_Datum      = "2020-07-22"                         # Datum der letzten Änderung
 
 # Konfiguration für Labels und Felder/Checkboxen
 # Sequenz von 4-elementigen Listen:
@@ -130,14 +138,14 @@ zaehlen.py          ---ruft---> zaehlen_ini.py
 Versionen der beteiligten Programme:
 
 zaehlen.py [Programm zum Auszählen von Texten]
-    2.11.7: 2018-08-17
+    """ + programm_vers + ", " + programm_datum + """
 menu_zaehlen.py [Menü für den Aufruf von zaehlen.py]
-    2018-08-19
+    """ + menue_zaehlen_Datum + """
 
 Versionen der beteiligten Konfigurationsdateien:
 
 menu_zaehlen_ini.py [Konfiguration für menu_zaehlen.py]
-    2018-08-19
+    """ + menue_zaehlen_ini_Datum + """
 zaehlen_ini.py [Konfiguration für zaehlen.py]
-    2018-08-17
+    """ + zaehlen_ini_Datum + """
 """

@@ -1,5 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # zaehlen.py
 # Programm zum Auszählen von Textdateien
@@ -28,6 +29,9 @@
 # 2.9.0: 2017-04-19: __new_extension korrigiert
 # 2.10.0: 2017-06-30: neu: Trennzeichen-Verteilung
 # 2.11.0: 2017-07-09: neu: Zeichen-Verteilung
+# 2.12.0: 2019-12-13: in 12-7: Fehlerüberprüfungen
+# 2.13.0: 2019-12-13: in 12-8, 12-9, 12-11: Fehlerüberprüfungen
+# 2.13.1: 2020-07-22: erste drei Zeilen
 
 # --------------------------------------------------------------
 # Abhängigkeiten:
@@ -65,8 +69,8 @@
 # (1) Programm-Parameter: global
 
 programm_name    = "zaehlen.py"
-programm_vers    = "2.11.7"
-programm_datum   = "2018-08-20"
+programm_vers    = "2.13.1"
+programm_datum   = "2020-07-22"
 programm_autor   = "Günter Partosch"
 autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
 autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
@@ -922,21 +926,25 @@ aus.write("\n\n")
 # Zusammenfassung
 
 __ueberschrift("Ergebnisse (Zusammenfassung der Auswahl)", "-")
-if (summe_roh_zeichen == 0) or (summe_woerter  == 0) or (alle_types  == 0) or (auswahl_tokens == 0):
-    sys.stderr("---Division durch Null: Programmabbruch")
-    exit()
+##if (summe_roh_zeichen == 0) or (summe_woerter  == 0) or (alle_types  == 0) or (auswahl_tokens == 0):
+##    sys.stderr("---Division durch Null: Programmabbruch")   
+##    exit()
 aus.write(("Zeilen                          : " + ps3 + "\n\n").format(z_zeilen))
 aus.write(("Zeichen, insgesamt              : " + ps3 + "\n").format(summe_roh_zeichen))
 aus.write(("Zeichen, berücksichtigt         : " + ps3).format(summe_zeichen))
-aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(summe_zeichen/summe_roh_zeichen * 100.00, rndg)))
+if (summe_roh_zeichen > 0):
+    aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(summe_zeichen/summe_roh_zeichen * 100.00, rndg)))
 aus.write(("Wörter (Tokens), Gesamttext     : " + ps3 + "\n").format(summe_woerter))
 aus.write(("Wörter (Tokens), Auswahl        : " + ps3).format(auswahl_tokens))
-aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(auswahl_tokens/summe_woerter * 100.00, rndg)))
+if (summe_woerter  > 0):
+    aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(auswahl_tokens/summe_woerter * 100.00, rndg)))
 aus.write(("Wörter (Types), Gesamttext      : " + ps3 + "\n").format(alle_types))
 aus.write(("Wörter (Types), Auswahl         : " + ps3).format(auswahl_types))
-aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(auswahl_types/alle_types * 100.00, rndg)))
+if (alle_types  > 0):
+    aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(auswahl_types/alle_types * 100.00, rndg)))
 aus.write(("Verh. (Types/Tokens), Gesamttext: " + ps6 + "%\n").format(round(alle_types/summe_woerter * 100.0, rndg)))
-aus.write(("Verh. (Types/Tokens), Auswahl   : " + ps6 + "%\n\n").format(round(auswahl_types/auswahl_tokens * 100.0, rndg)))
+if (auswahl_tokens > 0):
+    aus.write(("Verh. (Types/Tokens), Auswahl   : " + ps6 + "%\n\n").format(round(auswahl_types/auswahl_tokens * 100.0, rndg)))
 
 # --------------------------------------------------------------
 # (12-8) Ausgabe
@@ -995,21 +1003,25 @@ if length_distribution:
     maximum = 0
     max_f   = 0
     zs      = 0
-    aus.write("<länge>:<anzahl>")
-    aus.write(kopfzs)
-    for f in sortiert2:
-        s += f * alle_laengen[f]
-        if alle_laengen[f] > maximum: maximum = alle_laengen[f]; max_f = f
-        zwi = str(f) + trenner + str(alle_laengen[f]) + "  "
-        zs += len(zwi)
-        if zs >= maxzs: aus.write(kopfzs); zs = 0
-        aus.write(zwi)
-    aus.write("\n\n")
-    aus.write("minimale Länge:".ljust(breite) + str(min(alle_laengen)) + "\n")
-    aus.write("maximale Länge:".ljust(breite) + str(max(alle_laengen)) + "\n")
-    aus.write("Modus der Längenverteilung:".ljust(breite) + str(max_f) + " mit " + str(alle_laengen[max_f]) + " Vorkommen\n")
-    aus.write("Durchschnittliche Länge:".ljust(breite) + str(round(s / auswahl_types, rndg)) + "\n")
-    aus.write("\n")
+
+    if len(alle_laengen) > 0:
+        aus.write("<länge>:<anzahl>")
+        aus.write(kopfzs)
+        for f in sortiert2:
+            s += f * alle_laengen[f]
+            if alle_laengen[f] > maximum: maximum = alle_laengen[f]; max_f = f
+            zwi = str(f) + trenner + str(alle_laengen[f]) + "  "
+            zs += len(zwi)
+            if zs >= maxzs: aus.write(kopfzs); zs = 0
+            aus.write(zwi)
+        aus.write("\n\n")
+        aus.write("minimale Länge:".ljust(breite) + str(min(alle_laengen)) + "\n")
+        aus.write("maximale Länge:".ljust(breite) + str(max(alle_laengen)) + "\n")
+        aus.write("Modus der Längenverteilung:".ljust(breite) + str(max_f) + " mit " + str(alle_laengen[max_f]) + " Vorkommen\n")
+        aus.write("Durchschnittliche Länge:".ljust(breite) + str(round(s / auswahl_types, rndg)) + "\n")
+        aus.write("\n")
+    else:
+        aus.write("Verteilung der Wortlängen nach dem Filtern nicht verfügbar\n")
 
 # --------------------------------------------------------------
 # (12-9) Ausgabe
@@ -1045,22 +1057,26 @@ if frequency_distribution:
     s       = 0
     maximum = 0
     max_f   = 0
-    zs      = 0
+    zs      = 0  
 
-    aus.write("<häufigkeit>:<anzahl>")
-    aus.write(kopfzs)
-    for f in sortiert3a:
-        s += f * ges_haeufigkeiten[f]
-        if ges_haeufigkeiten[f] > maximum: maximum = ges_haeufigkeiten[f]; max_f = f
-        zwi = str(f) + trenner + str(ges_haeufigkeiten[f]) + "  "
-        zs += len(zwi)
-        if zs >= maxzs: aus.write(kopfzs); zs = 0
-        aus.write(zwi)
-    aus.write("\n\n")
-    aus.write("minimale Häufigkeit:".ljust(breite) + str(min(ges_haeufigkeiten)) + "\n")
-    aus.write("maximale Häufigkeit:".ljust(breite) + str(max(ges_haeufigkeiten)) + "\n")
-    aus.write("Modus der Häufigkeitenverteilung:".ljust(breite) + str(max_f) + " mit " + str(ges_haeufigkeiten[max_f]) + " Vorkommen\n")
-    aus.write("\n")
+    if len(ges_haeufigkeiten) > 0:
+        aus.write("<häufigkeit>:<anzahl>")
+        aus.write(kopfzs)
+        for f in sortiert3a:
+            s += f * ges_haeufigkeiten[f]
+            if ges_haeufigkeiten[f] > maximum: maximum = ges_haeufigkeiten[f]; max_f = f
+            zwi = str(f) + trenner + str(ges_haeufigkeiten[f]) + "  "
+            zs += len(zwi)
+            if zs >= maxzs:
+                aus.write(kopfzs); zs = 0
+            aus.write(zwi)
+        aus.write("\n\n")
+        aus.write("minimale Häufigkeit:".ljust(breite) + str(min(ges_haeufigkeiten)) + "\n")
+        aus.write("maximale Häufigkeit:".ljust(breite) + str(max(ges_haeufigkeiten)) + "\n")
+        aus.write("Modus der Häufigkeitenverteilung:".ljust(breite) + str(max_f) + " mit " + str(ges_haeufigkeiten[max_f]) + " Vorkommen\n")
+        aus.write("\n")
+    else:
+        aus.write("Verteilung der Worthäufigkeiten im Gesamttext nicht verfügbar\n")
 
     __ueberschrift("Ergebnisse (Verteilung der Worthäufigkeiten nach dem Filtern)","-")
 
@@ -1069,20 +1085,23 @@ if frequency_distribution:
     max_f   = 0
     zs      = 0
 
-    aus.write("<häufigkeit>:<anzahl>")
-    aus.write(kopfzs)
-    for f in sortiert3:
-        s += f * haeufigkeiten[f]
-        if haeufigkeiten[f] > maximum: maximum = haeufigkeiten[f]; max_f = f
-        zwi = str(f) + trenner + str(haeufigkeiten[f]) + "  "
-        zs += len(zwi)
-        if zs >= maxzs: aus.write(kopfzs); zs = 0
-        aus.write(zwi)
-    aus.write("\n\n")
-    aus.write("minimale Häufigkeit:".ljust(breite) + str(min(haeufigkeiten)) + "\n")
-    aus.write("maximale Häufigkeit:".ljust(breite) + str(max(haeufigkeiten)) + "\n")
-    aus.write("Modus der Häufigkeitenverteilung:".ljust(breite) + str(max_f) + " mit " + str(haeufigkeiten[max_f]) + " Vorkommen\n")
-    aus.write("\n")
+    if len(haeufigkeiten) > 0:
+        aus.write("<häufigkeit>:<anzahl>")
+        aus.write(kopfzs)
+        for f in sortiert3:
+            s += f * haeufigkeiten[f]
+            if haeufigkeiten[f] > maximum: maximum = haeufigkeiten[f]; max_f = f
+            zwi = str(f) + trenner + str(haeufigkeiten[f]) + "  "
+            zs += len(zwi)
+            if zs >= maxzs: aus.write(kopfzs); zs = 0
+            aus.write(zwi)
+        aus.write("\n\n")
+        aus.write("minimale Häufigkeit:".ljust(breite) + str(min(haeufigkeiten)) + "\n")
+        aus.write("maximale Häufigkeit:".ljust(breite) + str(max(haeufigkeiten)) + "\n")
+        aus.write("Modus der Häufigkeitenverteilung:".ljust(breite) + str(max_f) + " mit " + str(haeufigkeiten[max_f]) + " Vorkommen\n")
+        aus.write("\n")
+    else:
+        aus.write("Verteilung der Worthäufigkeiten nach dem Filtern nicht verfügbar\n")
 
 # --------------------------------------------------------------
 # (12-10) Ausgabe
@@ -1123,7 +1142,8 @@ if separator_distribution:
             maximum = ges_trennzeichen[f]; max_f = f
         zwi = __chr_out(f) + trenner + __chr_hex(f) + trenner + str(ges_trennzeichen[f]) + 2 * leer
         zs += len(zwi)
-        if zs >= maxzs: aus.write(kopfzs); zs = 0
+        if zs >= maxzs:
+            aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
     aus.write("Modus der Trennzeichenverteilung:".ljust(breite) + "'" + __chr_out(max_f) + "' mit " + str(ges_trennzeichen[max_f]) + " Vorkommen\n")
@@ -1173,7 +1193,8 @@ if character_distribution:
             maximum = ges_alle_zeichen[f]; max_f = f
         zwi = str(f) + trenner + __chr_hex(f) + trenner + str(ges_alle_zeichen[f]) + 2 * leer
         zs += len(zwi)
-        if zs >= maxzs: aus.write(kopfzs); zs = 0
+        if zs >= maxzs:
+            aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
     aus.write("Modus der Zeichenverteilung:".ljust(breite) + "'" + str(max_f) + "' mit " + str(ges_alle_zeichen[max_f]) + " Vorkommen\n")
@@ -1186,19 +1207,23 @@ if character_distribution:
     max_f   = 0
     zs      = 0
 
-    aus.write("<zeichen>:<code>:<anzahl>")
-    aus.write(kopfzs)
-    for f in sortiert5:
-        s += alle_zeichen[f]
-        if alle_zeichen[f] > maximum:
-            maximum = alle_zeichen[f]; max_f = f
-        zwi = str(f) + trenner + __chr_hex(f) + trenner + str(alle_zeichen[f]) + 2 * leer
-        zs += len(zwi)
-        if zs >= maxzs: aus.write(kopfzs); zs = 0
-        aus.write(zwi)
-    aus.write("\n\n")
-    aus.write("Modus der Zeichenverteilung:".ljust(breite) + "'" + str(max_f) + "' mit " + str(alle_zeichen[max_f]) + " Vorkommen\n")
-    aus.write("\n")
+    if len(sortiert5) > 0:
+        aus.write("<zeichen>:<code>:<anzahl>")
+        aus.write(kopfzs)
+        for f in sortiert5:
+            s += alle_zeichen[f]
+            if alle_zeichen[f] > maximum:
+                maximum = alle_zeichen[f]; max_f = f
+            zwi = str(f) + trenner + __chr_hex(f) + trenner + str(alle_zeichen[f]) + 2 * leer
+            zs += len(zwi)
+            if zs >= maxzs:
+                aus.write(kopfzs); zs = 0
+            aus.write(zwi)
+        aus.write("\n\n")
+        aus.write("Modus der Zeichenverteilung:".ljust(breite) + "'" + str(max_f) + "' mit " + str(alle_zeichen[max_f]) + " Vorkommen\n")
+        aus.write("\n")
+    else:
+        aus.write("Verteilung der Zeichenhäufigkeiten nach dem Filtern nicht verfügbar\n")
 
 
 # ==============================================================

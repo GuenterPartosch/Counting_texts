@@ -1,5 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # menu_multizaehlen_ini.py
 # Stand: 2018-08-20
@@ -8,6 +9,7 @@
 # 1.1.1: 2017-07-20
 # 1.1.2: 2018-08-17
 # 1.1.3: 2018-08-21: Variable cd
+# 1.1.4: 2020-07-22: erste drei Zeilen dieser Datei
 
 # --------------------------------------------------------
 # Abhängigkeiten
