@@ -1,4 +1,4 @@
-﻿# multizaehlen (Overview)
+# multizaehlen (Overview)
 
 * [multizaehlen.exe](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen.exe "Windows executables of multizaehlen.py"): 
   Windows executables of multizaehlen.py
@@ -8,8 +8,6 @@
   Python program
 * [multizaehlen_ini.py](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen_ini.py "configuration file for multizaehlen.py"): 
   configuration file for multizaehlen.py
-* [multizaehlen.spec](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen.spec "specification file for multizaehlen.exe"): 
-  specification file for multizaehlen.exe
 * [multizaehlen-dependencies.txt](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen-dependencies.txt "dependencies of multizaehlen.py"): 
   dependencies of multizaehlen.py
 
@@ -19,7 +17,6 @@
   Python program (menu variant for multizaehlen.py)
 * [menu_multizaehlen_ini.py](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/menu_multizaehlen_ini.py "configuration file for menu_multizaehlen.py"): 
   configuration file for menu_multizaehlen.py
-* [menu_multizaehlen.spec](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/menu_multizaehlen.spec "specification file for menu_multizaehlen.exe"): 
   specification file for menu_multizaehlen.exe
 * [menu_multizaehlen-dependencies.txt](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/menu_multizaehlen-dependencies.txt "dependencies of menu_multizaehlen.py"): 
   dependencies of menu_multizaehlen.py
