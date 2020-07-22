@@ -1,4 +1,4 @@
-﻿# Folder zaehlen
+# Folder zaehlen
 
 * [zaehlen.exe](https://github.com/GuenterPartosch/Counting_texts/blob/master/zaehlen/zaehlen.exe "Windows executable of zaehlen.py"): 
   Windows executable of zaehlen.py
