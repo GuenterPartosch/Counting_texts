@@ -38,5 +38,5 @@ string_breite_la = 43 # Länge von Eingabeaufforderungen
 real_breite      = 6  # Ausgabebreite für Reals
 rndg             = 2  # Zahl der Nachkommastellen für Reals/Floats
 zaehlen_ini_Datum= "2020-07-22"
-programm_datum   = "2020-07-22"
+programm_datum   = "2020-07-23"
 programm_vers    = "2.13.1"

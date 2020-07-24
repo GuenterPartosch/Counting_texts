@@ -31,7 +31,8 @@
 # 2.11.0: 2017-07-09: neu: Zeichen-Verteilung
 # 2.12.0: 2019-12-13: in 12-7: Fehlerüberprüfungen
 # 2.13.0: 2019-12-13: in 12-8, 12-9, 12-11: Fehlerüberprüfungen
-# 2.13.1: 2020-07-22: erste drei Zeilen
+# 2.13.1: 2020-07-22: erste drei Zeilen dieser Datei
+# 2.13.2: 2020-07-23: Fehlermeldungen überarbeitet
 
 # --------------------------------------------------------------
 # Abhängigkeiten:
@@ -64,13 +65,26 @@
 # sortiert   (Filterung)      (Neuaufbau)        haeufigkeiten
 #                                                haeufigkeiten (Sortierung) sortiert3 
 
+# --------------------------------------------------------------
+# Fehlermeldungen:
+
+# ---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen
+# ---Warnung: nur "","A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen
+# ---Warnung; nur "","L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen
+# ---Warnung: Go-Datei und Stop-Datei gleichzeitig angegeben; ignoriert
+# ---Warnung: Stop-Datei <stop_name> kann nicht geöffnet werden. Ignoriert.
+# ---Warnung: Go-Datei <go_name> kann nicht geöffnet werden. Ignoriert.
+#
+# ---Eingabedatei <in_name> kann nicht geöffnet werden. Programmabbruch
+# ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch
+
 
 # ==============================================================
 # (1) Programm-Parameter: global
 
 programm_name    = "zaehlen.py"
-programm_vers    = "2.13.1"
-programm_datum   = "2020-07-22"
+programm_vers    = "2.13.2"
+programm_datum   = "2020-07-23 "
 programm_autor   = "Günter Partosch"
 autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
 autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
@@ -262,7 +276,7 @@ try:
     from zaehlen_ini import *
 except ImportError:
     # lokal Programm-Parameter und Variablen initialisieren
-    print("---Warnung: zaehlen_ini.py nicht gefunden")
+    print("---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen")
     in_name          = "D:/ein.txt"
     out_name         = "D:/aus.txt"
     stop_name        = ""
@@ -466,13 +480,11 @@ if interaktiv or (sys.flags.interactive):
 
     if not OK: sort1_request    = __request(__request_text(sort1_text, sort_first))
     if not (sort1_request in ["","A+", "A-", "a+", "a-"]):
-        print('---nur "","A+", "A-", "a+", "a-" zulässig')
-        print('---Voreinstellung genommen')
+        print('---Warnung: nur "","A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen')
         sort1_request = ""
     if not OK: sort2_request    = __request(__request_text(sort2_text, sort_second))
     if not (sort2_request in ["","L+", "L-", "F+", "F-"]):
-        print('---nur "","L+", "L-", "F+", "F-" zulässig') 
-        print('---Voreinstellung genommen')
+        print('---Warnung; nur "","L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen')
         sort1_request = ""
         
     if not OK: out_request      = __request(__request_text(out_text, out_name))
@@ -519,7 +531,7 @@ if interaktiv or (sys.flags.interactive):
     # prüfen, ob Go-Datei und Stop-Datei gleichzeitig angegeben sind
     
     if (stop_name != "") and (go_name != ""):
-        print("Go-Datei und Stop-Datei gleichzeitig angegeben! -- Daher ignoriert.")
+        print("---Warnung: Go-Datei und Stop-Datei gleichzeitig angegeben; ignoriert")
         stop_name = ""
         go_name = ""
 
@@ -531,14 +543,14 @@ if (stop_name != ""):
     try:
         stop = open(stop_name, encoding='utf-8', mode='r')# Stop-Datei
     except IOError:
-        print("---Stop-Datei", stop_name, "kann nicht geöffnet werden. Ignoriert.")
+        print("---Warnung: Stop-Datei", stop_name, "kann nicht geöffnet werden. Ignoriert.")
         stop_name = ""
         
 if (go_name != ""):
     try:
         go = open(go_name, encoding='utf-8', mode='r')    # Go-Datei
     except IOError:
-        print("---Go-Datei", go_name, "kann nicht geöffnet werden. Ignoriert.")
+        print("---Warnung: Go-Datei", go_name, "kann nicht geöffnet werden. Ignoriert.")
         go_name = ""
 
 # --------------------------------------------------------------

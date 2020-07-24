@@ -24,13 +24,21 @@
 # 1.9.0: 2017-07-17: neues Konzept für -d, -ld, -cd, -sd
 # 1.10.0: 2017-07-19: Berechnung von Modus und Summen für -d, -ld, -cd, -sd
 
+# --------------------------------------------------------------
+# Fehlermeldungen
 
+# ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch
+# ---Datei <datei> kann nicht geöffnet werden. Programmabbruch!
+# ---Datei <datei> ist vom falschen Typ: Programmabbruch!
+# ---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!
+
+    
 # ==============================================================
 # (1) Programm-Parameter: global
 
 programm_name    = "multizaehlen.py"
-programm_vers    = "1.10.6"
-programm_datum   = "2020-07-22"
+programm_vers    = "1.10.7"
+programm_datum   = "2020-07-24"
 programm_autor   = "Günter Partosch"
 autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
 autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
@@ -424,7 +432,7 @@ for f in range(1, len_alle):
     if (P_programmdaten[f][4] != x_go_name): kompatibel = False
 
 if not kompatibel:
-    sys.stderr.write("---Strukturen sind nicht kompatibel. Programmabbruch!")
+    sys.stderr.write("---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!")
     exit()
 
 

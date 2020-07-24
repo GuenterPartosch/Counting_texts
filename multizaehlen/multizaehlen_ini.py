@@ -1,6 +1,5 @@
-#!/usr/bin/python3.8
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
-# please adjust these two lines if necessary
 
 # multizaehlen_ini.py
 # Stand: 2018-08-17
