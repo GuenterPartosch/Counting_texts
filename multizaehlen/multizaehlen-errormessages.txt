@@ -1,0 +1,7 @@
+Fehlermeldungen bei multizaehlen
+
+---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch
+---Datei <datei> kann nicht geöffnet werden. Programmabbruch!
+---Datei <datei> ist vom falschen Typ: Programmabbruch!
+---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!
+

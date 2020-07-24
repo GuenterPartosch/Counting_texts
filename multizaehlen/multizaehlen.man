@@ -4,8 +4,8 @@
                        [-t WORD_TEMPLATE] [-v]
                        files [files ...]
 
-vergleichendes Auszählen von Texten [multizaehlen.py; Version: 1.10.6
-(2020-07-22)]
+vergleichendes Auszählen von Texten [multizaehlen.py; Version: 1.10.7
+(2020-07-24)]
 
 Nicht-optionaler Parameter:
   files                 zu verarbeitende Dateien (*.plk)
