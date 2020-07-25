@@ -1,7 +1,7 @@
 # multizaehlen (Overview)
 
 * [multizaehlen.exe](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen.exe "Windows executables of multizaehlen.py"): 
-  Windows executables of multizaehlen.py
+  Windows executable of multizaehlen.py
 * [multizaehlen.man](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen.man "manpage"): 
   manpage file of zaehlen (with call and options)
 * [multizaehlen.py](https://github.com/GuenterPartosch/Counting_texts/blob/master/multizaehlen/multizaehlen.py "Python program"): 
