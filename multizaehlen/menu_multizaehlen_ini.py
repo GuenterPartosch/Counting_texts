@@ -20,7 +20,7 @@
 from multizaehlen_ini import * # Konfiguration/Initialisierung von multizaehlen.py
 
 # ----------------------------------------------------
-instverz      = 'D:/Python/zaehlen'
+instverz      = '.'
 programmname  = "multizaehlen.py"
 programmname2 = "zaehlen2.py"
 programmtitle = "Vergleich von Textauszählungen; Eingabemenü für das Programm "

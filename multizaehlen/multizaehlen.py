@@ -27,7 +27,7 @@
 # --------------------------------------------------------------
 # Fehlermeldungen
 
-# ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch
+# ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch!
 # ---Datei <datei> kann nicht geöffnet werden. Programmabbruch!
 # ---Datei <datei> ist vom falschen Typ: Programmabbruch!
 # ---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!
@@ -103,17 +103,17 @@ P_ges_alle_laengen = [] # Ergebnisdaten (aus ges_alle_laengen) aus allen pkl-Dat
 neu                = {} # Directory zum Sammeln der Ergebnisdaten (sortiert)
 neu3               = [] # nach Sortierung und Umstrukturierung
 
-akk_anz         = 0  # akk. Anzahl (über alle Dateien)
-akk_anz_vor     = 0  # akk. Anzahl (über alle Dateien; vor Filterung) [=akk_anz]
-akk_anz_nach    = 0  # ; nach Filterung
-anz_dat         = [] # Anzahl für die verschiedenen Dateien
-fd_vor          = {} # Directory für Häufigkeitsverteilung vor Filterung 
-fd_nach         = {} # Directory für Häufigkeitsverteilung nach Filterung
-ld_vor          = {} # Directory für Längenverteilung vor Filterung
-ld_nach         = {} # Directory für Längenverteilung nach Filterung
-cd_vor          = {} # Directory für Zeichenverteilung vor Filterung
-cd_nach         = {} # Directory für Zeichenverteilung nach Filterung
-sd_vor          = {} # Directory für Trennzeichenverteilung vor Filterung
+akk_anz            = 0  # akk. Anzahl (über alle Dateien)
+akk_anz_vor        = 0  # akk. Anzahl (über alle Dateien; vor Filterung) [=akk_anz]
+akk_anz_nach       = 0  # ; nach Filterung
+anz_dat            = [] # Anzahl für die verschiedenen Dateien
+fd_vor             = {} # Directory für Häufigkeitsverteilung vor Filterung 
+fd_nach            = {} # Directory für Häufigkeitsverteilung nach Filterung
+ld_vor             = {} # Directory für Längenverteilung vor Filterung
+ld_nach            = {} # Directory für Längenverteilung nach Filterung
+cd_vor             = {} # Directory für Zeichenverteilung vor Filterung
+cd_nach            = {} # Directory für Zeichenverteilung nach Filterung
+sd_vor             = {} # Directory für Trennzeichenverteilung vor Filterung
 
 
 # ==============================================================
@@ -588,12 +588,12 @@ i7 = i4                       # Breite der Kolumne 7 (Anzahl); adaptierbar <-- m
 __ueberschrift("Vergleich von Textauszählungen","=")
 b = 43
 
-aus.write("Name des Programms".ljust(b)    + trenner + programm_name + "\n")
-aus.write("Version des Programms".ljust(b) + trenner + programm_vers + "\n")
-aus.write("Bearbeitungsdatum".ljust(b)     + trenner + programm_datum + "\n")
-aus.write("Autor des Programms".ljust(b)   + trenner + programm_autor + "\n")
-aus.write("E-Mail-Adresse".ljust(b)        + trenner + autor_email + "\n")
-aus.write("Institution".ljust(b)           + trenner + autor_institution + "\n\n")
+aus.write("Name des Programms".ljust(b)    + trenner + leer + programm_name + "\n")
+aus.write("Version des Programms".ljust(b) + trenner + leer + programm_vers + "\n")
+aus.write("Bearbeitungsdatum".ljust(b)     + trenner + leer + programm_datum + "\n")
+aus.write("Autor des Programms".ljust(b)   + trenner + leer + programm_autor + "\n")
+aus.write("E-Mail-Adresse".ljust(b)        + trenner + leer + autor_email + "\n")
+aus.write("Institution".ljust(b)           + trenner + leer + autor_institution + "\n\n")
 
 __ueberschrift("Inhalt","-")
 
@@ -617,21 +617,21 @@ aus.write("\n")
 #                    sort_second, word_template
 
 __ueberschrift("Programm-Parameter","-")
-b = 43
+b = 57
 
-aus.write("Programm-Aufruf".ljust(b) + trenner + aufruf + "\n")
-aus.write(sort1_text.ljust(b)        + trenner + sort_first + "\n")
-aus.write(sort2_text.ljust(b)        + trenner + sort_second + "\n")
-aus.write(out_text.ljust(b)          + trenner + out_name + "\n")
-aus.write(template_text.ljust(b)     + trenner + word_template + "\n")
-aus.write(lengths_text.ljust(b)      + trenner + "[" + p_lengths + ")\n")
-aus.write(rank_text.ljust(b)         + trenner + "[" + p_rank + ")\n")
-aus.write(freq_text.ljust(b)         + trenner + "[" + p_frequency + ")\n")
-aus.write(files_anz_text.ljust(b)    + trenner + "[" + p_files + ")\n")
-aus.write(fd_text.ljust(b)           + trenner + str(frequency_distribution) + "\n")
-aus.write(ld_text.ljust(b)           + trenner + str(length_distribution) + "\n")
-aus.write(sd_text.ljust(b)           + trenner + str(separator_distribution) + "\n")
-aus.write(cd_text.ljust(b)           + trenner + str(character_distribution) + "\n")
+aus.write("Programm-Aufruf".ljust(b) + trenner + leer + aufruf + "\n")
+aus.write(sort1_text.ljust(b)        + trenner + leer + sort_first + "\n")
+aus.write(sort2_text.ljust(b)        + trenner + leer + sort_second + "\n")
+aus.write(out_text.ljust(b)          + trenner + leer + out_name + "\n")
+aus.write(template_text.ljust(b)     + trenner + leer + word_template + "\n")
+aus.write(lengths_text.ljust(b)      + trenner + leer + "[" + p_lengths + ")\n")
+aus.write(rank_text.ljust(b)         + trenner + leer + "[" + p_rank + ")\n")
+aus.write(freq_text.ljust(b)         + trenner + leer + "[" + p_frequency + ")\n")
+aus.write(files_anz_text.ljust(b)    + trenner + leer + "[" + p_files + ")\n")
+aus.write(fd_text.ljust(b)           + trenner + leer + str(frequency_distribution) + "\n")
+aus.write(ld_text.ljust(b)           + trenner + leer + str(length_distribution) + "\n")
+aus.write(sd_text.ljust(b)           + trenner + leer + str(separator_distribution) + "\n")
+aus.write(cd_text.ljust(b)           + trenner + leer + str(character_distribution) + "\n")
 aus.write("\n")
 
 # --------------------------------------------------------------

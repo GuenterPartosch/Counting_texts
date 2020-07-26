@@ -1,8 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
 
 # multizaehlen_ini.py
 # Stand: 2018-08-17
+#        2020-07-26
 
 # Abhängigkeiten:
 # multizaehlen_ini.py
@@ -25,7 +27,7 @@ sd_text       = "Trennzeichen-Verteilung berechnen"
 cd_text       = "Zeichen-Verteilung berechnen"
 
 in_name       = ""
-out_name      = "d:/aus.txt"
+out_name      = "./aus.txt"   # muss ggf. angepasst werden
 word_template = """^.+$"""
 p_lengths     = "1,100"
 p_files       = "1,20"

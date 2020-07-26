@@ -12,10 +12,9 @@
 # + wird von zaehlen.py als Modul geladen
 
 # Anpassungen für in_name und out:name
-in_name          = "D:/ein.txt"     # <== sollte ggf. angepasst werden
-out_name         = "D:/aus.txt"     # <== sollte ggf. angepasst werden
-##in_name          = "./ein.txt"    # ggf. anpassen     
-##out_name         = "./aus.txt"    # ggf. anpassen
+
+in_name          = "./ein.txt"    # ggf. anpassen     
+out_name         = "./aus.txt"    # ggf. anpassen
 
 stop_name        = ""
 go_name          = ""
