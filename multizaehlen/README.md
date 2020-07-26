@@ -12,6 +12,8 @@
   configuration file for multizaehlen.py
 * [multizaehlen-dependencies.txt](./multizaehlen-dependencies.txt "dependencies of multizaehlen.py"): 
   dependencies of multizaehlen.py
+* [multizaehlen-errormessages.txt](./multizaehlen-errormessages.txt "error messages and warnings in multizaehlen.py"):
+  error messages and warnings in multizaehlen.py
 
 ## menu variant
 
