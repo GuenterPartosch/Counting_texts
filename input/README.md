@@ -1,4 +1,4 @@
-﻿# Overview (some example texts ""): 
+﻿# Overview (some example texts): 
 
 ## german example texts
 * [de-grimm.txt](./de-grimm.txt "Grimm fairy tales, part 1"): 
@@ -33,7 +33,7 @@
       french chemistry text
 * [fr-chemie5.txt](./fr-chemie5.txt "french chemistry text"): 
       french chemistry text
-*[fr-Verne-2ans.txt](./fr-Verne-2ans.txt "Deux Ans de vacances"): 
+* [fr-Verne-2ans.txt](./fr-Verne-2ans.txt "Deux Ans de vacances"): 
       Deux Ans de vacances
-*[fr-Verne-Hateras.txt](./fr-Verne-Hateras.txt "Les Aventures du capitaine Hatteras"): 
+* [fr-Verne-Hateras.txt](./fr-Verne-Hateras.txt "Les Aventures du capitaine Hatteras"): 
       Les Aventures du capitaine Hatteras
