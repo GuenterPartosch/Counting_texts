@@ -10,12 +10,6 @@
   Python program
 * [zaehlen_ini.py](./zaehlen_ini.py "configuration file for zaehlen.py"): 
   configuration file for zaehlen.py
-* [zaehlen.man](./zaehlen.man): 
-   manpage of zaehlen.py
-* [zaehlen-dependencies.txt](./zaehlen-dependencies.txt): 
-   dependencies of zaehlen.py
-* [zaehlen-messages.txt](./zaehlen-messages.txt): 
-   error messages of zaehlen.py
 
 ## menu variant
 
@@ -25,5 +19,4 @@
   Python program (menu variant for zaehlen)
 * [menu_zaehlen_ini.py](./menu_zaehlen_ini.py "configuration file for menu_zaehlen.py"): 
   configuration file for menu_zaehlen.py
-* [menu_zaehlen-dependencies.txt](./menu_zaehlen-dependencies.txt):
-   dependencies of menu_zaehlen.py
+

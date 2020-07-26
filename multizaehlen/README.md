@@ -1,7 +1,9 @@
 # multizaehlen (Overview)
 
+## command line variant
+
 * [multizaehlen.exe](./multizaehlen.exe "Windows executables of multizaehlen.py"): 
-  Windows executables of multizaehlen.py
+  Windows executable of multizaehlen.py
 * [multizaehlen.man](./multizaehlen.man "manpage"): 
   manpage file of zaehlen (with call and options)
 * [multizaehlen.py](./multizaehlen.py "Python program"): 
@@ -10,6 +12,8 @@
   configuration file for multizaehlen.py
 * [multizaehlen-dependencies.txt](./multizaehlen-dependencies.txt "dependencies of multizaehlen.py"): 
   dependencies of multizaehlen.py
+
+## menu variant
 
 * [menu_multizaehlen.exe](./menu_multizaehlen.exe "Windows executables of menu_multizaehlen.py"): 
   Windows executables of menu_multizaehlen.py

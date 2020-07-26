@@ -1,6 +1,6 @@
 # Counting_texts
 
-Counts "words" and characters in texts.
+Counts "words" and characters in one or many texts.
 
 ## Folder input
 
