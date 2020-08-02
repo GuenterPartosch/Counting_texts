@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
+# (C) Günter Partosch 2016-2020
+
 # zaehlen.py
 # Programm zum Auszählen von Textdateien
 # ======================================
@@ -33,6 +35,7 @@
 # 2.13.0: 2019-12-13: in 12-8, 12-9, 12-11: Fehlerüberprüfungen
 # 2.13.1: 2020-07-22: erste drei Zeilen dieser Datei
 # 2.13.2: 2020-07-23: Fehlermeldungen überarbeitet
+# 2.13.3: 2020-08-02: Voreinstellungen geändert
 
 # --------------------------------------------------------------
 # Abhängigkeiten:
@@ -83,8 +86,8 @@
 # (1) Programm-Parameter: global
 
 programm_name    = "zaehlen.py"
-programm_vers    = "2.13.2"
-programm_datum   = "2020-07-23 "
+programm_vers    = "2.13.3"
+programm_datum   = "2020-08-02 "
 programm_autor   = "Günter Partosch"
 autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
 autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
@@ -277,8 +280,8 @@ try:
 except ImportError:
     # lokal Programm-Parameter und Variablen initialisieren
     print("---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen")
-    in_name          = "D:/ein.txt"
-    out_name         = "D:/aus.txt"
+    in_name          = "./in.txt"
+    out_name         = "./out.txt"
     stop_name        = ""
     go_name          = ""
     separator        = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
@@ -315,10 +318,10 @@ except IOError:
 # - aktuelle Aufruf-Parameter gewinnen
 # - an lokale Variablen zuweisen
 #
-# python zaehlen.py [-h] [-a] [-f P_FREQUENCY] [-fd] [-G GO_NAME] [-i IN_NAME]
-#                   [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK]
-#                   [-s SEPARATOR] [-S STOP_NAME] [-t WORD_TEMPLATE]
-#                   [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}] [-sd] [-cd] [-v]
+# zaehlen.py [-h] [-a] [-f P_FREQUENCY] [-fd] [-G GO_NAME] [-i IN_NAME]
+#            [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK]
+#            [-s SEPARATOR] [-S STOP_NAME] [-t WORD_TEMPLATE]
+#            [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}] [-sd] [-cd] [-v]
 
 # --------------------------------------------------------------
 # (7-1) Definition der Aufruf-Parameter
@@ -363,7 +366,7 @@ if not interaktiv:
                         help = in_text + "; Voreinstellung: " + "%(default)s",
                         type=argparse.FileType(mode = 'r', encoding = "utf-8"),
                         dest = "in_name",
-                        default = sys.stdin) 
+                        default = in_name) 
     parser.add_argument("-l", "--lengths",
                         help = lengths_text + "; Voreinstellung: " + "%(default)s",
                         dest = "p_lengths",
@@ -376,7 +379,7 @@ if not interaktiv:
                         help    = out_text + "; Voreinstellung: " + "%(default)s",
                         type    = argparse.FileType(mode = 'w', encoding = "utf-8"),
                         dest    = "out_name",
-                        default = sys.stdout) 
+                        default = out_name) 
     parser.add_argument("-r", "--ranking",
                         help = rank_text + "; Voreinstellung: " + "%(default)s",
                         dest = "p_rank",

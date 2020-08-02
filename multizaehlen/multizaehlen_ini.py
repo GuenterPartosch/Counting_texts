@@ -4,11 +4,16 @@
 
 # multizaehlen_ini.py
 # Stand: 2018-08-17
-#        2020-07-26
+#        2020-07-27
+#        2020-08-02 (Voreinstellung geändert)
+
+# (C) Günter Partosch 2018-2010
 
 # Abhängigkeiten:
 # multizaehlen_ini.py
 # + wird in multizaehlen.py als Modul geladen
+
+mz_ini_datum  = "2020-08-02"
 
 files_text    = "zu verarbeitende Dateien (*.plk)"
 files_anz_text= "Beschränkung der Dateien-Zahl (*.plk) mit Zeichenkette"
@@ -27,7 +32,7 @@ sd_text       = "Trennzeichen-Verteilung berechnen"
 cd_text       = "Zeichen-Verteilung berechnen"
 
 in_name       = ""
-out_name      = "./aus.txt"   # muss ggf. angepasst werden
+out_name      = "./out.txt"   # muss ggf. angepasst werden
 word_template = """^.+$"""
 p_lengths     = "1,100"
 p_files       = "1,20"

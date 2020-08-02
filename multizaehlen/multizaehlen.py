@@ -3,13 +3,15 @@
 # please adjust these two lines if necessary
 
 # multizaehlen.py
+
+# (C) Günter Partosch 2017-2020
+
 # Programm zum Auswerten der Auszählungen von Textdateien
 # =======================================================
 # Pickle-Daten werden ausgewertet und zusammengefasst
 
 # noch
 # + auch sonst Variablen aufführen
-# + alle Programme des Bündels zaehlen übersetzen
 
 # History:
 # 1.0.0: 2017-02-17: Anfang
@@ -24,6 +26,8 @@
 # 1.9.0: 2017-07-17: neues Konzept für -d, -ld, -cd, -sd
 # 1.10.0: 2017-07-19: Berechnung von Modus und Summen für -d, -ld, -cd, -sd
 
+# 1.10.9: 2020-08-02: Voreinstellungen geändert
+
 # --------------------------------------------------------------
 # Fehlermeldungen
 
@@ -37,8 +41,8 @@
 # (1) Programm-Parameter: global
 
 programm_name    = "multizaehlen.py"
-programm_vers    = "1.10.7"
-programm_datum   = "2020-07-24"
+programm_vers    = "1.10.9"
+programm_datum   = "2020-08-02"
 programm_autor   = "Günter Partosch"
 autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
 autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
@@ -153,7 +157,7 @@ except ImportError:
     cd_text       = "Zeichen-Verteilung berechnen"
 
     in_name       = ""
-    out_name      = "d:/aus.txt"
+    out_name      = "./out.txt"
     word_template = """^.+$"""
     p_lengths     = "1,100"
     p_files       = "1,20"
@@ -210,11 +214,11 @@ for f in range(len(sys.argv)):
 # (6-3) Definition und Beschreibung der Aufrufparameter:
 
 # Aufruf:
-# python multizaehlen.py [-h] [-a] [-v] [-f P_FREQUENCY] [-fd] [-fi P_FILES]
-#                        [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK]
-#                        [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-,D+,D-}]
-#                        [-t WORD_TEMPLATE]
-#                        files [files ...]
+# multizaehlen.py [-h] [-a] [-v] [-f P_FREQUENCY] [-fd] [-fi P_FILES]
+#                 [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK]
+#                 [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-,D+,D-}]
+#                 [-t WORD_TEMPLATE]
+#                 files [files ...]
 # Schlüsselwort-Parameter: -a/--author, -v/--version, -f/--frequencies, -fd/frequency_distribution, -l/--lengths,
 #                          -ld/--length_distribution, -o/--output, -r/--ranking, -s/--sort1, -s2/--sort2,
 #                          -t/--template -fi/--files
@@ -259,7 +263,8 @@ parser.add_argument("-o", "--output",
                     help    = out_text + "; Voreinstellung: " + "%(default)s",
                     type    = argparse.FileType(mode = 'w', encoding = "utf-8"),
                     dest    = "out_name",
-                    default = sys.stdout) 
+##                    default = sys.stdout) 
+                    default = out_name) 
 parser.add_argument("-r", "--ranking",
                     help    = rank_text + "; Voreinstellung: " + "%(default)s",
                     dest    = "p_rank",

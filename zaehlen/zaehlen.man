@@ -2,7 +2,7 @@
        [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK] [-s SEPARATOR] [-S STOP_NAME] 
 	   [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}] [-sd] [-t WORD_TEMPLATE] [-v]
 
-Auszählen eines Textes [zaehlen.py; Version: 2.13.1 (2020-07-23)]
+Auszählen eines Textes [zaehlen.py; Version: 2.13.3 (2020-08-02)]
 
 Optionale Parameter:
   -h, --help            show this help message and exit
@@ -21,7 +21,7 @@ Optionale Parameter:
 						Voreinstellung:
   -i IN_NAME, --input IN_NAME
                         Eingabedatei(en) festlegen; 
-						Voreinstellung: <_io.TextIOWrapper name='<stdin>' mode='r' encoding='utf-8'>
+						Voreinstellung: ./ein.txt
   -l P_LENGTHS, --lengths P_LENGTHS
                         Beschränkung auf best. Wortlängen; 
 						Voreinstellung: 1,100
@@ -30,7 +30,7 @@ Optionale Parameter:
 						Voreinstellung: False
   -o OUT_NAME, --output OUT_NAME
                         Ausgabedatei(en) festlegen; 
-						Voreinstellung: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+						Voreinstellung: ./out.txt
   -r P_RANK, --ranking P_RANK
                         Beschränkung auf best. Rangfolge; 
 						Voreinstellung: 1,50000

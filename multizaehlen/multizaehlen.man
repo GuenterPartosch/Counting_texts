@@ -4,8 +4,8 @@
                        [-t WORD_TEMPLATE] [-v]
                        files [files ...]
 
-vergleichendes Auszählen von Texten [multizaehlen.py; Version: 1.10.7
-(2020-07-24)]
+vergleichendes Auszählen von Texten [multizaehlen.py; Version: 1.10.9
+(2020-08-02)]
 
 Nicht-optionaler Parameter:
   files                 zu verarbeitende Dateien (*.plk)
@@ -31,7 +31,7 @@ Optionale Parameter:
                         Wortlängen-Verteilung berechnen; Voreinstellung: False
   -o OUT_NAME, --output OUT_NAME
                         Ausgabedatei; Voreinstellung: <_io.TextIOWrapper
-                        name='<stdout>' mode='w' encoding='utf-8'>
+                        name=./out.txt
   -r P_RANK, --ranking P_RANK
                         Beschränkung auf bestimmte Rangfolge; Voreinstellung:
                         1,60000
