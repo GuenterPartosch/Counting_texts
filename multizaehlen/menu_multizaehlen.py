@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
+# (C) Günter Partosch 2017-2018
+
 # menu_multizaehlen.py
 # Stand: 2018-08-19
 
@@ -9,8 +11,8 @@
 # 1.1.0: 2017-02-19: erstmals funktionsfähig
 # 1.2.0: 2017-07-18: Erweiterung und neues Konzept
 
-m_mz_datum   = "2020-07-22"
-m_mz_version = "1.2.6"
+m_mz_datum   = "2020-08-04"
+m_mz_version = "1.2.7"
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -37,7 +39,7 @@ import re                                      # reguläre Ausdrücke
 sl      = "/"                                  # Schrägstrich als Verzeichnistrennzeichen
 ##cd      = sys.path[0]                      # enthält akt. Verzeichnis
 ##cd      = cd.replace("\\", sl)             # normiert auf "/" als Trennstrich
-datum   = "2018-08-20"                         # Datum der letzten Änderung
+datum   = "2018-08-04"                         # Datum der letzten Änderung
 dir_sep = """[\/]"""                           # Trennzeichen für Verzeichnisnamen
 ul      = "_"                                  # in create_filenames benutzt
 p       = re.compile(dir_sep)
@@ -144,7 +146,7 @@ def reset_entry_fields():
     
 def start():
     """wertet die Eingabefelder aus und startet zaehlen.py."""
-    aufruf   = ["python", instverz + sl + programmname]
+    aufruf   = ["python", programmname]
     optionen = ""
 
     for f in range(len(conf)):
@@ -181,7 +183,7 @@ def start():
     fehlermeld = x.stderr.read()
     if (len(fehlermeld) > 0):
         showerror(title="Fehler", message = fehlermeld, icon = ERROR)
-    showinfo(title="Bearbeitung", message = "beendet")
+    showinfo(title="Bearbeitung", message = "Programm menu_multizaehlen beendet")
 
 def init_buttons():
     """legt Buttons an und initialisiert sie."""

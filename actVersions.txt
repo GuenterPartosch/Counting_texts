@@ -1,16 +1,15 @@
 Actual versions
 ===============
 
-menu_multizaehlen_datum       = "2020-07-27" # menu_multizaehlen
-menu_multizaehlen_version     = "1.2.6"      # menu_multizaehlen
+menu_multizaehlen_datum       = "2020-08-04" # menu_multizaehlen
+menu_multizaehlen_version     = "1.2.7"      # menu_multizaehlen
 
-menu_multizaehlen_ini_datum   = "2020-07-27" # menu_multizaehlen_ini
-menu_multizaehlen_ini_version = "1.1.5"      # menu_multizaehlen_ini
+menu_multizaehlen_ini_datum   = "2020-08-04" # menu_multizaehlen_ini
+menu_multizaehlen_ini_version = "1.1.6"      # menu_multizaehlen_ini
 
-menue_zaehlen_datum           = "2018-08-22" # menu_zaehlen
-menue_zaehlen_version         = "2018-08-22" # menu_zaehlen
+menue_zaehlen_datum           = "2018-08-04" # menu_zaehlen
 
-menue_zaehlen_ini_datum       = "2020-07-27" # menu_zaehlen_ini
+menue_zaehlen_ini_datum       = "2020-08-02" # menu_zaehlen_ini
 
 multizaehlen_datum            = "2020-08-02" # multizaehlen
 multizaehlen_version          = "1.10.9"     # multizaehlen

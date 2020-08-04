@@ -3,6 +3,9 @@
 # please adjust these two lines if necessary
 
 # menu_multizaehlen_ini.py
+
+# (C) Günter Partzosch 2018-2020
+
 # Stand: 2018-08-20
 # 1.0.0: 2017-02-19: Anfangsversion; aus menu_zaehlen_ini.py entwickelt
 # 1.1.0: 2017-07-18: Erweiterung für -sd, -cd
@@ -10,9 +13,11 @@
 # 1.1.2: 2018-08-17
 # 1.1.3: 2018-08-21: Variable cd
 # 1.1.4: 2020-07-22: erste drei Zeilen dieser Datei
+# 1.1.5: 2020-07-27: kleine Korrekturen
+# 1.1.6: 2020-08-04: kleine Korrekturen
 
 # --------------------------------------------------------
-# Abhängigkeiten
+# Abhängigkeiten:
 # menu_multizaehlen_ini.py
 # + wird von menu_multizaehlen.py als Modul geladen
 # + lädt multizaehlen_ini.py als Modul
@@ -20,10 +25,33 @@
 from multizaehlen_ini import * # Konfiguration/Initialisierung von multizaehlen.py
 
 # ----------------------------------------------------
-instverz      = '.'
-programmname  = "multizaehlen.py"
-programmname2 = "zaehlen2.py"
-programmtitle = "Vergleich von Textauszählungen; Eingabemenü für das Programm "
+instverz         = '.'
+programmname     = "multizaehlen.py"
+programmname2    = "zaehlen.py"
+programmtitle    = "Vergleich von Textauszählungen; Eingabemenü für das Programm "
+
+menu_multizaehlen_datum       = "2020-08-04" # menu_multizaehlen
+menu_multizaehlen_version     = "1.2.7"      # menu_multizaehlen
+
+menu_multizaehlen_ini_datum   = "2020-08-04" # menu_multizaehlen_ini
+menu_multizaehlen_ini_version = "1.1.6"      # menu_multizaehlen_ini
+
+menue_zaehlen_datum           = "2018-08-04" # menu_zaehlen
+
+menue_zaehlen_ini_datum       = "2020-08-02" # menu_zaehlen_ini
+
+multizaehlen_datum            = "2020-08-02" # multizaehlen
+multizaehlen_version          = "1.10.9"     # multizaehlen
+
+multizaehlen_ini_datum        = "2020-08-02" # multizaehlen_ini
+
+zaehlen_datum                 = "2020-08-02" # zaehlen
+zaehlen_vers                  = "2.13.3"     # zaehlen
+
+zaehlen_ini_datum             = "2020-08-02" # zaehlen_ini
+
+
+
 
 # ----------------------------------------------------
 # Konfiguration für Labels und Felder
@@ -127,26 +155,30 @@ hilfe_text3 = """
 # --------------------------------------------------------
 # Text für Hilfetext "version"
 version_text = """
-menu_multizaehlen.py ---ruft---> menu_multizaehlen_ini.py
-                     ---ruft---> multizaehlen.py
-multizaehlen.py      ---ruft---> multizaehlen_ini.py
-zaehlen2.py          ---ruft---> zaehlen2_ini.py
+Aufrufkette
+=======
+menu_multizaehlen.py 
+   ---ruft---> menu_multizaehlen_ini.py
+   ---ruft---> multizaehlen.py
+multizaehlen.py
+   ---ruft---> multizaehlen_ini.py
+zaehlen.py
+   ---ruft---> zaehlen_ini.py
 
 Versionen der beteiligten Programme:
-
+========================
 menu_multizaehlen.py [Oberfläche zum Aufruf von multizaehlen]
-    1.2.4: 2018-08-19
-multizaehlen.py [vergleichende Darstellung mehrerer Aufrufe von zaehlen2]
-    1.10.5: 2018-08-19
-zaehlen2.py [Programm zum Auszählen von Texten]
-    2.11.7: 2018-08-17
-
-Versionen der beteiligten Konfigurationsdateien:
-
-menu_multizaehlen_ini.py [Konfiguration für menu_multizaehlen.py]
-    1.1.3: 2018-08-19
-multizaehlen_ini.py [Konfiguration für multizaehlen.py]
-    2018-08-17
-zaehlen2_ini.py [Konfiguration für zaehlen2.py]
-    2018-08-17
 """
+version_text += "   " + menu_multizaehlen_version + ": " + menu_multizaehlen_datum
+version_text += "\nmultizaehlen.py [vergleichende Darstellung mehrerer Aufrufe von zaehlen]\n"
+version_text += "   " + multizaehlen_version + ": " + multizaehlen_datum
+version_text += "\nzaehlen.py [Programm zum Auszählen von Texten]\n"
+version_text += "   " + zaehlen_vers + ": " + zaehlen_datum
+version_text += """\n\nVersionen der beteiligten Konfigurationsdateien:
+===============================
+menu_multizaehlen_ini.py [Konfiguration für menu_multizaehlen.py]\n"""
+version_text += "   " + menue_zaehlen_ini_datum
+version_text += "\nmultizaehlen_ini.py [Konfiguration für multizaehlen.py]\n"
+version_text += "   " + multizaehlen_ini_datum
+version_text += "\nzaehlen_ini.py [Konfiguration für zaehlen.py]\n"
+version_text += "   " + zaehlen_ini_datum
