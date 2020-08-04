@@ -2,9 +2,17 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
+# (C) Günter Partosch 2018-2020
+
 # menu_zaehlen.py
 # Stand: 2018-08-20
 # Stand: 2020-07-22
+# Stand: 2020-08-04
+
+
+# =======================================================================
+##m_z_datum = "2020-07-22"
+menue_zaehlen_Datum = "2018-08-04"             # Datum der letzten Änderung
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -26,7 +34,6 @@ import re                                      # reguläre Ausdrücke
 sl      = "/"                                  # Schrägstrich als Verzeichnistrennzeichen
 ##cd      = sys.path[0]                          # enthält akt. Verzeichnis
 ##cd      = cd.replace("\\", sl)                 # normiert auf "/" als Trennstrich
-##menue_zaehlen_Datum = "2018-08-20"             # Datum der letzten Änderung
 dir_sep = """[\/]"""                           # Trennzeichen für Verzeichnisnamen
 ul      = "_"                                  # in create_filenames benutzt
 p       = re.compile(dir_sep)                  # regulärer Ausdruck zum Auftrennen von Verzeichnisnamen
@@ -36,11 +43,11 @@ leer    = ""
 name_in = []
 
 # Sequenzen anlegen
-L = []  # Labels
-E = []  # Eingabefelder (Entry)
-B = []  # Knöpfe (Button)
-V = []  # Statusvariable für Checkboxen
-C = []  # Checkboxen
+L = []                                         # Labels
+E = []                                         # Eingabefelder (Entry)
+B = []                                         # Knöpfe (Button)
+V = []                                         # Statusvariable für Checkboxen
+C = []                                         # Checkboxen
 
 # Sequenzen initialisieren
 for f in range(len(conf)): # Schleife über alle Labels, Eingabefelder, ass. Variablen und Checkboxen 
@@ -52,10 +59,12 @@ for f in range(len(conf)): # Schleife über alle Labels, Eingabefelder, ass. Var
 # Sequenz B (für Buttons) initialisieren
 for f in range(len(button_conf)): # Schleife über alle Schaltflächen
     B.append(None)
+
     
-# -----------------------------------------------------------------------
+# =======================================================================
 # einige Methoden
 
+# -----------------------------------------------------------------------
 def create_filename(nummer, basis):
     """generiert aus nummer und basis einen Dateinamen."""
     l = p.split(basis)
@@ -68,18 +77,22 @@ def create_filename(nummer, basis):
             aus = aus + sl + l[f]
     return aus
 
+# -----------------------------------------------------------------------
 def hilfe1():
     """gibt einen Hilfetext aus."""
     showinfo("Hilfe 1", hilfe_text1)
 
+# -----------------------------------------------------------------------
 def hilfe2():
     """gibt einen Hilfetext aus."""
     showinfo("Hilfe 2", hilfe_text2)
 
+# -----------------------------------------------------------------------
 def hilfe3():
     """gibt einen Hilfetext aus."""
     showinfo("Hilfe 3 ", hilfe_text3)
     
+# -----------------------------------------------------------------------
 def init_entry_fields():
     """initialisiert Labels und Eingabefelder."""
     for f in range(len(conf)): # Schleife über alle Eingabefelder, LabelVariablen und Checkboxens, 
@@ -94,6 +107,7 @@ def init_entry_fields():
             C[f] = Checkbutton(mm, text="", variable=V[f])
             C[f].grid(row=f, column=1, sticky=W, pady=0)
 
+# -----------------------------------------------------------------------
 def show_entry_fields():
     """zeigt die Werte der Eingabefelder an."""
     for f in range(len(conf)): # Schleife über alle Eingabefelder
@@ -102,6 +116,7 @@ def show_entry_fields():
         else:
             print(conf[f][0], ":", V[f].get())
     
+# -----------------------------------------------------------------------
 def clear_entry_fields():
     """löscht die Inhalte der Eingabefelder."""
     for f in range(len(conf)): # Schleife über alle Eingabefelder und Variablen
@@ -110,6 +125,7 @@ def clear_entry_fields():
         else:
             V[f] = 0
 
+# -----------------------------------------------------------------------
 def ask_in_file():
     """erfragt die/den Namen der Eingabedatei(en) und trägt sie/ihn in Eingabefeld ein."""
     global name_in
@@ -119,6 +135,7 @@ def ask_in_file():
     E[0].insert(10, 'Tupel mit ' + str(len(name_in)) + ' Datei(en)')
     E[0].grid(row=0, column=1)
 
+# -----------------------------------------------------------------------
 def ask_go_file():
     """erfragt den Namen der Go-Datei und trägt ihn in Eingabefeld ein."""
     name = askopenfilename()
@@ -126,6 +143,7 @@ def ask_go_file():
     E[3].insert(10, name)
     E[3].grid(row=3, column=1)
 
+# -----------------------------------------------------------------------
 def ask_stop_file():
     """erfragt Namen der Stop-Datei und trägt ihn in Eingabefeld ein."""
     name = askopenfilename()
@@ -133,6 +151,7 @@ def ask_stop_file():
     E[2].insert(10, name)
     E[2].grid(row=2, column=1)
 
+# -----------------------------------------------------------------------
 def ask_out_file():
     """erfragt Namen der Ausgabedatei und trägt ihn in Eingabefeld ein."""
     name = askopenfilename()
@@ -141,6 +160,7 @@ def ask_out_file():
     E[6].insert(10, name)
     E[6].grid(row=2, column=1)
     
+# -----------------------------------------------------------------------
 def reset_entry_fields():
     """setzt Eingabefelder auf Voreinstellungen zurück."""
     for f in range(len(conf)): # Schleife über alle Eingabefelder
@@ -153,9 +173,11 @@ def reset_entry_fields():
             C[f] = Checkbutton(mm, text="", variable=V[f])
             C[f].grid(row=f, column=1, sticky=W, pady=0)
     
+# -----------------------------------------------------------------------
 def start():
     """wertet die Eingabefelder aus und startet zaehlen.py."""
-    aufruf   = ["python", instverz + sl + programmname]
+##    aufruf   = ["python", instverz + sl + programmname]
+    aufruf   = ["python", programmname]
     optionen = ""
 
     for f in range(len(conf)):           # Schleife über alle Eingabefelder/Checkboxen
@@ -204,8 +226,9 @@ def start():
         fehlermeld = x.stderr.read()
         if (len(fehlermeld) > 0):
             showerror(title="Fehler", message = fehlermeld, icon = ERROR)
-    showinfo(title="Bearbeitung", message = "beendet")
+    showinfo(title="Bearbeitung", message = "Programm menu_zaehlen beendet")
 
+# -----------------------------------------------------------------------
 def init_buttons():
     """legt Buttons an und initialisiert sie."""
     for f in range(len(button_conf)): # Schleife über alle Schaltflächen
@@ -218,11 +241,12 @@ def init_buttons():
         B[f]      = eval(b_string1)
         eval(b_string2)
 
+# -----------------------------------------------------------------------
 def version():
     """gibt Versionsdaten aus."""
     showinfo("Hilfe", version_text)
     
-# -----------------------------------------------------------------------
+# =======================================================================
 mm = Tk()
 mm.title(programmtitle + programmname)
 init_entry_fields()

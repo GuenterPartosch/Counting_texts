@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
+# (C) Günter Partosch 2018-2020
+
 # menu_zaehlen_ini.py
 # Stand: 2018-08-20
 # Stand: 2019-12-12
-# Stand: 2020-07-22
+# Stand: 2020-07-27
+# Stand: 2020-08-04
 
 # --------------------------------------------------------
 # Abhängigkeiten
@@ -19,19 +22,25 @@ from zaehlen_ini import * # Konfiguration/Initialisierung von zaehlen.py
 
 # --------------------------------------------------------
 #instverz      = 'D:/Python/zaehlen'
-instverz     = 'C:/Users/guent/Documents/python/zaehlen'        # Pfad zum ausführbaren Pogramm, ggf. anpassen
+instverz     = '.'                                              # Pfad zum ausführbaren Pogramm, ggf. anpassen
 programmname = "zaehlen.py"
 programmtitle= "Auszählen eines Textes; Eingabemenü für das Programm "
-menue_zaehlen_ini_Datum  = "2020-07-22"                         # Datum der letzten Änderung 
-menue_zaehlen_Datum      = "2020-07-22"                         # Datum der letzten Änderung
 
-# Konfiguration für Labels und Felder/Checkboxen
+menue_zaehlen_ini_Datum  = "2020-08-04"                         # Datum der letzten Änderung 
+menue_zaehlen_Datum      = "2020-08-04"                         # Datum der letzten Änderung
+programm_vers            = "2.13.3"                             # zaehlen.py: Version
+programm_datum           = "2020-08-02 "                        # zaehlen.py: Datum der letzten Änderung
+zaehlen_ini_Datum        = "2020-08-02"                         # zaehlen_ini.py: Datum der letzten Änderung
+
+# --------------------------------------------------------
+# Konfiguration für Labels und Felder/Checkboxen:
+#
 # Sequenz von 4-elementigen Listen:
 # (Label, assoziierte Variable, assoziierter Aufruf-Parameter, Parameter-Typ)
-#   Label: Text, der das Feld kennzeichnet
-#   assoziierte Variable: Vorbesetzung des Feldes (aus zaehlen_ini.py)
-#   assoziierter Aufruf-Parameter: Aufruf-Parameter, den zaehlen.py erwartet
-#   Parameter-Typ: Hinweis, wie Eingaben weiter bearbeitet werden
+#   + Label: Text, der das Feld kennzeichnet
+#   + assoziierte Variable: Vorbesetzung des Feldes (aus zaehlen_ini.py)
+#   + assoziierter Aufruf-Parameter: Aufruf-Parameter, den zaehlen.py erwartet
+#   + Parameter-Typ: Hinweis, wie Eingaben weiter bearbeitet werden
 #     1: Parameter erwartet einen Wert; spezielle Behandlung bei leerer Eingabe
 #     2: Parameter erwartet einen Wert; wird normal weiter verarbeitet
 #     3: Parameter erwartet keinen Wert
@@ -55,9 +64,11 @@ conf = [
 ("[C3] Zeichen-Verteilung berechnen",               character_distribution,"-cd",4)
 ]
 
+# --------------------------------------------------------
 # Konfiguration für Buttons
+
 button_conf = [
-('[B0] Durchsuchen... [Eingabedatei(en)]', "ask_in_file",         0, 2),
+('[B0] Durchsuchen... [Eingabedatei(en)]', "ask_in_file",     0, 2),
 ('[B1] Durchsuchen... [Stop-Datei]',   "ask_stop_file",       2, 2),
 ('[B2] Durchsuchen... [Go-Datei]',     "ask_go_file",         3, 2),
 ##('[B3] Durchsuchen... (Ausgabedatei)', "ask_out_file",        6, 2),
@@ -73,6 +84,7 @@ button_conf = [
 
 # --------------------------------------------------------
 # Text für Hilfetext 1
+
 hilfe_text1 = programmtitle + programmname + ':\n\n'
 hilfe_text1 += "Es stehen folgende Eingabefelder/Checkboxen zur Verfügung (Voreinstellung in runden Klammern):\n\n"
 for f in range(len(conf)):
@@ -80,12 +92,14 @@ for f in range(len(conf)):
 
 # --------------------------------------------------------
 # Text für Hilfetext 2
+
 hilfe_text2 = "Es gibt folgende Schaltflächen:\n\n"
 for f in range(len(button_conf)): 
     hilfe_text2 += str(button_conf[f][0]) + "; ruft '" + str(button_conf[f][1]) + "'\n"
 
 # --------------------------------------------------------
 # Text für Hilfetext 3
+
 hilfe_text3 = """
 Erläuterungen:
 
@@ -129,21 +143,26 @@ Erläuterungen:
 """
 
 # --------------------------------------------------------
-# Text für Hilfetext "version"
+# Texte für Hilfetext "version"
+
 version_text = """
-menu_zaehlen.py     ---ruft---> menu_zaehlen_ini.py2
-                    ---ruft---> zaehlen.py
-zaehlen.py          ---ruft---> zaehlen_ini.py
+Aufrufkette:
+============
+menu_zaehlen.py
+    ---ruft---> menu_zaehlen_ini.py
+    ---ruft---> zaehlen.py
+zaehlen.py
+    ---ruft---> zaehlen_ini.py
 
 Versionen der beteiligten Programme:
-
+==========================
 zaehlen.py [Programm zum Auszählen von Texten]
     """ + programm_vers + ", " + programm_datum + """
 menu_zaehlen.py [Menü für den Aufruf von zaehlen.py]
     """ + menue_zaehlen_Datum + """
 
 Versionen der beteiligten Konfigurationsdateien:
-
+======================================
 menu_zaehlen_ini.py [Konfiguration für menu_zaehlen.py]
     """ + menue_zaehlen_ini_Datum + """
 zaehlen_ini.py [Konfiguration für zaehlen.py]
