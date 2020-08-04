@@ -3,7 +3,7 @@
 ## command line variant
 
 * [multizaehlen.exe](./multizaehlen.exe "Windows executables of multizaehlen.py"): 
-  Windows executable of multizaehlen.py
+  Windows executable of multizaehlen.py  (temp. withdrawn)
 * [multizaehlen.man](./multizaehlen.man "manpage"): 
   manpage file of zaehlen (with call and options)
 * [multizaehlen.py](./multizaehlen.py "Python program"): 
@@ -23,6 +23,6 @@
   Python program (menu variant for multizaehlen.py)
 * [menu_multizaehlen_ini.py](./menu_multizaehlen_ini.py "configuration file for menu_multizaehlen.py"): 
   configuration file for menu_multizaehlen.py
-  specification file for menu_multizaehlen.exe
+  specification file for menu_multizaehlen.exe  (withdrawn)
 * [menu_multizaehlen-dependencies.txt](./menu_multizaehlen-dependencies.txt "dependencies of menu_multizaehlen.py"): 
   dependencies of menu_multizaehlen.py
