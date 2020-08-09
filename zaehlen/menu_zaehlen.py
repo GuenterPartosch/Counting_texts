@@ -7,12 +7,21 @@
 # menu_zaehlen.py
 # Stand: 2018-08-20
 # Stand: 2020-07-22
-# Stand: 2020-08-04
-
+# Stand: 2020-08-07
+# Stand: 2020-08-08 (Ausgabe-Strings parametrisiert)
+# Stand: 2020-08-09 (Überprüfung der Eingabewerte)
+ 
+# Vorhaben:
+# + Fehlerbehandlung bei unzulässigen Eingaben (x)
+# + unterschiedliche ini-Dateien für verschiedene Sprachen
+# + generell: andere ini-Dateien erlauben
+# + Laden der ini-Datei robuster gestalten
+# + strings ggf. umschreiben mit Platzhalter (x)
+# +  verbose abschaltbar
 
 # =======================================================================
 ##m_z_datum = "2020-07-22"
-menue_zaehlen_Datum = "2018-08-04"             # Datum der letzten Änderung
+menue_zaehlen_Datum = "2018-08-09"             # Datum der letzten Änderung
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -20,8 +29,9 @@ menue_zaehlen_Datum = "2018-08-04"             # Datum der letzten Änderung
 # + lädt menu_zaehlen_ini.py als Modul
 # + ruft zaehlen.py auf
 
-# -----------------------------------------------------------------------
-from menu_zaehlen_ini import *                 # Initialisierungsdatei des Programms menu_zaehlen.py
+# =======================================================================
+# Importe
+
 import sys                                     # wird für path verwendet
 import subprocess                              # Starten/Beobachten von Subprozessen
 from tkinter import *                          # Tk
@@ -29,25 +39,30 @@ from tkinter.filedialog import askopenfilenames# Dateinamen erfragen in Tk
 from tkinter.filedialog import askopenfilename # einen Dateinamen erfragen in Tk
 from tkinter.messagebox import *               # Ausgabe in Message-Boxen
 import re                                      # reguläre Ausdrücke
+from menu_zaehlen_ini import *                 # Initialisierungsdatei des Programms menu_zaehlen.py
 
-# -----------------------------------------------------------------------
-sl      = "/"                                  # Schrägstrich als Verzeichnistrennzeichen
+# =======================================================================
+# Initialisierungen
+
 ##cd      = sys.path[0]                          # enthält akt. Verzeichnis
 ##cd      = cd.replace("\\", sl)                 # normiert auf "/" als Trennstrich
-dir_sep = """[\/]"""                           # Trennzeichen für Verzeichnisnamen
-ul      = "_"                                  # in create_filenames benutzt
-p       = re.compile(dir_sep)                  # regulärer Ausdruck zum Auftrennen von Verzeichnisnamen
+sl          = "/"                              # Schrägstrich als Verzeichnistrennzeichen
+dir_sep     = """[\/]"""                       # Trennzeichen für Verzeichnisnamen
+ul          = "_"                              # in create_filenames benutzt
+p           = re.compile(dir_sep)              # regulärer Ausdruck zum Auftrennen von Verzeichnisnamen
+no_call     = False                            # Flag: der Aufruf soll nicht durchgeführt werden
+set_in_file = False                            # Flag: Name der Eingabedatei Eingabedatei wurde per Auswahl festgelegt
 
 # Hilfsvariable
-leer    = ""
-name_in = []
+leer        = ""
+name_in     = []
 
 # Sequenzen anlegen
-L = []                                         # Labels
-E = []                                         # Eingabefelder (Entry)
-B = []                                         # Knöpfe (Button)
-V = []                                         # Statusvariable für Checkboxen
-C = []                                         # Checkboxen
+L           = []                               # Labels
+E           = []                               # Eingabefelder (Entry)
+B           = []                               # Knöpfe (Button)
+V           = []                               # Statusvariable für Checkboxen
+C           = []                               # Checkboxen
 
 # Sequenzen initialisieren
 for f in range(len(conf)): # Schleife über alle Labels, Eingabefelder, ass. Variablen und Checkboxen 
@@ -78,19 +93,74 @@ def create_filename(nummer, basis):
     return aus
 
 # -----------------------------------------------------------------------
+def check(parameter, value, type):
+    """checks compatibility of parameter and value."""
+
+    global no_call, set_in_file
+    
+    result = True
+    if parameter in ["-s1"]:                                            # Parameter -s1
+        if value in ["a+", "a-", "A+", "A-"]:
+            pass                                                        # -- alles OK
+        else:
+            showerror(title=error_text, message = err_value_text.format(parameter, value), icon = ERROR)
+            result = False
+    elif parameter in ["-s2"]:                                          # Parameter -s2
+        if value in ["L+", "L-", "F+", "F-"]:
+            pass                                                        # -- alles OK
+        else:
+            showerror(title=error_text, message = err_value_text.format(parameter, value), icon = ERROR)
+            result = False
+    elif parameter in ["-l", "-r", "-f"]:                               # Parameter -l, -r, -f
+        n, m = eval("(" + str(value) + ")")
+        if isinstance(n, int) and isinstance(m, int) and (n <= m):
+            pass                                                        # -- alles OK
+        else:
+            showerror(title=error_text, message = err_value_text.format(parameter, value), icon = ERROR)
+            result = False
+    elif parameter in ["-G", "-S"]:                                     # Parameter -S, -G
+        try:
+            tmp = open(value, encoding="utf-8", mode="r")               # -- Versuch, Datei zu öffnen
+            tmp.close()
+        except FileNotFoundError:                                       # -- nicht OK
+            showerror(title=error_text, message = err1_file_text.format(parameter, value), icon = ERROR)
+            no_call = True                                              # -- kein Aufruf später
+            result  = False
+    elif parameter in ["-o"]:                                           # Parameter -o
+        try:
+            tmp = open(value, encoding="utf-8", mode="w")               # -- Versuch, Datei zu öffnen
+            tmp.close()
+        except FileNotFoundError:                                       # -- nicht OK
+            showerror(title=error_text, message = err1_file_text.format(parameter, value), icon = ERROR)
+            no_call = True                                              # -- kein Aufruf später
+            result  = False
+    elif parameter in ["-i"]:                                           # Parameter -i
+        if set_in_file:
+            pass
+        else:
+            try:
+                tmp = open(value, encoding="utf-8", mode="r")           # -- Versuch, Datei zu öffnen
+                tmp.close()
+            except FileNotFoundError:                                   # -- nicht OK
+                showerror(title=error_text, message = err2_file_text.format(parameter, value), icon = ERROR)
+                no_call = True                                          # -- kein Aufruf später
+                result  = False
+    return result
+
+# -----------------------------------------------------------------------
 def hilfe1():
     """gibt einen Hilfetext aus."""
-    showinfo("Hilfe 1", hilfe_text1)
+    showinfo(msg1, hilfe_text1)
 
 # -----------------------------------------------------------------------
 def hilfe2():
     """gibt einen Hilfetext aus."""
-    showinfo("Hilfe 2", hilfe_text2)
+    showinfo(msg2, hilfe_text2)
 
 # -----------------------------------------------------------------------
 def hilfe3():
     """gibt einen Hilfetext aus."""
-    showinfo("Hilfe 3 ", hilfe_text3)
+    showinfo(msg3, hilfe_text3)
     
 # -----------------------------------------------------------------------
 def init_entry_fields():
@@ -128,11 +198,14 @@ def clear_entry_fields():
 # -----------------------------------------------------------------------
 def ask_in_file():
     """erfragt die/den Namen der Eingabedatei(en) und trägt sie/ihn in Eingabefeld ein."""
-    global name_in
+    
+    global name_in, set_in_file
+    
     name_in = []
     name_in = askopenfilenames()
-    E[0] = Entry(mm)
-    E[0].insert(10, 'Tupel mit ' + str(len(name_in)) + ' Datei(en)')
+    E[0]    = Entry(mm)
+    E[0].insert(10, tuple_text.format(str(len(name_in))))
+    set_in_file = True
     E[0].grid(row=0, column=1)
 
 # -----------------------------------------------------------------------
@@ -176,6 +249,18 @@ def reset_entry_fields():
 # -----------------------------------------------------------------------
 def start():
     """wertet die Eingabefelder aus und startet zaehlen.py."""
+
+# conf : Sequenz von 4-elementigen Listen:
+# (Label, assoziierte Variable, assoziierter Aufruf-Parameter, Parameter-Typ)
+#   + Label: Text, der das Feld kennzeichnet
+#   + assoziierte Variable: Vorbesetzung des Feldes (aus zaehlen_ini.py)
+#   + assoziierter Aufruf-Parameter: Aufruf-Parameter, den zaehlen.py erwartet
+#   + Parameter-Typ: Hinweis, wie Eingaben weiter bearbeitet werden
+#     1: Parameter erwartet einen Wert; spezielle Behandlung bei leerer Eingabe
+#     2: Parameter erwartet einen Wert; wird normal weiter verarbeitet
+#     3: Parameter erwartet keinen Wert
+#     4: wie 3; zusätzlich wird eine Checkbox abgefragt
+
 ##    aufruf   = ["python", instverz + sl + programmname]
     aufruf   = ["python", programmname]
     optionen = ""
@@ -185,19 +270,21 @@ def start():
         zwi_val = ""
         par     = conf[f][2]
         default = conf[f][1]
-        if (typ == 2):                   # (2) Parameter erwartet einen Wert; wird normal weiter verarbeitet
+        if (typ == 2):                   # (2) Parameter erwartet einen Wert; wird normal weiter verarbeitet; -s, -S, -G, -s1, -s2, -l, -r, -f
             zwi = E[f].get()
             if (zwi not in [leer, default]):
-                aufruf.append(par); aufruf.append(zwi)
+                if check(par, zwi, typ):
+                    aufruf.append(par); aufruf.append(zwi)
         elif (typ == 3):                 # (3) Parameter erwartet keinen Wert
             zwi = E[f].get()
             if (zwi not in ["0", leer]):
                 aufruf.append(par)
-        elif (typ == 1):                 # (1) Parameter erwartet einen Wert; spezielle Behandlung bei leerer Eingabe
+        elif (typ == 1):                 # (1) Parameter erwartet einen Wert; spezielle Behandlung bei leerer Eingabe; -i, -o
             zwi = E[f].get()
             if zwi != leer:
-                aufruf.append(par); aufruf.append(zwi)
-        elif (typ == 4):                 # (4) wie 3; zusätzlich wird eine Checkbox abgefragt
+                if check(par, zwi, typ):
+                    aufruf.append(par); aufruf.append(zwi)
+        elif (typ == 4):                 # (4) wie 3; zusätzlich wird eine Checkbox abgefragt; -fd, -ld, -sd, -cd
             zwi = V[f].get()
             if (zwi == 1):
                 aufruf.append(par)
@@ -205,28 +292,29 @@ def start():
             pass
 
     if (len(name_in) == 0):              # kein Name für Eingabedatei
-        showinfo(title="Aufruf", message = aufruf)
-        x = subprocess.Popen(aufruf, stderr=subprocess.PIPE, universal_newlines=True)
-        fehlermeld = x.stderr.read()
-        if (len(fehlermeld) > 0):
-            showinfo(title="Fehler", message = fehlermeld)
+        if not no_call:
+            showinfo(title=call_text, message = aufruf)
+            x = subprocess.Popen(aufruf, stderr=subprocess.PIPE, universal_newlines=True)
+            fehlermeld = x.stderr.read()
+            if (len(fehlermeld) > 0):
+                showinfo(title=error_text, message = fehlermeld)
 
     for f in range(len(name_in)):        # Schleife über alle Eingabedateien
         aufruf_i = aufruf[:]
 
         for g in range(len(aufruf_i)):   # -- Schleife über alle Parameter
             if (aufruf_i[g] == "-i"):
-                g_i = g
+                g_i = g                  # -- Position von -i merken
             if (aufruf_i[g] == "-o"):
-                g_o = g
+                g_o = g                  # -- Position von -o merken
         aufruf_i[g_i + 1] = name_in[f]
-        aufruf_i[g_o + 1] = create_filename(f, aufruf[g_o + 1])
-        showinfo(title="Aufruf", message = aufruf_i)
+        aufruf_i[g_o + 1] = create_filename(f, aufruf[g_o + 1]) # -- Name für Ausgabedatei(en) generieren
+        showinfo(title=call_text, message = aufruf_i)
         x = subprocess.Popen(aufruf_i, stderr=subprocess.PIPE, universal_newlines=True)
         fehlermeld = x.stderr.read()
         if (len(fehlermeld) > 0):
-            showerror(title="Fehler", message = fehlermeld, icon = ERROR)
-    showinfo(title="Bearbeitung", message = "Programm menu_zaehlen beendet")
+            showerror(title=error_text, message = fehlermeld, icon = ERROR)
+    showinfo(title=execution_text, message = end_text)
 
 # -----------------------------------------------------------------------
 def init_buttons():

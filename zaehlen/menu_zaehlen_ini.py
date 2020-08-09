@@ -5,10 +5,74 @@
 # (C) Günter Partosch 2018-2020
 
 # menu_zaehlen_ini.py
+
 # Stand: 2018-08-20
 # Stand: 2019-12-12
 # Stand: 2020-07-27
 # Stand: 2020-08-04
+# Stand: 2020-08-07
+# Stand: 2020-08-08 (Ausgabe-Strings parametrisiert)
+# Stand: 2020-08-08 (ini-Datei jetzt robuster geladen)
+# Stand: 2020-08-09 (Überprüfung der Eingabewerte)
+
+# --------------------------------------------------------
+# verschiedene strings
+
+# anpassen: instverz
+#instverz      = 'D:/Python/zaehlen'
+instverz     = '.'                                              # Pfad zum ausführbaren Pogramm, ggf. anpassen
+programmname = "zaehlen.py"
+
+menue_zaehlen_ini_Datum  = "2020-08-09"                         # Datum der letzten Änderung 
+menue_zaehlen_Datum      = "2020-08-09"                         # Datum der letzten Änderung
+
+programm_vers            = "2.13.3"                             # zaehlen.py: Version
+programm_datum           = "2020-08-02 "                        # zaehlen.py: Datum der letzten Änderung
+zaehlen_ini_Datum        = "2020-08-02"                         # zaehlen_ini.py: Datum der letzten Änderung
+
+msg1                     = "Hilfe 1"
+msg2                     = "Hilfe 2"
+msg3                     = "Hilfe 3"
+tuple_text               = 'Tupel mit {0} Datei(en)'
+error_text               = "Fehler"
+execution_text           = "Bearbeitung"
+end_text                 = "Programm menu_zaehlen beendet"
+call_text                = "Aufruf"
+
+programmtitle            = "Auszählen eines Textes; Eingabemenü für das Programm "
+E0_text                  = "[E0] Eingabedatei(en)"
+E1_text                  = "[E1] Wort-Trennzeichen [Muster]"
+E2_text                  = "[E2] Datei mit Stop-Wörter"
+E3_text                  = "[E3] Datei mit Go-Wörter"
+E4_text                  = "[E4] 1. (alph.) Sortierung [a+|a-|A+|A-]"
+E5_text                  = "[E5] 2. Sortierung [L+|L-|F+|F-]"
+E6_text                  = "[E6] Ausgabedatei(en)"
+E7_text                  = "[E7] Beschränkung auf bestimmte Wörter [Muster]"
+E8_text                  = "[E8] Beschränkung auf bestimmte Wortlängen"
+E9_text                  = "[E9] Beschränkung auf bestimmte Rangfolge"
+E10_text                 = "[E10] Beschränkung auf best. Worthäufigkeiten"
+
+C0_text                  = "[C0] Worthäufigkeiten-Verteilung berechnen"
+C1_text                  = "[C1] Wortlängen-Verteilung berechnen"
+C2_text                  = "[C2] Trennzeichen-Verteilung berechnen"
+C3_text                  = "[C3] Zeichen-Verteilung berechnen"
+
+B0_text                  = '[B0] Durchsuchen... [Eingabedatei(en)]'
+B1_text                  = '[B1] Durchsuchen... [Stop-Datei]'
+B2_text                  = '[B2] Durchsuchen... [Go-Datei]'
+B4_text                  = '[B4] Zurücksetzen'
+B5_text                  = '[B5] Löschen'
+B6_text                  = '[B6] Start'
+B7_text                  = '[B7] Beenden'
+B8_text                  = '[B8] Eingabefelder/Checkboxen'
+B9_text                  = '[B9] Schaltflächen'
+B10_text                 = '[B10] Erläuterungen'
+B11_text                 = '[B11] Version(en)'
+
+err_ini_text             = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
+err_value_text           = "Fehler '{1}' bei '{0}'; --> Voreinstellung genommen"
+err1_file_text           = "Datei '{1}' bei '{0}' kann nicht geöffnet werden; --> Voreinstellung genommen"
+err2_file_text           = "Datei '{1}' bei '{0}' kann nicht geöffnet werden; --> korrigieren + Neustart"
 
 # --------------------------------------------------------
 # Abhängigkeiten
@@ -16,21 +80,32 @@
 # + wird von menu_zaehlen.py als Modul geladen
 # + lädt zaehlen_ini.py als Modul
 
-# anpassen: instverz
+try:                             # Initialisierung für Programm-Parameter und Variablen einlesen
+    from zaehlen_ini import *    # Konfiguration/Initialisierung von zaehlen.py
+except ImportError:
+    print(err_ini_text.format("zaehlen_ini"))
+    in_name                = "./in.txt"
+    out_name               = "./out.txt"
+    stop_name              = ""
+    go_name                = ""
+    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
+    word_template          = """^.+$"""
+    p_lengths              = "1,100"
+    p_frequency            = "1,12000"
+    p_rank                 = "1,50000"
+    sort_first             = "a+"
+    sort_second            = ""
+    frequency_distribution = False
+    length_distribution    = False
+    separator_distribution = False
+    character_distribution = False
 
-from zaehlen_ini import * # Konfiguration/Initialisierung von zaehlen.py
-
-# --------------------------------------------------------
-#instverz      = 'D:/Python/zaehlen'
-instverz     = '.'                                              # Pfad zum ausführbaren Pogramm, ggf. anpassen
-programmname = "zaehlen.py"
-programmtitle= "Auszählen eines Textes; Eingabemenü für das Programm "
-
-menue_zaehlen_ini_Datum  = "2020-08-04"                         # Datum der letzten Änderung 
-menue_zaehlen_Datum      = "2020-08-04"                         # Datum der letzten Änderung
-programm_vers            = "2.13.3"                             # zaehlen.py: Version
-programm_datum           = "2020-08-02 "                        # zaehlen.py: Datum der letzten Änderung
-zaehlen_ini_Datum        = "2020-08-02"                         # zaehlen_ini.py: Datum der letzten Änderung
+    integer_breite         = 7  # Ausgabebreite für Integer
+    integer_breite_kl      = 3  # Ausgabebreite für kleine Integer
+    string_breite          = 3  # voreingestellte Ausgabebreite für Strings
+    string_breite_la       = 43 # Länge von Eingabeaufforderungen
+    real_breite            = 6  # Ausgabebreite für Reals
+    rndg                   = 2  # Zahl der Nachkommastellen für Reals/Floats
 
 # --------------------------------------------------------
 # Konfiguration für Labels und Felder/Checkboxen:
@@ -47,39 +122,39 @@ zaehlen_ini_Datum        = "2020-08-02"                         # zaehlen_ini.py
 #     4: wie 3; zusätzlich wird eine Checkbox abgefragt
 
 conf = [
-("[E0] Eingabedatei(en)",                           in_name,               "-i", 1),
-("[E1] Wort-Trennzeichen [Muster]",                 separator,             "-s", 2),
-("[E2] Datei mit Stop-Wörter",                      stop_name,             "-S", 2),
-("[E3] Datei mit Go-Wörter",                        go_name,               "-G", 2),
-("[E4] 1. (alph.) Sortierung [a+|a-|A+|A-]",        sort_first,            "-s1",2),
-("[E5] 2. Sortierung [L+|L-|F+|F-]",                sort_second,           "-s2",2),
-("[E6] Ausgabedatei(en)",                           out_name,              "-o", 1),
-("[E7] Beschränkung auf bestimmte Wörter [Muster]", word_template,         "-t", 2),
-("[E8] Beschränkung auf bestimmte Wortlängen",      p_lengths,             "-l", 2),
-("[E9] Beschränkung auf bestimmte Rangfolge",       p_rank,                "-r", 2),
-("[E10] Beschränkung auf best. Worthäufigkeiten",   p_frequency,           "-f", 2),
-("[C0] Worthäufigkeiten-Verteilung berechnen",      frequency_distribution,"-fd",4),
-("[C1] Wortlängen-Verteilung berechnen",            length_distribution,   "-ld",4),
-("[C2] Trennzeichen-Verteilung berechnen",          separator_distribution,"-sd",4),
-("[C3] Zeichen-Verteilung berechnen",               character_distribution,"-cd",4)
+(E0_text,   in_name,                "-i",  1),
+(E1_text,   separator,              "-s",  2),
+(E2_text,   stop_name,              "-S",  2),
+(E3_text,   go_name,                "-G",  2),
+(E4_text,   sort_first,             "-s1", 2),
+(E5_text,   sort_second,            "-s2", 2),
+(E6_text,   out_name,               "-o",  1),
+(E7_text,   word_template,          "-t",  2),
+(E8_text,   p_lengths,              "-l",  2),
+(E9_text,   p_rank,                 "-r",  2),
+(E10_text,  p_frequency,            "-f",  2),
+(C0_text,   frequency_distribution, "-fd", 4),
+(C1_text,   length_distribution,    "-ld", 4),
+(C2_text,   separator_distribution, "-sd", 4),
+(C3_text,   character_distribution, "-cd", 4)
 ]
 
 # --------------------------------------------------------
 # Konfiguration für Buttons
 
 button_conf = [
-('[B0] Durchsuchen... [Eingabedatei(en)]', "ask_in_file",     0, 2),
-('[B1] Durchsuchen... [Stop-Datei]',   "ask_stop_file",       2, 2),
-('[B2] Durchsuchen... [Go-Datei]',     "ask_go_file",         3, 2),
+(B0_text,  "ask_in_file",         0, 2),
+(B1_text,  "ask_stop_file",       2, 2),
+(B2_text,  "ask_go_file",         3, 2),
 ##('[B3] Durchsuchen... (Ausgabedatei)', "ask_out_file",        6, 2),
-('[B4] Zurücksetzen',                  "reset_entry_fields", 16, 0),
-('[B5] Löschen',                       "clear_entry_fields", 16, 1),
-('[B6] Start',                         "start",              17, 0),
-('[B7] Beenden',                       "mm.destroy",         17, 1),
-('[B8] Eingabefelder/Checkboxen',      "hilfe1",             16, 2),
-('[B9] Schaltflächen',                 "hilfe2",             17, 2),
-('[B10] Erläuterungen',                "hilfe3",             16, 3),
-('[B11] Version(en)',                  "version",            17, 3)
+(B4_text,  "reset_entry_fields", 16, 0),
+(B5_text,  "clear_entry_fields", 16, 1),
+(B6_text,  "start",              17, 0),
+(B7_text,  "mm.destroy",         17, 1),
+(B8_text,  "hilfe1",             16, 2),
+(B9_text,  "hilfe2",             17, 2),
+(B10_text, "hilfe3",             16, 3),
+(B11_text, "version",            17, 3)
 ]
 
 # --------------------------------------------------------
