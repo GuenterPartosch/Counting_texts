@@ -14,6 +14,7 @@
 # Stand: 2020-08-08 (Ausgabe-Strings parametrisiert)
 # Stand: 2020-08-08 (ini-Datei jetzt robuster geladen)
 # Stand: 2020-08-09 (Überprüfung der Eingabewerte)
+# Stand: 2020-08-12 (Anpassung an zaehlen.py uind zahlen_ini.py)
 
 # --------------------------------------------------------
 # verschiedene strings
@@ -23,12 +24,12 @@
 instverz     = '.'                                              # Pfad zum ausführbaren Pogramm, ggf. anpassen
 programmname = "zaehlen.py"
 
-menue_zaehlen_ini_Datum  = "2020-08-09"                         # Datum der letzten Änderung 
-menue_zaehlen_Datum      = "2020-08-09"                         # Datum der letzten Änderung
+menue_zaehlen_ini_Datum  = "2020-08-12"                         # Datum der letzten Änderung 
+menue_zaehlen_Datum      = "2020-08-12"                         # Datum der letzten Änderung
 
-programm_vers            = "2.13.3"                             # zaehlen.py: Version
-programm_datum           = "2020-08-02 "                        # zaehlen.py: Datum der letzten Änderung
-zaehlen_ini_Datum        = "2020-08-02"                         # zaehlen_ini.py: Datum der letzten Änderung
+programm_vers            = "2.14.0"                             # zaehlen.py: Version
+programm_datum           = "2020-08-12 "                        # zaehlen.py: Datum der letzten Änderung
+zaehlen_ini_Datum        = "2020-08-12"                         # zaehlen_ini.py: Datum der letzten Änderung
 
 msg1                     = "Hilfe 1"
 msg2                     = "Hilfe 2"

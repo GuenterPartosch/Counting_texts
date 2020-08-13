@@ -1,11 +1,16 @@
 Fehlermeldungen bei zaehlen
 
----Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen
----Warnung: nur "","A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen')
----Warnung; nur "","L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen')
 ---Warnung: Go-Datei und Stop-Datei gleichzeitig angegeben; ignoriert
----Warnung: Stop-Datei <stop_name> kann nicht geöffnet werden. Ignoriert.
----Warnung: Go-Datei <go_name> kann nicht geöffnet werden. Ignoriert.
+---Warnung: Stop-Datei {0} kann nicht geöffnet werden. Ignoriert.
+---Warnung: Go-Datei {0} kann nicht geöffnet werden. Ignoriert.
+---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen
+---Warnung: nur "", "A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen
+---Warnung; nur "", "L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen
+---Verteilung der Zeichenhäufigkeiten nach dem Filtern nicht verfügbar
+---Verteilung der Worthäufigkeiten im Gesamttext nicht verfügbar
+---Verteilung der Worthäufigkeiten nach dem Filtern nicht verfügbar
+---Verteilung der Wortlängen nach dem Filtern nicht verfügbar
+
 
 ---Eingabedatei <in_name> kann nicht geöffnet werden. Programmabbruch
 ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch

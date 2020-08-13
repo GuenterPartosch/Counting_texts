@@ -15,6 +15,7 @@
 # 1.1.4: 2020-07-22: erste drei Zeilen dieser Datei
 # 1.1.5: 2020-07-27: kleine Korrekturen
 # 1.1.6: 2020-08-04: kleine Korrekturen
+# 1.1.7: 2020-08-12: Anpassung an Zaehlen.py und zaehlen_ini.py
 
 # --------------------------------------------------------
 # Abhängigkeiten:
@@ -33,8 +34,8 @@ programmtitle    = "Vergleich von Textauszählungen; Eingabemenü für das Progr
 menu_multizaehlen_datum       = "2020-08-04" # menu_multizaehlen
 menu_multizaehlen_version     = "1.2.7"      # menu_multizaehlen
 
-menu_multizaehlen_ini_datum   = "2020-08-04" # menu_multizaehlen_ini
-menu_multizaehlen_ini_version = "1.1.6"      # menu_multizaehlen_ini
+menu_multizaehlen_ini_datum   = "2020-08-12" # menu_multizaehlen_ini
+menu_multizaehlen_ini_version = "1.1.7"      # menu_multizaehlen_ini
 
 menue_zaehlen_datum           = "2018-08-04" # menu_zaehlen
 
@@ -45,10 +46,10 @@ multizaehlen_version          = "1.10.9"     # multizaehlen
 
 multizaehlen_ini_datum        = "2020-08-02" # multizaehlen_ini
 
-zaehlen_datum                 = "2020-08-02" # zaehlen
-zaehlen_vers                  = "2.13.3"     # zaehlen
+zaehlen_datum                 = "2020-08-12" # zaehlen
+zaehlen_vers                  = "2.14.0"     # zaehlen
 
-zaehlen_ini_datum             = "2020-08-02" # zaehlen_ini
+zaehlen_ini_datum             = "2020-08-12" # zaehlen_ini
 
 
 

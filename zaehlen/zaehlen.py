@@ -4,11 +4,16 @@
 
 # (C) Günter Partosch 2016-2020
 
+# noch:
+# + Parametrisierung der Ausgabestrings
+# + Parametrisierung intelligent gestalten
+
 # zaehlen.py
 # Programm zum Auszählen von Textdateien
 # ======================================
 
 # History:
+# --------------------------------------------------------------
 # 1.0.0: 2016-12-16: Anfang
 # 1.1.8: 2016-12-17: erste Vollversion
 # 1.2.0: 2016-12-18: filtern nach Ausgabemuster
@@ -36,6 +41,7 @@
 # 2.13.1: 2020-07-22: erste drei Zeilen dieser Datei
 # 2.13.2: 2020-07-23: Fehlermeldungen überarbeitet
 # 2.13.3: 2020-08-02: Voreinstellungen geändert
+# 2.14.0: 2020-08-12: Ausgabe-Strings in ini-Datei verlagert
 
 # --------------------------------------------------------------
 # Abhängigkeiten:
@@ -71,12 +77,16 @@
 # --------------------------------------------------------------
 # Fehlermeldungen:
 
-# ---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen
-# ---Warnung: nur "","A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen
-# ---Warnung; nur "","L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen
 # ---Warnung: Go-Datei und Stop-Datei gleichzeitig angegeben; ignoriert
-# ---Warnung: Stop-Datei <stop_name> kann nicht geöffnet werden. Ignoriert.
-# ---Warnung: Go-Datei <go_name> kann nicht geöffnet werden. Ignoriert.
+# ---Warnung: Stop-Datei {0} kann nicht geöffnet werden. Ignoriert.
+# ---Warnung: Go-Datei {0} kann nicht geöffnet werden. Ignoriert.
+# ---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen
+# ---Warnung: nur "", "A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen
+# ---Warnung; nur "", "L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen
+# ---Verteilung der Zeichenhäufigkeiten nach dem Filtern nicht verfügbar
+# ---Verteilung der Worthäufigkeiten im Gesamttext nicht verfügbar
+# ---Verteilung der Worthäufigkeiten nach dem Filtern nicht verfügbar
+# ---Verteilung der Wortlängen nach dem Filtern nicht verfügbar
 #
 # ---Eingabedatei <in_name> kann nicht geöffnet werden. Programmabbruch
 # ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch
@@ -85,12 +95,12 @@
 # ==============================================================
 # (1) Programm-Parameter: global
 
-programm_name    = "zaehlen.py"
-programm_vers    = "2.13.3"
-programm_datum   = "2020-08-02 "
-programm_autor   = "Günter Partosch"
-autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
-autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
+program_name       = "zaehlen.py"
+program_vers       = "2.14.0"
+program_date       = "2020-08-12"
+program_author     = "Günter Partosch"
+author_email       = "Guenter.Partosch@hrz.uni-giessen.de"
+author_institution = "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
 
 # globale Hilfsvariablen
 leer    = " "
@@ -118,7 +128,7 @@ interaktiv  = (len(sys.argv) < 2)
 aufruf = ""
 for f in range(len(sys.argv)): aufruf += sys.argv[f] + leer
 
-##interaktiv = (sys.argv[0] != programm_name)
+##interaktiv = (sys.argv[0] != program_name)
 ##print(__name__ == "__main__")
 ##print("---sys.argv",sys.argv)
 ##print(len(sys.argv))
@@ -200,24 +210,25 @@ for f in range(len(sys.argv)): aufruf += sys.argv[f] + leer
 # (4)Texte vorbesetzen
 # - meist Eingabeaufforderungen
 
-in_text       = "Eingabedatei(en) festlegen"
-sep_text      = "Wort-Trennzeichen (Muster) spezifizieren"
-stop_text     = "Datei mit Stop-Wörter spezifizieren"
-go_text       = "Datei mit Go-Wörter spezifizieren"
-sort1_text    = "1. Sortierung (a+|a-|A+|A-) spezifizieren"
-sort2_text    = "2. Sortierung (L+|L-|F+|F-) spezifizieren"
-out_text      = "Ausgabedatei(en) festlegen"
-template_text = "Beschränkung auf best. Wort-Muster (Muster)"
-lengths_text  = "Beschränkung auf best. Wortlängen"
-rank_text     = "Beschränkung auf best. Rangfolge"
-freq_text     = "Beschränkung auf best. Worthäufigkeiten"
-version_text  = "Version des Programms ausgeben und Exit"
-autor_text    = "Autor des Programms ausgeben und Exit"
-text_prompt   = ": "
-fd_text       = "Worthäufigkeiten-Verteilung ausgeben"
-ld_text       = "Wortlängen-Verteilung ausgeben"
-sd_text       = "Trennzeichen-Verteilung ausgeben"
-cd_text       = "Zeichen-Verteilung ausgeben"
+# verschoben in ini-Datei
+##in_text       = "Eingabedatei(en) festlegen"
+##sep_text      = "Wort-Trennzeichen (Muster) spezifizieren"
+##stop_text     = "Datei mit Stop-Wörter spezifizieren"
+##go_text       = "Datei mit Go-Wörter spezifizieren"
+##sort1_text    = "1. Sortierung (a+|a-|A+|A-) spezifizieren"
+##sort2_text    = "2. Sortierung (L+|L-|F+|F-) spezifizieren"
+##out_text      = "Ausgabedatei(en) festlegen"
+##template_text = "Beschränkung auf best. Wort-Muster (Muster)"
+##lengths_text  = "Beschränkung auf best. Wortlängen"
+##rank_text     = "Beschränkung auf best. Rangfolge"
+##freq_text     = "Beschränkung auf best. Worthäufigkeiten"
+##version_text  = "Version des Programms ausgeben und Exit"
+##autor_text    = "Autor des Programms ausgeben und Exit"
+##text_prompt   = ": "
+##fd_text       = "Worthäufigkeiten-Verteilung ausgeben"
+##ld_text       = "Wortlängen-Verteilung ausgeben"
+##sd_text       = "Trennzeichen-Verteilung ausgeben"
+##cd_text       = "Zeichen-Verteilung ausgeben"
 
 # ==============================================================
 # (5) eigene Methoden:
@@ -225,11 +236,14 @@ cd_text       = "Zeichen-Verteilung ausgeben"
 # + werden nur programmintern verwendet
 
 OK = False  # wird ggf. durch __request(text) verändert
+
+# --------------------------------------------------------------
 def __ueberschrift(text,z="-"):
     """dient zum Ausgeben von Überschriften bei der Ausgabe."""
     aus.write("\n" + str(text) + "\n")
     aus.write(z*len(text) + "\n\n")
 
+# --------------------------------------------------------------
 def __request(text):
     """erleichtert das interaktive Eingeben von Programmparametern;
     verändert auch die globale Variable OK."""
@@ -240,11 +254,13 @@ def __request(text):
         OK = True
     return variable
 
+# --------------------------------------------------------------
 def __request_text(text1=leer, text2=leer):
     """bereitet den bei __request benutzten Text auf.
     Aufruf: __request_text(text1, text2)"""
     return text1.ljust(string_breite_la) + text_prompt + str(text2).ljust(string_breite_la - 8) + text_prompt
 
+# --------------------------------------------------------------
 def __new_extension(name, ext):
     """versieht den Dateinamen name mit der Extension .ext."""
     p3  = re.compile("[.]") # um Extension bei Dateinamen abzutrennen
@@ -254,10 +270,12 @@ def __new_extension(name, ext):
         neu+=nn[f]+"."
     return neu + ext
 
+# --------------------------------------------------------------
 def __chr_hex(c):
     """xx"""
     return str(hex(ord(c)))
 
+# --------------------------------------------------------------
 def __chr_out(c):
     """ """
     if   (c == "\n"): www = r"\n"
@@ -279,29 +297,29 @@ try:
     from zaehlen_ini import *
 except ImportError:
     # lokal Programm-Parameter und Variablen initialisieren
-    print("---Warnung: zaehlen_ini.py nicht gefunden; Voreinstellungen genommen")
-    in_name          = "./in.txt"
-    out_name         = "./out.txt"
-    stop_name        = ""
-    go_name          = ""
-    separator        = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
-    word_template    = """^.+$"""
-    p_lengths        = "1,100"
-    p_frequency      = "1,12000"
-    p_rank           = "1,50000"
-    sort_first       = "a+"
-    sort_second      = ""
+    print(warn_ini)
+    in_name                = "./in.txt"
+    out_name               = "./out.txt"
+    stop_name              = ""
+    go_name                = ""
+    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
+    word_template          = """^.+$"""
+    p_lengths              = "1,100"
+    p_frequency            = "1,12000"
+    p_rank                 = "1,50000"
+    sort_first             = "a+"
+    sort_second            = ""
     frequency_distribution = False
     length_distribution    = False
     separator_distribution = False
     character_distribution = False
 
-    integer_breite   = 7  # Ausgabebreite für Integer
-    integer_breite_kl= 3  # Ausgabebreite für kleine Integer
-    string_breite    = 3  # voreingestellte Ausgabebreite für Strings
-    string_breite_la = 43 # Länge von Eingabeaufforderungen
-    real_breite      = 6  # Ausgabebreite für Reals
-    rndg             = 2  # Zahl der Nachkommastellen für Reals/Floats
+    integer_breite         = 7  # Ausgabebreite für Integer
+    integer_breite_kl      = 3  # Ausgabebreite für kleine Integer
+    string_breite          = 3  # voreingestellte Ausgabebreite für Strings
+    string_breite_la       = 43 # Länge von Eingabeaufforderungen
+    real_breite            = 6  # Ausgabebreite für Reals
+    rndg                   = 2  # Zahl der Nachkommastellen für Reals/Floats
 
 # optionaler Hook
 try:
@@ -330,90 +348,90 @@ if not interaktiv:
     # Definition der Aufruf-Parameter
     
     # benötigt werden die vorher definierten Größen:
-    # autor_email, autor_institution, autor_text, fd_text, freq_text, frequency_distribution, go_name, go_text,
+    # author_email, author_institution, autor_text, fd_text, freq_text, frequency_distribution, go_name, go_text,
     # in_name, in_text, ld_text, length_distribution, lengths_text, out_name, out_text, p_frequency, p_lengths,
-    # p_rank, programm_autor, programm_datum, programm_name, programm_vers, rank_text, sep_text, separator,
+    # p_rank, program_author, program_date, program_name, program_vers, rank_text, sep_text, separator,
     # sort_first, sort_second, sort1_text, sort2_text, stop_name, stop_text, sys.stdin, sys.stdout,
     # template_text, version_text, word_template, separator_distribution, sd_text
     
-    parser = argparse.ArgumentParser(description = "Auszählen eines Textes [" + programm_name + "; " +
-                                     "Version: " + programm_vers + " (" + programm_datum + ")]")
-    parser._positionals.title = 'Positionsparameter'
-    parser._optionals.title = 'Optionale Parameter'
+    parser = argparse.ArgumentParser(description = main_caption_text + " [" + program_name + "; " +
+                                     "Version: " + program_vers + " (" + program_date + ")]")
+    parser._positionals.title = argp_pos_par
+    parser._optionals.title = argp_opt_par
     opgroup = parser.add_mutually_exclusive_group() # für die beiden Optionen -G und -S (können nur alternativ verwendet werden)
 
     parser.add_argument("-a", "--author",
                         help = autor_text,
                         action = 'version',
-                        version = programm_autor + " (" + autor_email + ", " + autor_institution + ")") 
+                        version = program_author + " (" + author_email + ", " + author_institution + ")") 
     parser.add_argument("-cd", "--character_distribution",
-                        help = cd_text + "; Voreinstellung: " + "%(default)s",
+                        help = cd_text + "; {0}: %(default)s".format(argp_default),
                         action = "store_true",
                         default = character_distribution) 
     parser.add_argument("-f", "--frequencies",
-                        help = freq_text + "; Voreinstellung: " + "%(default)s",
+                        help = freq_text + "; {0}: %(default)s".format(argp_default),
                         dest = "p_frequency",
                         default = p_frequency) 
     parser.add_argument("-fd", "--frequency_distribution",
-                        help = fd_text + "; Voreinstellung: " + "%(default)s",
+                        help = fd_text + "; {0}: %(default)s".format(argp_default),
                         action = "store_true",
                         default = frequency_distribution)
     opgroup.add_argument("-G", "--Go",
-                         help = go_text + "; Voreinstellung: " + "%(default)s",
+                         help = go_text + "; {0}: %(default)s".format(argp_default),
                          dest = "go_name",
                          default = go_name) 
     parser.add_argument("-i", "--input",
-                        help = in_text + "; Voreinstellung: " + "%(default)s",
+                        help = in_text + "; {0}: %(default)s".format(argp_default),
                         type=argparse.FileType(mode = 'r', encoding = "utf-8"),
                         dest = "in_name",
                         default = in_name) 
     parser.add_argument("-l", "--lengths",
-                        help = lengths_text + "; Voreinstellung: " + "%(default)s",
+                        help = lengths_text + "; {0}: %(default)s".format(argp_default),
                         dest = "p_lengths",
                         default = p_lengths) 
     parser.add_argument("-ld", "--length_distribution",
-                        help    = ld_text + "; Voreinstellung: " + "%(default)s",
+                        help    = ld_text + "; {0}: %(default)s".format(argp_default),
                         action  = "store_true",
                         default = length_distribution) 
     parser.add_argument("-o", "--output",
-                        help    = out_text + "; Voreinstellung: " + "%(default)s",
+                        help    = out_text + "; {0}: %(default)s".format(argp_default),
                         type    = argparse.FileType(mode = 'w', encoding = "utf-8"),
                         dest    = "out_name",
                         default = out_name) 
     parser.add_argument("-r", "--ranking",
-                        help = rank_text + "; Voreinstellung: " + "%(default)s",
+                        help = rank_text + "; {0}: %(default)s".format(argp_default),
                         dest = "p_rank",
                         default = p_rank) 
     parser.add_argument("-s", "--separator",
-                        help = sep_text + "; Voreinstellung: " + "%(default)s",
+                        help = sep_text + "; {0}: %(default)s".format(argp_default),
                         dest = "separator",
                         default = separator)
     opgroup.add_argument("-S", "--Stop",
-                         help = stop_text + "; Voreinstellung: " + "%(default)s",
+                         help = stop_text + "; {0}: %(default)s".format(argp_default),
                          dest = "stop_name",
                          default = stop_name) 
     parser.add_argument("-s1", "--sort1",
-                        help = sort1_text + "; Voreinstellung: " + "%(default)s",
+                        help = sort1_text + "; {0}: %(default)s".format(argp_default),
                         choices = ["a+", "a-", "A+", "A-"],
                         dest = "sort_first",
                         default = sort_first) 
     parser.add_argument("-s2", "--sort2",
-                        help = sort2_text + "; Voreinstellung: " + "%(default)s",
+                        help = sort2_text + "; {0}: %(default)s".format(argp_default),
                         choices = ["L+", "L-", "F+", "F-"],
                         dest = "sort_second",
                         default = sort_second) 
     parser.add_argument("-sd", "--separator_distribution",
-                        help = sd_text + "; Voreinstellung: " + "%(default)s",
+                        help = sd_text + "; {0}: %(default)s".format(argp_default),
                         action = "store_true",
                         default = separator_distribution) 
     parser.add_argument("-t", "--template",
-                        help = template_text + "; Voreinstellung: " + "%(default)s",
+                        help = template_text + "; {0}: %(default)s".format(argp_default),
                         dest = "word_template",
                         default = word_template) 
     parser.add_argument("-v", "--version",
                         help = version_text,
                         action = 'version',
-                        version = '%(prog)s ' + programm_vers + " (" + programm_datum + ")") 
+                        version = '%(prog)s ' + program_vers + " (" + program_date + ")") 
 
 # --------------------------------------------------------------
 # (7-2) aktuelle Aufruf-Parameter gewinnen
@@ -423,19 +441,19 @@ if not interaktiv:
 # --------------------------------------------------------------
 # (7-3) an lokale Variablen zuweisen
 
-    ein           = args.in_name
-    in_name       = args.in_name.name
-    out_name      = args.out_name.name
-    aus           = args.out_name
-    stop_name     = args.stop_name
-    go_name       = args.go_name
-    separator     = args.separator
-    word_template = args.word_template
-    p_lengths     = args.p_lengths
-    p_frequency   = args.p_frequency
-    p_rank        = args.p_rank
-    sort_first    = args.sort_first
-    sort_second   = args.sort_second
+    ein                    = args.in_name
+    in_name                = args.in_name.name
+    out_name               = args.out_name.name
+    aus                    = args.out_name
+    stop_name              = args.stop_name
+    go_name                = args.go_name
+    separator              = args.separator
+    word_template          = args.word_template
+    p_lengths              = args.p_lengths
+    p_frequency            = args.p_frequency
+    p_rank                 = args.p_rank
+    sort_first             = args.sort_first
+    sort_second            = args.sort_second
     frequency_distribution = args.frequency_distribution
     length_distribution    = args.length_distribution
     separator_distribution = args.separator_distribution
@@ -464,41 +482,39 @@ if interaktiv or (sys.flags.interactive):
     cd_request       = ""
 
     # Parameter interaktiv erfragen
-    print("Programm " + programm_name + " zum Zählen von Wörtern in einer Datei\n")
-    print("Voreingestellte bzw. übergebene bzw. neue Werte:\n")
-    print("""Werte neu setzen:
-    <return> bisherigen Wert übernehmen
-    OK       weitere Eingabe beenden und Programm starten
-    sonst    neuer Wert
-    <strg D> Programm-Abbruch
-    """)
+    print(caption_interac_text.format(program_name), "\n")
+    print(subcap_interac_text, ":\n")
+    print(interac_legend_text)
     
-    print("Aufgabe".ljust(string_breite_la) + text_prompt + "bisheriger Wert".ljust(string_breite_la - 8) +
-          text_prompt + "neuer Wert".ljust(string_breite_la))
+    print(interac_task.ljust(string_breite_la) + text_prompt + interac_pre.ljust(string_breite_la - 8) +
+          text_prompt + interac_post.ljust(string_breite_la))
     print("-" * (2 * string_breite_la + 3 * 2))
-    if not OK: in_request       = __request(__request_text(in_text, in_name))
-    if not OK: sep_request      = __request(__request_text(sep_text, separator))
-    if not OK: stop_request     = __request(__request_text(stop_text, stop_name))
-    if not OK: go_request       = __request(__request_text(go_text, go_name))
 
-    if not OK: sort1_request    = __request(__request_text(sort1_text, sort_first))
-    if not (sort1_request in ["","A+", "A-", "a+", "a-"]):
-        print('---Warnung: nur "","A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen')
+    if not OK: in_request       = __request(__request_text(interac_in_text, in_name))
+    if not OK: sep_request      = __request(__request_text(interac_sep_text, separator))
+    if not OK: stop_request     = __request(__request_text(interac_stop_text, stop_name))
+    if not OK: go_request       = __request(__request_text(interac_go_text, go_name))
+    if not OK: sort1_request    = __request(__request_text(interac_sort1_text, sort_first))
+
+    if not (sort1_request in ["", "A+", "A-", "a+", "a-"]):
+        print(warn_Aa)
         sort1_request = ""
-    if not OK: sort2_request    = __request(__request_text(sort2_text, sort_second))
-    if not (sort2_request in ["","L+", "L-", "F+", "F-"]):
-        print('---Warnung; nur "","L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen')
-        sort1_request = ""
+
+    if not OK: sort2_request    = __request(__request_text(interac_sort2_text, sort_second))
+
+    if not (sort2_request in ["", "L+", "L-", "F+", "F-"]):
+        print(warn_LF)
+        sort2_request = ""
         
-    if not OK: out_request      = __request(__request_text(out_text, out_name))
-    if not OK: template_request = __request(__request_text(template_text, word_template))
-    if not OK: lengths_request  = __request(__request_text(lengths_text, p_lengths))
-    if not OK: rank_request     = __request(__request_text(rank_text, p_rank))
-    if not OK: freq_request     = __request(__request_text(freq_text, p_frequency))
-    if not OK: fd_request       = __request(__request_text(fd_text, frequency_distribution))
-    if not OK: ld_request       = __request(__request_text(ld_text, length_distribution))
-    if not OK: sd_request       = __request(__request_text(sd_text, separator_distribution))
-    if not OK: cd_request       = __request(__request_text(cd_text, character_distribution))
+    if not OK: out_request      = __request(__request_text(interac_out_text, out_name))
+    if not OK: template_request = __request(__request_text(interac_template_text, word_template))
+    if not OK: lengths_request  = __request(__request_text(interac_lengths_text, p_lengths))
+    if not OK: rank_request     = __request(__request_text(interac_rank_text, p_rank))
+    if not OK: freq_request     = __request(__request_text(interac_freq_text, p_frequency))
+    if not OK: fd_request       = __request(__request_text(interac_fd_text, frequency_distribution))
+    if not OK: ld_request       = __request(__request_text(interac_ld_text, length_distribution))
+    if not OK: sd_request       = __request(__request_text(interac_sd_text, separator_distribution))
+    if not OK: cd_request       = __request(__request_text(interac_cd_text, character_distribution))
 
     # überprüfen, ob Parameter interaktiv neu gesetzt wurden
     if (in_request != ""):       in_name = in_request
@@ -522,19 +538,19 @@ if interaktiv or (sys.flags.interactive):
     try:
         ein = open(in_name, encoding='utf-8', mode='r')   # Eingabedatei
     except IOError:
-        sys.stderr("---Eingabedatei " + in_name, " kann nicht geöffnet werden. Programmabbruch")
+        sys.stderr(err_in.format(in_name))
         exit()
         
     try:
         aus = open(out_name, encoding='utf-8', mode='w+') # Ausgabedatei
     except IOError:
-        sys.stderr("---Ausgabedatei " + out_name + " kann nicht geöffnet werden. Programmabbruch")
+        sys.stderr(err_out.format(out_name))
         exit()
 
     # prüfen, ob Go-Datei und Stop-Datei gleichzeitig angegeben sind
     
     if (stop_name != "") and (go_name != ""):
-        print("---Warnung: Go-Datei und Stop-Datei gleichzeitig angegeben; ignoriert")
+        print(warn_GoStop)
         stop_name = ""
         go_name = ""
 
@@ -546,14 +562,14 @@ if (stop_name != ""):
     try:
         stop = open(stop_name, encoding='utf-8', mode='r')# Stop-Datei
     except IOError:
-        print("---Warnung: Stop-Datei", stop_name, "kann nicht geöffnet werden. Ignoriert.")
+        print(warn_Stop.format(stop_name))
         stop_name = ""
         
 if (go_name != ""):
     try:
         go = open(go_name, encoding='utf-8', mode='r')    # Go-Datei
     except IOError:
-        print("---Warnung: Go-Datei", go_name, "kann nicht geöffnet werden. Ignoriert.")
+        print(warn_Go.format(go_name))
         go_name = ""
 
 # --------------------------------------------------------------
@@ -780,51 +796,52 @@ ps6 = ps4
 # Kopf allgemein
 breite = 21
 
-__ueberschrift("Text auszählen","=")
-aus.write("Name des Programms   : " + programm_name + "\n")
-aus.write("Version des Programms: " + programm_vers + "\n")
-aus.write("Bearbeitungsdatum    : " + programm_datum + "\n")
-aus.write("Autor des Programms  : " + programm_autor + "\n")
-aus.write("E-Mail-Adresse       : " + autor_email + "\n")
-aus.write("Institution          : " + autor_institution + "\n\n")
+__ueberschrift(main_caption_text,"=")
+aus.write("{0:21s}: {1}".format(prg_name_text, program_name) + "\n")
+aus.write("{0:21s}: {1}".format(prg_version_text, program_vers) + "\n")
+aus.write("{0:21s}: {1}".format(prg_datum_text, program_date) + "\n")
+aus.write("{0:21s}: {1}".format(prg_author_text, program_author) + "\n")
+aus.write("{0:21s}: {1}".format(email, author_email) + "\n")
+aus.write("{0:21s}: {1}".format(institution, author_institution) + "\n\n")
 
 # --------------------------------------------------------------
 # (12-3) Kopf
 # Ausgabe Programm-Parameter
+# breite: 39
 
-__ueberschrift("Programm-Parameter","-")
-aus.write("Programm-Aufruf                        : " + aufruf + "\n")
-aus.write("Eingabedatei                           : " + in_name + "\n")
-aus.write("Wort-Trennzeichen (Muster)             : " + separator + "\n")
-aus.write("Datei mit Stop-Wörter                  : " + stop_name + "\n")
-aus.write("Datei mit Go-Wörter                    : " + go_name + "\n")
-aus.write("1. Sortierung (a+|a-|A+|A-)            : " + sort_first + "\n")
-aus.write("2. Sortierung (L+|L-|F+|F-)            : " + sort_second + "\n")
-aus.write("Ausgabe-Datei                          : " + out_name + "\n")
-aus.write("Beschränkung auf best. Wort-Muster     : " + word_template + "\n")
-aus.write("Beschränkung auf best. Wortlängen      : [" + p_lengths + ")\n")
-aus.write("Beschränkung auf best. Rangfolge       : [" + p_rank + ")\n")
-aus.write("Beschränkung auf best. Worthäufigkeiten: [" + p_frequency + ")\n")
-aus.write("Worthäufigkeiten-Verteilung aktiviert  : " + str(frequency_distribution) + "\n")
-aus.write("Wortlängen-Verteilung aktiviert        : " + str(length_distribution) + "\n")
-aus.write("Trennzeichen-Verteilung aktiviert      : " + str(separator_distribution) + "\n")
-aus.write("Zeichen-Verteilung aktiviert           : " + str(character_distribution) + "\n")
+__ueberschrift(caption_parameter_text,"-")
+aus.write("{0:39s}: {1}".format(prg_call_text, aufruf) + "\n")
+aus.write("{0:39s}: {1}".format(in_file_text, in_name) + "\n")
+aus.write("{0:39s}: {1}".format(sep_text, separator) + "\n")
+aus.write("{0:39s}: {1}".format(stop_file_text, stop_name) + "\n")
+aus.write("{0:39s}: {1}".format(go_file_text, go_name) + "\n")
+aus.write("{0:39s}: {1}".format(sort1_text, sort_first) + "\n")
+aus.write("{0:39s}: {1}".format(sort2_text, sort_second) + "\n")
+aus.write("{0:39s}: {1}".format(out_file_text, out_name) + "\n")
+aus.write("{0:39s}: {1}".format(limit_template_text, word_template) + "\n")
+aus.write("{0:39s}: [{1})".format(limit_length_text, p_lengths) + "\n")
+aus.write("{0:39s}: [{1})".format(limit_rangs_text, p_rank) + "\n")
+aus.write("{0:39s}: [{1})".format(limit_frequency_text, p_frequency) + "\n")
+aus.write("{0:39s}: {1}".format(act_freq_dist_text, str(frequency_distribution)) + "\n")
+aus.write("{0:39s}: {1}".format(act_length__dist_text, str(length_distribution)) + "\n")
+aus.write("{0:39s}: {1}".format(act_sep_dist_text, str(separator_distribution)) + "\n")
+aus.write("{0:39s}: {1}".format(act_char_dist_text, str(character_distribution)) + "\n")
 aus.write("\n")
 
 # --------------------------------------------------------------
 # (12-4) Ausgabe
 # Kopf der eigentlichen Tabelle
 
-__ueberschrift("Ergebnisse (Wörter in der Auswahl)","-")
+__ueberschrift(caption_res_words_text,"-")
 aus.write("(" + datum + ", " + uhrzeit + ")\n\n")
 
-aus.write("(1) Rangfolge\n")
-aus.write("(2) Länge der Zeichenkette\n")
-aus.write("(3) Zeichenkette\n")
-aus.write("(4) abs. Häufigkeit\n")
-aus.write("(5) proz. Häufigkeit [%]\n")
-aus.write("(6) akk. Häufigkeit\n")
-aus.write("(7) proz. akk. Häufigkeit [%]\n\n")
+aus.write(res_rangs_text + "\n")
+aus.write(res_length_text + "\n")
+aus.write(res_strings_text + "\n")
+aus.write(res_abs_freq_text + "\n")
+aus.write(res_rel_freq_text + "\n")
+aus.write(res_abs_acc_freq_text + "\n")
+aus.write(res_rel_acc_freq_text + "\n\n")
 
 aus.write("(1)".rjust(integer_breite))
 aus.write("(2)".rjust(integer_breite_kl + 1))
@@ -835,7 +852,7 @@ aus.write("(6)".rjust(integer_breite + 1))
 aus.write("(7)".rjust(real_breite + 1))
 aus.write("\n")
 aus.write(">")
-aus.write("-" *(integer_breite_kl + string_breite + 3 * integer_breite + 2 * real_breite + 5) + "\n")
+aus.write("-" * (integer_breite_kl + string_breite + 3 * integer_breite + 2 * real_breite + 5) + "\n")
 
 # --------------------------------------------------------------
 # (12-5) Ausgabe
@@ -931,7 +948,7 @@ aus.write("<")
 aus.write("-" *(integer_breite_kl + string_breite + 3*integer_breite + 2*real_breite + 5) + "\n")
 aus.write((ps0).format(leer))
 aus.write((ps1).format(leer))
-aus.write((ps2).format("Summe"))
+aus.write((ps2).format(summary_sum))
 aus.write((ps3).format(auswahl_tokens))
 aus.write((ps4).format(round(auswahl_tokens/summe_woerter * 100.00, rndg)))
 aus.write("\n\n")
@@ -940,26 +957,44 @@ aus.write("\n\n")
 # (12-7) Ausgabe
 # Zusammenfassung
 
-__ueberschrift("Ergebnisse (Zusammenfassung der Auswahl)", "-")
+__ueberschrift(caption_summary_text, "-")
 ##if (summe_roh_zeichen == 0) or (summe_woerter  == 0) or (alle_types  == 0) or (auswahl_tokens == 0):
 ##    sys.stderr("---Division durch Null: Programmabbruch")   
 ##    exit()
-aus.write(("Zeilen                          : " + ps3 + "\n\n").format(z_zeilen))
-aus.write(("Zeichen, insgesamt              : " + ps3 + "\n").format(summe_roh_zeichen))
-aus.write(("Zeichen, berücksichtigt         : " + ps3).format(summe_zeichen))
+
+# breite=33
+
+aus.write(("{1:33s}:" + ps3 + "\n\n").format(z_zeilen, summary_lines_text))
+aus.write(("{1:33s}:" + ps3 + "\n").format(summe_roh_zeichen, summary_chars_tot_text))
+aus.write(("{1:33s}:" + ps3).format(summe_zeichen, summary_chars_act_text))
+
 if (summe_roh_zeichen > 0):
-    aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(summe_zeichen/summe_roh_zeichen * 100.00, rndg)))
-aus.write(("Wörter (Tokens), Gesamttext     : " + ps3 + "\n").format(summe_woerter))
-aus.write(("Wörter (Tokens), Auswahl        : " + ps3).format(auswahl_tokens))
+    aus.write((" ({1:10s}" +  ps6 + "%)\n\n").format(round(summe_zeichen/summe_roh_zeichen * 100.00, rndg), corresponds))
+else:
+    aus.write("\n\n")
+
+aus.write(("{1:33s}:" + ps3 + "\n").format(summe_woerter, summary_token_tot_text))
+aus.write(("{1:33s}:" + ps3).format(auswahl_tokens, summary_token_sel_text))
+
 if (summe_woerter  > 0):
-    aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(auswahl_tokens/summe_woerter * 100.00, rndg)))
-aus.write(("Wörter (Types), Gesamttext      : " + ps3 + "\n").format(alle_types))
-aus.write(("Wörter (Types), Auswahl         : " + ps3).format(auswahl_types))
+    aus.write((" ({1:10s}" +  ps6 + "%)\n\n").format(round(auswahl_tokens/summe_woerter * 100.00, rndg), corresponds))
+else:
+    aus.write("\n\n")
+
+aus.write(("{1:33s}:" + ps3 + "\n").format(alle_types, summary_types_tot_text))
+aus.write(("{1:33s}:" + ps3).format(auswahl_types, summary_types_sel_text))
+
 if (alle_types  > 0):
-    aus.write((" (entspricht " + ps6 + "%)\n\n").format(round(auswahl_types/alle_types * 100.00, rndg)))
-aus.write(("Verh. (Types/Tokens), Gesamttext: " + ps6 + "%\n").format(round(alle_types/summe_woerter * 100.0, rndg)))
+    aus.write((" ({1:10s}" +  ps6 + "%)\n\n").format(round(auswahl_types/alle_types * 100.00, rndg), corresponds))
+else:
+    aus.write("\n\n")
+
+aus.write(("{1:33s}: " + ps6 + "%\n").format(round(alle_types/summe_woerter * 100.0, rndg), summary_ratio_tot_text))
+
 if (auswahl_tokens > 0):
-    aus.write(("Verh. (Types/Tokens), Auswahl   : " + ps6 + "%\n\n").format(round(auswahl_types/auswahl_tokens * 100.0, rndg)))
+    aus.write(("{1:33s}: " + ps6 + "%\n\n").format(round(auswahl_types/auswahl_tokens * 100.0, rndg), summary_ratio_sel_text))
+else:
+    aus.write("\n\n")
 
 # --------------------------------------------------------------
 # (12-8) Ausgabe
@@ -990,13 +1025,13 @@ if length_distribution:
     maxzs  = 120
     kopfzs = "\n" + 17 * leer
     
-    __ueberschrift("Ergebnisse (Verteilung der Wortlängen im Gesamttext)","-")
+    __ueberschrift(ld_caption_total,"-")
 
     s       = 0
     maximum = 0
     max_f   = 0
     zs      = 0
-    aus.write("<länge>:<anzahl>")
+    aus.write(ld_length_number)
     aus.write(kopfzs)
     for f in sortiert2a:
         s += f * ges_alle_laengen[f]
@@ -1006,13 +1041,13 @@ if length_distribution:
         if zs >= maxzs: aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
-    aus.write("minimale Länge:".ljust(breite) + str(min(ges_alle_laengen)) + "\n")
-    aus.write("maximale Länge:".ljust(breite) + str(max(ges_alle_laengen)) + "\n")
-    aus.write("Modus der Längenverteilung:".ljust(breite) + str(max_f) + " mit " + str(ges_alle_laengen[max_f]) + " Vorkommen\n")
-    aus.write("Durchschnittliche Länge:".ljust(breite) + str(round(s / alle_types, rndg)) + "\n")
+    aus.write(ld_min_length.ljust(breite) + str(min(ges_alle_laengen)) + "\n")
+    aus.write(ld_max_length.ljust(breite) + str(max(ges_alle_laengen)) + "\n")
+    aus.write(ld_modus.ljust(breite) + str(max_f) + " mit " + str(ges_alle_laengen[max_f]) + " Vorkommen\n")
+    aus.write(ld_mean.ljust(breite) + str(round(s / alle_types, rndg)) + "\n")
     aus.write("\n")
 
-    __ueberschrift("Ergebnisse (Verteilung der Wortlängen nach dem Filtern)","-")
+    __ueberschrift(ld_caption_selected,"-")
 
     s       = 0
     maximum = 0
@@ -1020,7 +1055,7 @@ if length_distribution:
     zs      = 0
 
     if len(alle_laengen) > 0:
-        aus.write("<länge>:<anzahl>")
+        aus.write(ld_length_number)
         aus.write(kopfzs)
         for f in sortiert2:
             s += f * alle_laengen[f]
@@ -1030,13 +1065,13 @@ if length_distribution:
             if zs >= maxzs: aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write("minimale Länge:".ljust(breite) + str(min(alle_laengen)) + "\n")
-        aus.write("maximale Länge:".ljust(breite) + str(max(alle_laengen)) + "\n")
-        aus.write("Modus der Längenverteilung:".ljust(breite) + str(max_f) + " mit " + str(alle_laengen[max_f]) + " Vorkommen\n")
-        aus.write("Durchschnittliche Länge:".ljust(breite) + str(round(s / auswahl_types, rndg)) + "\n")
+        aus.write(ld_min_length.ljust(breite) + str(min(alle_laengen)) + "\n")
+        aus.write(ld_max_length.ljust(breite) + str(max(alle_laengen)) + "\n")
+        aus.write(ld_modus.ljust(breite) + str(max_f) + " mit " + str(alle_laengen[max_f]) + " Vorkommen\n")
+        aus.write(ld_mean.ljust(breite) + str(round(s / auswahl_types, rndg)) + "\n")
         aus.write("\n")
     else:
-        aus.write("Verteilung der Wortlängen nach dem Filtern nicht verfügbar\n")
+        aus.write(warn_ld_filter + "\n")
 
 # --------------------------------------------------------------
 # (12-9) Ausgabe
@@ -1067,7 +1102,7 @@ if frequency_distribution:
     maxzs  = 120
     kopfzs = "\n" + 17 * leer
    
-    __ueberschrift("Ergebnisse (Verteilung der Worthäufigkeiten im Gesamttext)","-")
+    __ueberschrift(fd_caption_total,"-")
     
     s       = 0
     maximum = 0
@@ -1075,7 +1110,7 @@ if frequency_distribution:
     zs      = 0  
 
     if len(ges_haeufigkeiten) > 0:
-        aus.write("<häufigkeit>:<anzahl>")
+        aus.write(fd_freq_number)
         aus.write(kopfzs)
         for f in sortiert3a:
             s += f * ges_haeufigkeiten[f]
@@ -1086,14 +1121,14 @@ if frequency_distribution:
                 aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write("minimale Häufigkeit:".ljust(breite) + str(min(ges_haeufigkeiten)) + "\n")
-        aus.write("maximale Häufigkeit:".ljust(breite) + str(max(ges_haeufigkeiten)) + "\n")
-        aus.write("Modus der Häufigkeitenverteilung:".ljust(breite) + str(max_f) + " mit " + str(ges_haeufigkeiten[max_f]) + " Vorkommen\n")
+        aus.write(fd_min_freq.ljust(breite) + str(min(ges_haeufigkeiten)) + "\n")
+        aus.write(fd_freq_max.ljust(breite) + str(max(ges_haeufigkeiten)) + "\n")
+        aus.write(fd_modus.ljust(breite) + str(max_f) + " mit " + str(ges_haeufigkeiten[max_f]) + " Vorkommen\n")
         aus.write("\n")
     else:
-        aus.write("Verteilung der Worthäufigkeiten im Gesamttext nicht verfügbar\n")
+        aus.write(warn_fd + "\n")
 
-    __ueberschrift("Ergebnisse (Verteilung der Worthäufigkeiten nach dem Filtern)","-")
+    __ueberschrift(fd_caption_selected,"-")
 
     s       = 0
     maximum = 0
@@ -1101,7 +1136,7 @@ if frequency_distribution:
     zs      = 0
 
     if len(haeufigkeiten) > 0:
-        aus.write("<häufigkeit>:<anzahl>")
+        aus.write(fd_freq_number)
         aus.write(kopfzs)
         for f in sortiert3:
             s += f * haeufigkeiten[f]
@@ -1111,12 +1146,12 @@ if frequency_distribution:
             if zs >= maxzs: aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write("minimale Häufigkeit:".ljust(breite) + str(min(haeufigkeiten)) + "\n")
-        aus.write("maximale Häufigkeit:".ljust(breite) + str(max(haeufigkeiten)) + "\n")
-        aus.write("Modus der Häufigkeitenverteilung:".ljust(breite) + str(max_f) + " mit " + str(haeufigkeiten[max_f]) + " Vorkommen\n")
+        aus.write(fd_min_freq.ljust(breite) + str(min(haeufigkeiten)) + "\n")
+        aus.write(fd_freq_max.ljust(breite) + str(max(haeufigkeiten)) + "\n")
+        aus.write(fd_modus.ljust(breite) + str(max_f) + " mit " + str(haeufigkeiten[max_f]) + " Vorkommen\n")
         aus.write("\n")
     else:
-        aus.write("Verteilung der Worthäufigkeiten nach dem Filtern nicht verfügbar\n")
+        aus.write(warn_fd_filter + "\n")
 
 # --------------------------------------------------------------
 # (12-10) Ausgabe
@@ -1143,13 +1178,13 @@ if separator_distribution:
     maxzs  = 120
     kopfzs = "\n" + 17 * leer
     
-    __ueberschrift("Ergebnisse (Verteilung der Trennzeichenhäufigkeiten im Gesamttext)", "-")
+    __ueberschrift(sd_caption_total, "-")
     
     s       = 0
     maximum = 0
     max_f   = 0
     zs      = 0
-    aus.write("<trennzeichen>:<anzahl>")
+    aus.write(sd_sep_number)
     aus.write(kopfzs)
     for f in sortiert4a:
         s += ges_trennzeichen[f]
@@ -1161,7 +1196,7 @@ if separator_distribution:
             aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
-    aus.write("Modus der Trennzeichenverteilung:".ljust(breite) + "'" + __chr_out(max_f) + "' mit " + str(ges_trennzeichen[max_f]) + " Vorkommen\n")
+    aus.write(sd_modus.ljust(breite) + "'" + __chr_out(max_f) + "' mit " + str(ges_trennzeichen[max_f]) + " Vorkommen\n")
     aus.write("\n")
 
 # --------------------------------------------------------------
@@ -1193,14 +1228,14 @@ if character_distribution:
     maxzs  = 120
     kopfzs = "\n" + 17 * leer
 
-    __ueberschrift("Ergebnisse (Verteilung der Zeichenhäufigkeiten im Gesamttext)","-")
+    __ueberschrift(cd_caption_total,"-")
 
     s       = 0
     maximum = 0
     max_f   = 0
     zs      = 0
 
-    aus.write("<zeichen>:<code>:<anzahl>")
+    aus.write(cd_char_code_number)
     aus.write(kopfzs)
     for f in sortiert5a:
         s += ges_alle_zeichen[f]
@@ -1212,10 +1247,10 @@ if character_distribution:
             aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
-    aus.write("Modus der Zeichenverteilung:".ljust(breite) + "'" + str(max_f) + "' mit " + str(ges_alle_zeichen[max_f]) + " Vorkommen\n")
+    aus.write(cd_modus.ljust(breite) + "'" + str(max_f) + "' mit " + str(ges_alle_zeichen[max_f]) + " Vorkommen\n")
     aus.write("\n")
 
-    __ueberschrift("Ergebnisse (Verteilung der Zeichenhäufigkeiten nach dem Filtern)","-")
+    __ueberschrift(cd_caption_selected,"-")
 
     s       = 0
     maximum = 0
@@ -1223,7 +1258,7 @@ if character_distribution:
     zs      = 0
 
     if len(sortiert5) > 0:
-        aus.write("<zeichen>:<code>:<anzahl>")
+        aus.write(cd_char_code_number)
         aus.write(kopfzs)
         for f in sortiert5:
             s += alle_zeichen[f]
@@ -1235,10 +1270,10 @@ if character_distribution:
                 aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write("Modus der Zeichenverteilung:".ljust(breite) + "'" + str(max_f) + "' mit " + str(alle_zeichen[max_f]) + " Vorkommen\n")
+        aus.write(cd_modus.ljust(breite) + "'" + str(max_f) + "' mit " + str(alle_zeichen[max_f]) + " Vorkommen\n")
         aus.write("\n")
     else:
-        aus.write("Verteilung der Zeichenhäufigkeiten nach dem Filtern nicht verfügbar\n")
+        aus.write(warn_cd_filter + "\n")
 
 
 # ==============================================================
@@ -1249,12 +1284,12 @@ if character_distribution:
 # - Pickle-Datei wird geschrieben
 # - Pickle-Datei wird geschlossen
 
-pickle_name = __new_extension(out_name, "pkl")
-pickle_file = open(pickle_name,"bw")
-kopf = (verzeichnis, programm_name, programm_vers, programm_datum, programm_autor, autor_email, autor_institution, in_name)
+pickle_name   = __new_extension(out_name, "pkl")
+pickle_file   = open(pickle_name,"bw")
+kopf = (verzeichnis, program_name, program_vers, program_date, program_author, author_email, author_institution, in_name)
 programmdaten = (aufruf, in_name, separator, stop_name, go_name, sort_first, sort_second, out_name, word_template,
                 p_lengths, p_rank, p_frequency)
-pickle_daten = (kopf, programmdaten, sortiert, ges_alle_zeichen, ges_trennzeichen, ges_haeufigkeiten, ges_alle_laengen)
+pickle_daten  = (kopf, programmdaten, sortiert, ges_alle_zeichen, ges_trennzeichen, ges_haeufigkeiten, ges_alle_laengen)
 pickle.dump(pickle_daten, pickle_file)
 pickle_file.close()
 
