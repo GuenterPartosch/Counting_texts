@@ -16,6 +16,7 @@
 # 1.1.5: 2020-07-27: kleine Korrekturen
 # 1.1.6: 2020-08-04: kleine Korrekturen
 # 1.1.7: 2020-08-12: Anpassung an Zaehlen.py und zaehlen_ini.py
+# 1.1.8: 2020-08-15: Ausgabe-Strings in diese ini-Datei verlagert
 
 # --------------------------------------------------------
 # Abhängigkeiten:
@@ -31,28 +32,37 @@ programmname     = "multizaehlen.py"
 programmname2    = "zaehlen.py"
 programmtitle    = "Vergleich von Textauszählungen; Eingabemenü für das Programm "
 
-menu_multizaehlen_datum       = "2020-08-04" # menu_multizaehlen
-menu_multizaehlen_version     = "1.2.7"      # menu_multizaehlen
+menu_multizaehlen_datum       = "2020-08-15" # menu_multizaehlen
+menu_multizaehlen_version     = "1.2.8"      # menu_multizaehlen
 
-menu_multizaehlen_ini_datum   = "2020-08-12" # menu_multizaehlen_ini
-menu_multizaehlen_ini_version = "1.1.7"      # menu_multizaehlen_ini
+menu_multizaehlen_ini_datum   = "2020-08-15" # menu_multizaehlen_ini
+menu_multizaehlen_ini_version = "1.1.8"      # menu_multizaehlen_ini
 
-menue_zaehlen_datum           = "2018-08-04" # menu_zaehlen
+menue_zaehlen_datum           = "2018-08-09" # menu_zaehlen
 
-menue_zaehlen_ini_datum       = "2020-08-02" # menu_zaehlen_ini
+menue_zaehlen_ini_datum       = "2020-08-12" # menu_zaehlen_ini
 
-multizaehlen_datum            = "2020-08-02" # multizaehlen
-multizaehlen_version          = "1.10.9"     # multizaehlen
+multizaehlen_datum            = "2020-08-15" # multizaehlen
+multizaehlen_version          = "1.11.0"     # multizaehlen
 
-multizaehlen_ini_datum        = "2020-08-02" # multizaehlen_ini
+multizaehlen_ini_datum        = "2020-08-15" # multizaehlen_ini
 
 zaehlen_datum                 = "2020-08-12" # zaehlen
 zaehlen_vers                  = "2.14.0"     # zaehlen
 
 zaehlen_ini_datum             = "2020-08-12" # zaehlen_ini
 
-
-
+msg1                          = "Eingabefelder/Checkboxen"
+msg2                          = "Schaltflächen"
+msg3                          = "Erläuterungen"
+msg4                          = "Version(en)"
+tuple_text                    = 'Tupel mit {0} Datei(en)'
+error_text                    = "Fehler"
+execution_text                = "Bearbeitung"
+end_text                      = "Programm menu_zaehlen beendet"
+call_text                     = "Aufruf"
+pickle_files                  = "Pickle-Dateien"
+all_files                     = "Alle Dateien"
 
 # ----------------------------------------------------
 # Konfiguration für Labels und Felder

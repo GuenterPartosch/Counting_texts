@@ -10,9 +10,10 @@
 # 1.0.0: 2017-02-19: Anfang, aus menu_zaehlen.py entwickelt
 # 1.1.0: 2017-02-19: erstmals funktionsfähig
 # 1.2.0: 2017-07-18: Erweiterung und neues Konzept
+# 1.2.8: 2020-08-15: Ausgabe-Strings in ini-Datei verlagert
 
-m_mz_datum   = "2020-08-04"
-m_mz_version = "1.2.7"
+m_mz_datum   = "2020-08-15"
+m_mz_version = "1.2.8"
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -83,15 +84,15 @@ def create_filename(nummer, basis):
 
 def hilfe1():
     """gibt einen Hilfetext aus."""
-    showinfo("Hilfe", hilfe_text1)
+    showinfo(msg1, hilfe_text1)
 
 def hilfe2():
     """gibt einen Hilfetext aus."""
-    showinfo("Hilfe", hilfe_text2)
+    showinfo(msg2, hilfe_text2)
 
 def hilfe3():
     """gibt einen Hilfetext aus."""
-    showinfo("Hilfe", hilfe_text3)
+    showinfo(msg3, hilfe_text3)
     
 def init_entry_fields():
     """initialisiert Labels und Eingabefelder."""
@@ -127,9 +128,9 @@ def ask_in_file():
     """erfragt die/den Namen der Eingabedatei(en) und trägt sie/ihn ein."""
     global name_in
     name_in = []
-    name_in = askopenfilenames(filetypes = (("Pickle-Dateien", "*.pkl"),("Alle Dateien", "*.*")))
+    name_in = askopenfilenames(filetypes = ((pickle_files, "*.pkl"),(all_files, "*.*")))
     E[0] = Entry(mm)
-    E[0].insert(10, 'Tupel mit ' + str(len(name_in)) + ' Datei(en)')
+    E[0].insert(10, tuple_text.format(str(len(name_in))))
     E[0].grid(row=0, column=1)
 
 def reset_entry_fields():
@@ -178,12 +179,12 @@ def start():
         else:
             pass
 
-    showinfo(title="Aufruf", message = aufruf)
+    showinfo(title=call_text, message = aufruf)
     x          = subprocess.Popen(aufruf, stderr=subprocess.PIPE, universal_newlines=True)
     fehlermeld = x.stderr.read()
     if (len(fehlermeld) > 0):
-        showerror(title="Fehler", message = fehlermeld, icon = ERROR)
-    showinfo(title="Bearbeitung", message = "Programm menu_multizaehlen beendet")
+        showerror(title=error_text, message = fehlermeld, icon = ERROR)
+    showinfo(title=execution_text, message = end_text)
 
 def init_buttons():
     """legt Buttons an und initialisiert sie."""
@@ -199,7 +200,7 @@ def init_buttons():
 
 def version():
     """gibt Versionsdaten aus."""
-    showinfo("Hilfe", version_text)
+    showinfo(msg4, version_text)
     
 # -----------------------------------------------------------------------
 # eigentliches Programm

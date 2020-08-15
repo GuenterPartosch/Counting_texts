@@ -27,6 +27,7 @@
 # 1.10.0: 2017-07-19: Berechnung von Modus und Summen für -d, -ld, -cd, -sd
 
 # 1.10.9: 2020-08-02: Voreinstellungen geändert
+# 1.11.0: 2020-08-15: Ausgabe-Strings
 
 # --------------------------------------------------------------
 # Fehlermeldungen
@@ -36,16 +37,53 @@
 # ---Datei <datei> ist vom falschen Typ: Programmabbruch!
 # ---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!
 
+# --------------------------------------------------------------
+# Programmabfolge
+
+# (1) Programm-Parameter: global
+# (2) Module laden:
+# (3) eigene Methoden:
+# (4) Strukturen vorbesetzen und initialisieren:
+# (5) Variablen vorbesetzen:
+# (6) Programm-Parameter:
+#     (6-1) Programm-Parameter: Datum und Uhrzeit
+#     (6-2) Programm-Parameter: Aufruf
+#     (6-3) Definition und Beschreibung der Aufrufparameter:
+#     (6-4) Programm-Parameter: reguläre Ausdrücke
+#     (6-5) Programm-Parameter: Filterung
+# (7) Ausgabedatei öffnen:
+# (8) Daten wiedergewinnen:
+#     (8-1) prüfen, ob die gewonnenen Daten kompatibel sind: ggf. Abbruch
+# (9) Strukturen vereinigen zu einer neuen Struktur:
+# (10) 1. Sortierung:
+# (11) daraus Aufbau einer Liste mit Zeichenkette, Anzahl und Länge (für den Gesamttext):
+# (12) 2. Sortierung:
+# (13) Ausgabe
+#      (13-1) Ausgabe vorbereiten:
+#      (13-2) Ausgabe, Kopf, allgemein:
+#      (13-3) Ausgabe, Kopf, Ausgabe Programm-Parameter:
+#      (13-4) Ausgabe, Legende:
+#      (13-5) Ausgabe, Kopfzeile:
+#      (13-6) Ausgabe, eigentliche Ausgabe:
+#      (13-7) Ausgabe, Zusammenfassung
+#      (13-8) Ausgabe, ld ausgeben (Längen-Verteilung):
+#      (13-9) Ausgabe, fd ausgeben (Häufigkeitsverteilung):
+#      (13-10) Ausgabe, cd ausgeben (Zeichen-Verteilung):
+#      (13-11) Ausgabe, sd ausgeben (Trennzeichen-Verteilung):
+# (14) Ausgabe schließen
+
     
 # ==============================================================
 # (1) Programm-Parameter: global
 
-programm_name    = "multizaehlen.py"
-programm_vers    = "1.10.9"
-programm_datum   = "2020-08-02"
-programm_autor   = "Günter Partosch"
-autor_email      = "Guenter.Partosch@hrz.uni-giessen.de"
-autor_institution= "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
+# in ini-Datei verschoben
+
+##prg_name_text     = "multizaehlen.py"
+##prg_vers_text     = "1.10.9"
+##prg_date_text    = "2020-08-02"
+##prg_author_text    = "Günter Partosch"
+##author_email_text  = "Guenter.Partosch@hrz.uni-giessen.de"
+##author_institution = "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
 
 
 # ==============================================================
@@ -63,15 +101,18 @@ import math                     # math. Funktionen
 # ==============================================================
 # (3) eigene Methoden:
 
+# -----------------------------------------------------
 def __ueberschrift(text,z="-"):
     """dient zum Ausgeben von Überschriften bei der Ausgabe."""
     aus.write("\n" + str(text) + "\n")
     aus.write(z*len(text) + "\n\n")
 
+# -----------------------------------------------------
 def __chr_hex(c):
     """dient zur Ausgabe eines Zeichens im Hex-Code."""
     return str(hex(ord(c)))
 
+# -----------------------------------------------------
 def __chr_out(c):
     """dient zur Ausgabe eines beliebigen Zeichens."""
     # www: lokale Hilfsvariable
@@ -90,6 +131,7 @@ def __chr_out(c):
     else:
         www = c
     return www
+
 
 # ==============================================================
 # (4) Strukturen vorbesetzen und initialisieren:
@@ -138,7 +180,7 @@ try:
     from multizaehlen_ini import * 
 except ImportError:
     # falls Fehler: lokal Programm-Parameter und -Variablen initialisieren
-    sys.stderr.write("---Warnung: zaehlen_ini.py nicht gefunden")
+    sys.stderr.write(warn_no_ini)
 
     files_text    = "zu verarbeitende Dateien (*.plk)"
     files_anz_text= "Beschränkung der Zahl von Dateien (*.plk) mit Zeichenkette"
@@ -224,76 +266,77 @@ for f in range(len(sys.argv)):
 #                          -t/--template -fi/--files
 # andere Parameter: <files>
 
-parser = argparse.ArgumentParser(description = "vergleichendes Auszählen von Texten [" + programm_name + "; " +
-                                 "Version: " + programm_vers + " (" + programm_datum + ")]")
-parser._positionals.title = 'Nicht-optionale Parameter'
-parser._optionals.title   = 'Optionale Parameter'
+parser = argparse.ArgumentParser(description = main_caption_text + " [" + prg_name_text + "; " +
+                                 "Version: " + prg_vers_text + " (" + prg_date_text + ")]")
+parser._positionals.title = argp_pos_par
+parser._optionals.title   = argp_opt_par
 
 parser.add_argument('files', nargs ='+',
                     help = files_text)
 parser.add_argument("-a", "--author",
                     help    = autor_text,
                     action  = 'version',
-                    version = programm_autor + " (" + autor_email + ")") 
+                    version = prg_author_text + " (" + author_email_text + ")") 
 parser.add_argument("-cd", "--character_distribution",
-                    help    = cd_text + "; Voreinstellung: " + "%(default)s",
+                    help    = cd_text + "; {0}: %(default)s".format(argp_default),
                     action  = "store_true",
                     default = character_distribution) 
 parser.add_argument("-f", "--frequencies",
-                    help    = freq_text + "; Voreinstellung: " + "%(default)s",
+                    help    = freq_text + "; {0}: %(default)s".format(argp_default),
                     dest    = "p_frequency",
                     default = p_frequency) 
 parser.add_argument("-fd", "--frequency_distribution",
-                    help    = fd_text + "; Voreinstellung: " + "%(default)s",
+                    help    = fd_text + "; {0}: %(default)s".format(argp_default),
                     action  = "store_true",
                     default = frequency_distribution) 
 parser.add_argument("-fi", "--files",
-                    help    = files_anz_text + "; Voreinstellung: " + "%(default)s",
+                    help    = files_anz_text + "; {0}: %(default)s".format(argp_default),
                     dest    = "p_files",
                     default = p_files) 
 parser.add_argument("-l", "--lengths",
-                    help    = lengths_text + "; Voreinstellung: " + "%(default)s",
+                    help    = lengths_text + "; {0}: %(default)s".format(argp_default),
                     dest    = "p_lengths",
                     default = p_lengths) 
 parser.add_argument("-ld", "--length_distribution",
-                    help    = ld_text + "; Voreinstellung: " + "%(default)s",
+                    help    = ld_text + "; {0}: %(default)s".format(argp_default),
                     action  = "store_true",
                     default = length_distribution) 
 parser.add_argument("-o", "--output",
-                    help    = out_text + "; Voreinstellung: " + "%(default)s",
+                    help    = out_text + "; {0}: %(default)s".format(argp_default),
                     type    = argparse.FileType(mode = 'w', encoding = "utf-8"),
                     dest    = "out_name",
 ##                    default = sys.stdout) 
                     default = out_name) 
 parser.add_argument("-r", "--ranking",
-                    help    = rank_text + "; Voreinstellung: " + "%(default)s",
+                    help    = rank_text + "; {0}: %(default)s".format(argp_default),
                     dest    = "p_rank",
                     default = p_rank) 
 parser.add_argument("-s1", "--sort1",
-                    help    = sort1_text + "; Voreinstellung: " + "%(default)s",
+                    help    = sort1_text + "; {0}: %(default)s".format(argp_default),
                     choices = ["a+", "a-", "A+", "A-"],
                     dest    = "sort_first",
                     default = sort_first) 
 parser.add_argument("-s2", "--sort2",
-                    help    = sort2_text + "; Voreinstellung: " + "%(default)s",
+                    help    = sort2_text + "; {0}: %(default)s".format(argp_default),
                     choices = ["L+", "L-", "F+", "F-", "D+", "D-"],
                     dest    = "sort_second",
                     default = sort_second) 
 parser.add_argument("-sd", "--separator_distribution",
-                    help    = sd_text + "; Voreinstellung: " + "%(default)s",
+                    help    = sd_text + "; {0}: %(default)s".format(argp_default),
                     action  = "store_true",
                     default = separator_distribution) 
 parser.add_argument("-t", "--template",
-                    help    = template_text + "; Voreinstellung: " + "%(default)s",
+                    help    = template_text + "; {0}: %(default)s".format(argp_default),
                     dest    = "word_template",
                     default = word_template) 
 parser.add_argument("-v", "--version",
                     help    = version_text,
                     action  = 'version',
-                    version = '%(prog)s '+ programm_vers + " (" + programm_datum + ")") 
+                    version = '%(prog)s '+ prg_vers_text + " (" + prg_date_text + ")") 
 
 args  =  parser.parse_args()
 
+# --------------------------------------------------------------
 # Zuweisung an lokale Variablen
 alle                   = args.files
 aus                    = args.out_name
@@ -312,7 +355,7 @@ p_files                = args.p_files
 
 len_alle               = len(alle)
 if (len_alle == 0):
-    sys.stderr.write("---keine Dateien angegeben. Programmabbruch!")
+    sys.stderr.write(err_no_files)
     exit()
 
 # --------------------------------------------------------------
@@ -351,7 +394,7 @@ re_files      = eval("range(" + str(p_files) + ")")     # range-Ausdruck für An
 try:
     aus = open(out_name, encoding='utf-8', mode='w+')  # Ausgabedatei
 except IOError:                                        # wenn Ausgabedatei nicht geöffnet werden kann
-    sys.stderr.write("---Ausgabedatei " + out_name + " kann nicht geöffnet werden. Programmabbruch")
+    sys.stderr.write(err_out.format(out_name))
     exit()
 
 
@@ -363,7 +406,7 @@ except IOError:                                        # wenn Ausgabedatei nicht
 # sortiert
 # [(zkette, anzahl, länge), ...]
 #
-# kopf = (verzeichnis, programm_name, programm_vers, programm_datum, programm_autor, autor_email, autor_institution, in_name)
+# kopf = (verzeichnis, prg_name_text, prg_vers_text, prg_date_text, prg_author_text, author_email_text, author_institution, in_name)
 #
 # programmdaten = (aufruf, in_name, separator, stop_name, go_name, sort_first, sort_second, out_name, word_template,
 #                  p_lengths, p_rank, p_frequency
@@ -376,19 +419,21 @@ except IOError:                                        # wenn Ausgabedatei nicht
 # P_programmdaten[i] : Programmdaten aller pkl-Dateien
 # P_sortiert[i]      : Ergebnisdaten aller pkl-Dateien
 
+# --------------------------------------------------------------
 # Schleife: alle angeforderten pkl-Dateien öffnen
 # ggf. Programmabbruch
 for f in range(len_alle):
     try:
         file = open(alle[f], "br")
     except IOError:                # falls eine pkl-Datei nicht geöffnet werden kann
-        sys.stderr.write("---Datei " + alle[f] + " kann nicht geöffnet werden. Programmabbruch!")
+        sys.stderr.write(err_pkl_open.format(alle[f]))
         exit()
    
     if not (".pkl" in alle[f]):    # ggf. Programmabbruch, wenn falscher Typ        
-        sys.stderr.write("---Datei " + alle[f] + " ist vom falschen Typ: Programmabbruch!")
+        sys.stderr.write(err_type.format(alle[f]))
         exit()
 
+# --------------------------------------------------------------
     # Daten der pkl-Dateien wiedergewinnen
     P.append(file)                                # Filehandles aller pkl-Dateien werden in der Liste P abgelegt
     loads = pickle.load(P[f])                     # die Daten aller pkl-Dateien werden in der Liste loads abgelegt
@@ -408,7 +453,7 @@ for f in range(len_alle):
 # 
 # P_kopf          : zu überprüfende Kopfdaten aus allen pkl-Dateien
 # P_programmdaten : zu überprüfende Programmdaten aus allen pkl-Dateien
-# aus 1.ff pkl-Datei (Kopf-Daten)   : x_programm_datum, x_programm_name, x_programm_vers
+# aus 1.ff pkl-Datei (Kopf-Daten)   : x_prg_date_text, x_prg_name_text, x_prg_vers_text
 # aus 1.ff pkl-Datei (Programmdaten): x_go_name, x_separator, x_stop_name
 # f               : Schleifenvariable
 # len_alle        : Anzahl der pkl-Dateien
@@ -416,28 +461,31 @@ for f in range(len_alle):
 
 kompatibel       = True
 
+# --------------------------------------------------------------
 # Programmkopf
-x_programm_name  = P_kopf[0][1]
-x_programm_vers  = P_kopf[0][2]
-x_programm_datum = P_kopf[0][3]
+x_prg_name_text  = P_kopf[0][1]
+x_prg_vers_text  = P_kopf[0][2]
+x_prg_date_text = P_kopf[0][3]
 
+# --------------------------------------------------------------
 # wichtige Programmdaten
 x_separator      = P_programmdaten[0][2]
 x_stop_name      = P_programmdaten[0][3]
 x_go_name        = P_programmdaten[0][4]
 
+# --------------------------------------------------------------
 # Schleife über alle Köpfe und Programmdaten
 for f in range(1, len_alle):
-    if (P_kopf[f][1] != x_programm_name): kompatibel = False
-    if (P_kopf[f][2] != x_programm_vers): kompatibel = False
-    if (P_kopf[f][3] != x_programm_datum): kompatibe = False
+    if (P_kopf[f][1] != x_prg_name_text): kompatibel = False
+    if (P_kopf[f][2] != x_prg_vers_text): kompatibel = False
+    if (P_kopf[f][3] != x_prg_date_text): kompatibel = False
 
     if (P_programmdaten[f][2] != x_separator): kompatibel = False
     if (P_programmdaten[f][3] != x_stop_name): kompatibel = False
     if (P_programmdaten[f][4] != x_go_name): kompatibel = False
 
 if not kompatibel:
-    sys.stderr.write("---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!")
+    sys.stderr.write(err_compatib)
     exit()
 
 
@@ -588,27 +636,27 @@ i7 = i4                       # Breite der Kolumne 7 (Anzahl); adaptierbar <-- m
 # (13-2) Ausgabe, Kopf, allgemein:
 
 # b                : Breite des Labels
-# ausgegeben werden: autor_email, autor_institution, programm_autor, programm_datum, programm_name, programm_vers
+# ausgegeben werden: author_email_text, author_institution, prg_author_text, prg_date_text, prg_name_text, prg_vers_text
 
-__ueberschrift("Vergleich von Textauszählungen","=")
+__ueberschrift(main_caption_text,"=")
 b = 43
 
-aus.write("Name des Programms".ljust(b)    + trenner + leer + programm_name + "\n")
-aus.write("Version des Programms".ljust(b) + trenner + leer + programm_vers + "\n")
-aus.write("Bearbeitungsdatum".ljust(b)     + trenner + leer + programm_datum + "\n")
-aus.write("Autor des Programms".ljust(b)   + trenner + leer + programm_autor + "\n")
-aus.write("E-Mail-Adresse".ljust(b)        + trenner + leer + autor_email + "\n")
-aus.write("Institution".ljust(b)           + trenner + leer + autor_institution + "\n\n")
+aus.write(head_prg_name.ljust(b) + trenner + leer + prg_name_text + "\n")
+aus.write(head_prg_vers.ljust(b) + trenner + leer + prg_vers_text + "\n")
+aus.write(head_prg_date.ljust(b) + trenner + leer + prg_date_text + "\n")
+aus.write(prg_author.ljust(b)    + trenner + leer + prg_author_text + "\n")
+aus.write(author_email.ljust(b)  + trenner + leer + author_email_text + "\n")
+aus.write(author_inst.ljust(b)   + trenner + leer + author_institution + "\n\n")
 
-__ueberschrift("Inhalt","-")
+__ueberschrift(head_content,"-")
 
-aus.write("+ Programm-Parameter" + "\n")
-aus.write("+ Ergebnisse" + "\n")
-aus.write("+ Zusammenfassung" + "\n")
-if length_distribution:    aus.write("+ Ergebnisse (Längenverteilung vor dem Filtern)" + "\n")
-if frequency_distribution: aus.write("+ Ergebnisse (Häufigkeitsverteilung vor dem Filtern)" + "\n")
-if character_distribution: aus.write("+ Ergebnisse (Zeichenverteilung vor dem Filtern)" + "\n")
-if separator_distribution: aus.write("+ Ergebnisse (Trennzeichenverteilung vor dem Filtern)" + "\n")
+aus.write("+ {0}".format(head_prg_para) + "\n")
+aus.write("+ {0}".format(head_result) + "\n")
+aus.write("+ {0}".format(head_summary) + "\n")
+if length_distribution:    aus.write("+ {0}".format(res_pre_ld) + "\n")
+if frequency_distribution: aus.write("+ {0}".format(res_pre_fd) + "\n")
+if character_distribution: aus.write("+ {0}".format(res_pre_cd) + "\n")
+if separator_distribution: aus.write("+ {0}".format(res_pre_sd) + "\n")
 aus.write("\n")
 
 # --------------------------------------------------------------
@@ -621,10 +669,10 @@ aus.write("\n")
 # ausgegeben werden: frequency_distribution, length_distribution, out_name, p_files, p_frequency, p_lengths, p_rank, sort_first,
 #                    sort_second, word_template
 
-__ueberschrift("Programm-Parameter","-")
+__ueberschrift(sub_caption,"-")
 b = 57
 
-aus.write("Programm-Aufruf".ljust(b) + trenner + leer + aufruf + "\n")
+aus.write(prg_call.ljust(b)          + trenner + leer + aufruf + "\n")
 aus.write(sort1_text.ljust(b)        + trenner + leer + sort_first + "\n")
 aus.write(sort2_text.ljust(b)        + trenner + leer + sort_second + "\n")
 aus.write(out_text.ljust(b)          + trenner + leer + out_name + "\n")
@@ -649,18 +697,18 @@ aus.write("\n")
 # alle     : Liste mit den Namen der pkl-Dateien
 # p_kopf   : Liste mit Kopfdaten: hier Namen der ursprünglichen Dateien 
 
-__ueberschrift("Ergebnisse","-")
+__ueberschrift(caption_leg,"-")
 
 aus.write("(" + datum + ", " + uhrzeit + ")\n\n")
 
-aus.write("(1) Rangfolge\n")
-aus.write("(2) Länge der Zeichenkette\n")
-aus.write("(3) Zeichenkette\n")
-aus.write("(4) Häufigkeit der Zeichenkette in allen Dateien\n")
-aus.write("(5) akk. Häufigkeit der Zeichenkette\n")
-aus.write("(6) Zahl der Dateien mit dieser Zeichenkette\n")
+aus.write("(1) {0}".format(leg_rank) + "\n")
+aus.write("(2) {0}".format(leg_str_len) + "\n")
+aus.write("(3) {0}".format(leg_string) + "\n")
+aus.write("(4) {0}".format(leg_str_freq) + "\n")
+aus.write("(5) {0}".format(leg_acc_freq) + "\n")
+aus.write("(6) {0}".format(leg_file_nr) + "\n")
 for i in range(len_alle):
-    aus.write("(" + str(i + 7) + ") Eingabedatei " + str(i) + " (" + alle[i] + " zu " + P_kopf[i][7] + ")\n")
+    aus.write("({0}) {1} {2} ({3} -->\n    {4})".format(str(i + 7), leg_in_file, str(i), alle[i], P_kopf[i][7]) + "\n")
 aus.write("\n")
 
 # --------------------------------------------------------------
@@ -708,6 +756,7 @@ aus.write("\n")
 # re_rank      : Bedingung für Filtern: zulässiger Rang
 # re_files     : Bedingung für Filtern: zulässige Anzahl von Dateien
 
+# --------------------------------------------------------------
 # Vorbesetzen
 for i in range(len_alle):
     anz_dat += [0]
@@ -715,6 +764,7 @@ for i in range(len_alle):
 nr      = 0
 nr_nach = 0
 
+# --------------------------------------------------------------
 # Schleife (über alle Elemente in neu3)
 for z in range(len(neu3)):
     nr       = z + 1
@@ -724,6 +774,7 @@ for z in range(len(neu3)):
     dat_anz  = neu3[z][3]
     akk_anz += anz
 
+# --------------------------------------------------------------
     # Bedingungen überprüfen (Filterung)
     # + p2          : zulässiges Ausgabemuster
     # + re_frequency: zulässige Häufigkeit
@@ -734,6 +785,7 @@ for z in range(len(neu3)):
     #Bedingung für Filterung
     beding = p2.match(zkette) and (anz in re_frequency) and (laenge in re_lengths) and (nr in re_rank) and (dat_anz in re_files)
 
+# --------------------------------------------------------------
     # Ausgabe: eine Zeile mit Filterung
     if beding:
         nr_nach += 1
@@ -755,6 +807,7 @@ for z in range(len(neu3)):
                 aus.write(("-" * i7) + leer)
         aus.write("\n")
 
+# --------------------------------------------------------------
 # Abspann
 aus.write("-" * (i1 + i2 + z3 + 2 + i4 + 1 + i5 + 1 + i6 + len_alle *(i7 + 1) + 2))
 aus.write("\n")
@@ -778,23 +831,22 @@ aus.write("\n")
 # nr           : Zahl der Types vor dem Filtern
 # nr_nach      : Zahl der Types nach dem Filtern
 
-__ueberschrift("Zusammenfassung","-")
+__ueberschrift(result_summ,"-")
 
 breite      = 42
 akk_anz_vor = akk_anz
 
-aus.write("Zahl der Tokens (vor dem Filtern)".ljust(breite) + trenner + str(akk_anz_vor).rjust(i4 + 1) + "\n")
-aus.write("Zahl der Types (vor dem Filtern)".ljust(breite) + trenner + str(nr).rjust(i4 + 1) + "\n")
-aus.write("Verhältnis Types/Tokens (vor dem Filtern)".ljust(breite) + trenner + str(round(nr / akk_anz_vor, rndg)).rjust(i4 + 1)
-          + "\n\n")
+aus.write(res_token_pre.ljust(breite) + trenner + str(akk_anz_vor).rjust(i4 + 1) + "\n")
+aus.write(res_types_pre.ljust(breite) + trenner + str(nr).rjust(i4 + 1) + "\n")
+aus.write(res_ratio_pre.ljust(breite) + trenner + str(round(nr / akk_anz_vor, rndg)).rjust(i4 + 1) + "\n\n")
 
-aus.write("Zahl der Tokens (nach dem Filtern)".ljust(breite) + trenner + str(akk_anz_nach).rjust(i4 + 1) + "\n")
-aus.write("Zahl der Types (nach dem Filtern)".ljust(breite) + trenner + str(nr_nach).rjust(i4 + 1) + "\n")
-aus.write("Verhältnis Types/Tokens (nach dem Filtern)".ljust(breite) + trenner +
+aus.write(res_token_post.ljust(breite) + trenner + str(akk_anz_nach).rjust(i4 + 1) + "\n")
+aus.write(res_types_post.ljust(breite) + trenner + str(nr_nach).rjust(i4 + 1) + "\n")
+aus.write(res_ratio_post.ljust(breite) + trenner +
           str(round(nr_nach / akk_anz_nach, rndg)).rjust(i4 + 1) + "\n\n")
 
-aus.write("Verhältnis Types (nach/vor Filtern)".ljust(breite) + trenner + str(round(nr_nach / nr, rndg)).rjust(i4 + 1) + "\n")
-aus.write("Verhältnis Tokens (nach/vor Filtern)".ljust(breite) + trenner + str(round(akk_anz_nach / akk_anz_vor, rndg)).rjust(i4 + 1)
+aus.write(types_pre_post.ljust(breite) + trenner + str(round(nr_nach / nr, rndg)).rjust(i4 + 1) + "\n")
+aus.write(token_pre_post.ljust(breite) + trenner + str(round(akk_anz_nach / akk_anz_vor, rndg)).rjust(i4 + 1)
           + "\n\n")
 
 # --------------------------------------------------------------
@@ -833,12 +885,14 @@ aus.write("Verhältnis Tokens (nach/vor Filtern)".ljust(breite) + trenner + str(
 # P_ges_alle_laengen[i] --> (Neustrukturierung) --> neu_gal --> (Sortierung) --> neu2_gal --> (Neustrukturierung) --> neu3_gal
 
 if length_distribution:
-    __ueberschrift("Ergebnisse (Längenverteilung vor dem Filtern)","-")
+    __ueberschrift(caption_ld,"-")
 
+# --------------------------------------------------------------
     # Vereinarungen
     neu_gal   = {} # Zusammenfassung aus P_ges_alle_laengen
     neu3_gal  = [] # neustrukturiert aus neu_gal --> neu2_gal
 
+# --------------------------------------------------------------
     # Hilfsvariablen
     breite    = 20
     summe     = 0
@@ -851,6 +905,7 @@ if length_distribution:
     gesgsumme = 0 # für gewichteten Mittelwert
     datgsumme = [0 for x in range(len_alle)]
 
+# --------------------------------------------------------------
     # Neustrukturierung
     l3 = len_alle + 2
     for f in range(len_alle):
@@ -875,9 +930,11 @@ if length_distribution:
             if summe < neu_gal[laenge][0]:
                 summe = neu_gal[laenge][0]
 
+# --------------------------------------------------------------
     # Sortierung
     neu2_gal = sorted(neu_gal)            
 
+# --------------------------------------------------------------
     # Neustrukturierung
     for z in range(len(neu2_gal)):
         ww        = neu2_gal[z]
@@ -885,6 +942,7 @@ if length_distribution:
         zwi      += neu_gal[ww]
         neu3_gal += [tuple(zwi)]
 
+# --------------------------------------------------------------
     # Hilfsvariablen für die Ausgabe
     i1 = floor(lg(len(neu3_gal))) + 2# Breite der Kolumne 1 (laufende Nummer); adaptierbar <-- len(neu3_gal)
     i2 = floor(lg(maxlaenge)) + 2    # Breite der Kolumne 2 (Länge)
@@ -892,13 +950,14 @@ if length_distribution:
     i4 = floor(lg(len_alle)) + 3     # Breite der Kolumne 5 (Zahl der Dateien); adaptierbar
     i5 = i3                          # Breite der Kolumne 6 (Anzahl); adaptierbar <-- summe
 
+# --------------------------------------------------------------
     # Legende und Kopf
-    aus.write("(1) Laufende Nummer\n")
-    aus.write("(2) Länge\n")
-    aus.write("(3) Anzahl der Wörter mit dieser Länge über alle Dateien\n")
-    aus.write("(4) Zahl der Dateien mit Wörter dieser Länge\n")
+    aus.write("(1) {0}".format(ld_hdr_nr) + "\n")
+    aus.write("(2) {0}".format(ld_hdr_length) + "\n")
+    aus.write("(3) {0}".format(ld_hdr__word_nr) + "\n")
+    aus.write("(4) {0}".format(ld_hdr_files_nr) + "\n")
     for f in range(len_alle):
-        aus.write("(" + str(i + 5) + ") Eingabedatei " + str(f) + " (" + alle[f] + " zu " + P_kopf[f][7] + ")\n")
+        aus.write("({0}) {1} {2} ({3} --> \n    {4})".format(str(i + 5), ld_hdr_infile, str(f), alle[f], P_kopf[f][7])  + "\n")
     aus.write("\n")
 
     aus.write("(1)".rjust(i1))
@@ -911,6 +970,7 @@ if length_distribution:
 
     aus.write("-" * (i1 + i2 + i3 + i4 + len_alle *(i5))+ "\n")
 
+# --------------------------------------------------------------
     # Ausgabeschleife
     for z in range(len(neu3_gal)):               # jeweils eine Zeile
         nr += 1
@@ -936,39 +996,40 @@ if length_distribution:
                 aus.write("----".rjust(i5))      # 5ff. Item
         aus.write("\n")
 
+# --------------------------------------------------------------
     # Abspann
     aus.write("-" * (i1 + i2 + i3 + i4 + len_alle *(i5))+ "\n")
-    aus.write("Summen".ljust(i1+i2))
+    aus.write(ld_summary_sum.ljust(i1+i2))
     aus.write(str(gessumme).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datsumme[f]).rjust(i5))
     aus.write("\n")
 
-    aus.write("Modus".ljust(i1+i2))
+    aus.write(ld_modus.ljust(i1+i2))
     aus.write(str(gesmodus[1]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datmodus[f][1]).rjust(i5))
     aus.write("\n")
 
-    aus.write("bei".ljust(i1+i2))
+    aus.write(ld_at.ljust(i1+i2))
     aus.write(str(gesmodus[0]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datmodus[f][0]).rjust(i5))
     aus.write("\n")
 
-    aus.write("gMW".ljust(i1+i2))
+    aus.write(ld_wa_short.ljust(i1+i2))
     aus.write(str(round(gesgsumme / gessumme, 1)).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(round(datgsumme[f] / datsumme[f], 1)).rjust(i5))
     aus.write("\n\n")
-    aus.write("(gMW = gewichtetet Mittelwert)\n\n")
+    aus.write(ld_wa_long + "\n\n")
 
-    aus.write("Kleinste Länge".ljust(breite) + trenner + str(min(neu3_gal)[0]).rjust(i5) + "\n")
-    aus.write("Größte Länge".ljust(breite) + trenner + str(max(neu3_gal)[0]).rjust(i5) + "\n\n")
+    aus.write(ld_min_length.ljust(breite) + trenner + str(min(neu3_gal)[0]).rjust(i5) + "\n")
+    aus.write(ld_max_length.ljust(breite) + trenner + str(max(neu3_gal)[0]).rjust(i5) + "\n\n")
 
 # --------------------------------------------------------------
 # (13-9) Ausgabe, fd ausgeben (Häufigkeitsverteilung):
@@ -979,7 +1040,7 @@ if length_distribution:
 # neu2_gh               : sortiert aus neu_gh
 # neu3_gh               : neustrukturiert aus neu_gh / neu2_gh
 # len_alle              : Anzahl der Dateien
-# l3                    : lokale Hilfsvariable
+# l3                    : lokale HilfsvariableAnzahl der Wörter mit dieser Länge über alle Dateien
 # f                     : Schleifenvariable über alle Dateien
 # g                     : Schleifenvariable über alle Items einer Datei
 # pp                    : lokale Hilfsvariable
@@ -1005,12 +1066,14 @@ if length_distribution:
 # P_ges_haeufigkeiten[i] --> (Neustrukturierung) --> neu_gh --> (Sortierung) --> neu2_gh --> (Neustrukturierung) --> neu3_gh
 
 if frequency_distribution:
-    __ueberschrift("Ergebnisse (Häufigkeitsverteilung vor dem Filtern)","-")
+    __ueberschrift(caption_fd,"-")
 
+# --------------------------------------------------------------
     # Vereinbarungen
     neu_gh  = {} # Zusammenfassung aus P_ges_haeufigkeiten
     neu3_gh = [] # 
 
+# --------------------------------------------------------------
     # Hilfsvariablen
     breite    = 20
     summe     = 0
@@ -1021,6 +1084,7 @@ if frequency_distribution:
     gesmodus  = (0, 0)
     datmodus  = [(0, 0) for x in range(len_alle)] # (länge, anzahl)
 
+# --------------------------------------------------------------
     # Neustrukturierung
     l3 = len_alle + 2
     for f in range(len_alle):
@@ -1045,9 +1109,11 @@ if frequency_distribution:
             if summe < neu_gh[haeufig][0]:
                 summe = neu_gh[haeufig][0]
 
+# --------------------------------------------------------------
     #Sortierung
     neu2_gh = sorted(neu_gh)            
 
+# --------------------------------------------------------------
     # Neustrukturierung
     for z in range(len(neu2_gh)):
         ww        = neu2_gh[z]
@@ -1055,6 +1121,7 @@ if frequency_distribution:
         zwi      += neu_gh[ww]
         neu3_gh  += [tuple(zwi)]
 
+# --------------------------------------------------------------
     # Hilfsvariablen für die Ausgabe
     i1 = floor(lg(len(neu3_gh))) + 2 # Breite der Kolumne 1 (laufende Nummer); adaptierbar <-- len(neu3_gal)
     i2 = floor(lg(maxfreq)) + 2      # Breite der Kolumne 2 (Häufigkeit)
@@ -1062,13 +1129,14 @@ if frequency_distribution:
     i4 = floor(lg(len_alle)) + 3     # Breite der Kolumne 5 (Zahl der Dateien); adaptierbar
     i5 = i3                          # Breite der Kolumne 6 (Anzahl); adaptierbar <-- summe
 
+# --------------------------------------------------------------
     # Legende und Kopf
-    aus.write("(1) Laufende Nummer\n")
-    aus.write("(2) Häufigkeit\n")
-    aus.write("(3) Anzahl der Wörter mit dieser Häufigkeit über alle Dateien\n")
-    aus.write("(4) Zahl der Dateien mit Wörter dieser Häufigkeit\n")
+    aus.write("(1) {0}".format(ld_hdr_nr) + "\n")
+    aus.write("(2) {0}".format(fd_hdr_freq) + "\n")
+    aus.write("(3) {0}".format(fd_hdr_freq_nr) + "\n")
+    aus.write("(4) {0}".format(fd_hdr_files_nr) + "\n")
     for f in range(len_alle):
-        aus.write("(" + str(i + 5) + ") Eingabedatei " + str(f) + " (" + alle[f] + " zu " + P_kopf[f][7] + ")\n")
+        aus.write("({0}) {1} {2} ({3} --> \n    {4})".format(str(i + 5), fd_hdr_infile, str(f), alle[f], P_kopf[f][7]) + "\n")
     aus.write("\n")
 
     aus.write("(1)".rjust(i1))
@@ -1081,6 +1149,7 @@ if frequency_distribution:
 
     aus.write("-" * (i1 + i2 + i3 + i4 + len_alle *(i5))+ "\n")
 
+# --------------------------------------------------------------
     # Ausgabeschleife
     for z in range(len(neu3_gh)):              # jeweils eine Zeile
         nr += 1
@@ -1105,31 +1174,32 @@ if frequency_distribution:
                 aus.write("----".rjust(i5))    # 5ff. Item
         aus.write("\n")
 
+# --------------------------------------------------------------
     # Abspann
     aus.write("-" * (i1 + i2 + i3 + i4 + len_alle *(i5))+ "\n")
-    aus.write("Summen:".ljust(i1+i2))
+    aus.write(fd_summary_sum.ljust(i1+i2))
     aus.write(str(gessumme).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datsumme[f]).rjust(i5))
     aus.write("\n")
 
-    aus.write("Modus".ljust(i1+i2))
+    aus.write(fd_modus.ljust(i1+i2))
     aus.write(str(gesmodus[1]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datmodus[f][1]).rjust(i5))
     aus.write("\n")
 
-    aus.write("bei".ljust(i1+i2))
+    aus.write(fd_at.ljust(i1+i2))
     aus.write(str(gesmodus[0]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datmodus[f][0]).rjust(i5))
     aus.write("\n\n")
 
-    aus.write("Kleinste Häufigkeit".ljust(breite) + trenner + str(min(neu3_gh)[0]).rjust(i2) + "\n")
-    aus.write("Größte Häufigkeit".ljust(breite) + trenner + str(max(neu3_gh)[0]).rjust(i2) + "\n\n")
+    aus.write(fd_min_freq.ljust(breite) + trenner + str(min(neu3_gh)[0]).rjust(i2) + "\n")
+    aus.write(fd_max_freq.ljust(breite) + trenner + str(max(neu3_gh)[0]).rjust(i2) + "\n\n")
 
 # --------------------------------------------------------------
 # (13-10) Ausgabe, cd ausgeben (Zeichen-Verteilung):
@@ -1166,12 +1236,14 @@ if frequency_distribution:
 # P_ges_alle_zeichen[i] --> (Neustrukturierung) --> neu_gaz --> (Sortierung) --> neu2_gaz --> (Neustrukturierung) --> neu3_gaz
 
 if character_distribution:
-    __ueberschrift("Ergebnisse (Zeichenverteilung vor dem Filtern)","-")
+    __ueberschrift(caption_cd,"-")
 
+# --------------------------------------------------------------
     # Vereinbarungen
     neu_gaz  = {} # Zusammenfassung aus P_ges_alle_zeichen
     neu3_gaz = [] # neustrukturiert aus neu_gaz / neu2_gaz
 
+# --------------------------------------------------------------
     # Hilfsvariablen
     breite   = 25
     summe    = 0
@@ -1182,6 +1254,7 @@ if character_distribution:
     gesmodus = (0, 0)
     datmodus = [(0, 0) for x in range(len_alle)] # (länge, anzahl)
 
+# --------------------------------------------------------------
     # Neustrukturierung
     l3 = len_alle + 2
     for f in range(len_alle):
@@ -1206,9 +1279,11 @@ if character_distribution:
             if summe < neu_gaz[zeichen][0]:
                 summe = neu_gaz[zeichen][0]
 
+# --------------------------------------------------------------
     #Sortierung
     neu2_gaz = sorted(neu_gaz)            
 
+# --------------------------------------------------------------
     # Neustrukturierung
     for z in range(len(neu2_gaz)):
         ww        = neu2_gaz[z]
@@ -1216,6 +1291,7 @@ if character_distribution:
         zwi      += neu_gaz[ww]
         neu3_gaz += [tuple(zwi)]
 
+# --------------------------------------------------------------
     # Hilfsvariablen für die Ausgabe
     i1 = floor(lg(len(neu3_gaz))) + 2 # Breite der Kolumne 1 (laufende Nummer); adaptierbar <-- len(neu3_gaz)
     i2 = 3                            # Breite der Kolumne 2 (Zeichen)
@@ -1224,14 +1300,15 @@ if character_distribution:
     i4 = floor(lg(len_alle)) + 3      # Breite der Kolumne 5 (Zahl der Dateien); adaptierbar
     i5 = i3                           # Breite der Kolumne 6 (Anzahl); adaptierbar <-- summe
 
+# --------------------------------------------------------------
     # Legende und Kopf
-    aus.write("(1) Laufende Nummer\n")
-    aus.write("(2) Zeichen\n")
-    aus.write("(3) zugehöriger Hex-Code\n")
-    aus.write("(4) Anzahl dieses Zeichens über alle Dateien\n")
-    aus.write("(5) Zahl der Dateien mit diesem Zeichen\n")
+    aus.write("(1) {0}".format(cd_hdr_nr) + "\n")
+    aus.write("(2) {0}".format(cd_hdr_char) + "\n")
+    aus.write("(3) {0}".format(cd_hdr_hex) + "\n")
+    aus.write("(4) {0}".format(cd_hdr_char_nr) + "\n")
+    aus.write("(5) {0}".format(cd_hdr_files_nr) + "\n")
     for f in range(len_alle):
-        aus.write("(" + str(f + 6) + ") Eingabedatei " + str(f) + " (" + alle[f] + " zu " + P_kopf[f][7] + ")\n")
+        aus.write("({0}) {1} {2} ({3}  --> \n    {4})".format(str(f + 6), cd_hdr_infile, str(f), alle[f], P_kopf[f][7]) + "\n")
     aus.write("\n")
 
     aus.write("(1)".rjust(i1))
@@ -1245,6 +1322,7 @@ if character_distribution:
 
     aus.write("-" * (i1 + i2 + i2a + i3 + i4 + len_alle *(i5))+ "\n")
 
+# --------------------------------------------------------------
     # Ausgabeschleife
     for z in range(len(neu3_gaz)):                     # jeweils eine Zeile
         nr += 1
@@ -1270,23 +1348,24 @@ if character_distribution:
                 aus.write("----".rjust(i5))            # 6ff. Item
         aus.write("\n")
 
+# --------------------------------------------------------------
     # Abspann
     aus.write("-" * (i1 + i2 + i2a + i3 + i4 + len_alle *(i5))+ "\n")
-    aus.write("Summen:".ljust(i1+i2+i2a))
+    aus.write(cd_summary_sum.ljust(i1+i2+i2a))
     aus.write(str(gessumme).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datsumme[f]).rjust(i5))
     aus.write("\n")
 
-    aus.write("Modus".ljust(i1+i2+i2a))
+    aus.write(cd_modus.ljust(i1+i2+i2a))
     aus.write(str(gesmodus[1]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datmodus[f][1]).rjust(i5))
     aus.write("\n")
 
-    aus.write("bei".ljust(i1+i2+i2a))
+    aus.write(cd_at.ljust(i1+i2+i2a))
     aus.write(__chr_out(gesmodus[0]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
@@ -1328,12 +1407,14 @@ if character_distribution:
 # P_ges_alle_zeichen[i] --> (Neustrukturierung) --> neu_gt --> (Sortierung) --> neu2_gt --> (Neustrukturierung) --> neu3_gt
 
 if separator_distribution:
-    __ueberschrift("Ergebnisse (Trennzeichenverteilung vor dem Filtern)","-")
+    __ueberschrift(caption_sd,"-")
 
+# --------------------------------------------------------------
     # Vereinbarungen
     neu_gt  = {} # Zusammenfassung aus P_ges_trennzeichen
     neu3_gt = [] # neustrukturiert aus neu_gt / neu2_gt
 
+# --------------------------------------------------------------
     # Hilfsvariablen
     breite   = 25
     summe    = 0
@@ -1344,6 +1425,7 @@ if separator_distribution:
     gesmodus = (0, 0)
     datmodus = [(0, 0) for x in range(len_alle)] # (länge, anzahl)
 
+# --------------------------------------------------------------
     # Neustrukturierung
     l3 = len_alle + 2
     for f in range(len_alle):
@@ -1366,9 +1448,11 @@ if separator_distribution:
             if summe < neu_gt[zeichen][0]:
                 summe = neu_gt[zeichen][0]
 
+# --------------------------------------------------------------
     #Sortierung
     neu2_gt = sorted(neu_gt)            
 
+# --------------------------------------------------------------
     # Neustrukturierung
     for z in range(len(neu2_gt)):
         ww        = neu2_gt[z]
@@ -1376,6 +1460,7 @@ if separator_distribution:
         zwi      += neu_gt[ww]
         neu3_gt  += [tuple(zwi)]
 
+# --------------------------------------------------------------
     # Hilfsvariablen für die Ausgabe
     i1  = floor(lg(len(neu3_gt))) + 2 # Breite der Kolumne 1 (laufende Nummer); adaptierbar <-- len(neu3_gt)
     i2  = 5                           # Breite der Kolumne 2 (Zeichen)
@@ -1384,14 +1469,15 @@ if separator_distribution:
     i4  = floor(lg(len_alle)) + 3     # Breite der Kolumne 5 (Zahl der Dateien); adaptierbar
     i5  = i3                          # Breite der Kolumne 6 (Anzahl); adaptierbar <-- summe
 
+# --------------------------------------------------------------
     # Legende und Kopf
-    aus.write("(1) Laufende Nummer\n")
-    aus.write("(2) Zeichen\n")
-    aus.write("(3) zugehöriger Hex-Code\n")
-    aus.write("(4) Anzahl dieses Zeichens über alle Dateien\n")
-    aus.write("(5) Zahl der Dateien mit diesem Zeichen\n")
+    aus.write("(1) {0}".format(sd_hdr_nr) + "\n")
+    aus.write("(2) {0}".format(sd_hdr_char) + "\n")
+    aus.write("(3) {0}".format(sd_hdr_hex) + "\n")
+    aus.write("(4) {0}".format(sd_hdr_char_nr) + "\n")
+    aus.write("(5) {0}".format(sd_hdr_files_nr) + "\n")
     for f in range(len_alle):
-        aus.write("(" + str(f + 6) + ") Eingabedatei " + str(f) + " (" + alle[f] + " zu " + P_kopf[f][7] + ")\n")
+        aus.write("({0}) {1} {2} ({3} --> \n    {4})".format(str(f + 6), sd_hdr_infile, str(f), alle[f], P_kopf[f][7]) + "\n")
     aus.write("\n")
 
     aus.write("(1)".rjust(i1))
@@ -1405,6 +1491,7 @@ if separator_distribution:
 
     aus.write("-" * (i1 + i2 + i2a + i3 + i4 + len_alle *(i5))+ "\n")
 
+# --------------------------------------------------------------
     # Ausgabeschleife
     for z in range(len(neu3_gt)):                     # jeweils eine Zeile
         nr += 1
@@ -1430,23 +1517,24 @@ if separator_distribution:
                 aus.write("----".rjust(i5))           # 6ff. Item
         aus.write("\n")
 
+# --------------------------------------------------------------
     # Abspann
     aus.write("-" * (i1 + i2 + i2a + i3 + i4 + len_alle *(i5))+ "\n")
-    aus.write("Summen:".ljust(i1+i2+i2a))
+    aus.write(sd_summary_sum.ljust(i1+i2+i2a))
     aus.write(str(gessumme).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datsumme[f]).rjust(i5))
     aus.write("\n")
 
-    aus.write("Modus".ljust(i1+i2+i2a))
+    aus.write(sd_modus.ljust(i1+i2+i2a))
     aus.write(str(gesmodus[1]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(datmodus[f][1]).rjust(i5))
     aus.write("\n")
 
-    aus.write("bei".ljust(i1+i2+i2a))
+    aus.write(sd_at.ljust(i1+i2+i2a))
     aus.write(__chr_out(gesmodus[0]).rjust(i3))
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
