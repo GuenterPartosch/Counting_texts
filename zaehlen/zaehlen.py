@@ -5,8 +5,9 @@
 # (C) Günter Partosch 2016-2020
 
 # noch:
-# + Parametrisierung der Ausgabestrings
-# + Parametrisierung intelligent gestalten
+# + zweite/dritte ini-Datei ermöglichen
+# + Englisch ermöglichen (-la)
+# + -m silent-Modus
 
 # zaehlen.py
 # Programm zum Auszählen von Textdateien
@@ -42,6 +43,8 @@
 # 2.13.2: 2020-07-23: Fehlermeldungen überarbeitet
 # 2.13.3: 2020-08-02: Voreinstellungen geändert
 # 2.14.0: 2020-08-12: Ausgabe-Strings in ini-Datei verlagert
+# 2.14.1: 2020-08-23: zaehlen_ini.py wird robust geladen
+# 2.14.2: 2020-08-24: Still-Modus und Spracheinstellung als Parameter
 
 # --------------------------------------------------------------
 # Abhängigkeiten:
@@ -96,17 +99,187 @@
 # (1) Programm-Parameter: global
 
 program_name       = "zaehlen.py"
-program_vers       = "2.14.0"
-program_date       = "2020-08-12"
-program_author     = "Günter Partosch"
-author_email       = "Guenter.Partosch@hrz.uni-giessen.de"
-author_institution = "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
+program_vers       = "2.14.2"
+program_date       = "2020-08-24"
 
 # globale Hilfsvariablen
 leer    = " "
 trenner = ":"
 
+try:
+    exec(open("zaehlen_ini.py", encoding="utf-8", mode="r").read())
+except FileNotFoundError:
+    err_ini_text           = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
+    print(err_ini_text.format("zaehlen_ini.py"))
+    in_name                = "./in.txt"                           
+    out_name               = "./out.txt"                          
+    stop_name              = ""                                   
+    go_name                = ""                                   
+    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$]+"""
+    word_template          = """^.+$"""
+    p_lengths              = "1,100"
+    p_frequency            = "1,12000"
+    p_rank                 = "1,50000"
+    sort_first             = "a+"                                 
+    sort_second            = ""                                   
+    frequency_distribution = False                                
+    length_distribution    = False                                
+    separator_distribution = False                                
+    character_distribution = False                                
+    silent_mode            = False                                
+    language               = "de"                                 
 
+    integer_breite         = 7                                    
+    integer_breite_kl      = 3                                    
+    string_breite          = 3                                    
+    string_breite_la       = 43                                   
+    real_breite            = 6                                    
+    rndg                   = 2                                    
+
+    main_caption_text      = "Auszählen von Texten"               
+    prg_name_text          = "Name des Programms"                 
+    prg_version_text       = "Version des Programms"              
+    prg_datum_text         = "Bearbeitungsdatum"                  
+    prg_author_text        = "Autor des Programms"                
+    email                  = "E-Mail-Adresse"                     
+    institution            = "Institution"                        
+
+    in_text       = "Eingabedatei festlegen"                               
+    sep_text      = "Wort-Trennzeichen (Muster) spezifizieren"             
+    stop_text     = "Datei mit Stop-Wörter spezifizieren"                  
+    go_text       = "Datei mit Go-Wörter spezifizieren"                    
+    sort1_text    = "1. Sortierung (a+|a-|A+|A-) spezifizieren"            
+    sort2_text    = "2. Sortierung (L+|L-|F+|F-) spezifizieren"            
+    out_text      = "Ausgabedatei festlegen"                               
+    template_text = "Beschränkung auf best. Wort-Muster (Muster)"          
+    lengths_text  = "Beschränkung auf best. Wortlängen"                    
+    rank_text     = "Beschränkung auf best. Rangfolge"                     
+    freq_text     = "Beschränkung auf best. Worthäufigkeiten"              
+    version_text  = "Version des Programms ausgeben und Exit"              
+    autor_text    = "Autor des Programms ausgeben und Exit"                
+    fd_text       = "Worthäufigkeiten-Verteilung ausgeben"                 
+    ld_text       = "Wortlängen-Verteilung ausgeben"                       
+    sd_text       = "Trennzeichen-Verteilung ausgeben"                     
+    cd_text       = "Zeichen-Verteilung ausgeben"                          
+    sm_text       = "'Still'-Modus"                                        
+    language_text = "Spracheinstellung (noch nicht verfügbar)"             
+
+    argp_pos_par  = 'Positionsparameter'                                   
+    argp_opt_par  = 'Optionale Parameter'                                  
+    argp_default  = 'Voreinstellung'                                       
+
+    caption_parameter_text = "Programm-Parameter"                          
+    prg_call_text          = "Programm-Aufruf"                             
+    in_file_text           = "Eingabedatei"                                
+    sep_text               = "Wort-Trennzeichen (Muster)"                  
+    stop_file_text         = "Datei mit Stop-Wörter"                       
+    go_file_text           = "Datei mit Go-Wörter"                         
+    sort1_text             = "1. Sortierung (a+|a-|A+|A-)"                 
+    sort2_text             = "2. Sortierung (L+|L-|F+|F-)"                 
+    out_file_text          = "Ausgabe-Datei"                               
+    limit_template_text    = "Beschränkung auf best. Wort-Muster"          
+    limit_length_text      = "Beschränkung auf best. Wortlängen"           
+    limit_rangs_text       = "Beschränkung auf best. Rangfolge"            
+    limit_frequency_text   = "Beschränkung auf best. Worthäufigkeiten"     
+    act_freq_dist_text     = "Worthäufigkeiten-Verteilung aktiviert"       
+    act_length__dist_text  = "Wortlängen-Verteilung aktiviert"             
+    act_sep_dist_text      = "Trennzeichen-Verteilung aktiviert"           
+    act_char_dist_text     = "Zeichen-Verteilung aktiviert"                
+
+    text_prompt            = ": "                                          
+    interac_text_prompt    = ": "
+    interac_in_text        = "Eingabedatei festlegen"                      
+    interac_sep_text       = "Wort-Trennzeichen (Muster) spezifizieren"    
+    interac_stop_text      = "Datei mit Stop-Wörter spezifizieren"         
+    interac_go_text        = "Datei mit Go-Wörter spezifizieren"           
+    interac_sort1_text     = "1. Sortierung (a+|a-|A+|A-) spezifizieren"   
+    interac_sort2_text     = "2. Sortierung (L+|L-|F+|F-) spezifizieren"   
+    interac_out_text       = "Ausgabedatei(en) festlegen"                  
+    interac_template_text  = "Beschränkung auf best. Wort-Muster (Muster)" 
+    interac_lengths_text   = "Beschränkung auf best. Wortlängen"           
+    interac_rank_text      = "Beschränkung auf best. Rangfolge"            
+    interac_freq_text      = "Beschränkung auf best. Worthäufigkeiten"     
+    interac_version_text   = "Version des Programms ausgeben und Exit"     
+    interac_autor_text     = "Autor des Programms ausgeben und Exit"       
+    interac_fd_text        = "Worthäufigkeiten-Verteilung ausgeben"        
+    interac_ld_text        = "Wortlängen-Verteilung ausgeben"              
+    interac_sd_text        = "Trennzeichen-Verteilung ausgeben"            
+    interac_cd_text        = "Zeichen-Verteilung ausgeben"                 
+
+    caption_interac_text   = "Programm {0} zum Zählen von Wörtern in einer Datei" 
+    subcap_interac_text    = "voreingestellte bzw. übergebene bzw. neue Werte"    
+    interac_task           = "Aufgabe"                                     
+    interac_pre            = "bisheriger Wert"                             
+    interac_post           = "neuer Wert"                                  
+    interac_legend_text    = """Werte neu setzen:
+        <return> bisherigen Wert übernehmen
+        OK       weitere Eingabe beenden und Programm starten
+        sonst    neuer Wert
+        <strg D> Programm-Abbruch bzw.
+        <strg C> Programm-Abbruch
+        """                                                                
+
+    caption_res_words_text = "Ergebnisse (Wörter in der Auswahl)"          
+    res_rangs_text         = "Rangfolge"                                   
+    res_length_text        = "Länge der Zeichenkette"                      
+    res_strings_text       = "Zeichenkette"                                
+    res_abs_freq_text      = "abs. Häufigkeit"                             
+    res_rel_freq_text      = "proz. Häufigkeit [%]"                        
+    res_abs_acc_freq_text  = "akk. Häufigkeit"                             
+    res_rel_acc_freq_text  = "proz. akk. Häufigkeit [%]"                   
+
+    caption_summary_text   = "Ergebnisse (Zusammenfassung der Auswahl)"    
+    summary_lines_text     = "Zeilen"                                      
+    summary_chars_tot_text = "Zeichen, insgesamt"                          
+    summary_chars_act_text = "Zeichen, berücksichtigt"                     
+    summary_token_tot_text = "Wörter (Tokens), Gesamttext"                 
+    summary_token_sel_text = "Wörter (Tokens), Auswahl"                    
+    summary_types_tot_text = "Wörter (Types), Gesamttext"                  
+    summary_types_sel_text = "Wörter (Types), Auswahl"                     
+    summary_ratio_tot_text = "Verh. (Types/Tokens), Gesamttext"            
+    summary_ratio_sel_text = "Verh. (Types/Tokens), Auswahl"               
+    corresponds            = "entspricht "                                 
+
+    summary_sum            = "Summe"                                       
+
+    ld_caption_total       = "Ergebnisse (Verteilung der Wortlängen im Gesamttext)"              
+    ld_caption_selected    = "Ergebnisse (Verteilung der Wortlängen nach dem Filtern)"           
+    ld_length_number       = "<länge>:<anzahl>"                                                  
+    ld_min_length          = "minimale Länge:"                                                   
+    ld_max_length          = "maximale Länge:"                                                   
+    ld_modus               = "Modus der Längenverteilung:"                                       
+    ld_mean                = "Durchschnittliche Länge:"                                          
+
+    fd_caption_total       = "Ergebnisse (Verteilung der Worthäufigkeiten im Gesamttext)"        
+    fd_caption_selected    = "Ergebnisse (Verteilung der Worthäufigkeiten nach dem Filtern)"     
+    fd_freq_number         = "<häufigkeit>:<anzahl>"                                             
+    fd_min_freq            = "minimale Häufigkeit:"                                              
+    fd_freq_max            = "maximale Häufigkeit:"                                              
+    fd_modus               = "Modus der Häufigkeitenverteilung:"                                 
+
+    cd_caption_total       = "Ergebnisse (Verteilung der Zeichenhäufigkeiten im Gesamttext)"     
+    cd_caption_selected    = "Ergebnisse (Verteilung der Zeichenhäufigkeiten nach dem Filtern)"  
+    cd_char_code_number    = "<zeichen>:<code>:<anzahl>"                                         
+    cd_modus               = "Modus der Zeichenverteilung:"                                      
+
+    sd_caption_total       = "Ergebnisse (Verteilung der Trennzeichenhäufigkeiten im Gesamttext)"
+    sd_sep_number          = "<trennzeichen>:<anzahl>"                                           
+    sd_modus               = "Modus der Trennzeichenverteilung:"                                 
+
+    err_in                 = "---Eingabedatei {0} kann nicht geöffnet werden. Programmabbruch"               
+    err_out                = "---Ausgabedatei {0} kann nicht geöffnet werden. Programmabbruch"               
+    warn_GoStop            = "---Warnung: Go-Datei und Stop-Datei gleichzeitig angegeben; ignoriert"         
+    warn_Stop              = "---Warnung: Stop-Datei {0} kann nicht geöffnet werden. Ignoriert."             
+    warn_Go                = "---Warnung: Go-Datei {0} kann nicht geöffnet werden. Ignoriert."               
+    warn_ini               = "---Warnung: Datei zaehlen_ini.py nicht gefunden; Voreinstellungen genommen"    
+    warn_Aa                = '---Warnung: nur "", "A+", "A-", "a+", "a-" zulässig; Voreinstellung genommen'  
+    warn_LF                = '---Warnung: nur "", "L+", "L-", "F+", "F-" zulässig;  Voreinstellung genommen' 
+    warn_cd_filter         = "---Verteilung der Zeichenhäufigkeiten nach dem Filtern nicht verfügbar"        
+    warn_fd                = "---Verteilung der Worthäufigkeiten im Gesamttext nicht verfügbar"              
+    warn_fd_filter         = "---Verteilung der Worthäufigkeiten nach dem Filtern nicht verfügbar"           
+    warn_ld_filter         = "---Verteilung der Wortlängen nach dem Filtern nicht verfügbar"                 
+
+    
 # ==============================================================
 # (2) Module laden
 # - Module argparse, re, sys, os, time, pickle werden vollständig geladen
@@ -292,34 +465,34 @@ def __chr_out(c):
 # - Voreinstellungen, Initialisierung
 # - zwei Wege: Initialisierung durch Datei zaehlen-ini.py bzw. lokal im Programm
 
-try:
-    # Initialisierung für Programm-Parameter und Variablen einlesen
-    from zaehlen_ini import *
-except ImportError:
-    # lokal Programm-Parameter und Variablen initialisieren
-    print(warn_ini)
-    in_name                = "./in.txt"
-    out_name               = "./out.txt"
-    stop_name              = ""
-    go_name                = ""
-    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
-    word_template          = """^.+$"""
-    p_lengths              = "1,100"
-    p_frequency            = "1,12000"
-    p_rank                 = "1,50000"
-    sort_first             = "a+"
-    sort_second            = ""
-    frequency_distribution = False
-    length_distribution    = False
-    separator_distribution = False
-    character_distribution = False
-
-    integer_breite         = 7  # Ausgabebreite für Integer
-    integer_breite_kl      = 3  # Ausgabebreite für kleine Integer
-    string_breite          = 3  # voreingestellte Ausgabebreite für Strings
-    string_breite_la       = 43 # Länge von Eingabeaufforderungen
-    real_breite            = 6  # Ausgabebreite für Reals
-    rndg                   = 2  # Zahl der Nachkommastellen für Reals/Floats
+##try:
+##    # Initialisierung für Programm-Parameter und Variablen einlesen
+##    from zaehlen_ini import *
+##except ImportError:
+##    # lokal Programm-Parameter und Variablen initialisieren
+##    print(warn_ini)
+##    in_name                = "./in.txt"
+##    out_name               = "./out.txt"
+##    stop_name              = ""
+##    go_name                = ""
+##    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
+##    word_template          = """^.+$"""
+##    p_lengths              = "1,100"
+##    p_frequency            = "1,12000"
+##    p_rank                 = "1,50000"
+##    sort_first             = "a+"
+##    sort_second            = ""
+##    frequency_distribution = False
+##    length_distribution    = False
+##    separator_distribution = False
+##    character_distribution = False
+##
+##    integer_breite         = 7  # Ausgabebreite für Integer
+##    integer_breite_kl      = 3  # Ausgabebreite für kleine Integer
+##    string_breite          = 3  # voreingestellte Ausgabebreite für Strings
+##    string_breite_la       = 43 # Länge von Eingabeaufforderungen
+##    real_breite            = 6  # Ausgabebreite für Reals
+##    rndg                   = 2  # Zahl der Nachkommastellen für Reals/Floats
 
 # optionaler Hook
 try:
@@ -388,7 +561,12 @@ if not interaktiv:
     parser.add_argument("-l", "--lengths",
                         help = lengths_text + "; {0}: %(default)s".format(argp_default),
                         dest = "p_lengths",
-                        default = p_lengths) 
+                        default = p_lengths)
+    parser.add_argument("-la", "--language",
+                        help = language_text + "; {0}: %(default)s".format(argp_default),
+                        choices = ["de", "en"],
+                        dest = "language",
+                        default = language) 
     parser.add_argument("-ld", "--length_distribution",
                         help    = ld_text + "; {0}: %(default)s".format(argp_default),
                         action  = "store_true",
@@ -423,7 +601,11 @@ if not interaktiv:
     parser.add_argument("-sd", "--separator_distribution",
                         help = sd_text + "; {0}: %(default)s".format(argp_default),
                         action = "store_true",
-                        default = separator_distribution) 
+                        default = separator_distribution)
+    parser.add_argument("-sm", "--silent_mode",
+                        help = sm_text + "; {0}: %(default)s".format(argp_default),
+                        action = "store_true",
+                        default = silent_mode)
     parser.add_argument("-t", "--template",
                         help = template_text + "; {0}: %(default)s".format(argp_default),
                         dest = "word_template",
@@ -458,6 +640,9 @@ if not interaktiv:
     length_distribution    = args.length_distribution
     separator_distribution = args.separator_distribution
     character_distribution = args.character_distribution
+    silent_mode            = args.silent_mode
+    language               = args.language
+    
 
 # ==============================================================
 # (8) Interaktiver Aufruf des Programms bzw. mit der Python-Flag -i
@@ -835,13 +1020,13 @@ aus.write("\n")
 __ueberschrift(caption_res_words_text,"-")
 aus.write("(" + datum + ", " + uhrzeit + ")\n\n")
 
-aus.write(res_rangs_text + "\n")
-aus.write(res_length_text + "\n")
-aus.write(res_strings_text + "\n")
-aus.write(res_abs_freq_text + "\n")
-aus.write(res_rel_freq_text + "\n")
-aus.write(res_abs_acc_freq_text + "\n")
-aus.write(res_rel_acc_freq_text + "\n\n")
+aus.write("(1) " + res_rangs_text + "\n")
+aus.write("(2) " + res_length_text + "\n")
+aus.write("(3) " + res_strings_text + "\n")
+aus.write("(4) " + res_abs_freq_text + "\n")
+aus.write("(5) " + res_rel_freq_text + "\n")
+aus.write("(6) " + res_abs_acc_freq_text + "\n")
+aus.write("(7) " + res_rel_acc_freq_text + "\n\n")
 
 aus.write("(1)".rjust(integer_breite))
 aus.write("(2)".rjust(integer_breite_kl + 1))
