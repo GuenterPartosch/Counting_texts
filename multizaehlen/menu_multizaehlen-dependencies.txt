@@ -27,7 +27,6 @@ multizaehlen.py --> multizaehlen_ini.py
 
 B) von menu_multizaehlen.py benutzte externe Module
 ---------------------------------------------------
-from menu_multizaehlen_ini import *            # Initialisierungsdatei des Programms menu_multizaehlen.py
 import sys                                     # wird für path benötigt
 import subprocess                              # Starten/Beobachten von Subprozessen
 from tkinter import *                          # Tk

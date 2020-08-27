@@ -8,10 +8,13 @@
 
 # Programm zum Auswerten der Auszählungen von Textdateien
 # =======================================================
-# Pickle-Daten werden ausgewertet und zusammengefasst
+# Pickle-Daten (erzeugt durch zaehlen.py) werden ausgewertet und zusammengefasst
 
 # noch
 # + auch sonst Variablen aufführen
+# + zusätzliche ini-Datei
+# + Schalter für Sprache
+# + ini-Datei robust laden
 
 # History:
 # 1.0.0: 2017-02-17: Anfang
@@ -28,62 +31,63 @@
 
 # 1.10.9: 2020-08-02: Voreinstellungen geändert
 # 1.11.0: 2020-08-15: Ausgabe-Strings
+# 1.11.1: 2020-08-27: ini-Datei robust geladen
+# 1.11.2: 2020-08-27: Programm-Name und -version vereinheitlicht
 
 # --------------------------------------------------------------
 # Fehlermeldungen
 
-# ---Ausgabedatei <out_name> kann nicht geöffnet werden. Programmabbruch!
-# ---Datei <datei> kann nicht geöffnet werden. Programmabbruch!
-# ---Datei <datei> ist vom falschen Typ: Programmabbruch!
+# ---Ausgabedatei <out_file> kann nicht geöffnet werden. Programmabbruch
+# ---Datei <file> kann nicht geöffnet werden. Programmabbruch!
+# ---Datei <file> ist vom falschen Typ: Programmabbruch!
 # ---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!
+# ---keine Dateien angegeben. Programmabbruch!
+# ---Warnung: zaehlen_ini.py nicht gefunden
 
 # --------------------------------------------------------------
 # Programmabfolge
 
 # (1) Programm-Parameter: global
-# (2) Module laden:
-# (3) eigene Methoden:
-# (4) Strukturen vorbesetzen und initialisieren:
-# (5) Variablen vorbesetzen:
-# (6) Programm-Parameter:
+# (2) Module laden
+# (3) eigene Methoden
+# (4) Strukturen vorbesetzen und initialisieren
+# (5) Variablen vorbesetzen
+# (6) Programm-Parameter
 #     (6-1) Programm-Parameter: Datum und Uhrzeit
 #     (6-2) Programm-Parameter: Aufruf
 #     (6-3) Definition und Beschreibung der Aufrufparameter:
 #     (6-4) Programm-Parameter: reguläre Ausdrücke
 #     (6-5) Programm-Parameter: Filterung
-# (7) Ausgabedatei öffnen:
-# (8) Daten wiedergewinnen:
+# (7) Ausgabedatei öffnen
+# (8) Daten wiedergewinnen
 #     (8-1) prüfen, ob die gewonnenen Daten kompatibel sind: ggf. Abbruch
-# (9) Strukturen vereinigen zu einer neuen Struktur:
-# (10) 1. Sortierung:
-# (11) daraus Aufbau einer Liste mit Zeichenkette, Anzahl und Länge (für den Gesamttext):
-# (12) 2. Sortierung:
+# (9) Strukturen vereinigen zu einer neuen Struktur
+# (10) 1. Sortierung
+# (11) daraus Aufbau einer Liste mit Zeichenkette, Anzahl und Länge (für den Gesamttext)
+# (12) 2. Sortierung
 # (13) Ausgabe
-#      (13-1) Ausgabe vorbereiten:
-#      (13-2) Ausgabe, Kopf, allgemein:
-#      (13-3) Ausgabe, Kopf, Ausgabe Programm-Parameter:
-#      (13-4) Ausgabe, Legende:
-#      (13-5) Ausgabe, Kopfzeile:
-#      (13-6) Ausgabe, eigentliche Ausgabe:
+#      (13-1) Ausgabe vorbereiten
+#      (13-2) Ausgabe, Kopf, allgemein
+#      (13-3) Ausgabe, Kopf, Ausgabe Programm-Parameter
+#      (13-4) Ausgabe, Legende
+#      (13-5) Ausgabe, Kopfzeile
+#      (13-6) Ausgabe, eigentliche Ausgabe
 #      (13-7) Ausgabe, Zusammenfassung
-#      (13-8) Ausgabe, ld ausgeben (Längen-Verteilung):
-#      (13-9) Ausgabe, fd ausgeben (Häufigkeitsverteilung):
-#      (13-10) Ausgabe, cd ausgeben (Zeichen-Verteilung):
-#      (13-11) Ausgabe, sd ausgeben (Trennzeichen-Verteilung):
+#      (13-8) Ausgabe, ld ausgeben (Längen-Verteilung)
+#      (13-9) Ausgabe, fd ausgeben (Häufigkeitsverteilung)
+#      (13-10) Ausgabe, cd ausgeben (Zeichen-Verteilung)
+#      (13-11) Ausgabe, sd ausgeben (Trennzeichen-Verteilung)
 # (14) Ausgabe schließen
 
     
 # ==============================================================
 # (1) Programm-Parameter: global
 
-# in ini-Datei verschoben
+multizaehlen_vers           = "1.11.2"
+multizaehlen_date           = "2020-08-26"
 
-##prg_name_text     = "multizaehlen.py"
-##prg_vers_text     = "1.10.9"
-##prg_date_text    = "2020-08-02"
-##prg_author_text    = "Günter Partosch"
-##author_email_text  = "Guenter.Partosch@hrz.uni-giessen.de"
-##author_institution = "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
+# sonst in ini-Datei verschoben
+# ...
 
 
 # ==============================================================
@@ -175,44 +179,148 @@ sd_vor             = {} # Directory für Trennzeichenverteilung vor Filterung
 # Hilfsvariable: leer, trenner
 # Kurznamen für math. Funktionen: floor, lg
 
-try:
-    # Konfiguration/Initialisierung von multizaehlen.py einlesen
-    from multizaehlen_ini import * 
-except ImportError:
-    # falls Fehler: lokal Programm-Parameter und -Variablen initialisieren
+try:                                            # Konfiguration/Initialisierung von multizaehlen.py einlesen
+    exec(open("multizaehlen_ini.py", encoding="utf-8", mode="r").read())
+except FileNotFoundError:                       # falls Fehler: lokal Programm-Parameter und -Variablen initialisieren
     sys.stderr.write(warn_no_ini)
 
-    files_text    = "zu verarbeitende Dateien (*.plk)"
-    files_anz_text= "Beschränkung der Zahl von Dateien (*.plk) mit Zeichenkette"
-    sort1_text    = "1. Sortierung [a+|a-|A+|A-]"
-    sort2_text    = "2. Sortierung [L+|L-|F+|F-|D+|D-]"
-    out_text      = "Ausgabedatei"
-    template_text = "Beschränkung auf best. Wort-Muster (Muster)"
-    lengths_text  = "Beschränkung auf best. Wortlängen"
-    rank_text     = "Beschränkung auf best. Rangfolge"
-    freq_text     = "Beschränkung auf best. Worthäufigkeiten"
-    version_text  = "Version des Programms ausgeben"
-    autor_text    = "Autor des Programms ausgeben"
-    fd_text       = "Worthäufigkeiten-Verteilung berechnen"
-    ld_text       = "Wortlängen-Verteilung berechnen"
-    sd_text       = "Trennzeichen-Verteilung berechnen"
-    cd_text       = "Zeichen-Verteilung berechnen"
+    menu_multizaehlen_ini_date  = "2020-08-27"  
+    menu_multizaehlen_date      = "2020-08-27" 
+    menu_multizaehlen_vers      = "1.2.10"     
+    multizaehlen_ini_date       = "2020-08-26" 
 
-    in_name       = ""
-    out_name      = "./out.txt"
-    word_template = """^.+$"""
-    p_lengths     = "1,100"
-    p_files       = "1,20"
-    p_frequency   = "1,20000"
-    p_rank        = "1,60000"
-    
-    sort_first    = "a+"
-    sort_second   = ""
+    in_name                = ""
+    out_name               = "./mz_out.txt"   
+    word_template          = """^.+$"""
+    p_lengths              = "1,100"
+    p_files                = "1,20"
+    p_frequency            = "1,20000"
+    p_rank                 = "1,60000"
+    sort_first             = "a+"
+    sort_second            = ""
     frequency_distribution = False
     length_distribution    = False
     separator_distribution = False
     character_distribution = False
-    rndg          = 3
+    rndg                   = 3
+
+    main_caption_text  = "Vergleichendes Auszählen von Texten"
+    prg_name_text      = "multizaehlen.py"
+    prg_author_text    = "Günter Partosch"
+    author_email_text  = "Guenter.Partosch@hrz.uni-giessen.de"
+    author_institution = "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
+
+    files_text     = "zu verarbeitende Dateien (*.plk)"                       
+    files_anz_text = "Beschränkung der Dateien-Zahl (*.plk) mit Zeichenkette"
+    sort1_text     = "1. Sortierung [a+|a-|A+|A-]"                            
+    sort2_text     = "2. Sortierung [L+|L-|F+|F-|D+|D-]"                      
+    out_text       = "Ausgabedatei"                                           
+    template_text  = "Beschränkung auf bestimmte Wort-Muster (Muster)"        
+    lengths_text   = "Beschränkung auf bestimmte Wortlängen"                  
+    rank_text      = "Beschränkung auf bestimmte Rangfolge"                   
+    freq_text      = "Beschränkung auf bestimmte Worthäufigkeiten"            
+    version_text   = "Version des Programms ausgeben"                         
+    autor_text     = "Autor des Programms ausgeben"                           
+    fd_text        = "Worthäufigkeiten-Verteilung berechnen"                  
+    ld_text        = "Wortlängen-Verteilung berechnen"                        
+    sd_text        = "Trennzeichen-Verteilung berechnen"                      
+    cd_text        = "Zeichen-Verteilung berechnen"                           
+
+    argp_pos_par   = 'Positionsparameter'                                     
+    argp_opt_par   = 'Optionale Parameter'                                    
+    argp_default   = 'Voreinstellung'                                         
+
+    head_content   = "Inhalt"                                                 
+    head_prg_name  = "Name des Programms"                                     
+    head_prg_vers  = "Version des Programms"                                  
+    head_prg_date  = "Bearbeitungsdatum"                                      
+    prg_author     = "Autor des Programms"                                    
+    author_email   = "E-Mail-Adresse"                                         
+    author_inst    = "Institution"                                            
+    res_pre_ld     = "Ergebnisse (Längenverteilung vor dem Filtern)"          
+    res_pre_fd     = "Ergebnisse (Häufigkeitsverteilung vor dem Filtern)"     
+    res_pre_cd     = "Ergebnisse (Zeichenverteilung vor dem Filtern)"         
+    res_pre_sd     = "Ergebnisse (Trennzeichenverteilung vor dem Filtern)"    
+    head_prg_para  = "Programm-Parameter"                                     
+    head_result    = "Ergebnisse"                                             
+    head_summary   = "Zusammenfassung"                                        
+
+    sub_caption    = "Programm-Parameter"                                     
+    prg_call       = "Programm-Aufruf"                                        
+
+    caption_leg    = "Ergebnisse"                                             
+    leg_rank       = "Rangfolge"                                              
+    leg_str_len    = "Länge der Zeichenkette"                                 
+    leg_string     = "Zeichenkette"                                           
+    leg_str_freq   = "Häufigkeit der Zeichenkette in allen Dateien"           
+    leg_acc_freq   = "akk. Häufigkeit der Zeichenkette"                       
+    leg_file_nr    = "Zahl der Dateien mit dieser Zeichenkette"               
+    leg_in_file    = "Eingabedatei"                                           
+
+    result_summ    = "Zusammenfassung"                                        
+    res_token_pre  = "Zahl der Tokens (vor dem Filtern)"                      
+    res_types_pre  = "Zahl der Types (vor dem Filtern)"                       
+    res_ratio_pre  = "Verhältnis Types/Tokens (vor dem Filtern)"              
+    res_token_post = "Zahl der Tokens (nach dem Filtern)"                     
+    res_types_post = "Zahl der Types (nach dem Filtern)"                      
+    res_ratio_post = "Verhältnis Types/Tokens (nach dem Filtern)"             
+    types_pre_post = "Verhältnis Types (nach/vor Filtern)"                    
+    token_pre_post = "Verhältnis Tokens (nach/vor Filtern)"                   
+
+    caption_ld     = "Ergebnisse (Längenverteilung vor dem Filtern)"          
+    ld_hdr_nr      = "laufende Nummer"                                        
+    ld_hdr_length  = "Länge"                                                  
+    ld_hdr__word_nr= "Anzahl der Wörter mit dieser Länge über alle Dateien"   
+    ld_hdr_files_nr= "Zahl der Dateien mit Wörter dieser Länge"               
+    ld_hdr_infile  = "Eingabedatei"                                           
+    ld_summary_sum = "Summen:"                                                
+    ld_modus       = "Modus:"                                                 
+    ld_at          = "bei:"                                                   
+    ld_wa_short    = "gMW"                                                    
+    ld_wa_long     = "(gMW = gewichteter Mittelwert)"                         
+    ld_min_length  = "kleinste Länge"                                         
+    ld_max_length  = "größte Länge"                                           
+
+    caption_fd     = "Ergebnisse (Häufigkeitsverteilung vor dem Filtern)"     
+    fd_hdr_nr      = ld_hdr_nr
+    fd_hdr_freq    = "Häufigkeit"                                             
+    fd_hdr_freq_nr = "Anzahl der Wörter mit dieser Häufigkeit über alle Dateien" 
+    fd_hdr_files_nr= "Zahl der Dateien mit Wörter dieser Häufigkeit"          
+    fd_hdr_infile  = ld_hdr_infile
+    fd_summary_sum = ld_summary_sum
+    fd_modus       = ld_modus
+    fd_at          = ld_at
+    fd_min_freq    = "kleinste Häufigkeit"                                    
+    fd_max_freq    = "größte Häufigkeit"                                      
+
+    caption_cd     = "Ergebnisse (Zeichenverteilung vor dem Filtern)"         
+    cd_hdr_nr      = ld_hdr_nr
+    cd_hdr_char    = "Zeichen"                                                
+    cd_hdr_hex     = "zugehöriger Hex-Code"                                   
+    cd_hdr_char_nr = "Anzahl dieses Zeichens über alle Dateien"               
+    cd_hdr_files_nr= "Zahl der Dateien mit diesem Zeichen"                    
+    cd_hdr_infile  = ld_hdr_infile
+    cd_summary_sum = ld_summary_sum
+    cd_modus       = ld_modus
+    cd_at          = ld_at
+
+    caption_sd     = "Ergebnisse (Trennzeichenverteilung vor dem Filtern)"   
+    sd_hdr_nr      = ld_hdr_nr
+    sd_hdr_char    = cd_hdr_char
+    sd_hdr_hex     = cd_hdr_hex
+    sd_hdr_char_nr = cd_hdr_char_nr
+    sd_hdr_files_nr= cd_hdr_files_nr
+    sd_hdr_infile  = ld_hdr_infile
+    sd_summary_sum = ld_summary_sum
+    sd_modus       = ld_modus
+    sd_at          = ld_at
+
+    err_out        = "---Ausgabedatei {0} kann nicht geöffnet werden. Programmabbruch!"   
+    err_pkl_open   = "---Datei {0} kann nicht geöffnet werden. Programmabbruch!"          
+    err_type       = "---Datei {0} ist vom falschen Typ: Programmabbruch!"                
+    err_compatib   = "---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!" 
+    err_no_files   = "---keine Dateien angegeben. Programmabbruch!"                       
+    warn_no_ini    = "---Warnung: zaehlen_ini.py nicht gefunden"                          
 
 lg      = math.log10 # Logarithmus zur Basis 10
 floor   = math.floor # Abrunden zur nächsten Integer
@@ -267,7 +375,7 @@ for f in range(len(sys.argv)):
 # andere Parameter: <files>
 
 parser = argparse.ArgumentParser(description = main_caption_text + " [" + prg_name_text + "; " +
-                                 "Version: " + prg_vers_text + " (" + prg_date_text + ")]")
+                                 "Version: " + multizaehlen_vers + " (" + multizaehlen_date + ")]")
 parser._positionals.title = argp_pos_par
 parser._optionals.title   = argp_opt_par
 
@@ -332,7 +440,7 @@ parser.add_argument("-t", "--template",
 parser.add_argument("-v", "--version",
                     help    = version_text,
                     action  = 'version',
-                    version = '%(prog)s '+ prg_vers_text + " (" + prg_date_text + ")") 
+                    version = '%(prog)s '+ multizaehlen_vers + " (" + multizaehlen_date + ")") 
 
 args  =  parser.parse_args()
 
@@ -406,7 +514,7 @@ except IOError:                                        # wenn Ausgabedatei nicht
 # sortiert
 # [(zkette, anzahl, länge), ...]
 #
-# kopf = (verzeichnis, prg_name_text, prg_vers_text, prg_date_text, prg_author_text, author_email_text, author_institution, in_name)
+# kopf = (verzeichnis, prg_name_text, multizaehlen_vers, multizaehlen_date, prg_author_text, author_email_text, author_institution, in_name)
 #
 # programmdaten = (aufruf, in_name, separator, stop_name, go_name, sort_first, sort_second, out_name, word_template,
 #                  p_lengths, p_rank, p_frequency
@@ -636,14 +744,14 @@ i7 = i4                       # Breite der Kolumne 7 (Anzahl); adaptierbar <-- m
 # (13-2) Ausgabe, Kopf, allgemein:
 
 # b                : Breite des Labels
-# ausgegeben werden: author_email_text, author_institution, prg_author_text, prg_date_text, prg_name_text, prg_vers_text
+# ausgegeben werden: author_email_text, author_institution, prg_author_text, multizaehlen_date, prg_name_text, multizaehlen_vers
 
 __ueberschrift(main_caption_text,"=")
 b = 43
 
 aus.write(head_prg_name.ljust(b) + trenner + leer + prg_name_text + "\n")
-aus.write(head_prg_vers.ljust(b) + trenner + leer + prg_vers_text + "\n")
-aus.write(head_prg_date.ljust(b) + trenner + leer + prg_date_text + "\n")
+aus.write(head_prg_vers.ljust(b) + trenner + leer + multizaehlen_vers + "\n")
+aus.write(head_prg_date.ljust(b) + trenner + leer + multizaehlen_date + "\n")
 aus.write(prg_author.ljust(b)    + trenner + leer + prg_author_text + "\n")
 aus.write(author_email.ljust(b)  + trenner + leer + author_email_text + "\n")
 aus.write(author_inst.ljust(b)   + trenner + leer + author_institution + "\n\n")
