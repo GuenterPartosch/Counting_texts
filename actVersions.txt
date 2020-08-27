@@ -1,23 +1,24 @@
 Actual versions
 ===============
 
-menu_multizaehlen_datum       = "2020-08-15" # menu_multizaehlen
-menu_multizaehlen_version     = "1.2.8"      # menu_multizaehlen
+menu_multizaehlen_date       = "2020-08-27" # menu_multizaehlen.py
+menu_multizaehlen_vers       = "1.2.10"     # menu_multizaehlen.py
 
-menu_multizaehlen_ini_datum   = "2020-08-15" # menu_multizaehlen_ini
-menu_multizaehlen_ini_version = "1.1.8"      # menu_multizaehlen_ini
+menu_multizaehlen_ini_date   = "2020-08-27" # menu_multizaehlen_ini.py
+menu_multizaehlen_ini_vers   = "1.1.11"     # menu_multizaehlen_ini.py
 
-menue_zaehlen_datum           = "2018-08-09" # menu_zaehlen
+menue_zaehlen_date           = "2018-08-09" # menu_zaehlen.py
 
-menue_zaehlen_ini_datum       = "2020-08-12" # menu_zaehlen_ini
+menue_zaehlen_ini_date       = "2020-08-12" # menu_zaehlen_ini.py
 
-multizaehlen_datum            = "2020-08-15" # multizaehlen
-multizaehlen_version          = "1.11.0"     # multizaehlen
+multizaehlen_date            = "2020-08-26" # multizaehlen.py
+multizaehlen_vers            = "1.11.2"     # multizaehlen.py
 
-multizaehlen_ini_datum        = "2020-08-15" # multizaehlen_ini
+multizaehlen_ini_date        = "2020-08-26" # multizaehlen_ini.py
 
-zaehlen_datum                 = "2020-08-12" # zaehlen
-zaehlen_vers                  = "2.14.0"     # zaehlen
+zaehlen_date                 = "2020-08-25" # zaehlen.py
+zaehlen_vers                 = "2.14.3"     # zaehlen.py
 
-zaehlen_ini_datum             = "2020-08-12" # zaehlen_ini
+zaehlen_ini_date             = "2020-08-25" # zaehlen_ini.py
+
 
