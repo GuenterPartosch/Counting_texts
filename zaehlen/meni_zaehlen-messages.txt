@@ -1,0 +1,4 @@
+--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen
+--- Fehler '{1}' bei '{0}'; --> Voreinstellung genommen
+--- Datei '{1}' bei '{0}' kann nicht geöffnet werden; --> Voreinstellung genommen
+--- Datei '{1}' bei '{0}' kann nicht geöffnet werden; --> korrigieren + Neustart
