@@ -18,7 +18,8 @@
 # Stand: 2020-08-15 (Ausgabe-Strings überarbeitet)
 # Stand: 2020-08-17 (Ausgabe-Strings überarbeitet)
 # Stand: 2020-08-23 (ini-Dateien entkoppelt)
-# Stand: 2020-08-24 (RGPARSE, Parameter -sm, -la)
+# Stand: 2020-08-24 (argparse, Parameter -sm, -la)
+# Stand: 2020-08-25 (vereinheitlichte Konstruktion von Programm-Datum und Programm-Version)
 
 # noch:
 # + restliche englische Texte
@@ -29,15 +30,15 @@
 
 instverz                 = '.'                                  # Pfad zum ausführbaren Pogramm, ggf. anpassen
 #instverz      = 'D:/Python/zaehlen'
-programmname             = "zaehlen.py"
+remote_program_name      = "zaehlen.py"
 program_name             = "menu_zaehlen.py"                    # das aktuelle Menü-Programm menu_zaehlen.py
 
-menue_zaehlen_ini_Datum  = "2020-08-24"                         # menu-zaehlen_ini.py: Datum der letzten Änderung
-menue_zaehlen_Datum      = "2020-08-24"                         # menu_zaehlen.py:     Datum der letzten Änderung
+menue_zaehlen_ini_date   = "2020-08-25"                         # menu-zaehlen_ini.py: Datum der letzten Änderung
+##menue_zaehlen_date       = "2020-08-25"                         # menu_zaehlen.py:     Datum der letzten Änderung
 
-programm_vers            = "2.14.2"                             # zaehlen.py:     Version
-programm_datum           = "2020-08-24 "                        # zaehlen.py:     Datum der letzten Änderung
-zaehlen_ini_Datum        = "2020-08-20"                         # zaehlen_ini.py: Datum der letzten Änderung
+##zaehlen_vers             = "2.14.3"                             # zaehlen.py:     Version
+##zaehlen_date             = "2020-08-25 "                        # zaehlen.py:     Datum der letzten Änderung
+##zaehlen_ini_date         = "2020-08-25"                         # zaehlen_ini.py: Datum der letzten Änderung
 
 # --------------------------------------------------------
 # verschiedene strings
@@ -70,6 +71,7 @@ C0_text                  = "Worthäufigkeiten-Verteilung berechnen"            #
 C1_text                  = "Wortlängen-Verteilung berechnen"                  # Generate word lengths distribution
 C2_text                  = "Trennzeichen-Verteilung berechnen"                # Generate separators distribution
 C3_text                  = "Zeichen-Verteilung berechnen"                     # Generate characters distribution
+C4_text                  = "'Stille' Verarbeitung"                            # Silent mode
 
 B0_text                  = 'Durchsuchen... [Eingabedatei(en)]'                # Browse...,
 B1_text                  = 'Durchsuchen... [Stop-Datei]'                      # Browse...,
@@ -296,7 +298,8 @@ conf = [
 ("[C0] (-fd) " + C0_text,   frequency_distribution, "-fd", 4),
 ("[C1] (-ld) " + C1_text,   length_distribution,    "-ld", 4),
 ("[C2] (-sd) " + C2_text,   separator_distribution, "-sd", 4),
-("[C3] (-cd) " + C3_text,   character_distribution, "-cd", 4)
+("[C3] (-cd) " + C3_text,   character_distribution, "-cd", 4),
+("[C4] (-sm) " + C4_text,   silent_mode,            "-sm", 4)
 ]
 
 # --------------------------------------------------------
@@ -308,20 +311,20 @@ button_conf = [
 ("[B1]  " + B1_text,  "ask_stop_file",       2, 2),
 ("[B2]  " + B2_text,  "ask_go_file",         3, 2),
 ##('[B3] Durchsuchen... (Ausgabedatei)', "ask_out_file",        6, 2),
-("[B4]  " + B4_text,  "reset_entry_fields", 16, 0),
-("[B5]  " + B5_text,  "clear_entry_fields", 16, 1),
-("[B6]  " + B6_text,  "start",              17, 0),
-("[B7]  " + B7_text,  "mm.destroy",         17, 1),
-("[B8]  " + B8_text,  "help1",              16, 2),
-("[B9]  " + B9_text,  "help2",              17, 2),
-("[B10] " + B10_text, "help3",              16, 3),
-("[B11] " + B11_text, "version",            17, 3)
+("[B4]  " + B4_text,  "reset_entry_fields", 18, 0),
+("[B5]  " + B5_text,  "clear_entry_fields", 18, 1),
+("[B6]  " + B6_text,  "start",              19, 0),
+("[B7]  " + B7_text,  "mm.destroy",         19, 1),
+("[B8]  " + B8_text,  "help1",              18, 2),
+("[B9]  " + B9_text,  "help2",              19, 2),
+("[B10] " + B10_text, "help3",              18, 3),
+("[B11] " + B11_text, "version",            19, 3)
 ]
 
 # --------------------------------------------------------
 # Text für Hilfetext 1
 
-help_text1 = programmtitle + programmname + ':\n\n'
+help_text1 = programmtitle + remote_program_name + ':\n\n'
 help_text1 += fields_boxes_text + "\n\n"
 for f in range(len(conf)):
     help_text1 += str(conf[f][0]) + " (" + str(conf[f][1]) + "); {0} ".format(for_parameter) + conf[f][2] + "\n"
@@ -342,5 +345,5 @@ help_text3 = comments_text
 # --------------------------------------------------------
 # Texte für Hilfetext "version"
 
-version_text = version_help_text.format(programm_vers, programm_datum, menue_zaehlen_Datum, menue_zaehlen_ini_Datum, zaehlen_ini_Datum)
+version_text = version_help_text.format(zaehlen_vers, zaehlen_date, menue_zaehlen_date, menue_zaehlen_ini_date, zaehlen_ini_date)
 

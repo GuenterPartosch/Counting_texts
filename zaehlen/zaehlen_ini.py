@@ -3,11 +3,16 @@
 #        2020-08-02 (Voreinstellungen geändert)
 #        2020-08-12 (Ausgabe-Strings hierher verlagert)
 #        2020-08-20 (Ausgabe-Strings bearbeitet)
+#        2020-08-25 (vereinheitlichte Konstruktion von Programm-Datum und Programm-Version)
 
 # Abhängigkeiten
 # zaehlen_ini.py
 # + wird von menue_zaehlen.py geladen
 # + wird von zaehlen.py geladen
+
+zaehlen_ini_date       = "2020-08-25"
+zaehlen_vers           = "2.14.3"                             # zaehlen.py:     Version
+zaehlen_date           = "2020-08-25 "                        # zaehlen.py:     Datum der letzten Änderung
 
 # Voreinstellungen                                            # defaults
 # ---------------------------------------------- 

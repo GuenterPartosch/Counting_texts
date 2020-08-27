@@ -13,7 +13,10 @@
 # Stand: 2020-08-16 (Ausgabe-Strings überarbeitet)
 # Stand: 2020-08-23 (ini-Dateien entkoppelt)
 # Stand: 2020-09-24 (ini-Dateien robust geladen)
-# Stand: 2020-08-24 (argparse; Parameter -sm, -la)
+# Stand: 2020-08-24 (argparse; Vorarbeiten für die Parameter -sm, -la)
+# Stand: 2020-08-24 (silent_mode per Parameter -sm verfügbar)
+# Stand: 2020-08-25 (silent mode im Menü)
+# Stand: 2020-08-25 (vereinheitlichte Konstruktion von Programm-Datum und Programm-Version)
 
 # Vorhaben:
 # + Fehlerbehandlung bei unzulässigen Eingaben (x)
@@ -25,12 +28,12 @@
 # + verbose/silent-Modus
 # + Unterschied zwischen Abbrechen/Beenden
 # + tkinter listbox
-# + einheitliches Konzept für Prgramnamen und -versionen
+# + einheitliches Konzept für Programnamen und -versionen
 
 
 # =======================================================================
 ##m_z_datum = "2020-07-22"
-menue_zaehlen_Datum = "2018-08-24"             # Datum der letzten Änderung
+menue_zaehlen_date = "2018-08-25"             # Datum der letzten Änderung
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -56,7 +59,8 @@ try:                                           # Initialisierungsdatei des Progr
 except FileNotFoundError:
     err_ini_text           = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
     print(err_ini_text.format("zaehlen_ini.py"))
-    
+    zaehlen_ini_date       = "2020-08-25"
+   
     in_name                = "./in.txt"                           
     out_name               = "./out.txt"                          
     stop_name              = ""                                   
@@ -107,7 +111,7 @@ except FileNotFoundError:
     ld_text       = "Wortlängen-Verteilung ausgeben"                       
     sd_text       = "Trennzeichen-Verteilung ausgeben"                     
     cd_text       = "Zeichen-Verteilung ausgeben"                          
-    sm_text       = "'Still'-Modus"                                        
+    sm_text       = "'Stille' Verarbeitung"                                        
     language_text = "Spracheinstellung (noch nicht verfügbar)"             
 
     argp_pos_par  = 'Positionsparameter'                                   
@@ -234,14 +238,14 @@ except FileNotFoundError:
 
     instverz                 = '.'                                  
 
-    programmname             = "zaehlen.py"
+    remote_program_name      = "zaehlen.py"
 
-    menue_zaehlen_ini_Datum  = "2020-08-23"                         
-    menue_zaehlen_Datum      = "2020-08-23"                         
-
-    programm_vers            = "2.14.1"                             
-    programm_datum           = "2020-08-23 "                        
-    zaehlen_ini_Datum        = "2020-08-20"                         
+    menue_zaehlen_ini_date   = "2020-08-25"                         
+##    menue_zaehlen_date       = "2020-08-25"                         
+##
+##    zaehlen_vers             = "2.14.3"                             
+##    zaehlen_date             = "2020-08-25 "                        
+##    zaehlen_ini_date         = "2020-08-25"                         
 
     msg1                     = "Eingabefelder/Checkboxen"                         
     msg2                     = "Schaltflächen"                                    
@@ -375,24 +379,25 @@ except FileNotFoundError:
     ("[C0] (-fd) " + C0_text,   frequency_distribution, "-fd", 4),
     ("[C1] (-ld) " + C1_text,   length_distribution,    "-ld", 4),
     ("[C2] (-sd) " + C2_text,   separator_distribution, "-sd", 4),
-    ("[C3] (-cd) " + C3_text,   character_distribution, "-cd", 4)
+    ("[C3] (-cd) " + C3_text,   character_distribution, "-cd", 4),
+    ("[C4] (-sm) " + C4_text,   silent_mode,            "-sm", 4)
     ]
 
     button_conf = [
     ("[B0]  " + B0_text,  "ask_in_file",         0, 2),
     ("[B1]  " + B1_text,  "ask_stop_file",       2, 2),
     ("[B2]  " + B2_text,  "ask_go_file",         3, 2),
-    ("[B4]  " + B4_text,  "reset_entry_fields", 16, 0),
-    ("[B5]  " + B5_text,  "clear_entry_fields", 16, 1),
-    ("[B6]  " + B6_text,  "start",              17, 0),
-    ("[B7]  " + B7_text,  "mm.destroy",         17, 1),
-    ("[B8]  " + B8_text,  "help1",              16, 2),
-    ("[B9]  " + B9_text,  "help2",              17, 2),
-    ("[B10] " + B10_text, "help3",              16, 3),
-    ("[B11] " + B11_text, "version",            17, 3)
+    ("[B4]  " + B4_text,  "reset_entry_fields", 18, 0),
+    ("[B5]  " + B5_text,  "clear_entry_fields", 18, 1),
+    ("[B6]  " + B6_text,  "start",              19, 0),
+    ("[B7]  " + B7_text,  "mm.destroy",         19, 1),
+    ("[B8]  " + B8_text,  "help1",              18, 2),
+    ("[B9]  " + B9_text,  "help2",              19, 2),
+    ("[B10] " + B10_text, "help3",              18, 3),
+    ("[B11] " + B11_text, "version",            19, 3)
     ]
 
-    help_text1 = programmtitle + programmname + ':\n\n'
+    help_text1 = programmtitle + remote_program_name + ':\n\n'
     help_text1 += fields_boxes_text + "\n\n"
     for f in range(len(conf)):
         help_text1 += str(conf[f][0]) + " (" + str(conf[f][1]) + "); {0} ".format(for_parameter) + conf[f][2] + "\n"
@@ -403,14 +408,14 @@ except FileNotFoundError:
 
     help_text3 = comments_text
 
-    version_text = version_help_text.format(programm_vers, programm_datum, menue_zaehlen_Datum, menue_zaehlen_ini_Datum, zaehlen_ini_Datum)
+    version_text = version_help_text.format(zaehlen_vers, zaehlen_date, menue_zaehlen_date, menue_zaehlen_ini_date, zaehlen_ini_date)
  
 
 # =======================================================================
 # argparse
 
 parser = argparse.ArgumentParser(description = programmtitle + " [" + program_name + "; " +
-                                     "Version: " + menue_zaehlen_Datum + "]")
+                                     "Version: " + menue_zaehlen_date + "]")
 parser._positionals.title = argp_pos_par
 parser._optionals.title   = argp_opt_par
 parser.add_argument("-a", "--author",
@@ -427,7 +432,7 @@ parser.add_argument("-sm", "--silent_mode",
                     action = "store_true",
                     default = silent_mode)
 
-args  =  parser.parse_args() # Aufruf-Parameter
+args                   = parser.parse_args()   # Aufruf-Parameter
 silent_mode            = args.silent_mode
 language               = args.language
 
@@ -456,14 +461,14 @@ V           = []                               # Statusvariable für Checkboxen
 C           = []                               # Checkboxen
 
 # Sequenzen initialisieren
-for f in range(len(conf)): # Schleife über alle Labels, Eingabefelder, ass. Variablen und Checkboxen 
+for f in range(len(conf)):                     # Schleife über alle Labels, Eingabefelder, ass. Variablen und Checkboxen 
     L.append(None)
     E.append(None)
     V.append(None)
     C.append(None)
 
 # Sequenz B (für Buttons) initialisieren
-for f in range(len(button_conf)): # Schleife über alle Schaltflächen
+for f in range(len(button_conf)):              # Schleife über alle Schaltflächen
     B.append(None)
 
     
@@ -652,9 +657,10 @@ def start():
 #     3: Parameter erwartet keinen Wert
 #     4: wie 3; zusätzlich wird eine Checkbox abgefragt
 
-##    aufruf   = ["python", instverz + sl + programmname]
-    aufruf   = ["python", programmname]
-    optionen = ""
+##    aufruf   = ["python", instverz + sl + remote_program_name]
+    aufruf      = ["python", remote_program_name]
+    optionen    = ""
+    silent_mode = args.silent_mode
 
     for f in range(len(conf)):                                  # Schleife über alle Eingabefelder/Checkboxen
         typ     = conf[f][3]
@@ -678,17 +684,21 @@ def start():
         elif (typ == 4):                                        # (4) wie 3; zusätzlich wird eine Checkbox abgefragt; -fd, -ld, -sd, -cd
             zwi = V[f].get()
             if (zwi == 1):
-                aufruf.append(par)
+                if par in ["-sm", "--silent_mode"]:
+                    silent_mode = True
+                else:
+                    aufruf.append(par)
         else:
             pass
 
     if (len(name_in) == 0):                                     # kein Name für Eingabedatei
         if not no_call:
-            showinfo(title=call_text, message = aufruf)
+            if not silent_mode:
+                showinfo(title=call_text, message = aufruf)
             x = subprocess.Popen(aufruf, stderr=subprocess.PIPE, universal_newlines=True)
             fehlermeld = x.stderr.read()
             if (len(fehlermeld) > 0):
-                showinfo(title=error_text, message = fehlermeld)
+                showerror(title=error_text, message=fehlermeld, icon=ERROR)
 
     for f in range(len(name_in)):                               # Schleife über alle Eingabedateien
         aufruf_i = aufruf[:]
@@ -700,11 +710,12 @@ def start():
                 g_o = g                                         # -- Position von -o merken
         aufruf_i[g_i + 1] = name_in[f]
         aufruf_i[g_o + 1] = create_filename(f, aufruf[g_o + 1]) # -- Name für Ausgabedatei(en) generieren
-        showinfo(title=call_text, message = aufruf_i)
+        if not silent_mode:
+            showinfo(title=call_text, message = aufruf_i)
         x = subprocess.Popen(aufruf_i, stderr=subprocess.PIPE, universal_newlines=True)
         fehlermeld = x.stderr.read()
         if (len(fehlermeld) > 0):
-            showerror(title=error_text, message = fehlermeld, icon = ERROR)
+            showerror(title=error_text, message=fehlermeld, icon=ERROR)
     showinfo(title=execution_text, message = end_text)
 
 # -----------------------------------------------------------------------
@@ -727,7 +738,8 @@ def version():
     
 # =======================================================================
 mm = Tk()
-mm.title(programmtitle + programmname)
+mm.title(programmtitle + remote_program_name)
+
 init_entry_fields()
 init_buttons()
 
