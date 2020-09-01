@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
+# menu_zaehlen.py
+
 # (C) Günter Partosch 2018-2020
 
-# menu_zaehlen.py
 # Stand: 2018-08-20
 # Stand: 2020-07-22
 # Stand: 2020-08-07
@@ -17,23 +18,25 @@
 # Stand: 2020-08-24 (silent_mode per Parameter -sm verfügbar)
 # Stand: 2020-08-25 (silent mode im Menü)
 # Stand: 2020-08-25 (vereinheitlichte Konstruktion von Programm-Datum und Programm-Version)
+# Stand: 2020-08-30 (Sprachunterstützung für Englisch)
 
 # Vorhaben:
 # + Fehlerbehandlung bei unzulässigen Eingaben (x)
 # + unterschiedliche ini-Dateien für verschiedene Sprachen (?)
-# + Parameter für andere Sprachen: -la 
+# + Parameter für andere Sprachen: -la (x)
 # + generell: andere ini-Dateien erlauben
 # + Laden der ini-Datei robuster gestalten (x)
 # + strings ggf. umschreiben mit Platzhalter (x)
-# + verbose/silent-Modus
+# + verbose/silent-Modus (x)
 # + Unterschied zwischen Abbrechen/Beenden
 # + tkinter listbox
-# + einheitliches Konzept für Programnamen und -versionen
+# + einheitliches Konzept für Programnamen und -versionen (x)
+# + wenn mit -sm aufgerufen ==> eintragen in Menü
 
 
 # =======================================================================
 ##m_z_datum = "2020-07-22"
-menue_zaehlen_date = "2018-08-25"             # Datum der letzten Änderung
+menu_zaehlen_date = "2018-08-30"             # Datum der letzten Änderung
 
 # -----------------------------------------------------------------------
 # Abhängigkeiten
@@ -59,8 +62,11 @@ try:                                           # Initialisierungsdatei des Progr
 except FileNotFoundError:
     err_ini_text           = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
     print(err_ini_text.format("zaehlen_ini.py"))
-    zaehlen_ini_date       = "2020-08-25"
-   
+
+    zaehlen_ini_date       = "2020-08-30"
+    zaehlen_vers           = "2.15.1"
+    zaehlen_date           = "2020-08-30"
+
     in_name                = "./in.txt"                           
     out_name               = "./out.txt"                          
     stop_name              = ""                                   
@@ -85,6 +91,10 @@ except FileNotFoundError:
     string_breite_la       = 43                                   
     real_breite            = 6                                    
     rndg                   = 2                                    
+
+    program_author         = "Günter Partosch"
+    author_email           = "Guenter.Partosch@hrz.uni-giessen.de"
+    author_institution     = "Justus-Liebig-Universität Gießen, Hochschulrechenzentrum"
 
     main_caption_text      = "Auszählen von Texten"               
     prg_name_text          = "Name des Programms"                 
@@ -111,7 +121,7 @@ except FileNotFoundError:
     ld_text       = "Wortlängen-Verteilung ausgeben"                       
     sd_text       = "Trennzeichen-Verteilung ausgeben"                     
     cd_text       = "Zeichen-Verteilung ausgeben"                          
-    sm_text       = "'Stille' Verarbeitung"                                        
+    sm_text       = "'Still'-Modus"                                        
     language_text = "Spracheinstellung (noch nicht verfügbar)"             
 
     argp_pos_par  = 'Positionsparameter'                                   
@@ -195,26 +205,26 @@ except FileNotFoundError:
     ld_caption_total       = "Ergebnisse (Verteilung der Wortlängen im Gesamttext)"              
     ld_caption_selected    = "Ergebnisse (Verteilung der Wortlängen nach dem Filtern)"           
     ld_length_number       = "<länge>:<anzahl>"                                                  
-    ld_min_length          = "minimale Länge:"                                                   
-    ld_max_length          = "maximale Länge:"                                                   
-    ld_modus               = "Modus der Längenverteilung:"                                       
-    ld_mean                = "Durchschnittliche Länge:"                                          
+    ld_min_length          = "minimale Länge            : "                                       
+    ld_max_length          = "maximale Länge            : "                                       
+    ld_modus               = "Modus der Längenverteilung: '{0}' mit {1} Vorkommen"
+    ld_mean                = "Durchschnittliche Länge   : "                                       
 
     fd_caption_total       = "Ergebnisse (Verteilung der Worthäufigkeiten im Gesamttext)"        
     fd_caption_selected    = "Ergebnisse (Verteilung der Worthäufigkeiten nach dem Filtern)"     
     fd_freq_number         = "<häufigkeit>:<anzahl>"                                             
-    fd_min_freq            = "minimale Häufigkeit:"                                              
-    fd_freq_max            = "maximale Häufigkeit:"                                              
-    fd_modus               = "Modus der Häufigkeitenverteilung:"                                 
+    fd_min_freq            = "minimale Häufigkeit            : "                                              
+    fd_freq_max            = "maximale Häufigkeit            : "                                              
+    fd_modus               = "Modus der Häufigkeitsverteilung: '{0}' mit {1} Vorkommen"          
 
     cd_caption_total       = "Ergebnisse (Verteilung der Zeichenhäufigkeiten im Gesamttext)"     
     cd_caption_selected    = "Ergebnisse (Verteilung der Zeichenhäufigkeiten nach dem Filtern)"  
     cd_char_code_number    = "<zeichen>:<code>:<anzahl>"                                         
-    cd_modus               = "Modus der Zeichenverteilung:"                                      
+    cd_modus               = "Modus der Zeichen-Verteilung: '{0}' mit {1} Vorkommen"             
 
     sd_caption_total       = "Ergebnisse (Verteilung der Trennzeichenhäufigkeiten im Gesamttext)"
     sd_sep_number          = "<trennzeichen>:<anzahl>"                                           
-    sd_modus               = "Modus der Trennzeichenverteilung:"                                 
+    sd_modus               = "Modus der Trennzeichen-Verteilung: '{0}' mit {1} Vorkommen"        
 
     err_in                 = "---Eingabedatei {0} kann nicht geöffnet werden. Programmabbruch"               
     err_out                = "---Ausgabedatei {0} kann nicht geöffnet werden. Programmabbruch"               
@@ -237,15 +247,39 @@ except FileNotFoundError:
     print(err_ini_text.format("menu_zaehlen_ini.py"))
 
     instverz                 = '.'                                  
-
     remote_program_name      = "zaehlen.py"
+    program_name             = "menu_zaehlen.py"                    
 
-    menue_zaehlen_ini_date   = "2020-08-25"                         
-##    menue_zaehlen_date       = "2020-08-25"                         
-##
-##    zaehlen_vers             = "2.14.3"                             
-##    zaehlen_date             = "2020-08-25 "                        
-##    zaehlen_ini_date         = "2020-08-25"                         
+    menu_zaehlen_ini_date    = "2020-08-30"                         
+
+    E0_pre_text              = "[E0] (-i) "
+    E1_pre_text              = "[E1] (-s) "
+    E2_pre_text              = "[E2] (-S) "
+    E3_pre_text              = "[E3] (-G) "
+    E4_pre_text              = "[E4] (-s1) "
+    E5_pre_text              = "[E5] (-s2) "
+    E6_pre_text              = "[E6] (-o) "
+    E7_pre_text              = "[E7] (-t) "
+    E8_pre_text              = "[E8] (-l) "
+    E9_pre_text              = "[E9] (-r) "
+    E10_pre_text             = "[10] (-f) "
+    C0_pre_text              = "[C0] (-fd) "
+    C1_pre_text              = "[C1] (-ld) "
+    C2_pre_text              = "[C2] (-sd) "
+    C3_pre_text              = "[C3] (-cd) "
+    C4_pre_text              = "[C4] (-sm) "
+
+    B0_pre_text              = "[B0] "
+    B1_pre_text              = "[B1] "
+    B2_pre_text              = "[B2] "
+    B4_pre_text              = "[B4] "
+    B5_pre_text              = "[B5] "
+    B6_pre_text              = "[B6] "
+    B7_pre_text              = "[B7] "
+    B8_pre_text              = "[B8] "
+    B9_pre_text              = "[B9] "
+    B10_pre_text             = "[B10] "
+    B11_pre_text             = "[B11] "
 
     msg1                     = "Eingabefelder/Checkboxen"                         
     msg2                     = "Schaltflächen"                                    
@@ -257,7 +291,8 @@ except FileNotFoundError:
     end_text                 = "Programm menu_zaehlen.py beendet"                 
     call_text                = "Aufruf"                                           
 
-    programmtitle            = "Auszählen eines Textes; Eingabemenü für das Programm " 
+    programmtitle            = "Auszählen eines Textes; Eingabemenü für das Programm "
+
     E0_text                  = "Eingabedatei(en)"                                 
     E1_text                  = "Wort-Trennzeichen [Muster]"                       
     E2_text                  = "Datei mit Stop-Wörter"                            
@@ -274,6 +309,7 @@ except FileNotFoundError:
     C1_text                  = "Wortlängen-Verteilung berechnen"                  
     C2_text                  = "Trennzeichen-Verteilung berechnen"                
     C3_text                  = "Zeichen-Verteilung berechnen"                     
+    C4_text                  = "'Stille' Verarbeitung"                            
 
     B0_text                  = 'Durchsuchen... [Eingabedatei(en)]'                
     B1_text                  = 'Durchsuchen... [Stop-Datei]'                      
@@ -365,36 +401,36 @@ except FileNotFoundError:
     """
 
     conf = [
-    ("[E0] (-i) "  + E0_text,   in_name,                "-i",  1),
-    ("[E1] (-s) "  + E1_text,   separator,              "-s",  2),
-    ("[E2] (-S) "  + E2_text,   stop_name,              "-S",  2),
-    ("[E3] (-G) "  + E3_text,   go_name,                "-G",  2),
-    ("[E4] (-s1) " + E4_text,   sort_first,             "-s1", 2),
-    ("[E5] (-s2) " + E5_text,   sort_second,            "-s2", 2),
-    ("[E6] (-o) "  + E6_text,   out_name,               "-o",  1),
-    ("[E7] (-t) "  + E7_text,   word_template,          "-t",  2),
-    ("[E8] (-l) "  + E8_text,   p_lengths,              "-l",  2),
-    ("[E9] (-r) "  + E9_text,   p_rank,                 "-r",  2),
-    ("[10] (-f) "  + E10_text,  p_frequency,            "-f",  2),
-    ("[C0] (-fd) " + C0_text,   frequency_distribution, "-fd", 4),
-    ("[C1] (-ld) " + C1_text,   length_distribution,    "-ld", 4),
-    ("[C2] (-sd) " + C2_text,   separator_distribution, "-sd", 4),
-    ("[C3] (-cd) " + C3_text,   character_distribution, "-cd", 4),
-    ("[C4] (-sm) " + C4_text,   silent_mode,            "-sm", 4)
+    (E0_pre_text  + E0_text,   in_name,                "-i",  1),
+    (E1_pre_text  + E1_text,   separator,              "-s",  2),
+    (E2_pre_text  + E2_text,   stop_name,              "-S",  2),
+    (E3_pre_text  + E3_text,   go_name,                "-G",  2),
+    (E4_pre_text  + E4_text,   sort_first,             "-s1", 2),
+    (E5_pre_text  + E5_text,   sort_second,            "-s2", 2),
+    (E6_pre_text  + E6_text,   out_name,               "-o",  1),
+    (E7_pre_text  + E7_text,   word_template,          "-t",  2),
+    (E8_pre_text  + E8_text,   p_lengths,              "-l",  2),
+    (E9_pre_text  + E9_text,   p_rank,                 "-r",  2),
+    (E10_pre_text + E10_text,  p_frequency,            "-f",  2),
+    (C0_pre_text  + C0_text,   frequency_distribution, "-fd", 4),
+    (C1_pre_text  + C1_text,   length_distribution,    "-ld", 4),
+    (C2_pre_text  + C2_text,   separator_distribution, "-sd", 4),
+    (C3_pre_text  + C3_text,   character_distribution, "-cd", 4),
+    (C4_pre_text  + C4_text,   silent_mode,            "-sm", 4)
     ]
 
     button_conf = [
-    ("[B0]  " + B0_text,  "ask_in_file",         0, 2),
-    ("[B1]  " + B1_text,  "ask_stop_file",       2, 2),
-    ("[B2]  " + B2_text,  "ask_go_file",         3, 2),
-    ("[B4]  " + B4_text,  "reset_entry_fields", 18, 0),
-    ("[B5]  " + B5_text,  "clear_entry_fields", 18, 1),
-    ("[B6]  " + B6_text,  "start",              19, 0),
-    ("[B7]  " + B7_text,  "mm.destroy",         19, 1),
-    ("[B8]  " + B8_text,  "help1",              18, 2),
-    ("[B9]  " + B9_text,  "help2",              19, 2),
-    ("[B10] " + B10_text, "help3",              18, 3),
-    ("[B11] " + B11_text, "version",            19, 3)
+    (B0_pre_text  + B0_text,  "ask_in_file",         0, 2),
+    (B1_pre_text  + B1_text,  "ask_stop_file",       2, 2),
+    (B2_pre_text  + B2_text,  "ask_go_file",         3, 2),
+    (B4_pre_text  + B4_text,  "reset_entry_fields", 18, 0),
+    (B5_pre_text  + B5_text,  "clear_entry_fields", 18, 1),
+    (B6_pre_text  + B6_text,  "start",              19, 0),
+    (B7_pre_text  + B7_text,  "mm.destroy",         19, 1),
+    (B8_pre_text  + B8_text,  "help1",              18, 2),
+    (B9_pre_text  + B9_text,  "help2",              19, 2),
+    (B10_pre_text + B10_text, "help3",              18, 3),
+    (B11_pre_text + B11_text, "version",            19, 3)
     ]
 
     help_text1 = programmtitle + remote_program_name + ':\n\n'
@@ -408,14 +444,14 @@ except FileNotFoundError:
 
     help_text3 = comments_text
 
-    version_text = version_help_text.format(zaehlen_vers, zaehlen_date, menue_zaehlen_date, menue_zaehlen_ini_date, zaehlen_ini_date)
- 
+    version_msg_text = version_help_text.format(zaehlen_vers, zaehlen_date, menu_zaehlen_date, menu_zaehlen_ini_date, zaehlen_ini_date)
+
 
 # =======================================================================
 # argparse
 
 parser = argparse.ArgumentParser(description = programmtitle + " [" + program_name + "; " +
-                                     "Version: " + menue_zaehlen_date + "]")
+                                     "Version: " + menu_zaehlen_date + "]")
 parser._positionals.title = argp_pos_par
 parser._optionals.title   = argp_opt_par
 parser.add_argument("-a", "--author",
@@ -436,6 +472,26 @@ args                   = parser.parse_args()   # Aufruf-Parameter
 silent_mode            = args.silent_mode
 language               = args.language
 
+
+# =======================================================================
+# Sprachmodule
+
+if language == "de":
+    pass
+elif language == "en":
+    try:                                           # Initialisierungsdatei des Programms menu_zaehlen.py
+        exec(open("zaehlen_ini_en.py", encoding="utf-8", mode="r").read())
+    except FileNotFoundError:
+        err_ini_text             = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
+        print(err_ini_text.format("zaehlen_ini_en.py"))
+
+    try:                                           # Initialisierungsdatei des Programms menu_zaehlen.py
+        exec(open("menu_zaehlen_ini_en.py", encoding="utf-8", mode="r").read())
+    except FileNotFoundError:
+        err_ini_text             = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
+        print(err_ini_text.format("menu_zaehlen_ini_en.py"))
+else:
+    pass
 
 # =======================================================================
 # Initialisierungen
@@ -691,14 +747,22 @@ def start():
         else:
             pass
 
+    if language == "de":                                        # Sprachparameter für Aufruf
+        pass
+    elif language == "en":
+        aufruf.append("-la");
+        aufruf.append(language)
+    else:
+        pass
+
     if (len(name_in) == 0):                                     # kein Name für Eingabedatei
         if not no_call:
             if not silent_mode:
                 showinfo(title=call_text, message = aufruf)
             x = subprocess.Popen(aufruf, stderr=subprocess.PIPE, universal_newlines=True)
-            fehlermeld = x.stderr.read()
-            if (len(fehlermeld) > 0):
-                showerror(title=error_text, message=fehlermeld, icon=ERROR)
+            errormess = x.stderr.read()
+            if (len(errormess) > 0):
+                showerror(title=error_text, message=errormess, icon=ERROR)
 
     for f in range(len(name_in)):                               # Schleife über alle Eingabedateien
         aufruf_i = aufruf[:]
@@ -713,9 +777,9 @@ def start():
         if not silent_mode:
             showinfo(title=call_text, message = aufruf_i)
         x = subprocess.Popen(aufruf_i, stderr=subprocess.PIPE, universal_newlines=True)
-        fehlermeld = x.stderr.read()
-        if (len(fehlermeld) > 0):
-            showerror(title=error_text, message=fehlermeld, icon=ERROR)
+        errormess = x.stderr.read()
+        if (len(errormess) > 0):
+            showerror(title=error_text, message=errormess, icon=ERROR)
     showinfo(title=execution_text, message = end_text)
 
 # -----------------------------------------------------------------------
@@ -734,14 +798,14 @@ def init_buttons():
 # -----------------------------------------------------------------------
 def version():
     """gibt Versionsdaten aus."""
-    showinfo(msg4, version_text)
-    
+    showinfo(msg4, version_msg_text)
+
+
 # =======================================================================
 mm = Tk()
 mm.title(programmtitle + remote_program_name)
 
 init_entry_fields()
 init_buttons()
-
 mainloop( )
 

@@ -1,18 +1,28 @@
-# zaehlen-ini.py: Initialisierung, Vorbesetzungen
+#!/usr/bin/python3.8
+# -*- coding: utf-8 -*-
+# please adjust these two lines if necessary
+
+# zaehlen-ini.py
+
+# (C) Günter Partosch 2016-2020
+
+# Initialisierung, Vorbesetzungen
+
 # Stand: 2018-08-17
 #        2020-08-02 (Voreinstellungen geändert)
 #        2020-08-12 (Ausgabe-Strings hierher verlagert)
 #        2020-08-20 (Ausgabe-Strings bearbeitet)
 #        2020-08-25 (vereinheitlichte Konstruktion von Programm-Datum und Programm-Version)
+#        2020-08-28 (kleinere Korrekturen; Anpassen von Strings)
 
 # Abhängigkeiten
 # zaehlen_ini.py
-# + wird von menue_zaehlen.py geladen
+# + wird von menu_zaehlen.py geladen
 # + wird von zaehlen.py geladen
 
-zaehlen_ini_date       = "2020-08-25"
-zaehlen_vers           = "2.14.3"                             # zaehlen.py:     Version
-zaehlen_date           = "2020-08-25 "                        # zaehlen.py:     Datum der letzten Änderung
+zaehlen_ini_date       = "2020-08-30"
+zaehlen_vers           = "2.15.1"
+zaehlen_date           = "2020-08-30"
 
 # Voreinstellungen                                            # defaults
 # ---------------------------------------------- 
@@ -181,32 +191,32 @@ summary_sum            = "Summe"                                       # sum
 ld_caption_total       = "Ergebnisse (Verteilung der Wortlängen im Gesamttext)"              # Results (distribution of the word lengths in the whole text)
 ld_caption_selected    = "Ergebnisse (Verteilung der Wortlängen nach dem Filtern)"           # Results (distribution of the word lengths after filtering)
 ld_length_number       = "<länge>:<anzahl>"                                                  # <length>:<number>
-ld_min_length          = "minimale Länge:"                                                   # Minimal length:
-ld_max_length          = "maximale Länge:"                                                   # Maximal length:
-ld_modus               = "Modus der Längenverteilung:"                                       # Modus of length distribution:
-ld_mean                = "Durchschnittliche Länge:"                                          # Average of lengths:
+ld_min_length          = "minimale Länge            : "                                       # Minimal length:
+ld_max_length          = "maximale Länge            : "                                       # Maximal length:
+ld_modus               = "Modus der Längenverteilung: '{0}' mit {1} Vorkommen"
+ld_mean                = "Durchschnittliche Länge   : "                                       # Average of lengths:
 
 # Frequenz-Verteilung                                                                        # frequency distribution
 # -----------------------------------------------------
 fd_caption_total       = "Ergebnisse (Verteilung der Worthäufigkeiten im Gesamttext)"        # Results (distribution of the word frequencies in the whole text)
 fd_caption_selected    = "Ergebnisse (Verteilung der Worthäufigkeiten nach dem Filtern)"     # Results (distribution of the word frequencies after filtering)
 fd_freq_number         = "<häufigkeit>:<anzahl>"                                             # <frequency>:<number>
-fd_min_freq            = "minimale Häufigkeit:"                                              # Minimal frequency:
-fd_freq_max            = "maximale Häufigkeit:"                                              # Maximal frequency:
-fd_modus               = "Modus der Häufigkeitenverteilung:"                                 # Modus of frequency:
+fd_min_freq            = "minimale Häufigkeit            : "                                              # Minimal frequency
+fd_freq_max            = "maximale Häufigkeit            : "                                              # Maximal frequency
+fd_modus               = "Modus der Häufigkeitsverteilung: '{0}' mit {1} Vorkommen"          # Modus of character distribution:
 
 # Zeichen-Verteilung                                                                         # character distribution
 # -----------------------------------------------------
 cd_caption_total       = "Ergebnisse (Verteilung der Zeichenhäufigkeiten im Gesamttext)"     # Results (distribution of the word frequencies in the whole text)
 cd_caption_selected    = "Ergebnisse (Verteilung der Zeichenhäufigkeiten nach dem Filtern)"  # Results (distribution of the word frequencies after filtering)
 cd_char_code_number    = "<zeichen>:<code>:<anzahl>"                                         # <character>:<code>:<number>
-cd_modus               = "Modus der Zeichenverteilung:"                                      # Modus of character distribution:
+cd_modus               = "Modus der Zeichen-Verteilung: '{0}' mit {1} Vorkommen"             # Modus of character distribution:
 
 # Trennzeichen-Verteilung                                                                    # separator distribution
 # -----------------------------------------------------
 sd_caption_total       = "Ergebnisse (Verteilung der Trennzeichenhäufigkeiten im Gesamttext)"# Results (distribution of the word frequencies after filtering)
 sd_sep_number          = "<trennzeichen>:<anzahl>"                                           # <separator>:<number>
-sd_modus               = "Modus der Trennzeichenverteilung:"                                 # Modus of separator distribution
+sd_modus               = "Modus der Trennzeichen-Verteilung: '{0}' mit {1} Vorkommen"        # Modus of separator distribution:
 
 # Fehlermeldungen + Warnungen                                                                            # error messages and warnings
 # -----------------------------------------------------

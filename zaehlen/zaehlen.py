@@ -2,12 +2,16 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
+# zaehlen.py
+
 # (C) Günter Partosch 2016-2020
 
 # noch:
 # + zweite/dritte ini-Datei ermöglichen
 # + Englisch ermöglichen (-la)
-# + -m silent-Modus
+# + -sm silent-Modus
+# + Fehlermeldung, wenn Eingabedatei leer
+# + Fehlermeldung, wenn Ausgabedatei schon vorhanden; weiteres Vorgehen; zusätzlicher Parameter -F ?
 
 # zaehlen.py
 # Programm zum Auszählen von Textdateien
@@ -45,6 +49,9 @@
 # 2.14.0: 2020-08-12: Ausgabe-Strings in ini-Datei verlagert
 # 2.14.1: 2020-08-23: zaehlen_ini.py wird robust geladen
 # 2.14.2: 2020-08-24: Still-Modus und Spracheinstellung als Parameter
+# 2 14.3: 2020-08-25: vereinheitlichte Konstruktion von Programm-Datum und Programm-Version
+# 2.15.0: 2020-08-28: ermöglicht: -la en (english)
+# 2.15.1: 2020-08-30: weiter
 
 # --------------------------------------------------------------
 # Abhängigkeiten:
@@ -99,8 +106,8 @@
 # (1) Programm-Parameter: global
 
 program_name       = "zaehlen.py"
-program_vers       = "2.14.2"
-program_date       = "2020-08-24"
+zaehlen_vers       = "2.15.1"
+zaehlen_date       = "2020-08-30"
 
 # globale Hilfsvariablen
 leer    = " "
@@ -111,6 +118,7 @@ try:
 except FileNotFoundError:
     err_ini_text           = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
     print(err_ini_text.format("zaehlen_ini.py"))
+    zaehlen_ini_date       = "2020-08-30"
     in_name                = "./in.txt"                           
     out_name               = "./out.txt"                          
     stop_name              = ""                                   
@@ -245,26 +253,26 @@ except FileNotFoundError:
     ld_caption_total       = "Ergebnisse (Verteilung der Wortlängen im Gesamttext)"              
     ld_caption_selected    = "Ergebnisse (Verteilung der Wortlängen nach dem Filtern)"           
     ld_length_number       = "<länge>:<anzahl>"                                                  
-    ld_min_length          = "minimale Länge:"                                                   
-    ld_max_length          = "maximale Länge:"                                                   
-    ld_modus               = "Modus der Längenverteilung:"                                       
-    ld_mean                = "Durchschnittliche Länge:"                                          
+    ld_min_length          = "minimale Länge            : "                                                   
+    ld_max_length          = "maximale Länge            : "                                                   
+    ld_modus               = "Modus der Längenverteilung: '{0}' mit {1} Vorkommen"
+    ld_mean                = "Durchschnittliche Länge   : "                                          
 
     fd_caption_total       = "Ergebnisse (Verteilung der Worthäufigkeiten im Gesamttext)"        
     fd_caption_selected    = "Ergebnisse (Verteilung der Worthäufigkeiten nach dem Filtern)"     
     fd_freq_number         = "<häufigkeit>:<anzahl>"                                             
-    fd_min_freq            = "minimale Häufigkeit:"                                              
-    fd_freq_max            = "maximale Häufigkeit:"                                              
-    fd_modus               = "Modus der Häufigkeitenverteilung:"                                 
+    fd_min_freq            = "minimale Häufigkeit            : "                                              
+    fd_freq_max            = "maximale Häufigkeit            : "                                              
+    fd_modus               = "Modus der Häufigkeitsverteilung: '{0}' mit {1} Vorkommen"
 
     cd_caption_total       = "Ergebnisse (Verteilung der Zeichenhäufigkeiten im Gesamttext)"     
     cd_caption_selected    = "Ergebnisse (Verteilung der Zeichenhäufigkeiten nach dem Filtern)"  
     cd_char_code_number    = "<zeichen>:<code>:<anzahl>"                                         
-    cd_modus               = "Modus der Zeichenverteilung:"                                      
+    cd_modus               = "Modus der Zeichen-Verteilung: '{0}' mit {1} Vorkommen"
 
     sd_caption_total       = "Ergebnisse (Verteilung der Trennzeichenhäufigkeiten im Gesamttext)"
     sd_sep_number          = "<trennzeichen>:<anzahl>"                                           
-    sd_modus               = "Modus der Trennzeichenverteilung:"                                 
+    sd_modus               = "Modus der Trennzeichen-Verteilung: '{0}' mit {1} Vorkommen"
 
     err_in                 = "---Eingabedatei {0} kann nicht geöffnet werden. Programmabbruch"               
     err_out                = "---Ausgabedatei {0} kann nicht geöffnet werden. Programmabbruch"               
@@ -384,24 +392,6 @@ for f in range(len(sys.argv)): aufruf += sys.argv[f] + leer
 # - meist Eingabeaufforderungen
 
 # verschoben in ini-Datei
-##in_text       = "Eingabedatei(en) festlegen"
-##sep_text      = "Wort-Trennzeichen (Muster) spezifizieren"
-##stop_text     = "Datei mit Stop-Wörter spezifizieren"
-##go_text       = "Datei mit Go-Wörter spezifizieren"
-##sort1_text    = "1. Sortierung (a+|a-|A+|A-) spezifizieren"
-##sort2_text    = "2. Sortierung (L+|L-|F+|F-) spezifizieren"
-##out_text      = "Ausgabedatei(en) festlegen"
-##template_text = "Beschränkung auf best. Wort-Muster (Muster)"
-##lengths_text  = "Beschränkung auf best. Wortlängen"
-##rank_text     = "Beschränkung auf best. Rangfolge"
-##freq_text     = "Beschränkung auf best. Worthäufigkeiten"
-##version_text  = "Version des Programms ausgeben und Exit"
-##autor_text    = "Autor des Programms ausgeben und Exit"
-##text_prompt   = ": "
-##fd_text       = "Worthäufigkeiten-Verteilung ausgeben"
-##ld_text       = "Wortlängen-Verteilung ausgeben"
-##sd_text       = "Trennzeichen-Verteilung ausgeben"
-##cd_text       = "Zeichen-Verteilung ausgeben"
 
 # ==============================================================
 # (5) eigene Methoden:
@@ -456,7 +446,11 @@ def __chr_out(c):
     elif (c == "\f"): www = r"\f"
     elif (c == "\v"): www = r"\v"
     elif (c == "\t"): www = r"\t"
-    elif (c == leer):  www = "leer"
+    elif (c == leer):
+        if language == "en":
+            www = "space"
+        else:
+            www = "leer"
     else: www = c
     return www
 
@@ -465,42 +459,12 @@ def __chr_out(c):
 # - Voreinstellungen, Initialisierung
 # - zwei Wege: Initialisierung durch Datei zaehlen-ini.py bzw. lokal im Programm
 
-##try:
-##    # Initialisierung für Programm-Parameter und Variablen einlesen
-##    from zaehlen_ini import *
-##except ImportError:
-##    # lokal Programm-Parameter und Variablen initialisieren
-##    print(warn_ini)
-##    in_name                = "./in.txt"
-##    out_name               = "./out.txt"
-##    stop_name              = ""
-##    go_name                = ""
-##    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
-##    word_template          = """^.+$"""
-##    p_lengths              = "1,100"
-##    p_frequency            = "1,12000"
-##    p_rank                 = "1,50000"
-##    sort_first             = "a+"
-##    sort_second            = ""
-##    frequency_distribution = False
-##    length_distribution    = False
-##    separator_distribution = False
-##    character_distribution = False
-##
-##    integer_breite         = 7  # Ausgabebreite für Integer
-##    integer_breite_kl      = 3  # Ausgabebreite für kleine Integer
-##    string_breite          = 3  # voreingestellte Ausgabebreite für Strings
-##    string_breite_la       = 43 # Länge von Eingabeaufforderungen
-##    real_breite            = 6  # Ausgabebreite für Reals
-##    rndg                   = 2  # Zahl der Nachkommastellen für Reals/Floats
+# Initialisierung in die Datei zaehlen_ini.py verschoben
 
 # optionaler Hook
 try:
-    ini = open("zaehlen_ini2.py", encoding="utf-8", mode="r")
-    for ff in ini:
-        exec(ff)
-    ini.close()
-except IOError:
+    exec(open("zaehlen_ini2.py", encoding="utf-8", mode="r").read())
+except FileNotFoundError:
     pass
 
 # ==============================================================
@@ -509,11 +473,10 @@ except IOError:
 # - aktuelle Aufruf-Parameter gewinnen
 # - an lokale Variablen zuweisen
 #
-# zaehlen.py [-h] [-a] [-f P_FREQUENCY] [-fd] [-G GO_NAME] [-i IN_NAME]
-#            [-l P_LENGTHS] [-ld] [-o OUT_NAME] [-r P_RANK]
-#            [-s SEPARATOR] [-S STOP_NAME] [-t WORD_TEMPLATE]
-#            [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}] [-sd] [-cd] [-v]
-
+# zaehlen.py [-h] [-a] [-cd] [-f P_FREQUENCY] [-fd] [-G GO_NAME] [-i IN_NAME] [-l P_LENGTHS] [-la {de,en}] [-ld]
+#            [-o OUT_NAME] [-r P_RANK] [-s SEPARATOR] [-S STOP_NAME] [-s1 {a+,a-,A+,A-}] [-s2 {L+,L-,F+,F-}]
+#            [-sd] [-sm] [-t WORD_TEMPLATE] [-v]
+                  
 # --------------------------------------------------------------
 # (7-1) Definition der Aufruf-Parameter
 
@@ -523,12 +486,12 @@ if not interaktiv:
     # benötigt werden die vorher definierten Größen:
     # author_email, author_institution, autor_text, fd_text, freq_text, frequency_distribution, go_name, go_text,
     # in_name, in_text, ld_text, length_distribution, lengths_text, out_name, out_text, p_frequency, p_lengths,
-    # p_rank, program_author, program_date, program_name, program_vers, rank_text, sep_text, separator,
+    # p_rank, program_author, zaehlen_date, program_name, zaehlen_vers, rank_text, sep_text, separator,
     # sort_first, sort_second, sort1_text, sort2_text, stop_name, stop_text, sys.stdin, sys.stdout,
     # template_text, version_text, word_template, separator_distribution, sd_text
     
     parser = argparse.ArgumentParser(description = main_caption_text + " [" + program_name + "; " +
-                                     "Version: " + program_vers + " (" + program_date + ")]")
+                                     "Version: " + zaehlen_vers + " (" + zaehlen_date + ")]")
     parser._positionals.title = argp_pos_par
     parser._optionals.title = argp_opt_par
     opgroup = parser.add_mutually_exclusive_group() # für die beiden Optionen -G und -S (können nur alternativ verwendet werden)
@@ -613,7 +576,7 @@ if not interaktiv:
     parser.add_argument("-v", "--version",
                         help = version_text,
                         action = 'version',
-                        version = '%(prog)s ' + program_vers + " (" + program_date + ")") 
+                        version = '%(prog)s ' + zaehlen_vers + " (" + zaehlen_date + ")") 
 
 # --------------------------------------------------------------
 # (7-2) aktuelle Aufruf-Parameter gewinnen
@@ -643,6 +606,20 @@ if not interaktiv:
     silent_mode            = args.silent_mode
     language               = args.language
     
+# --------------------------------------------------------------
+# (7-4) ggf. andere Sprache
+
+if language == "en":
+    try:
+        exec(open("zaehlen_ini_en.py", encoding="utf-8", mode="r").read())
+    except FileNotFoundError:
+        err_ini_text           = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
+        print(err_ini_text.format("zaehlen_ini_en.py"))
+        pass
+elif language == "de":
+    pass
+else:
+    pass
 
 # ==============================================================
 # (8) Interaktiver Aufruf des Programms bzw. mit der Python-Flag -i
@@ -983,8 +960,8 @@ breite = 21
 
 __ueberschrift(main_caption_text,"=")
 aus.write("{0:21s}: {1}".format(prg_name_text, program_name) + "\n")
-aus.write("{0:21s}: {1}".format(prg_version_text, program_vers) + "\n")
-aus.write("{0:21s}: {1}".format(prg_datum_text, program_date) + "\n")
+aus.write("{0:21s}: {1}".format(prg_version_text, zaehlen_vers) + "\n")
+aus.write("{0:21s}: {1}".format(prg_datum_text, zaehlen_date) + "\n")
 aus.write("{0:21s}: {1}".format(prg_author_text, program_author) + "\n")
 aus.write("{0:21s}: {1}".format(email, author_email) + "\n")
 aus.write("{0:21s}: {1}".format(institution, author_institution) + "\n\n")
@@ -1154,7 +1131,7 @@ aus.write(("{1:33s}:" + ps3 + "\n").format(summe_roh_zeichen, summary_chars_tot_
 aus.write(("{1:33s}:" + ps3).format(summe_zeichen, summary_chars_act_text))
 
 if (summe_roh_zeichen > 0):
-    aus.write((" ({1:10s}" +  ps6 + "%)\n\n").format(round(summe_zeichen/summe_roh_zeichen * 100.00, rndg), corresponds))
+    aus.write((" ({1:10s} " +  ps6 + "%)\n\n").format(round(summe_zeichen/summe_roh_zeichen * 100.00, rndg), corresponds))
 else:
     aus.write("\n\n")
 
@@ -1162,7 +1139,7 @@ aus.write(("{1:33s}:" + ps3 + "\n").format(summe_woerter, summary_token_tot_text
 aus.write(("{1:33s}:" + ps3).format(auswahl_tokens, summary_token_sel_text))
 
 if (summe_woerter  > 0):
-    aus.write((" ({1:10s}" +  ps6 + "%)\n\n").format(round(auswahl_tokens/summe_woerter * 100.00, rndg), corresponds))
+    aus.write((" ({1:10s} " +  ps6 + "%)\n\n").format(round(auswahl_tokens/summe_woerter * 100.00, rndg), corresponds))
 else:
     aus.write("\n\n")
 
@@ -1170,7 +1147,7 @@ aus.write(("{1:33s}:" + ps3 + "\n").format(alle_types, summary_types_tot_text))
 aus.write(("{1:33s}:" + ps3).format(auswahl_types, summary_types_sel_text))
 
 if (alle_types  > 0):
-    aus.write((" ({1:10s}" +  ps6 + "%)\n\n").format(round(auswahl_types/alle_types * 100.00, rndg), corresponds))
+    aus.write((" ({1:10s} " +  ps6 + "%)\n\n").format(round(auswahl_types/alle_types * 100.00, rndg), corresponds))
 else:
     aus.write("\n\n")
 
@@ -1226,10 +1203,10 @@ if length_distribution:
         if zs >= maxzs: aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
-    aus.write(ld_min_length.ljust(breite) + str(min(ges_alle_laengen)) + "\n")
-    aus.write(ld_max_length.ljust(breite) + str(max(ges_alle_laengen)) + "\n")
-    aus.write(ld_modus.ljust(breite) + str(max_f) + " mit " + str(ges_alle_laengen[max_f]) + " Vorkommen\n")
-    aus.write(ld_mean.ljust(breite) + str(round(s / alle_types, rndg)) + "\n")
+    aus.write(ld_min_length + str(min(ges_alle_laengen)) + "\n")
+    aus.write(ld_max_length + str(max(ges_alle_laengen)) + "\n")
+    aus.write(ld_modus.format(max_f, ges_alle_laengen[max_f]) + "\n")
+    aus.write(ld_mean + str(round(s / alle_types, rndg)) + "\n")
     aus.write("\n")
 
     __ueberschrift(ld_caption_selected,"-")
@@ -1250,10 +1227,10 @@ if length_distribution:
             if zs >= maxzs: aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write(ld_min_length.ljust(breite) + str(min(alle_laengen)) + "\n")
-        aus.write(ld_max_length.ljust(breite) + str(max(alle_laengen)) + "\n")
-        aus.write(ld_modus.ljust(breite) + str(max_f) + " mit " + str(alle_laengen[max_f]) + " Vorkommen\n")
-        aus.write(ld_mean.ljust(breite) + str(round(s / auswahl_types, rndg)) + "\n")
+        aus.write(ld_min_length + str(min(alle_laengen)) + "\n")
+        aus.write(ld_max_length + str(max(alle_laengen)) + "\n")
+        aus.write(ld_modus.format(max_f, ges_alle_laengen[max_f]) + "\n")
+        aus.write(ld_mean + str(round(s / auswahl_types, rndg)) + "\n")
         aus.write("\n")
     else:
         aus.write(warn_ld_filter + "\n")
@@ -1306,9 +1283,9 @@ if frequency_distribution:
                 aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write(fd_min_freq.ljust(breite) + str(min(ges_haeufigkeiten)) + "\n")
-        aus.write(fd_freq_max.ljust(breite) + str(max(ges_haeufigkeiten)) + "\n")
-        aus.write(fd_modus.ljust(breite) + str(max_f) + " mit " + str(ges_haeufigkeiten[max_f]) + " Vorkommen\n")
+        aus.write(fd_min_freq + str(min(ges_haeufigkeiten)) + "\n")
+        aus.write(fd_freq_max + str(max(ges_haeufigkeiten)) + "\n")
+        aus.write(fd_modus.format(max_f, ges_haeufigkeiten[max_f])+ "\n")
         aus.write("\n")
     else:
         aus.write(warn_fd + "\n")
@@ -1331,9 +1308,9 @@ if frequency_distribution:
             if zs >= maxzs: aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write(fd_min_freq.ljust(breite) + str(min(haeufigkeiten)) + "\n")
-        aus.write(fd_freq_max.ljust(breite) + str(max(haeufigkeiten)) + "\n")
-        aus.write(fd_modus.ljust(breite) + str(max_f) + " mit " + str(haeufigkeiten[max_f]) + " Vorkommen\n")
+        aus.write(fd_min_freq + str(min(haeufigkeiten)) + "\n")
+        aus.write(fd_freq_max + str(max(haeufigkeiten)) + "\n")
+        aus.write(fd_modus.format(max_f, ges_haeufigkeiten[max_f])+ "\n")
         aus.write("\n")
     else:
         aus.write(warn_fd_filter + "\n")
@@ -1381,7 +1358,7 @@ if separator_distribution:
             aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
-    aus.write(sd_modus.ljust(breite) + "'" + __chr_out(max_f) + "' mit " + str(ges_trennzeichen[max_f]) + " Vorkommen\n")
+    aus.write(sd_modus.format(__chr_out(max_f), ges_trennzeichen[max_f]) + "\n")
     aus.write("\n")
 
 # --------------------------------------------------------------
@@ -1432,7 +1409,7 @@ if character_distribution:
             aus.write(kopfzs); zs = 0
         aus.write(zwi)
     aus.write("\n\n")
-    aus.write(cd_modus.ljust(breite) + "'" + str(max_f) + "' mit " + str(ges_alle_zeichen[max_f]) + " Vorkommen\n")
+    aus.write(cd_modus.format(max_f, ges_alle_zeichen[max_f]) + "\n")
     aus.write("\n")
 
     __ueberschrift(cd_caption_selected,"-")
@@ -1455,7 +1432,7 @@ if character_distribution:
                 aus.write(kopfzs); zs = 0
             aus.write(zwi)
         aus.write("\n\n")
-        aus.write(cd_modus.ljust(breite) + "'" + str(max_f) + "' mit " + str(alle_zeichen[max_f]) + " Vorkommen\n")
+        aus.write(cd_modus.format(max_f, ges_alle_zeichen[max_f]) + "\n")
         aus.write("\n")
     else:
         aus.write(warn_cd_filter + "\n")
@@ -1471,7 +1448,7 @@ if character_distribution:
 
 pickle_name   = __new_extension(out_name, "pkl")
 pickle_file   = open(pickle_name,"bw")
-kopf = (verzeichnis, program_name, program_vers, program_date, program_author, author_email, author_institution, in_name)
+kopf = (verzeichnis, program_name, zaehlen_vers, zaehlen_date, program_author, author_email, author_institution, in_name)
 programmdaten = (aufruf, in_name, separator, stop_name, go_name, sort_first, sort_second, out_name, word_template,
                 p_lengths, p_rank, p_frequency)
 pickle_daten  = (kopf, programmdaten, sortiert, ges_alle_zeichen, ges_trennzeichen, ges_haeufigkeiten, ges_alle_laengen)

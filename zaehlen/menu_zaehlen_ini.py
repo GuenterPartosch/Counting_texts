@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
-# (C) Günter Partosch 2018-2020
-
 # menu_zaehlen_ini.py
+
+# (C) Günter Partosch 2018-2020
 
 # Stand: 2018-08-20
 # Stand: 2019-12-12
@@ -20,6 +20,9 @@
 # Stand: 2020-08-23 (ini-Dateien entkoppelt)
 # Stand: 2020-08-24 (argparse, Parameter -sm, -la)
 # Stand: 2020-08-25 (vereinheitlichte Konstruktion von Programm-Datum und Programm-Version)
+# Stand: 2020-08-28 (kleine Korrekturen)
+# Stand: 2020-08-29 (englische Sprachausgabe vorbereitet)
+# Stand: 2020-08-30 (weiter...)
 
 # noch:
 # + restliche englische Texte
@@ -29,16 +32,43 @@
 # do not touch
 
 instverz                 = '.'                                  # Pfad zum ausführbaren Pogramm, ggf. anpassen
-#instverz      = 'D:/Python/zaehlen'
 remote_program_name      = "zaehlen.py"
 program_name             = "menu_zaehlen.py"                    # das aktuelle Menü-Programm menu_zaehlen.py
 
-menue_zaehlen_ini_date   = "2020-08-25"                         # menu-zaehlen_ini.py: Datum der letzten Änderung
-##menue_zaehlen_date       = "2020-08-25"                         # menu_zaehlen.py:     Datum der letzten Änderung
+menu_zaehlen_ini_date    = "2020-08-30"                         # menu_zaehlen_ini.py: Datum der letzten Änderung
 
-##zaehlen_vers             = "2.14.3"                             # zaehlen.py:     Version
-##zaehlen_date             = "2020-08-25 "                        # zaehlen.py:     Datum der letzten Änderung
-##zaehlen_ini_date         = "2020-08-25"                         # zaehlen_ini.py: Datum der letzten Änderung
+# --------------------------------------------------------
+# verschiedene strings
+# do not touch
+
+E0_pre_text              = "[E0] (-i) "
+E1_pre_text              = "[E1] (-s) "
+E2_pre_text              = "[E2] (-S) "
+E3_pre_text              = "[E3] (-G) "
+E4_pre_text              = "[E4] (-s1) "
+E5_pre_text              = "[E5] (-s2) "
+E6_pre_text              = "[E6] (-o) "
+E7_pre_text              = "[E7] (-t) "
+E8_pre_text              = "[E8] (-l) "
+E9_pre_text              = "[E9] (-r) "
+E10_pre_text             = "[10] (-f) "
+C0_pre_text              = "[C0] (-fd) "
+C1_pre_text              = "[C1] (-ld) "
+C2_pre_text              = "[C2] (-sd) "
+C3_pre_text              = "[C3] (-cd) "
+C4_pre_text              = "[C4] (-sm) "
+
+B0_pre_text              = "[B0] "
+B1_pre_text              = "[B1] "
+B2_pre_text              = "[B2] "
+B4_pre_text              = "[B4] "
+B5_pre_text              = "[B5] "
+B6_pre_text              = "[B6] "
+B7_pre_text              = "[B7] "
+B8_pre_text              = "[B8] "
+B9_pre_text              = "[B9] "
+B10_pre_text             = "[B10] "
+B11_pre_text             = "[B11] "
 
 # --------------------------------------------------------
 # verschiedene strings
@@ -234,41 +264,6 @@ zaehlen_ini.py [Konfiguration für zaehlen.py]
 #     {4}
 
 # --------------------------------------------------------
-# Abhängigkeiten                                                              # dependencies
-# do not touch this structure
-
-# menu_zaehlen_ini.py
-# + wird von menu_zaehlen.py geladen                                          # + is loaded by menu_zaehlen.py
-# + lädt zaehlen_ini.py                                                       # + loads zaehlen_ini.py
-
-##try:                                                                          # Initialisierung für Programm-Parameter und Variablen einlesen
-##    from zaehlen_ini import *                                                 # Konfiguration/Initialisierung von zaehlen.py
-##except ImportError:
-##    print(err_ini_text.format("zaehlen_ini.py"))
-##    in_name                = "./in.txt"
-##    out_name               = "./out.txt"
-##    stop_name              = ""
-##    go_name                = ""
-##    separator              = """[\s.,;:!?<>()\[\]{}"'…—–“”„‘’`+»«‹–›0-9|/=_%*$&]+"""
-##    word_template          = """^.+$"""
-##    p_lengths              = "1,100"
-##    p_frequency            = "1,12000"
-##    p_rank                 = "1,50000"
-##    sort_first             = "a+"
-##    sort_second            = ""
-##    frequency_distribution = False
-##    length_distribution    = False
-##    separator_distribution = False
-##    character_distribution = False
-##
-##    integer_breite         = 7  # Ausgabebreite für Integer
-##    integer_breite_kl      = 3  # Ausgabebreite für kleine Integer
-##    string_breite          = 3  # voreingestellte Ausgabebreite für Strings
-##    string_breite_la       = 43 # Länge von Eingabeaufforderungen
-##    real_breite            = 6  # Ausgabebreite für Reals
-##    rndg                   = 2  # Zahl der Nachkommastellen für Reals/Floats
-
-# --------------------------------------------------------
 # Konfiguration für Labels und Felder/Checkboxen:
 # do not touch
 #
@@ -284,22 +279,22 @@ zaehlen_ini.py [Konfiguration für zaehlen.py]
 #     4: wie 3; zusätzlich wird eine Checkbox abgefragt
 
 conf = [
-("[E0] (-i) "  + E0_text,   in_name,                "-i",  1),
-("[E1] (-s) "  + E1_text,   separator,              "-s",  2),
-("[E2] (-S) "  + E2_text,   stop_name,              "-S",  2),
-("[E3] (-G) "  + E3_text,   go_name,                "-G",  2),
-("[E4] (-s1) " + E4_text,   sort_first,             "-s1", 2),
-("[E5] (-s2) " + E5_text,   sort_second,            "-s2", 2),
-("[E6] (-o) "  + E6_text,   out_name,               "-o",  1),
-("[E7] (-t) "  + E7_text,   word_template,          "-t",  2),
-("[E8] (-l) "  + E8_text,   p_lengths,              "-l",  2),
-("[E9] (-r) "  + E9_text,   p_rank,                 "-r",  2),
-("[10] (-f) "  + E10_text,  p_frequency,            "-f",  2),
-("[C0] (-fd) " + C0_text,   frequency_distribution, "-fd", 4),
-("[C1] (-ld) " + C1_text,   length_distribution,    "-ld", 4),
-("[C2] (-sd) " + C2_text,   separator_distribution, "-sd", 4),
-("[C3] (-cd) " + C3_text,   character_distribution, "-cd", 4),
-("[C4] (-sm) " + C4_text,   silent_mode,            "-sm", 4)
+(E0_pre_text  + E0_text,   in_name,                "-i",  1),
+(E1_pre_text  + E1_text,   separator,              "-s",  2),
+(E2_pre_text  + E2_text,   stop_name,              "-S",  2),
+(E3_pre_text  + E3_text,   go_name,                "-G",  2),
+(E4_pre_text  + E4_text,   sort_first,             "-s1", 2),
+(E5_pre_text  + E5_text,   sort_second,            "-s2", 2),
+(E6_pre_text  + E6_text,   out_name,               "-o",  1),
+(E7_pre_text  + E7_text,   word_template,          "-t",  2),
+(E8_pre_text  + E8_text,   p_lengths,              "-l",  2),
+(E9_pre_text  + E9_text,   p_rank,                 "-r",  2),
+(E10_pre_text + E10_text,  p_frequency,            "-f",  2),
+(C0_pre_text  + C0_text,   frequency_distribution, "-fd", 4),
+(C1_pre_text  + C1_text,   length_distribution,    "-ld", 4),
+(C2_pre_text  + C2_text,   separator_distribution, "-sd", 4),
+(C3_pre_text  + C3_text,   character_distribution, "-cd", 4),
+(C4_pre_text  + C4_text,   silent_mode,            "-sm", 4)
 ]
 
 # --------------------------------------------------------
@@ -307,18 +302,17 @@ conf = [
 # do not touch
 
 button_conf = [
-("[B0]  " + B0_text,  "ask_in_file",         0, 2),
-("[B1]  " + B1_text,  "ask_stop_file",       2, 2),
-("[B2]  " + B2_text,  "ask_go_file",         3, 2),
-##('[B3] Durchsuchen... (Ausgabedatei)', "ask_out_file",        6, 2),
-("[B4]  " + B4_text,  "reset_entry_fields", 18, 0),
-("[B5]  " + B5_text,  "clear_entry_fields", 18, 1),
-("[B6]  " + B6_text,  "start",              19, 0),
-("[B7]  " + B7_text,  "mm.destroy",         19, 1),
-("[B8]  " + B8_text,  "help1",              18, 2),
-("[B9]  " + B9_text,  "help2",              19, 2),
-("[B10] " + B10_text, "help3",              18, 3),
-("[B11] " + B11_text, "version",            19, 3)
+(B0_pre_text  + B0_text,  "ask_in_file",         0, 2),
+(B1_pre_text  + B1_text,  "ask_stop_file",       2, 2),
+(B2_pre_text  + B2_text,  "ask_go_file",         3, 2),
+(B4_pre_text  + B4_text,  "reset_entry_fields", 18, 0),
+(B5_pre_text  + B5_text,  "clear_entry_fields", 18, 1),
+(B6_pre_text  + B6_text,  "start",              19, 0),
+(B7_pre_text  + B7_text,  "mm.destroy",         19, 1),
+(B8_pre_text  + B8_text,  "help1",              18, 2),
+(B9_pre_text  + B9_text,  "help2",              19, 2),
+(B10_pre_text + B10_text, "help3",              18, 3),
+(B11_pre_text + B11_text, "version",            19, 3)
 ]
 
 # --------------------------------------------------------
@@ -341,9 +335,8 @@ for f in range(len(button_conf)):
 
 help_text3 = comments_text
 
-
 # --------------------------------------------------------
 # Texte für Hilfetext "version"
 
-version_text = version_help_text.format(zaehlen_vers, zaehlen_date, menue_zaehlen_date, menue_zaehlen_ini_date, zaehlen_ini_date)
+version_msg_text = version_help_text.format(zaehlen_vers, zaehlen_date, menu_zaehlen_date, menu_zaehlen_ini_date, zaehlen_ini_date)
 
