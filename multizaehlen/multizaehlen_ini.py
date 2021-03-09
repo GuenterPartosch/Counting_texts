@@ -3,14 +3,15 @@
 # please adjust these two lines if necessary
 
 # multizaehlen_ini.py
+
+# (C) Günter Partosch 2018-2021
+
 # Stand: 2018-08-17
 #        2020-07-27
 #        2020-08-02 (Voreinstellung geändert)
 #        2020-08-15 (Ausgabe-Strings)
 #        2020-08-27 (Struktur für Programmversion und Programmdatum vereinheitlicht)
 #        2020-08-27 (ini-Datei kann robust geladen werden)
-
-# (C) Günter Partosch 2018-2020
 
 # Abhängigkeiten:
 # multizaehlen_ini.py
@@ -19,7 +20,9 @@
 # globale Parameter
 # -------------------------------------------------------------------
 # do not touch
-menu_multizaehlen_ini_date  = "2020-08-27"  
+
+menu_multizaehlen_ini_date  = "2021-03-06"  
+menu_multizaehlen_ini_vers  = "1.1.12"
 menu_multizaehlen_date      = "2020-08-27" # menu_multizaehlen.py
 menu_multizaehlen_vers      = "1.2.10"     # menu_multizaehlen.py
 multizaehlen_ini_date       = "2020-08-26" # multizaehlen_ini
@@ -37,6 +40,8 @@ frequency_distribution = False
 length_distribution    = False
 separator_distribution = False
 character_distribution = False
+language               = "de"
+
 rndg                   = 3
 
 # Ausgabe-Strings
@@ -69,7 +74,7 @@ fd_text        = "Worthäufigkeiten-Verteilung berechnen"                  # Sho
 ld_text        = "Wortlängen-Verteilung berechnen"                        # Show distribution of word lengths
 sd_text        = "Trennzeichen-Verteilung berechnen"                      # Show distribution of separator characters
 cd_text        = "Zeichen-Verteilung berechnen"                           # Show distribution of characters
-
+language_text  = "Spracheinstellung"
 argp_pos_par   = 'Positionsparameter'                                     # Positional parameters
 argp_opt_par   = 'Optionale Parameter'                                    # Optional parameters
 argp_default   = 'Voreinstellung'                                         # Default
@@ -192,3 +197,4 @@ err_type       = "---Datei {0} ist vom falschen Typ: Programmabbruch!"          
 err_compatib   = "---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!" # Structures of the former result files are not compatible; program exits!
 err_no_files   = "---keine Dateien angegeben. Programmabbruch!"                       # ---No files specified; program exits!
 warn_no_ini    = "---Warnung: zaehlen_ini.py nicht gefunden"                          # ---Warning: zaehlen_ini.py not found
+

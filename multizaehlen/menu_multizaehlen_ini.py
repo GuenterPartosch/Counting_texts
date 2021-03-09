@@ -4,7 +4,7 @@
 
 # menu_multizaehlen_ini.py
 
-# (C) Günter Partzosch 2017-2020
+# (C) Günter Partzosch 2017-2021
 
 # 1.0.0: 2017-02-19: Anfangsversion; aus menu_zaehlen_ini.py entwickelt
 # 1.1.0: 2017-07-18: Erweiterung für -sd, -cd
@@ -19,6 +19,7 @@
 # 1.1.9: 2020-08-20: Ausgabe-Strings überarbeitet
 # 1.1.10: 2020-08-26: ini-datei kann jetzt robust geladen werden
 # 1.1.11: 2020-08-27: Konstrukt für Programm-Versionen und -Daten vereinheitlicht
+# 1.1.12: 2021-03-06: kl. Fehlerkorrektur
 
 # Todos:
 # + Laden der ini-Datei robuster gestalten
@@ -41,22 +42,22 @@ program_name2    = "zaehlen.py"
 menu_multizaehlen_date       = "2020-08-27" # menu_multizaehlen.py
 menu_multizaehlen_vers       = "1.2.10"     # menu_multizaehlen.py
 
-menu_multizaehlen_ini_date   = "2020-08-27" # menu_multizaehlen_ini.py
-menu_multizaehlen_ini_vers   = "1.1.11"     # menu_multizaehlen_ini.py
+menu_multizaehlen_ini_date   = "2021-03-06" # menu_multizaehlen_ini.py
+menu_multizaehlen_ini_vers   = "1.1.12"     # menu_multizaehlen_ini.py
 
-menue_zaehlen_date           = "2018-08-09" # menu_zaehlen.py
+menu_zaehlen_date            = "2018-08-30" # menu_zaehlen.py
 
-menue_zaehlen_ini_date       = "2020-08-12" # menu_zaehlen_ini.py
+menu_zaehlen_ini_date        = "2020-08-30" # menu_zaehlen_ini.py
 
 multizaehlen_date            = "2020-08-26" # multizaehlen.py
 multizaehlen_vers            = "1.11.2"     # multizaehlen.py
 
 multizaehlen_ini_date        = "2020-08-26" # multizaehlen_ini.py
 
-zaehlen_date                 = "2020-08-25" # zaehlen.py
-zaehlen_vers                 = "2.14.3"     # zaehlen.py
+zaehlen_date                 = "2020-08-30" # zaehlen.py
+zaehlen_vers                 = "2.15.1"     # zaehlen.py
 
-zaehlen_ini_date             = "2020-08-25" # zaehlen_ini.py
+zaehlen_ini_date             = "2020-08-30" # zaehlen_ini.py
 
 # ----------------------------------------------------
 # Ausgabe-Strings
@@ -231,8 +232,9 @@ version_text += "   " + zaehlen_vers + ": " + zaehlen_date
 version_text += """\n\nVersionen der beteiligten Konfigurationsdateien:
 ===============================
 menu_multizaehlen_ini.py [Konfiguration für menu_multizaehlen.py]\n"""
-version_text += "   " + menue_zaehlen_ini_date
+version_text += "   " + menu_zaehlen_ini_date
 version_text += "\nmultizaehlen_ini.py [Konfiguration für multizaehlen.py]\n"
 version_text += "   " + multizaehlen_ini_date
 version_text += "\nzaehlen_ini.py [Konfiguration für zaehlen.py]\n"
 version_text += "   " + zaehlen_ini_date
+

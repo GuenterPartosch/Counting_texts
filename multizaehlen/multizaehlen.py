@@ -4,7 +4,7 @@
 
 # multizaehlen.py
 
-# (C) Günter Partosch 2017-2020
+# (C) Günter Partosch 2017-2021
 
 # Programm zum Auswerten der Auszählungen von Textdateien
 # =======================================================
@@ -184,7 +184,7 @@ try:                                            # Konfiguration/Initialisierung 
 except FileNotFoundError:                       # falls Fehler: lokal Programm-Parameter und -Variablen initialisieren
     sys.stderr.write(warn_no_ini)
 
-    menu_multizaehlen_ini_date  = "2020-08-27"  
+    menu_multizaehlen_ini_date  = "2021-03-06"  
     menu_multizaehlen_date      = "2020-08-27" 
     menu_multizaehlen_vers      = "1.2.10"     
     multizaehlen_ini_date       = "2020-08-26" 
@@ -405,6 +405,11 @@ parser.add_argument("-l", "--lengths",
                     help    = lengths_text + "; {0}: %(default)s".format(argp_default),
                     dest    = "p_lengths",
                     default = p_lengths) 
+parser.add_argument("-la", "--language",
+                    help = language_text + "; {0}: %(default)s".format(argp_default),
+                    choices = ["de", "en"],
+                    dest    = "language",
+                    default = language) 
 parser.add_argument("-ld", "--length_distribution",
                     help    = ld_text + "; {0}: %(default)s".format(argp_default),
                     action  = "store_true",
@@ -460,6 +465,7 @@ length_distribution    = args.length_distribution
 character_distribution = args.character_distribution
 separator_distribution = args.separator_distribution
 p_files                = args.p_files
+language               = args.language
 
 len_alle               = len(alle)
 if (len_alle == 0):
@@ -491,6 +497,22 @@ re_lengths    = eval("range(" + str(p_lengths) + ")")   # range-Ausdruck für Wo
 re_frequency  = eval("range(" + str(p_frequency) + ")") # range-Ausdruck für Wortfrequenzen
 re_rank       = eval("range(" + str(p_rank) + ")")      # range-Ausdruck für Rangfolge
 re_files      = eval("range(" + str(p_files) + ")")     # range-Ausdruck für Anzahl der Dateien
+
+# --------------------------------------------------------------
+# (6-6) ggf. andere Sprache
+
+if language == "en":
+    try:
+        exec(open("multizaehlen_ini_en.py", encoding="utf-8", mode="r").read())
+    except FileNotFoundError:
+        err_ini_text           = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
+        print(err_ini_text.format("multizaehlen_ini_en.py"))
+        pass
+elif language == "de":
+    pass
+else:
+    pass
+
 
 
 # ==============================================================
@@ -827,7 +849,7 @@ aus.write("\n")
 
 aus.write("(1)".rjust(i1))
 aus.write("(2)".rjust(i2))
-aus.write("(3)".ljust(z3 + 2))
+aus.write("(3)".ljust(z3 + 3))
 aus.write("(4)".rjust(i4 + 1))
 aus.write("(5)".rjust(i5 + 1))
 aus.write("(6)".rjust(i6))
@@ -1054,7 +1076,7 @@ if length_distribution:
     # Hilfsvariablen für die Ausgabe
     i1 = floor(lg(len(neu3_gal))) + 2# Breite der Kolumne 1 (laufende Nummer); adaptierbar <-- len(neu3_gal)
     i2 = floor(lg(maxlaenge)) + 2    # Breite der Kolumne 2 (Länge)
-    i3 = floor(lg(summe)) + 3        # Breite der Kolumne 3 (Summenzahl über alle Dateien); adaptierbar
+    i3 = floor(lg(summe)) + 5        # Breite der Kolumne 3 (Summenzahl über alle Dateien); adaptierbar
     i4 = floor(lg(len_alle)) + 3     # Breite der Kolumne 5 (Zahl der Dateien); adaptierbar
     i5 = i3                          # Breite der Kolumne 6 (Anzahl); adaptierbar <-- summe
 
@@ -1133,7 +1155,7 @@ if length_distribution:
     aus.write(leer.rjust(i4))
     for f in range(len_alle):
         aus.write(str(round(datgsumme[f] / datsumme[f], 1)).rjust(i5))
-    aus.write("\n\n")
+    aus.write("\n")
     aus.write(ld_wa_long + "\n\n")
 
     aus.write(ld_min_length.ljust(breite) + trenner + str(min(neu3_gal)[0]).rjust(i5) + "\n")

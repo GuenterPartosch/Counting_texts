@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # please adjust these two lines if necessary
 
-# (C) Günter Partosch 2017-2018
-
 # menu_multizaehlen.py
+
+# (C) Günter Partosch 2017-2021
 
 # 1.0.0: 2017-02-19: Anfang, aus menu_zaehlen.py entwickelt
 # 1.1.0: 2017-02-19: erstmals funktionsfähig
@@ -34,7 +34,6 @@ from tkinter.messagebox import *               # Ausgabe in Message-Boxen
 ##from copy import deepcopy                      # "tiefes" Kopieren von Tuples und Listen
 import re                                      # reguläre Ausdrücke
 
-
 # -----------------------------------------------------------------------
 # ini-Dateien laden
 
@@ -44,7 +43,7 @@ except FileNotFoundError:                       # falls Fehler: lokal Programm-P
     err_ini_text             = "--- Warnung: Initialisierungsdatei {0} kann nicht geladen werden; --> Voreinstellungen genommen"
     print(err_ini_text.format("menu_zaehlen_ini.py"))
 
-    menu_multizaehlen_ini_date  = "2020-08-27"  
+    menu_multizaehlen_ini_date  = "2021-05-06"  
     menu_multizaehlen_date      = "2020-08-27" 
     menu_multizaehlen_vers      = "1.2.10"     
     multizaehlen_ini_date       = "2020-08-26" 
@@ -180,7 +179,7 @@ except FileNotFoundError:                       # falls Fehler: lokal Programm-P
     err_type       = "---Datei {0} ist vom falschen Typ: Programmabbruch!"                
     err_compatib   = "---Strukturen der vorherigen Ergebnisdateien sind nicht kompatibel. Programmabbruch!" 
     err_no_files   = "---keine Dateien angegeben. Programmabbruch!"                       
-    warn_no_ini    = "---Warnung: zaehlen_ini.py nicht gefunden"                          
+    warn_no_ini    = "---Warnung: zaehlen_ini.py nicht gefunden"
 
 try:                                            # Konfiguration/Initialisierung von multizaehlen.py einlesen
     exec(open("menu_multizaehlen_ini.py", encoding="utf-8", mode="r").read())
@@ -196,21 +195,21 @@ except FileNotFoundError:                       # falls Fehler: lokal Programm-P
     menu_multizaehlen_vers       = "1.2.10"     
 
     menu_multizaehlen_ini_date   = "2020-08-27" 
-    menu_multizaehlen_ini_vers   = "1.1.11"     
+    menu_multizaehlen_ini_vers   = "1.1.12"     
 
-    menue_zaehlen_date           = "2018-08-09" 
+    menu_zaehlen_date            = "2018-08-30" 
 
-    menue_zaehlen_ini_date       = "2020-08-12" 
+    menu_zaehlen_ini_date        = "2020-08-30" 
 
     multizaehlen_date            = "2020-08-26" 
     multizaehlen_vers            = "1.11.2"     
 
     multizaehlen_ini_date        = "2020-08-26" 
 
-    zaehlen_date                 = "2020-08-25" 
-    zaehlen_vers                 = "2.14.3"     
+    zaehlen_date                 = "2020-08-30" 
+    zaehlen_vers                 = "2.15.1"     
 
-    zaehlen_ini_date             = "2020-08-25" 
+    zaehlen_ini_date             = "2020-08-30" 
 
     programmtitle                 = "Vergleich von Textauszählungen; Eingabemenü für das Programm "
                                                                             
